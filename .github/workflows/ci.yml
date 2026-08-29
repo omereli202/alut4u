@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -e "backend[dev]"
+
+      - name: Lint
+        run: |
+          ruff check backend
+          ruff format --check backend
+
+      - name: Test
+        run: pytest backend
+        env:
+          APP_ENV: test
+
+  migrations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start local Postgres + apply migrations
+        run: |
+          supabase init --force || true
+          supabase db start
+          supabase migration up --local
+
+      - name: Assert every child-scoped table has RLS enabled
+        run: |
+          supabase db execute --local <<'SQL'
+          do $$
+          declare bad text;
+          begin
+            select string_agg(c.relname, ', ') into bad
+            from pg_class c
+            join pg_namespace n on n.oid = c.relnamespace
+            where n.nspname = 'public'
+              and c.relkind = 'r'
+              and c.relrowsecurity = false;
+            if bad is not null then
+              raise exception 'tables without RLS: %', bad;
+            end if;
+          end $$;
+          SQL
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Static checks
+        run: |
+          # No build step. Sanity-check the shell files parse.
+          node --check frontend/js/app.js
+          node --check frontend/js/api.js
+          node --check frontend/js/router.js
+          node --check frontend/js/db.js
+          node --check frontend/js/outbox.js
+          node --check frontend/sw.js
+          python3 -c "import json,sys; json.load(open('frontend/manifest.webmanifest'))"

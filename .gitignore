@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Conda env living inside the repo (local dev only)
+.conda/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.log
+
+# Supabase CLI
+supabase/.branches/
+supabase/.temp/
+
+# Frontend vendored assets that are generated
+frontend/assets/symbols/_generated/

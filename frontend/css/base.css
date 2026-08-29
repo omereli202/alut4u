@@ -1,0 +1,85 @@
+/* Base layer — reset + primitives. Component styles live in css/components/.
+ * RTL-first: use logical properties everywhere (inline-start/-end, not left/right).
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 100%;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--text-base);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Visible focus for everyone — never remove this without a replacement. */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--space-2);
+  inset-block-start: -3rem;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  transition: inset-block-start 120ms ease;
+}
+.skip-link:focus {
+  inset-block-start: var(--space-2);
+}
+
+.boot {
+  display: grid;
+  place-content: center;
+  min-height: 100dvh;
+  color: var(--color-text-muted);
+}
+
+/* User Mode interactive elements meet the touch-target floor. */
+[data-mode="user"] button,
+[data-mode="user"] a[role="button"],
+[data-mode="user"] .card {
+  min-block-size: var(--touch-min);
+  min-inline-size: var(--touch-min);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,22 @@
+# Supabase CLI project config. `project_id` is set per-environment by
+# `supabase link` (dev vs prod are SEPARATE projects — never share one).
+
+project_id = "alut4u"
+
+[db]
+major_version = 15
+
+[db.migrations]
+schema_paths = ["./migrations"]
+
+[auth]
+site_url = "http://localhost:8000"
+additional_redirect_urls = []
+jwt_expiry = 3600
+enable_signup = true
+
+[storage]
+enabled = true
+# Buckets (all PRIVATE — access only via the backend's /api/media route):
+#   media   — card icons/audio, schedule icons, rule audio  (per-child)
+#   tts     — shared, deduped TTS cache                       (no child link)
