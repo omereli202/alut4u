@@ -52,10 +52,11 @@ pytest
 
 ## Deployment
 
-Railway builds from the repo root using `Procfile`. Push to `dev` → deploys to
-the dev environment; fast-forward `main` → deploys to production. Migrations in
-`supabase/migrations/` are applied by CI (`.github/workflows/ci.yml`) before the
-deploy is promoted.
+Railway builds from the root `Dockerfile` (config in `railway.json`). Push to
+`dev` → deploys to the **dev** environment; push/fast-forward `main` → deploys to
+**production**. The two environments are one Railway project (`alut4u`) with a
+per-branch deployment trigger. Migrations in `supabase/migrations/` are applied
+by CI (`.github/workflows/ci.yml`).
 
 ## Repo layout
 

@@ -86,7 +86,16 @@ frontend/
 supabase/migrations/   numbered SQL, applied by CI via Supabase CLI
 docs/
 scripts/               release.sh and other CI/deploy helpers
+Dockerfile             the build Railway uses (both envs) + local parity
+railway.json           Railway build/deploy config (healthcheck: /api/health)
 ```
+
+## Deployment
+
+Railway project `alut4u`, one project, two environments driven by branch:
+`dev` branch → `dev` env, `main` branch → `production` env. Root `Dockerfile`
+is the build. `railway` CLI is authed locally; `railway environment <name>`
+switches the linked env, `railway logs -d` / `-b` for deploy / build logs.
 
 ## Conventions
 

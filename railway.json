@@ -1,20 +1,10 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS",
-    "nixpacksPlan": {
-      "phases": {
-        "setup": {
-          "nixPkgs": ["python312", "gcc"]
-        },
-        "install": {
-          "cmds": ["python -m pip install --upgrade pip", "pip install ./backend"]
-        }
-      }
-    }
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "Dockerfile"
   },
   "deploy": {
-    "startCommand": "gunicorn --chdir backend \"app:create_app()\" --bind 0.0.0.0:$PORT --workers ${WEB_CONCURRENCY:-2} --timeout 60 --access-logfile - --error-logfile -",
     "healthcheckPath": "/api/health",
     "healthcheckTimeout": 30,
     "restartPolicyType": "ON_FAILURE",
