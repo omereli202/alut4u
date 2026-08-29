@@ -125,3 +125,13 @@ interview → 5-page templated Hebrew story → SVG illustrations).
 
 `GET /api/health` → `{status, env, version}`. `?deep=1` also pings Supabase
 (503 if unreachable).
+
+## Reading & writing — `/api/learning`
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/reading[?level=]` | S | bundled graded texts, each with `audio_url` (generated read-aloud) |
+| GET | `/writing[?level=]` | S | bundled prompts (`hint` only; target hidden) |
+| POST | `/reading/<id>/verdict` | C | `{child_id, verdict:"pass"\|"fail"}` — pass awards tokens by level (2/3/4) |
+| POST | `/writing/attempt` | S | `{child_id, prompt_id, submitted}` — lenient Hebrew match; correct → +1 token. Fully self-serve. |
+| GET | `/progress?child_id=` | S | recent attempts |

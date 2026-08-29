@@ -37,8 +37,8 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 | 3 | Schedule | ✅ Daily list, "where are we now" focus view + big checkmark, read-the-day-aloud, monthly calendar, schedule editor, offline task completion via the outbox. |
 | 4 | Tokens & rewards | ✅ Behavior rule cards, token ledger + trigger balance, caregiver awards, reward store, redemption → held → approval queue + dashboard badge; reject refunds. |
 | 5 | Calming zone | ✅ Sound player (4 bundled ambient loops — **placeholder** procedural WAVs), guided-breathing circle (reduced-motion aware), calm memory game from the symbol set. Purely client-side; no autoplay, no flashing. |
-| 6 | AI social stories | ✅ Caregiver chats with an interview agent → structured story JSON → per-page illustration + pre-generated read-aloud → saved; child reads it in User Mode (page-turner). OpenAI adapter written (models env-configurable); **deterministic stub** runs without a key. AI usage counts against monthly quotas. **← current** |
-| 7 | Reading & writing | Graded texts, read-aloud, caregiver pass/fail (no STT), writing w/ Hebrew spell-check, auto token award. |
+| 6 | AI social stories | ✅ Caregiver chats with an interview agent → structured story JSON → per-page illustration + pre-generated read-aloud → saved; child reads it in User Mode (page-turner). OpenAI adapter written (models env-configurable); **deterministic stub** runs without a key. AI usage counts against monthly quotas. |
+| 7 | Reading & writing | ✅ Bundled graded Hebrew reading texts (3 levels, w/ generated read-aloud); caregiver marks pass/fail via an inline PIN gate → auto-awards tokens (no STT). Writing practice: copy/spell a target, lenient Hebrew check server-side (niqqud / final-forms / punctuation ignored) → self-serve token on success. **← current** |
 | 8 | Hardening & launch | AI quotas enforced, monitoring, load test, retention purge, a11y audit, legal review, billing. |
 
 ## Blockers (owner: user)

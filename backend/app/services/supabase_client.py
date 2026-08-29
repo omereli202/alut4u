@@ -37,6 +37,7 @@ ALLOWED_SERVICE_OPERATIONS: frozenset[str] = frozenset(
         "media_asset_row",  # media_assets rows (incl. shared tts_cache with null child)
         "read_symbol_library",  # global read-only symbol table
         "read_board_templates",  # global read-only starter boards
+        "read_learning_content",  # global read-only reading texts + writing prompts
         "run_retention_purge",  # scheduled inactivity cleanup
         "seed_board_template",  # apply a starter board on child creation
     }
