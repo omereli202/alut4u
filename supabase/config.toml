@@ -132,7 +132,8 @@ allowed_mime_types = ["image/png", "image/jpeg", "image/webp", "image/svg+xml", 
 [storage.buckets.tts]
 public = false
 file_size_limit = "5MiB"
-allowed_mime_types = ["audio/mpeg"]
+# audio/mpeg from Azure in production; audio/wav from the silent dev stub.
+allowed_mime_types = ["audio/mpeg", "audio/wav"]
 
 # Allow connections via S3 compatible clients
 [storage.s3_protocol]

@@ -15,6 +15,10 @@ __all__ = ["TTSProvider", "TTSRequest", "TTSResult", "get_provider"]
 
 def get_provider(settings: Settings | None = None) -> TTSProvider:
     s = settings or current_settings()
+    if not s.azure_speech_key and not s.is_production:
+        from app.services.tts.silent import SilentTTS
+
+        return SilentTTS()
     from app.services.tts.azure_he import AzureHebrewTTS
 
     return AzureHebrewTTS(s)

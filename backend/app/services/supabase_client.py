@@ -33,7 +33,10 @@ ALLOWED_SERVICE_OPERATIONS: frozenset[str] = frozenset(
         "delete_account_cascade",  # GDPR erasure across tables + storage
         "account_export",  # read-all for the data-subject export bundle
         "write_tts_cache",  # shared, non-tenant TTS audio cache
+        "media_storage",  # read/write objects in the private media + tts buckets
+        "media_asset_row",  # media_assets rows (incl. shared tts_cache with null child)
         "read_symbol_library",  # global read-only symbol table
+        "read_board_templates",  # global read-only starter boards
         "run_retention_purge",  # scheduled inactivity cleanup
         "seed_board_template",  # apply a starter board on child creation
     }

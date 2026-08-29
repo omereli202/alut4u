@@ -53,19 +53,21 @@ def create_app(settings: Settings | None = None) -> Flask:
 
 
 def _register_blueprints(app: Flask) -> None:
+    from app.api.aac import bp as aac_bp
     from app.api.account import bp as account_bp
     from app.api.auth import bp as auth_bp
     from app.api.children import bp as children_bp
     from app.api.health import bp as health_bp
+    from app.api.media import bp as media_bp
+    from app.api.symbols import bp as symbols_bp
 
     app.register_blueprint(health_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(children_bp)
     app.register_blueprint(account_bp)
-
-    # Later phases:
-    #   from app.api.media import bp as media_bp   (Phase 2)
-    #   from app.api.aac import bp as aac_bp       (Phase 2)
+    app.register_blueprint(media_bp)
+    app.register_blueprint(symbols_bp)
+    app.register_blueprint(aac_bp)
 
 
 def _register_frontend(app: Flask) -> None:

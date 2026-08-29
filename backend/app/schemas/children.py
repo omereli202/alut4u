@@ -24,6 +24,8 @@ class ChildCreate(BaseModel):
     consent_basis: ConsentBasis
     # Required True when a professional creates a record about someone else's child.
     parental_consent_attested: bool = False
+    # Optional starter board applied right after creation.
+    board_template_id: str | None = None
 
     @model_validator(mode="after")
     def _professional_needs_attestation(self) -> ChildCreate:

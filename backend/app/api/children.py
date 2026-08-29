@@ -13,6 +13,7 @@ from flask import Blueprint, g, jsonify
 from app.api._helpers import ApiError, client_ip, parse_body, user_agent
 from app.auth.decorators import require_caregiver_mode, require_session
 from app.repositories import audit as audit_repo
+from app.repositories import board_templates
 from app.repositories import children as repo
 from app.repositories import consent as consent_repo
 from app.schemas.children import ChildCreate, ChildOut, ChildUpdate, ModulesOut, ModulesUpdate
@@ -60,10 +61,18 @@ def create_child():
             ip=client_ip(),
             user_agent=user_agent(),
         )
+    if data.board_template_id:
+        board_templates.apply_to_child(g.db, row["id"], data.board_template_id)
     audit_repo.log(
         caregiver_id=g.caregiver_id, action="child.create", target_type="child", target_id=row["id"]
     )
     return jsonify(_child_out(row)), 201
+
+
+@bp.get("/board-templates")
+@require_session
+def list_board_templates():
+    return jsonify(templates=board_templates.list_templates())
 
 
 @bp.get("/<child_id>")

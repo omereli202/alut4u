@@ -30,6 +30,3 @@ build/
 # Supabase CLI
 supabase/.branches/
 supabase/.temp/
-
-# Frontend vendored assets that are generated
-frontend/assets/symbols/_generated/
