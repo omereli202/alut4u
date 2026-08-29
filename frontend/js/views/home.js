@@ -5,6 +5,7 @@
 import { api } from "../api.js";
 import { el, mount, toast } from "../ui.js";
 import { renderAacBoard } from "../modules/aac/board.js";
+import { renderSchedule } from "../modules/schedule/index.js";
 
 const MODULE_LABELS = {
   aac_enabled: "תקשורת",
@@ -77,12 +78,12 @@ export async function renderHome({ onEnterCaregiver }) {
   }
 
   function openModule(key, child) {
+    const back = async () => mount(await view());
     if (key === "aac_enabled") {
-      return renderAacBoard({
-        childId: child.id,
-        childName: child.name,
-        onExit: async () => mount(await view()),
-      });
+      return renderAacBoard({ childId: child.id, childName: child.name, onExit: back });
+    }
+    if (key === "schedule_enabled") {
+      return renderSchedule({ childId: child.id, childName: child.name, onExit: back });
     }
     toast("המודול יתווסף בשלב הבא");
   }

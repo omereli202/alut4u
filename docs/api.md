@@ -62,6 +62,21 @@ elevation) required.
 | POST | `` | C | multipart `kind` (`card_icon`/`card_audio`/`schedule_icon`/`rule_audio`), `child_id`, `file`. Images re-encoded; audio needs voice consent. → `{id, url, mime, bytes}` |
 | GET | `/<id>` | S | the stable URL. Streams bytes, `Cache-Control: immutable`, sha256 `ETag`, `If-None-Match` → 304. Tenant-scoped (shared TTS-cache assets readable by any session). |
 
+## Schedule — `/api/schedule`
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/day?child_id=&date=` | S | `{items:[…]}` for that date (ordered). User Mode uses this. |
+| POST | `/items` | C | `{child_id, the_date, title, start_time?"HH:MM", symbol_id?\|icon_asset_id?, sort_order?}`. Pre-generates TTS. |
+| PATCH | `/items/<id>` | C | any item field; regenerates TTS if `title` changes. |
+| DELETE | `/items/<id>` | C | 204 |
+| PUT | `/items/order` | C | `{child_id, order:[id,…]}` |
+| POST | `/toggle` | S | `{item_id, completed, idempotency_key?}` — mark done/undone. **Idempotent** (the offline outbox replays it). |
+| POST | `/copy-day` | C | `{child_id, from_date, to_date}` → `{copied:N}` (completion reset). |
+| GET | `/calendar?child_id=&from=&to=` | S | `{events:[…]}` in the date range. |
+| POST | `/events` | C | `{child_id, event_date, title, note?, symbol_id?\|icon_asset_id?}` |
+| PATCH | `/events/<id>` | C | · | DELETE | `/events/<id>` | C | 204 |
+
 ## Board templates — `/api/children/board-templates`
 
 `GET` → `{templates:[{id,name_he,level,description_he}]}` (S). Pass

@@ -508,3 +508,214 @@ hr {
   align-items: center;
   margin-block-start: var(--space-3);
 }
+
+/* ---------------------------------------------------------------- Schedule */
+
+.schedule {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Focus view */
+.focus-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+}
+.focus-progress {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.focus-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 3px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+.focus-card.leaving {
+  transform: scale(0.9);
+  opacity: 0;
+}
+.focus-visual {
+  inline-size: 160px;
+  block-size: 160px;
+  object-fit: contain;
+}
+.sched-visual-text,
+.focus-visual.sched-visual-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+.focus-title {
+  font-size: var(--text-2xl);
+  text-align: center;
+  margin: 0;
+}
+.focus-time {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+.focus-check {
+  inline-size: 120px;
+  block-size: 120px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-success);
+  color: #fff;
+  font-size: 3.5rem;
+  cursor: pointer;
+  transition: transform 200ms ease;
+}
+.focus-check.checked {
+  transform: scale(1.25);
+}
+.focus-actions {
+  display: flex;
+  gap: var(--space-6);
+}
+.focus-done,
+.focus-empty {
+  text-align: center;
+  padding-block: var(--space-12);
+}
+.focus-celebrate {
+  font-size: 5rem;
+}
+
+/* Day list */
+.day-list-head {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-block-end: var(--space-4);
+}
+.sched-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.sched-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-lg);
+}
+.sched-row.done {
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+.sched-row input {
+  inline-size: 1.8rem;
+  block-size: 1.8rem;
+  flex: none;
+}
+.sched-row-visual {
+  inline-size: 44px;
+  block-size: 44px;
+  object-fit: contain;
+  flex: none;
+}
+.sched-row-title {
+  flex: 1;
+}
+.sched-row-time {
+  color: var(--color-text-muted);
+}
+
+/* Calendar */
+.cal-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-block-end: var(--space-4);
+}
+.cal-head h1 {
+  flex: 1;
+  margin: 0;
+  font-size: var(--text-lg);
+  text-align: center;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-1);
+}
+.cal-wd {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding-block: var(--space-1);
+}
+.cal-cell {
+  min-block-size: 72px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cal-cell.empty {
+  border: none;
+}
+.cal-cell.today {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+.cal-day {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.cal-event {
+  font-size: 0.72rem;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border-radius: 4px;
+  padding: 1px 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Editors */
+.sched-item-form,
+.copy-day {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  margin-block-start: var(--space-3);
+}
+.sched-item-form input {
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-card,
+  .focus-check {
+    transition: none;
+  }
+}

@@ -4,6 +4,7 @@
 import { api } from "../api.js";
 import { el, errText, mount, toast } from "../ui.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
+import { renderScheduleEditor } from "../modules/schedule/editor.js";
 
 const MODULES = [
   ["aac_enabled", "תקשורת (AAC)"],
@@ -90,13 +91,19 @@ export async function renderDashboard({ onExit, onLogout }) {
             {
               class: "btn-link",
               onclick: () =>
-                renderAacEditor({
-                  childId: child.id,
-                  childName: child.name,
-                  onExit: load,
-                }),
+                renderAacEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
             "ערוך לוח תקשורת",
+          ),
+        modules.schedule_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderScheduleEditor({ childId: child.id, childName: child.name, onExit: load }),
+            },
+            "ערוך לוח זמנים",
           ),
         el(
           "button",

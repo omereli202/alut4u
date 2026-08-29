@@ -7,8 +7,9 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v3";
+const SHELL_CACHE = "shell-v4";
 const MEDIA_CACHE = "media-v1";
+const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
 const SHELL = [
   "/",
@@ -32,6 +33,12 @@ const SHELL = [
   "/js/modules/aac/editor.js",
   "/js/modules/aac/symbol-picker.js",
   "/js/modules/aac/recorder.js",
+  "/js/modules/schedule/index.js",
+  "/js/modules/schedule/data.js",
+  "/js/modules/schedule/focus.js",
+  "/js/modules/schedule/day-list.js",
+  "/js/modules/schedule/calendar.js",
+  "/js/modules/schedule/editor.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
 ];
@@ -46,7 +53,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  const keep = new Set([SHELL_CACHE, MEDIA_CACHE]);
+  const keep = new Set([SHELL_CACHE, MEDIA_CACHE, DATA_CACHE]);
   event.waitUntil(
     caches
       .keys()
@@ -77,6 +84,24 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(cacheFirst(request, MEDIA_CACHE).catch(() => Response.error()));
     return;
   }
+
+  // Read-only board/day/calendar: network-first, fall back to the last copy so
+  // the child still sees today's schedule and board offline.
+  if (
+    /^\/api\/(aac\/board|schedule\/(day|calendar))/.test(url.pathname) &&
+    request.method === "GET"
+  ) {
+    event.respondWith(
+      fetch(request)
+        .then((res) => {
+          if (res.ok) caches.open(DATA_CACHE).then((c) => c.put(request, res.clone()));
+          return res;
+        })
+        .catch(() => caches.open(DATA_CACHE).then((c) => c.match(request))),
+    );
+    return;
+  }
+
   if (url.pathname.startsWith("/api/")) return; // network-only
 
   // App shell / static / symbols: cache-first, fall back to index.html for navs.
