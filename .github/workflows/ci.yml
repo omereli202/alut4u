@@ -32,7 +32,7 @@ jobs:
 
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          version: "2.110.0"
 
       - name: Start Supabase + apply migrations
         run: |
@@ -40,20 +40,15 @@ jobs:
           supabase migration up --local
 
       - name: Assert every public table has RLS enabled
+        env:
+          PGURL: postgresql://postgres:postgres@127.0.0.1:54322/postgres
         run: |
-          supabase db execute --local <<'SQL'
-          do $$
-          declare bad text;
-          begin
-            select string_agg(c.relname, ', ') into bad
-            from pg_class c
-            join pg_namespace n on n.oid = c.relnamespace
-            where n.nspname = 'public' and c.relkind = 'r' and c.relrowsecurity = false;
-            if bad is not null then
-              raise exception 'tables without RLS: %', bad;
-            end if;
-          end $$;
-          SQL
+          bad=$(psql "$PGURL" -tAc "
+            select string_agg(c.relname, ', ')
+            from pg_class c join pg_namespace n on n.oid = c.relnamespace
+            where n.nspname = 'public' and c.relkind = 'r' and c.relrowsecurity = false;")
+          if [ -n "$bad" ]; then echo "tables without RLS: $bad"; exit 1; fi
+          echo "all public tables have RLS enabled"
 
       - name: Test
         run: pytest backend
