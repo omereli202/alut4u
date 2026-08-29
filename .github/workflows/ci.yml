@@ -7,6 +7,18 @@ on:
     branches: [dev, main]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e "backend[dev]"
+      - run: ruff check backend
+      - run: ruff format --check backend
+
   backend:
     runs-on: ubuntu-latest
     steps:
@@ -16,36 +28,18 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-
-      - name: Install
-        run: pip install -e "backend[dev]"
-
-      - name: Lint
-        run: |
-          ruff check backend
-          ruff format --check backend
-
-      - name: Test
-        run: pytest backend
-        env:
-          APP_ENV: test
-
-  migrations:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+      - run: pip install -e "backend[dev]"
 
       - uses: supabase/setup-cli@v1
         with:
           version: latest
 
-      - name: Start local Postgres + apply migrations
+      - name: Start Supabase + apply migrations
         run: |
-          supabase init --force || true
-          supabase db start
+          supabase start -x studio,imgproxy,vector,edge-runtime,logflare,realtime
           supabase migration up --local
 
-      - name: Assert every child-scoped table has RLS enabled
+      - name: Assert every public table has RLS enabled
         run: |
           supabase db execute --local <<'SQL'
           do $$
@@ -54,14 +48,17 @@ jobs:
             select string_agg(c.relname, ', ') into bad
             from pg_class c
             join pg_namespace n on n.oid = c.relnamespace
-            where n.nspname = 'public'
-              and c.relkind = 'r'
-              and c.relrowsecurity = false;
+            where n.nspname = 'public' and c.relkind = 'r' and c.relrowsecurity = false;
             if bad is not null then
               raise exception 'tables without RLS: %', bad;
             end if;
           end $$;
           SQL
+
+      - name: Test
+        run: pytest backend
+        env:
+          APP_ENV: test
 
   frontend:
     runs-on: ubuntu-latest

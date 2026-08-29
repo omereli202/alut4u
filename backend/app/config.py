@@ -41,6 +41,17 @@ class Settings(BaseSettings):
     # Session refresh-token encryption (Fernet key)
     session_token_enc_key: str = ""
 
+    # Session / Caregiver-Mode
+    session_cookie_name: str = "alut4u_sid"
+    caregiver_elevation_minutes: int = 15
+    # Escalating PIN lockout: after N failures, lock for the matching duration.
+    pin_lockout_after: int = 5
+    pin_lockout_steps_seconds: tuple[int, ...] = (60, 300, 900)
+    # Optional server-side pepper mixed into the PIN before hashing.
+    pin_pepper: str = ""
+    # Terms version presented at onboarding; bump when the text changes.
+    terms_version: str = "2026-08-29"
+
     # Azure Speech
     azure_speech_key: str = ""
     azure_speech_region: str = "westeurope"
@@ -90,3 +101,17 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
+
+
+def current_settings() -> Settings:
+    """The Settings bound to the running app, if there is one (tests pass their
+    own), else the process-wide singleton. Use this everywhere outside the app
+    factory."""
+    try:
+        from flask import current_app, has_app_context
+
+        if has_app_context() and "SETTINGS" in current_app.config:
+            return current_app.config["SETTINGS"]
+    except ImportError:
+        pass
+    return get_settings()

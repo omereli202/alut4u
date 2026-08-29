@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from app.config import Settings, get_settings
+from app.config import Settings, current_settings
 
 if TYPE_CHECKING:  # avoid importing the heavy SDK at module load
     from supabase import Client
@@ -24,8 +24,14 @@ if TYPE_CHECKING:  # avoid importing the heavy SDK at module load
 # review, not a casual change.
 ALLOWED_SERVICE_OPERATIONS: frozenset[str] = frozenset(
     {
-        "create_auth_user",  # sign-up: insert into auth + caregivers row
+        "create_auth_user",  # sign-up: insert the caregivers row
+        "manage_device_session",  # read/write device_sessions before a user JWT exists
+        "pin_state",  # read/update caregivers PIN lockout + hash
+        "write_consent_record",  # server-attested consent rows (trusted ip / ua)
+        "write_audit_log",  # sensitive-action log (no RLS policy on the table)
+        "write_usage_counter",  # per-caregiver monthly usage tallies
         "delete_account_cascade",  # GDPR erasure across tables + storage
+        "account_export",  # read-all for the data-subject export bundle
         "write_tts_cache",  # shared, non-tenant TTS audio cache
         "read_symbol_library",  # global read-only symbol table
         "run_retention_purge",  # scheduled inactivity cleanup
@@ -38,7 +44,7 @@ def user_client(access_token: str, settings: Settings | None = None) -> Client:
     """Client scoped to one caregiver. RLS applies."""
     from supabase import ClientOptions, create_client
 
-    s = settings or get_settings()
+    s = settings or current_settings()
     client = create_client(
         s.supabase_url,
         s.supabase_anon_key,
@@ -57,7 +63,7 @@ def service_client(operation: str, settings: Settings | None = None) -> Client:
         )
     from supabase import ClientOptions, create_client
 
-    s = settings or get_settings()
+    s = settings or current_settings()
     return create_client(
         s.supabase_url,
         s.supabase_service_role_key,

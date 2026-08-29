@@ -12,11 +12,14 @@ For local development one process can serve both: set ``SERVE_FRONTEND=1``
 from __future__ import annotations
 
 import logging
+from datetime import timedelta
 from pathlib import Path
 
 from flask import Flask, jsonify, send_from_directory
 
+from app.api._helpers import ApiError
 from app.config import Settings, get_settings
+from app.extensions import limiter
 
 FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend"
 
@@ -33,10 +36,14 @@ def create_app(settings: Settings | None = None) -> Flask:
     app = Flask(__name__, static_folder=None)
     app.config["SETTINGS"] = settings
     app.config["SECRET_KEY"] = settings.flask_secret_key
+    app.config["SESSION_COOKIE_NAME"] = settings.session_cookie_name
     app.config["SESSION_COOKIE_HTTPONLY"] = True
     app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
     app.config["SESSION_COOKIE_SECURE"] = settings.is_production
+    # Kiosk: the session should outlast the tablet being idle for weeks.
+    app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=365)
 
+    limiter.init_app(app)
     _register_blueprints(app)
     if settings.serve_frontend and FRONTEND_DIR.is_dir():
         _register_frontend(app)
@@ -46,16 +53,19 @@ def create_app(settings: Settings | None = None) -> Flask:
 
 
 def _register_blueprints(app: Flask) -> None:
+    from app.api.account import bp as account_bp
+    from app.api.auth import bp as auth_bp
+    from app.api.children import bp as children_bp
     from app.api.health import bp as health_bp
 
     app.register_blueprint(health_bp)
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(children_bp)
+    app.register_blueprint(account_bp)
 
-    # Feature blueprints are added here as phases land:
-    #   from app.api.account import bp as account_bp   (Phase 1)
-    #   from app.api.children import bp as children_bp  (Phase 1)
-    #   from app.api.modules import bp as modules_bp    (Phase 1)
-    #   from app.api.media import bp as media_bp        (Phase 1)
-    #   from app.api.aac import bp as aac_bp            (Phase 2)
+    # Later phases:
+    #   from app.api.media import bp as media_bp   (Phase 2)
+    #   from app.api.aac import bp as aac_bp       (Phase 2)
 
 
 def _register_frontend(app: Flask) -> None:
@@ -75,9 +85,18 @@ def _register_frontend(app: Flask) -> None:
 
 
 def _register_error_handlers(app: Flask) -> None:
+    @app.errorhandler(ApiError)
+    def _api_error(e: ApiError):
+        body, status = e.response()
+        return jsonify(body), status
+
     @app.errorhandler(404)
     def _404(_e):
         return jsonify(error="not_found"), 404
+
+    @app.errorhandler(429)
+    def _429(_e):
+        return jsonify(error="rate_limited"), 429
 
     @app.errorhandler(500)
     def _500(_e):

@@ -7,14 +7,14 @@ adapter file plus one line here — no module code changes.
 
 from __future__ import annotations
 
-from app.config import Settings, get_settings
+from app.config import Settings, current_settings
 from app.services.tts.base import TTSProvider, TTSRequest, TTSResult
 
 __all__ = ["TTSProvider", "TTSRequest", "TTSResult", "get_provider"]
 
 
 def get_provider(settings: Settings | None = None) -> TTSProvider:
-    s = settings or get_settings()
+    s = settings or current_settings()
     from app.services.tts.azure_he import AzureHebrewTTS
 
     return AzureHebrewTTS(s)
