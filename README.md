@@ -34,12 +34,13 @@ Phase 0 — scaffolding. See `docs/roadmap.md` for the full phase plan and
 cp .env.example .env         # fill in Supabase + Azure values
 
 # 3. Run
-./.conda/bin/python -m app            # from ./backend, or:
-cd backend && flask --app app run --debug --port 8000
+./scripts/dev.sh                       # one Flask process, API + PWA on :8000
 ```
 
-Open http://localhost:8000 — Flask serves both the API and the `frontend/`
-static app.
+Open http://localhost:8000. Locally one Flask process serves both the API and
+the `frontend/` PWA (`SERVE_FRONTEND=1`). **In production these are two Railway
+services** — a Caddy frontend that reverse-proxies `/api/*` to a private
+backend. See `docs/deployment.md`.
 
 ## Tests & lint
 
@@ -52,11 +53,12 @@ pytest
 
 ## Deployment
 
-Railway builds from the root `Dockerfile` (config in `railway.json`). Push to
-`dev` → deploys to the **dev** environment; push/fast-forward `main` → deploys to
-**production**. The two environments are one Railway project (`alut4u`) with a
-per-branch deployment trigger. Migrations in `supabase/migrations/` are applied
-by CI (`.github/workflows/ci.yml`).
+Railway project `alut4u`, two environments by branch (`dev` → dev,
+`main` → production). Each environment runs two services: `alut4u-web` (Caddy —
+static PWA + `/api/*` proxy, the only public one) and `alut4u-backend`
+(Flask, private). Each builds from its own `Dockerfile`
+(`frontend/`, `backend/`). Migrations in `supabase/migrations/` are applied by
+CI. Full details: `docs/deployment.md`.
 
 ## Repo layout
 

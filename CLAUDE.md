@@ -83,19 +83,31 @@ frontend/
   js/         app, router, api, db (IndexedDB), outbox
   js/modes/   user/  caregiver/
   js/modules/ aac/  (schedule/, rules/, calming/, stories/, reading/ later)
+backend/Dockerfile     backend image (gunicorn, API only)
+frontend/Dockerfile    frontend image (Caddy: static PWA + /api/* proxy)
+frontend/Caddyfile     static serving + reverse_proxy to the backend
 supabase/migrations/   numbered SQL, applied by CI via Supabase CLI
 docs/
-scripts/               release.sh and other CI/deploy helpers
-Dockerfile             the build Railway uses (both envs) + local parity
-railway.json           Railway build/deploy config (healthcheck: /api/health)
+scripts/               dev.sh (one-process local), release.sh (CI migrations)
 ```
 
 ## Deployment
 
-Railway project `alut4u`, one project, two environments driven by branch:
-`dev` branch → `dev` env, `main` branch → `production` env. Root `Dockerfile`
-is the build. `railway` CLI is authed locally; `railway environment <name>`
-switches the linked env, `railway logs -d` / `-b` for deploy / build logs.
+Railway project `alut4u`, two environments by branch (`dev`→`dev` env,
+`main`→`production` env). **Each environment has two services:**
+
+- `alut4u-web` — Caddy. Serves `frontend/` and reverse-proxies `/api/*` to the
+  backend over Railway's private network. **The only public service.**
+- `alut4u-backend` — gunicorn/Flask, API only, **no public domain**. Env
+  `SERVE_FRONTEND=0`.
+
+The browser sees one origin, so cookie auth + PWA + offline stay same-origin.
+Locally, `scripts/dev.sh` collapses both into one Flask process
+(`SERVE_FRONTEND=1`) — the split is production-only. Full details +
+env-var checklist: `docs/deployment.md`.
+
+`railway` CLI is authed locally: `railway environment <name>` switches env,
+`railway logs -d/-b --service <svc>` for logs.
 
 ## Conventions
 

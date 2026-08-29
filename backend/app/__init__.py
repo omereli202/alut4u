@@ -1,7 +1,12 @@
 """Flask application factory.
 
-Serves the REST API under ``/api`` and the static PWA in ``frontend/`` for
-everything else. One service, one deploy.
+In production the backend serves **only** the REST API under ``/api`` — a
+separate Caddy service serves the static PWA and reverse-proxies ``/api/*`` here
+over Railway's private network.
+
+For local development one process can serve both: set ``SERVE_FRONTEND=1``
+(``scripts/dev.sh`` does) and Flask falls back to the static files in
+``frontend/`` for non-API routes.
 """
 
 from __future__ import annotations
@@ -33,7 +38,8 @@ def create_app(settings: Settings | None = None) -> Flask:
     app.config["SESSION_COOKIE_SECURE"] = settings.is_production
 
     _register_blueprints(app)
-    _register_frontend(app)
+    if settings.serve_frontend and FRONTEND_DIR.is_dir():
+        _register_frontend(app)
     _register_error_handlers(app)
 
     return app
@@ -53,8 +59,9 @@ def _register_blueprints(app: Flask) -> None:
 
 
 def _register_frontend(app: Flask) -> None:
-    """Serve the PWA. API routes are matched first; everything else falls through
-    to the static app, with an SPA-style fallback to index.html."""
+    """Local-dev convenience: serve the PWA from Flask. API routes match first;
+    everything else falls through to the static app with an SPA-style fallback
+    to index.html. In production Caddy does this instead."""
 
     @app.get("/", defaults={"path": ""})
     @app.get("/<path:path>")

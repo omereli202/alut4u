@@ -28,6 +28,10 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     public_base_url: str = "http://localhost:8000"
 
+    # Local dev serves the PWA from Flask too; in production Caddy does, so the
+    # backend image sets SERVE_FRONTEND=0.
+    serve_frontend: bool = True
+
     # Supabase
     supabase_url: str = ""
     supabase_anon_key: str = ""

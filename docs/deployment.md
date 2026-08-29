@@ -3,26 +3,55 @@
 ## Railway
 
 One project — **alut4u** (`069b0afe-82c2-4b30-88a5-6d81bc13799f`), two
-environments, branch-driven:
+environments (`production` ← `main`, `dev` ← `dev`), **two services each**:
 
-| Environment | Branch | Service | URL |
-|---|---|---|---|
-| `production` | `main` | `alut4u-web` | https://alut4u-web-production.up.railway.app |
-| `dev` | `dev` | `alut4u-web` | https://alut4u-web-dev.up.railway.app |
+| Service | Root dir | Build | Public? | Healthcheck | Watch |
+|---|---|---|---|---|---|
+| `alut4u-web` (frontend) | `frontend/` | `frontend/Dockerfile` (Caddy) | **yes** — the only public entry point | `/` | `frontend/**` |
+| `alut4u-backend` | `backend/` | `backend/Dockerfile` (gunicorn) | **no** — private network only | `/api/health` | `backend/**` |
 
-- Build: root `Dockerfile` (`railway.json` → `builder: DOCKERFILE`).
-- Healthcheck: `/api/health`.
-- The container listens on `$PORT` (Railway sets `8080`); both service domains
-  target port `8080`.
+Public URLs (both point at the **frontend** service):
+
+| Environment | URL |
+|---|---|
+| `production` | https://alut4u-web-production.up.railway.app |
+| `dev` | https://alut4u-web-dev.up.railway.app |
+
+**Why split this way.** Caddy serves the static PWA and reverse-proxies
+`/api/*` to `alut4u-backend.railway.internal:8080` over Railway's private
+network. The browser only ever talks to one origin, so the HttpOnly session
+cookie, the service-worker scope and offline caching all stay same-origin —
+no CORS, no `SameSite=None`. The backend has no public domain at all.
+
+- Both containers listen on `$PORT` (Railway sets `8080`).
+- Frontend service var: `BACKEND_ORIGIN=http://alut4u-backend.railway.internal:8080`.
+- `watchPatterns` mean a `backend/**`-only change redeploys just the backend, and vice-versa.
+- No `railway.json` — each service auto-detects the `Dockerfile` in its root dir; healthcheck/root/watch are set on the service (see the GraphQL calls in git history or the dashboard).
 - Push to `dev` → dev deploy. Fast-forward `main` → production deploy.
+
+## Local development
+
+`scripts/dev.sh` runs **one** Flask process that serves both the API and the
+PWA (`SERVE_FRONTEND=1`) on `:8000` — the split only exists in production. To
+exercise the real two-container topology locally:
+
+```bash
+docker build -t alut4u-backend ./backend
+docker build -t alut4u-frontend ./frontend
+docker network create alut4u-net
+docker run -d --rm --network alut4u-net --name be -e PORT=8080 alut4u-backend
+docker run -d --rm --network alut4u-net -p 8000:8080 \
+  -e PORT=8080 -e BACKEND_ORIGIN=http://be:8080 alut4u-frontend
+# http://localhost:8000  → PWA, with /api/* proxied to the backend container
+```
 
 ## Environment variables
 
 Not set yet — the app boots without them and `/api/health` passes, so both
 environments deploy green during Phase 0/1 scaffolding.
 
-**Before Phase 1 features work**, set per environment (Railway dashboard or
-`railway variables --set K=V --environment <env> --service alut4u-web`):
+**Before Phase 1 features work**, set on the **`alut4u-backend`** service per
+environment (`railway variable set --service alut4u-backend --environment <env> "K=V"`):
 
 | Var | dev | production |
 |---|---|---|
@@ -32,18 +61,19 @@ environments deploy green during Phase 0/1 scaffolding.
 | `SESSION_TOKEN_ENC_KEY` | Fernet key | Fernet key (different) |
 | `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` | — | — |
 
+The **`alut4u-web`** service only needs `BACKEND_ORIGIN` (already set).
 Full list with descriptions: `.env.example`.
 
 ## CLI cheatsheet
 
 ```bash
-railway environment dev|production      # switch linked env
-railway logs -b                         # build logs
-railway logs -d                         # deploy/runtime logs
-railway status --json                   # project + env + service state
-railway variables --environment dev --service alut4u-web
-railway redeploy --service alut4u-web --environment dev
+railway environment dev|production                          # switch linked env
+railway logs -b --service alut4u-backend                    # build logs
+railway logs -d --service alut4u-web                        # deploy/runtime logs
+railway status --json                                       # project + env + service state
+railway variable list --service alut4u-backend --environment dev
+railway redeploy --service alut4u-backend --environment dev
 ```
 
-Note: `railway.json` "Config as Code" is deprecated by Railway (works until
-2026-12-01); migrate to `.railway/railway.ts` before then.
+Service config (root dir, healthcheck, watch patterns) is set via the Railway
+API, not a repo file — see `docs/deployment.md` history / the dashboard.

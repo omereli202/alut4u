@@ -1,0 +1,41 @@
+# {$PORT} and {$BACKEND_ORIGIN} come from the Railway service environment.
+# Local `docker run`: pass -e PORT=8080 -e BACKEND_ORIGIN=http://host.docker.internal:8000
+
+{
+	admin off
+	persist_config off
+	auto_https off
+}
+
+:{$PORT:8080} {
+	encode zstd gzip
+
+	# API + media → backend service (private network). Keeps the browser
+	# same-origin so the session cookie and SW caching just work.
+	@api path /api/*
+	handle @api {
+		reverse_proxy {$BACKEND_ORIGIN:http://localhost:8080} {
+			header_up Host {upstream_hostport}
+			header_up X-Forwarded-Host {host}
+		}
+	}
+
+	# Static PWA. Hashed/immutable assets could get long cache headers later;
+	# the service worker is the real cache layer.
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	# Never let the HTML shell be stale-cached; the SW manages versioning.
+	@html path / /index.html
+	header @html Cache-Control "no-cache"
+}

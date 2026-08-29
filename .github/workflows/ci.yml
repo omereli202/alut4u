@@ -77,3 +77,26 @@ jobs:
           node --check frontend/js/outbox.js
           node --check frontend/sw.js
           python3 -c "import json,sys; json.load(open('frontend/manifest.webmanifest'))"
+      - name: Validate Caddyfile
+        run: docker run --rm -v "$PWD/frontend:/w" -w /w caddy:2-alpine caddy validate --config Caddyfile --adapter caddyfile
+
+  images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build both images
+        run: |
+          docker build -t alut4u-backend ./backend
+          docker build -t alut4u-frontend ./frontend
+      - name: Smoke test the split topology
+        run: |
+          docker network create n
+          docker run -d --rm --network n --name be -e PORT=8080 alut4u-backend
+          docker run -d --rm --network n -p 8000:8080 \
+            -e PORT=8080 -e BACKEND_ORIGIN=http://be:8080 alut4u-frontend
+          for i in $(seq 1 20); do
+            curl -sf http://localhost:8000/api/health && break || sleep 2
+          done
+          curl -sf http://localhost:8000/api/health | grep -q '"status":"ok"'
+          curl -sf -o /dev/null http://localhost:8000/
+          curl -sf -o /dev/null http://localhost:8000/manifest.webmanifest

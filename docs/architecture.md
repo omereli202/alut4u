@@ -6,7 +6,10 @@
 Tablet (PWA — vanilla ES modules, service worker, IndexedDB)
    │  HttpOnly signed session cookie (session id only — no tokens in JS)
    ▼
-Flask  (one Railway service: serves /api AND the static frontend/)
+alut4u-web  — Caddy (the only public service)
+   │  static PWA;  /api/* reverse-proxied over Railway's private network
+   ▼
+alut4u-backend  — Flask, no public domain
    │  per-request Supabase client carrying the caregiver's JWT
    ▼
 Supabase — Postgres (RLS enforced) + Storage (private buckets)
@@ -14,8 +17,11 @@ Supabase — Postgres (RLS enforced) + Storage (private buckets)
    └── Azure Speech (Hebrew TTS)   ·   OpenAI (Phase 6, stories)
 ```
 
-One service, one deploy. Flask serving the static app is the simplest thing that
-works for a solo developer and removes a cross-origin surface.
+Two services per environment. Caddy proxying `/api/*` means the **browser still
+sees a single origin**, so the session cookie, service-worker scope and offline
+caching need no CORS or `SameSite=None`. The backend is never exposed publicly.
+Locally the two collapse into one Flask process (`scripts/dev.sh`,
+`SERVE_FRONTEND=1`).
 
 ## Auth & session
 
