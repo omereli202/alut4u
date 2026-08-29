@@ -719,3 +719,129 @@ hr {
     transition: none;
   }
 }
+
+/* ------------------------------------------------- Rules / tokens / rewards */
+
+.rules-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.token-badge {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  background: var(--color-warning);
+  color: #fff;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.queue-badge {
+  font-size: var(--text-base);
+  background: var(--color-danger);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0 var(--space-2);
+}
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.rule-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  text-align: start;
+  cursor: pointer;
+}
+.rule-visual {
+  inline-size: 64px;
+  block-size: 64px;
+  object-fit: contain;
+  flex: none;
+}
+.rule-visual-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+.rule-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.rule-text strong {
+  font-size: var(--text-lg);
+}
+
+.reward-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-block-size: 150px;
+  padding: var(--space-3);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  cursor: pointer;
+}
+.reward-tile.locked {
+  opacity: 0.5;
+  border-color: var(--color-border);
+}
+.reward-visual {
+  inline-size: 64px;
+  block-size: 64px;
+  object-fit: contain;
+}
+.reward-cost {
+  font-weight: 700;
+  color: var(--color-warning);
+}
+
+.award-form,
+.tx-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+.award-form input {
+  inline-size: 8rem;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+.tx-list {
+  flex-direction: column;
+  align-items: stretch;
+  list-style: none;
+  padding: 0;
+  margin-block-start: var(--space-3);
+}
+.tx-list li {
+  padding: var(--space-1) 0;
+  border-block-start: 1px solid var(--color-border);
+}
+.tx-pos {
+  color: var(--color-success);
+  font-weight: 700;
+}
+.tx-neg {
+  color: var(--color-danger);
+  font-weight: 700;
+}
+.editor-card-row.inactive {
+  opacity: 0.5;
+}

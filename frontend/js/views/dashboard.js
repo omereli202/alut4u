@@ -5,6 +5,7 @@ import { api } from "../api.js";
 import { el, errText, mount, toast } from "../ui.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
 import { renderScheduleEditor } from "../modules/schedule/editor.js";
+import { renderRulesEditor } from "../modules/rules/editor.js";
 
 const MODULES = [
   ["aac_enabled", "תקשורת (AAC)"],
@@ -17,13 +18,16 @@ const MODULES = [
 
 export async function renderDashboard({ onExit, onLogout }) {
   let templates = [];
+  let pending = [];
 
   async function load() {
-    const [{ children }, tpl] = await Promise.all([
+    const [{ children }, tpl, queue] = await Promise.all([
       api.get("/children"),
       api.get("/children/board-templates").catch(() => ({ templates: [] })),
+      api.get("/tokens/queue").catch(() => ({ pending: [] })),
     ]);
     templates = tpl.templates;
+    pending = queue.pending;
     mount(await view(children));
   }
 
@@ -34,7 +38,14 @@ export async function renderDashboard({ onExit, onLogout }) {
       el(
         "header",
         { class: "dash-head" },
-        el("h1", {}, "מצב מטפל"),
+        el(
+          "h1",
+          {},
+          "מצב מטפל",
+          pending.length
+            ? el("span", { class: "queue-badge", title: "בקשות פרס ממתינות" }, ` ${pending.length} ⭐`)
+            : null,
+        ),
         el("button", { class: "btn-link", onclick: exit }, "יציאה ממצב מטפל"),
       ),
       el("h2", {}, "ילדים"),
@@ -104,6 +115,16 @@ export async function renderDashboard({ onExit, onLogout }) {
                 renderScheduleEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
             "ערוך לוח זמנים",
+          ),
+        modules.rules_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderRulesEditor({ childId: child.id, childName: child.name, onExit: load }),
+            },
+            "כללים ואסימונים",
           ),
         el(
           "button",

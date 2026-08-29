@@ -6,6 +6,7 @@ import { api } from "../api.js";
 import { el, mount, toast } from "../ui.js";
 import { renderAacBoard } from "../modules/aac/board.js";
 import { renderSchedule } from "../modules/schedule/index.js";
+import { renderRules } from "../modules/rules/index.js";
 
 const MODULE_LABELS = {
   aac_enabled: "תקשורת",
@@ -84,6 +85,9 @@ export async function renderHome({ onEnterCaregiver }) {
     }
     if (key === "schedule_enabled") {
       return renderSchedule({ childId: child.id, childName: child.name, onExit: back });
+    }
+    if (key === "rules_enabled") {
+      return renderRules({ childId: child.id, childName: child.name, onExit: back });
     }
     toast("המודול יתווסף בשלב הבא");
   }

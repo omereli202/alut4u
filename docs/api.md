@@ -62,6 +62,25 @@ elevation) required.
 | POST | `` | C | multipart `kind` (`card_icon`/`card_audio`/`schedule_icon`/`rule_audio`), `child_id`, `file`. Images re-encoded; audio needs voice consent. → `{id, url, mime, bytes}` |
 | GET | `/<id>` | S | the stable URL. Streams bytes, `Cache-Control: immutable`, sha256 `ETag`, `If-None-Match` → 304. Tenant-scoped (shared TTS-cache assets readable by any session). |
 
+## Tokens, rules & rewards — `/api/tokens`
+
+`token_transactions` is the ledger (source of truth); `token_balances` is a
+trigger-maintained total. Redeeming **holds** the tokens immediately; rejecting
+a request refunds them.
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/rules?child_id=` | S | behavior rule cards |
+| POST/PATCH/DELETE | `/rules[/<id>]` | C | pre-generates TTS from `body` (or `title`); `PUT /rules/order` |
+| GET | `/balance?child_id=` | S | `{balance, transactions:[…]}` |
+| POST | `/award` | C | `{child_id, amount, reason?}` — negative amount removes tokens |
+| GET | `/rewards?child_id=[&all=1]` | S | active only in User Mode; `&all=1` in Caregiver Mode includes inactive |
+| POST/PATCH/DELETE | `/rewards[/<id>]` | C | `PUT /rewards/order` |
+| POST | `/redeem` | S | `{child_id, reward_id}` — checks balance, creates a pending redemption + a hold transaction |
+| GET | `/redemptions?child_id=` | S | that child's redemption history |
+| GET | `/queue` | C | all pending redemptions across the caregiver's children |
+| POST | `/redemptions/<id>/approve` | C | · | POST | `/redemptions/<id>/reject` | C | refunds |
+
 ## Schedule — `/api/schedule`
 
 | Method | Path | Guard | Notes |
