@@ -3,6 +3,7 @@
 
 import { api } from "../api.js";
 import { el, errText, mount, toast } from "../ui.js";
+import { renderAacEditor } from "../modules/aac/editor.js";
 
 const MODULES = [
   ["aac_enabled", "תקשורת (AAC)"],
@@ -14,8 +15,14 @@ const MODULES = [
 ];
 
 export async function renderDashboard({ onExit, onLogout }) {
+  let templates = [];
+
   async function load() {
-    const { children } = await api.get("/children");
+    const [{ children }, tpl] = await Promise.all([
+      api.get("/children"),
+      api.get("/children/board-templates").catch(() => ({ templates: [] })),
+    ]);
+    templates = tpl.templates;
     mount(await view(children));
   }
 
@@ -75,16 +82,34 @@ export async function renderDashboard({ onExit, onLogout }) {
         ),
       ),
       el(
-        "button",
-        {
-          class: "btn-link danger",
-          onclick: async () => {
-            if (!confirm(`להסתיר את הפרופיל של ${child.name}?`)) return;
-            await api.del(`/children/${child.id}`);
-            load();
+        "div",
+        { class: "child-card-actions" },
+        modules.aac_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderAacEditor({
+                  childId: child.id,
+                  childName: child.name,
+                  onExit: load,
+                }),
+            },
+            "ערוך לוח תקשורת",
+          ),
+        el(
+          "button",
+          {
+            class: "btn-link danger",
+            onclick: async () => {
+              if (!confirm(`להסתיר את הפרופיל של ${child.name}?`)) return;
+              await api.del(`/children/${child.id}`);
+              load();
+            },
           },
-        },
-        "הסתרת פרופיל",
+          "הסתרת פרופיל",
+        ),
       ),
     );
   }
@@ -122,6 +147,19 @@ export async function renderDashboard({ onExit, onLogout }) {
         el("input", { type: "checkbox", name: "parental_consent_attested" }),
         " אני מאשר/ת שקיבלתי את הסכמת ההורה/אפוטרופוס",
       ),
+      el(
+        "div",
+        { class: "field" },
+        el("label", { for: "nc-template" }, "לוח תקשורת התחלתי"),
+        el(
+          "select",
+          { id: "nc-template", name: "board_template_id" },
+          el("option", { value: "" }, "ללא — אתחיל מאפס"),
+          ...templates.map((t) =>
+            el("option", { value: t.id }, `${t.name_he} — ${t.description_he || ""}`),
+          ),
+        ),
+      ),
       el("button", { type: "submit", class: "btn-primary" }, "הוספה"),
       el("p", { class: "err", id: "nc-err", role: "alert" }),
     );
@@ -156,6 +194,7 @@ export async function renderDashboard({ onExit, onLogout }) {
         name: f.get("name"),
         consent_basis: f.get("consent_basis"),
         parental_consent_attested: f.get("parental_consent_attested") === "on",
+        board_template_id: f.get("board_template_id") || null,
       });
       load();
     } catch (err) {

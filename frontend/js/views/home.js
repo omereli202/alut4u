@@ -4,6 +4,7 @@
 
 import { api } from "../api.js";
 import { el, mount, toast } from "../ui.js";
+import { renderAacBoard } from "../modules/aac/board.js";
 
 const MODULE_LABELS = {
   aac_enabled: "תקשורת",
@@ -68,15 +69,22 @@ export async function renderHome({ onEnterCaregiver }) {
         "div",
         { class: "tile-grid" },
         ...enabled.map((k) =>
-          el(
-            "button",
-            { class: "tile", onclick: () => toast("המודול יתווסף בשלב הבא") },
-            MODULE_LABELS[k],
-          ),
+          el("button", { class: "tile", onclick: () => openModule(k, child) }, MODULE_LABELS[k]),
         ),
       ),
       !enabled.length && el("p", { class: "muted" }, "אין מודולים פעילים כרגע."),
     );
+  }
+
+  function openModule(key, child) {
+    if (key === "aac_enabled") {
+      return renderAacBoard({
+        childId: child.id,
+        childName: child.name,
+        onExit: async () => mount(await view()),
+      });
+    }
+    toast("המודול יתווסף בשלב הבא");
   }
 
   function childSwitcher() {

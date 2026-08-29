@@ -1,12 +1,15 @@
-/* Service worker — Phase 0 shell.
+/* Service worker.
  *
- * App shell: cache-first with a versioned cache (bump CACHE_VERSION on deploy).
- * API: network-only for now. Phase 2 adds:
- *   - /api/media/<id>  -> cache-first, long-lived (stable URLs, immutable assets)
- *   - offline outbox replay on 'sync'
+ * - App shell + bundled symbols: cache-first, versioned (bump SHELL_CACHE).
+ * - /api/media/<id>: cache-first in a separate, unversioned cache — the ids are
+ *   content-addressed and immutable, so entries never go stale. This is what
+ *   makes the AAC board (icons + pre-generated audio) work offline.
+ * - Other /api/*: network-only.
  */
 
-const CACHE_VERSION = "shell-v2";
+const SHELL_CACHE = "shell-v3";
+const MEDIA_CACHE = "media-v1";
+
 const SHELL = [
   "/",
   "/index.html",
@@ -23,36 +26,60 @@ const SHELL = [
   "/js/views/pinpad.js",
   "/js/views/home.js",
   "/js/views/dashboard.js",
+  "/js/modules/aac/board.js",
+  "/js/modules/aac/sentence-bar.js",
+  "/js/modules/aac/speech.js",
+  "/js/modules/aac/editor.js",
+  "/js/modules/aac/symbol-picker.js",
+  "/js/modules/aac/recorder.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_VERSION).then((cache) => cache.addAll(SHELL)).then(() => self.skipWaiting()),
+    caches
+      .open(SHELL_CACHE)
+      .then((cache) => cache.addAll(SHELL))
+      .then(() => self.skipWaiting()),
   );
 });
 
 self.addEventListener("activate", (event) => {
+  const keep = new Set([SHELL_CACHE, MEDIA_CACHE]);
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE_VERSION).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   );
 });
 
+function cacheFirst(request, cacheName) {
+  return caches.open(cacheName).then((cache) =>
+    cache.match(request).then(
+      (hit) =>
+        hit ||
+        fetch(request).then((res) => {
+          if (res.ok || res.status === 304) cache.put(request, res.clone());
+          return res;
+        }),
+    ),
+  );
+}
+
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET") return;
-
   const url = new URL(request.url);
 
-  // API: straight to network for now.
-  if (url.pathname.startsWith("/api/")) return;
+  if (url.pathname.startsWith("/api/media/")) {
+    event.respondWith(cacheFirst(request, MEDIA_CACHE).catch(() => Response.error()));
+    return;
+  }
+  if (url.pathname.startsWith("/api/")) return; // network-only
 
-  // App shell / static: cache-first, fall back to network, then to index.html
-  // for navigations so the installed app opens offline.
+  // App shell / static / symbols: cache-first, fall back to index.html for navs.
   event.respondWith(
     caches.match(request).then(
       (hit) =>
@@ -60,13 +87,10 @@ self.addEventListener("fetch", (event) => {
         fetch(request)
           .then((res) => {
             const copy = res.clone();
-            caches.open(CACHE_VERSION).then((c) => c.put(request, copy));
+            caches.open(SHELL_CACHE).then((c) => c.put(request, copy));
             return res;
           })
-          .catch(() => {
-            if (request.mode === "navigate") return caches.match("/index.html");
-            return Response.error();
-          }),
+          .catch(() => (request.mode === "navigate" ? caches.match("/index.html") : Response.error())),
     ),
   );
 });
