@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v5";
+const SHELL_CACHE = "shell-v6";
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
@@ -42,6 +42,10 @@ const SHELL = [
   "/js/modules/rules/index.js",
   "/js/modules/rules/data.js",
   "/js/modules/rules/editor.js",
+  "/js/modules/calming/index.js",
+  "/js/modules/calming/sounds.js",
+  "/js/modules/calming/breathing.js",
+  "/js/modules/calming/memory.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
 ];

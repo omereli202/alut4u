@@ -1,0 +1,18 @@
+{
+  "rain": {
+    "file": "rain.wav",
+    "label_he": "גשם"
+  },
+  "waves": {
+    "file": "waves.wav",
+    "label_he": "גלים"
+  },
+  "wind": {
+    "file": "wind.wav",
+    "label_he": "רוח"
+  },
+  "hum": {
+    "file": "hum.wav",
+    "label_he": "זמזום רגוע"
+  }
+}
