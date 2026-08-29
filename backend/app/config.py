@@ -57,8 +57,10 @@ class Settings(BaseSettings):
     azure_speech_region: str = "westeurope"
     azure_speech_voice: str = "he-IL-HilaNeural"
 
-    # OpenAI (phase 6)
+    # OpenAI (Phase 6). Confirm the current model ids for your account.
     openai_api_key: str = ""
+    openai_chat_model: str = "gpt-4o"
+    openai_image_model: str = "dall-e-3"
 
     # Quotas — per caregiver per calendar month; 0 disables the check
     quota_tts_chars_per_month: int = 200_000

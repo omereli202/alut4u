@@ -101,6 +101,19 @@ a request refunds them.
 `GET` → `{templates:[{id,name_he,level,description_he}]}` (S). Pass
 `board_template_id` to `POST /api/children` to seed the new child's board.
 
+## Social stories — `/api/stories`
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| POST | `/chat` | C | `{child_id, messages:[{role,content}]}` → `{reply, ready}` — the interview agent |
+| POST | `/compose` | C | `{child_id, messages}` → composes the story, generates a per-page illustration + read-aloud audio, saves. Counts against the monthly AI quota (429 `quota_exceeded`). |
+| GET | `?child_id=` | S | `{stories:[{id,title,created_at}]}` |
+| GET | `/<id>` | S | full story: `{title, protagonist, pages:[{text, image_url, audio_url}]}` |
+| DELETE | `/<id>` | C | 204 |
+
+Without an OpenAI key a deterministic stub runs the same flow (3-question
+interview → 5-page templated Hebrew story → SVG illustrations).
+
 ## Account (GDPR) — `/api/account`
 
 | Method | Path | Guard | Notes |

@@ -44,6 +44,9 @@ ignore = [
     "PLR0913", # many args — acceptable for factory/config functions
     "PLC0415", # deliberate lazy imports of heavy SDKs (supabase) inside functions
     "PLR2004", # magic values in comparisons — noisy, low value
+    "RUF001",  # "ambiguous" Unicode — this is a Hebrew app, expected
+    "RUF002",
+    "RUF003",
 ]
 
 [tool.ruff.lint.isort]

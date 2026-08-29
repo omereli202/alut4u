@@ -6,6 +6,7 @@ import { el, errText, mount, toast } from "../ui.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
 import { renderScheduleEditor } from "../modules/schedule/editor.js";
 import { renderRulesEditor } from "../modules/rules/editor.js";
+import { renderStoriesEditor } from "../modules/stories/editor.js";
 
 const MODULES = [
   ["aac_enabled", "תקשורת (AAC)"],
@@ -125,6 +126,16 @@ export async function renderDashboard({ onExit, onLogout }) {
                 renderRulesEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
             "כללים ואסימונים",
+          ),
+        modules.social_stories_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderStoriesEditor({ childId: child.id, childName: child.name, onExit: load }),
+            },
+            "סיפורים חברתיים",
           ),
         el(
           "button",

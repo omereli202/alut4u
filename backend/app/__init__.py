@@ -60,6 +60,7 @@ def _register_blueprints(app: Flask) -> None:
     from app.api.health import bp as health_bp
     from app.api.media import bp as media_bp
     from app.api.schedule import bp as schedule_bp
+    from app.api.stories import bp as stories_bp
     from app.api.symbols import bp as symbols_bp
     from app.api.tokens import bp as tokens_bp
 
@@ -72,6 +73,7 @@ def _register_blueprints(app: Flask) -> None:
     app.register_blueprint(aac_bp)
     app.register_blueprint(schedule_bp)
     app.register_blueprint(tokens_bp)
+    app.register_blueprint(stories_bp)
 
 
 def _register_frontend(app: Flask) -> None:

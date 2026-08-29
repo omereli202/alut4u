@@ -8,6 +8,7 @@ import { renderAacBoard } from "../modules/aac/board.js";
 import { renderSchedule } from "../modules/schedule/index.js";
 import { renderRules } from "../modules/rules/index.js";
 import { renderCalming } from "../modules/calming/index.js";
+import { renderStories } from "../modules/stories/index.js";
 
 const MODULE_LABELS = {
   aac_enabled: "תקשורת",
@@ -92,6 +93,9 @@ export async function renderHome({ onEnterCaregiver }) {
     }
     if (key === "calming_enabled") {
       return renderCalming({ childName: child.name, onExit: back });
+    }
+    if (key === "social_stories_enabled") {
+      return renderStories({ childId: child.id, childName: child.name, onExit: back });
     }
     toast("המודול יתווסף בשלב הבא");
   }

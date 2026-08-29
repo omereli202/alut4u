@@ -36,9 +36,8 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 | 2 | AAC → **first release** | ✅ Grid 2–5 cols + sentence bar + tap-to-speak (pre-generated audio, offline via SW media cache), categories, bundled symbol library (**placeholder emoji set** — swap for Mulberry) w/ Hebrew search, card editor (symbol / icon-upload / audio-upload / record), 3 starter templates, `/api/media/<id>` pipeline, TTS hash cache. Azure adapter written; **silent stub** runs until an Azure key is set. |
 | 3 | Schedule | ✅ Daily list, "where are we now" focus view + big checkmark, read-the-day-aloud, monthly calendar, schedule editor, offline task completion via the outbox. |
 | 4 | Tokens & rewards | ✅ Behavior rule cards, token ledger + trigger balance, caregiver awards, reward store, redemption → held → approval queue + dashboard badge; reject refunds. |
-| 5 | Calming zone | ✅ Sound player (4 bundled ambient loops — **placeholder** procedural WAVs), guided-breathing circle (reduced-motion aware), calm memory game from the symbol set. Purely client-side; no autoplay, no flashing. **← current** |
-| 5 | Calming zone | Audio player (no autoplay/flashing), generic sensory puzzles from bundled images. |
-| 6 | AI social stories | OpenAI interview agent, schema-enforced JSON, per-page image gen, reader in User Mode. |
+| 5 | Calming zone | ✅ Sound player (4 bundled ambient loops — **placeholder** procedural WAVs), guided-breathing circle (reduced-motion aware), calm memory game from the symbol set. Purely client-side; no autoplay, no flashing. |
+| 6 | AI social stories | ✅ Caregiver chats with an interview agent → structured story JSON → per-page illustration + pre-generated read-aloud → saved; child reads it in User Mode (page-turner). OpenAI adapter written (models env-configurable); **deterministic stub** runs without a key. AI usage counts against monthly quotas. **← current** |
 | 7 | Reading & writing | Graded texts, read-aloud, caregiver pass/fail (no STT), writing w/ Hebrew spell-check, auto token award. |
 | 8 | Hardening & launch | AI quotas enforced, monitoring, load test, retention purge, a11y audit, legal review, billing. |
 
