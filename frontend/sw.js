@@ -6,17 +6,23 @@
  *   - offline outbox replay on 'sync'
  */
 
-const CACHE_VERSION = "shell-v1";
+const CACHE_VERSION = "shell-v2";
 const SHELL = [
   "/",
   "/index.html",
   "/css/tokens.css",
   "/css/base.css",
+  "/css/components/app.css",
   "/js/app.js",
-  "/js/router.js",
   "/js/api.js",
   "/js/db.js",
   "/js/outbox.js",
+  "/js/session.js",
+  "/js/ui.js",
+  "/js/views/auth.js",
+  "/js/views/pinpad.js",
+  "/js/views/home.js",
+  "/js/views/dashboard.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
 ];

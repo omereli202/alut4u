@@ -31,9 +31,9 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 
 | # | Name | Outcome |
 |---|---|---|
-| 0 | Scaffolding | Repo, Flask factory, config, health check, CI, deploy config. **← current** |
-| 1 | Foundation | Auth via Flask, device sessions + revocation, PIN + lockout, children CRUD, module toggles, all RLS + cross-tenant test, versioned consent flow, account export + hard-delete, PWA shell, media pipeline, rate limiting, usage counters. |
-| 2 | AAC → **first release** | Grid 2×2–5×5, sentence bar, tap-to-speak (pre-generated audio), categories, symbol library w/ Hebrew search, card editor, starter templates, Azure TTS w/ hash cache, full offline. |
+| 0 | Scaffolding | ✅ Repo, Flask factory, config, health check, CI, deploy config. |
+| 1 | Foundation | ✅ Auth via Flask, device sessions + revocation, PIN + lockout, children CRUD, module toggles, all RLS + cross-tenant test, versioned consent flow, account export + hard-delete, rate limiting, usage counters, caregiver UI (onboarding / dashboard / PIN gate). Media pipeline deferred to Phase 2 (nothing to store yet). **← current** |
+| 2 | AAC → **first release** | Grid 2×2–5×5, sentence bar, tap-to-speak (pre-generated audio), categories, symbol library w/ Hebrew search, card editor, starter templates, Azure TTS w/ hash cache, media pipeline (`/api/media/<id>`), full offline. |
 | 3 | Schedule | Daily list, "where are we now" focus view + checkmark, read-day-aloud, monthly calendar, offline completion via outbox. |
 | 4 | Tokens & rewards | `token_transactions` source of truth, caregiver awards, reward store, redemption → pending → in-app approval queue. |
 | 5 | Calming zone | Audio player (no autoplay/flashing), generic sensory puzzles from bundled images. |

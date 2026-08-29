@@ -45,6 +45,12 @@ textarea {
   border-radius: var(--radius-sm);
 }
 
+/* Programmatic focus targets (route-change landing points) take focus for
+   screen readers but must not show a ring. */
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .skip-link {
   position: absolute;
   inset-inline-start: var(--space-2);

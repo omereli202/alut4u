@@ -32,8 +32,9 @@ function tx(store, mode, fn) {
     (db) =>
       new Promise((resolve, reject) => {
         const t = db.transaction(store, mode);
-        const result = fn(t.objectStore(store));
-        t.oncomplete = () => resolve(result?.value ?? result);
+        // fn returns the IDBRequest; its `.result` is only ready on success.
+        const req = fn(t.objectStore(store));
+        t.oncomplete = () => resolve(req?.result);
         t.onerror = () => reject(t.error);
         t.onabort = () => reject(t.error);
       }),
