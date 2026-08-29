@@ -36,6 +36,37 @@ elevation) required.
 | GET | `/<id>/modules` | S | the 6 `*_enabled` booleans. |
 | PUT | `/<id>/modules` | C | partial patch of the 6 booleans. |
 
+## AAC board — `/api/aac`
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/board?child_id=` | S | `{categories:[…], cards:[…]}` — the whole board in one call. |
+| POST | `/categories` | C | `{child_id, name, color?}` |
+| PATCH | `/categories/<id>` | C | `{name?, color?}` |
+| DELETE | `/categories/<id>` | C | cards keep their data, lose the link. |
+| PUT | `/categories/order` | C | `{child_id, order:[id,…]}` |
+| POST | `/cards` | C | `{child_id, label, tts_text?, category_id?, symbol_id? \| icon_asset_id?}`. Pre-generates TTS. |
+| GET | `/cards/<id>` | S | one card. |
+| PATCH | `/cards/<id>` | C | any card field + `audio_asset_id`. Regenerates TTS if the spoken text changed and there's no caregiver audio. |
+| DELETE | `/cards/<id>` | C | 204 |
+| PUT | `/cards/order` | C | `{child_id, order:[id,…]}` |
+
+## Symbols — `/api/symbols`
+
+`GET /api/symbols?q=<hebrew>` → `{symbols:[…]}` (bundled library; empty `q` browses).
+
+## Media — `/api/media`
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| POST | `` | C | multipart `kind` (`card_icon`/`card_audio`/`schedule_icon`/`rule_audio`), `child_id`, `file`. Images re-encoded; audio needs voice consent. → `{id, url, mime, bytes}` |
+| GET | `/<id>` | S | the stable URL. Streams bytes, `Cache-Control: immutable`, sha256 `ETag`, `If-None-Match` → 304. Tenant-scoped (shared TTS-cache assets readable by any session). |
+
+## Board templates — `/api/children/board-templates`
+
+`GET` → `{templates:[{id,name_he,level,description_he}]}` (S). Pass
+`board_template_id` to `POST /api/children` to seed the new child's board.
+
 ## Account (GDPR) — `/api/account`
 
 | Method | Path | Guard | Notes |

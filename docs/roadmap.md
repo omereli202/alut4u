@@ -32,8 +32,8 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 | # | Name | Outcome |
 |---|---|---|
 | 0 | Scaffolding | ✅ Repo, Flask factory, config, health check, CI, deploy config. |
-| 1 | Foundation | ✅ Auth via Flask, device sessions + revocation, PIN + lockout, children CRUD, module toggles, all RLS + cross-tenant test, versioned consent flow, account export + hard-delete, rate limiting, usage counters, caregiver UI (onboarding / dashboard / PIN gate). Media pipeline deferred to Phase 2 (nothing to store yet). **← current** |
-| 2 | AAC → **first release** | Grid 2×2–5×5, sentence bar, tap-to-speak (pre-generated audio), categories, symbol library w/ Hebrew search, card editor, starter templates, Azure TTS w/ hash cache, media pipeline (`/api/media/<id>`), full offline. |
+| 1 | Foundation | ✅ Auth via Flask, device sessions + revocation, PIN + lockout, children CRUD, module toggles, all RLS + cross-tenant test, versioned consent flow, account export + hard-delete, rate limiting, usage counters, caregiver UI (onboarding / dashboard / PIN gate). |
+| 2 | AAC → **first release** | ✅ Grid 2–5 cols + sentence bar + tap-to-speak (pre-generated audio, offline via SW media cache), categories, bundled symbol library (**placeholder emoji set** — swap for Mulberry) w/ Hebrew search, card editor (symbol / icon-upload / audio-upload / record), 3 starter templates, `/api/media/<id>` pipeline, TTS hash cache. Azure adapter written; **silent stub** runs until an Azure key is set. Real-device airplane-mode test still pending. **← current** |
 | 3 | Schedule | Daily list, "where are we now" focus view + checkmark, read-day-aloud, monthly calendar, offline completion via outbox. |
 | 4 | Tokens & rewards | `token_transactions` source of truth, caregiver awards, reward store, redemption → pending → in-app approval queue. |
 | 5 | Calming zone | Audio player (no autoplay/flashing), generic sensory puzzles from bundled images. |
@@ -43,8 +43,14 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 
 ## Blockers (owner: user)
 
-1. Symbol library licence — Mulberry Symbols (CC BY-SA) recommended over ARASAAC (non-commercial).
-2. Google Stitch exports — AAC board, sentence bar, caregiver dashboard, card editor.
-3. Confirm market = Hebrew speakers globally (not multi-language).
-4. Accounts: GitHub, 2× Supabase (EU region), Railway (2 envs), Azure Speech.
-5. Legal review before public launch (minors' data, worldwide).
+1. **Symbol library licence** — the shipped set is placeholder emoji SVGs.
+   Mulberry Symbols (CC BY-SA) recommended over ARASAAC (non-commercial). When
+   licensed: drop real SVGs into `frontend/assets/symbols/` (same ids), add a
+   migration updating `symbols`, re-run `scripts/build_symbols.py`.
+2. **Cloud Supabase + Azure Speech keys** — set on the Railway `alut4u-backend`
+   service per env (`docs/deployment.md`). Until then prod/dev run as
+   `env: development` with no backend features, and TTS uses the silent stub.
+3. Google Stitch exports — replace the plain Phase 1/2 UI styling.
+4. Confirm market = Hebrew speakers globally (not multi-language).
+5. Real-device offline test of the AAC board (airplane mode).
+6. Legal review before public launch (minors' data, worldwide).
