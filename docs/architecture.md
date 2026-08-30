@@ -76,6 +76,8 @@ No bundler, no framework. `css/tokens.css` is the one place to restyle. Google
 Stitch output goes through three passes before use: RTL conversion (logical
 properties, `dir="rtl"`), token extraction, accessibility (focus rings, ARIA,
 ≥60px targets in User Mode, contrast, reduced-motion, no autoplay/flashing).
+The full Stitch brief — per-screen prompts, the design system, and the
+post-export pipeline — is `docs/design.md`.
 
 ## Layout
 

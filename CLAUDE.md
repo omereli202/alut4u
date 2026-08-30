@@ -181,7 +181,8 @@ user to say so (see the branch-promotion memory).
 
 - Symbol library licence (Mulberry Symbols / CC BY-SA recommended); calming
   audio and PWA icons are also placeholders.
-- Google Stitch screen exports (final visual styling).
+- Google Stitch screen exports (final visual styling). Brief is ready:
+  `docs/design.md` (per-screen prompts + design system + post-export pipeline).
 - Cloud Supabase (EU) + Azure Speech + OpenAI keys — everything runs on
   stubs/local until these exist.
 - Legal review before launch (minors' data, worldwide) — `docs/privacy.md`.

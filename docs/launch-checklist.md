@@ -39,6 +39,9 @@ families. Grouped by owner.
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
 - [ ] Replace placeholder assets: symbol library (licensed set — Mulberry
       Symbols / CC BY-SA recommended), calming audio loops, PWA icons
+- [ ] Final visual styling — run the Google Stitch brief (`docs/design.md`),
+      apply the three-pass pipeline, then the follow-on code work it lists
+      (dialog component, unified PIN component, icon set, drop dead `router.js`)
 
 ## Product / ops — outside code
 
