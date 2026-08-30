@@ -33,9 +33,18 @@
 		X-Content-Type-Options nosniff
 		X-Frame-Options DENY
 		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "camera=(), geolocation=(), payment=(), usb=()"
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		# The PWA is all first-party, no CDN, no inline handlers. Media/audio are
+		# same-origin via the /api/media proxy. blob: covers MediaRecorder playback.
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; media-src 'self' blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
 	}
 
-	# Never let the HTML shell be stale-cached; the SW manages versioning.
-	@html path / /index.html
-	header @html Cache-Control "no-cache"
+	# Never let the HTML shell or the service worker be stale-cached.
+	@nocache path / /index.html /sw.js
+	header @nocache Cache-Control "no-cache"
+
+	# Bundled immutable assets (symbols, calming loops, icons) can cache hard.
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=604800"
 }

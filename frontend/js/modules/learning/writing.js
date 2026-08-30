@@ -71,8 +71,9 @@ export function renderWriting(host, { childId, onBalance }) {
           { class: "lesson-top" },
           el("button", { type: "button", class: "btn-link", onclick: list }, "→ חזרה"),
         ),
-        el("p", { class: "writing-hint" }, prompt.hint || "כתבו את המשפט"),
+        el("label", { class: "writing-hint", for: "writing-input" }, prompt.hint || "כתבו את המשפט"),
         el("input", {
+          id: "writing-input",
           type: "text",
           class: "writing-input",
           required: true,

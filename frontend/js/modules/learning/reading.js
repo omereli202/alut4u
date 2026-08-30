@@ -69,8 +69,9 @@ export function renderReading(host, { childId, onBalance }) {
         el(
           "div",
           { class: "lesson-pin" },
-          el("p", {}, "מטפל, הזינו קוד כדי לאשר את הקריאה:"),
+          el("label", { for: "verdict-pin" }, "מטפל, הזינו קוד כדי לאשר את הקריאה:"),
           el("input", {
+            id: "verdict-pin",
             type: "password",
             inputmode: "numeric",
             maxlength: 4,

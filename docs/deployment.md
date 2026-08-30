@@ -61,8 +61,24 @@ environment (`railway variable set --service alut4u-backend --environment <env> 
 | `SESSION_TOKEN_ENC_KEY` | Fernet key | Fernet key (different) |
 | `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` | — | — |
 
+Production also: `JSON_LOGS=true`, and (recommended) `SENTRY_DSN`,
+`OPENAI_API_KEY` + model ids, `AZURE_SPEECH_KEY`.
+
 The **`alut4u-web`** service only needs `BACKEND_ORIGIN` (already set).
 Full list with descriptions: `.env.example`.
+
+## Scheduled jobs
+
+Add a Railway **cron** service (same repo, root `backend/`, same env as
+`alut4u-backend`) running the retention sweep weekly:
+
+```
+python ../scripts/retention_purge.py --apply
+```
+
+Run it without `--apply` (dry-run) until production has real data. It warns
+accounts idle `RETENTION_WARN_DAYS` and deletes accounts idle
+`RETENTION_PURGE_DAYS` (GoTrue user + full cascade).
 
 ## CLI cheatsheet
 

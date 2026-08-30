@@ -8,17 +8,30 @@ shared across all children (a ``media_assets`` row with ``child_id`` null in the
 
 from __future__ import annotations
 
+import logging
+
 from app.config import Settings, current_settings
 from app.repositories import media as media_repo
-from app.services import storage
+from app.services import quotas, storage
 from app.services.tts import get_provider
 from app.services.tts.base import TTSError, TTSRequest
+
+_log = logging.getLogger("app.tts")
+
+
+def _caregiver_id() -> str | None:
+    try:
+        from flask import g, has_request_context
+
+        return getattr(g, "caregiver_id", None) if has_request_context() else None
+    except ImportError:
+        return None
 
 
 def ensure_tts_asset(text: str, settings: Settings | None = None) -> str | None:
     """Return a media_assets id for the audio of ``text``, synthesising and
-    caching it if needed. Returns None if TTS is unavailable (card still saves,
-    just silently)."""
+    caching it if needed. Returns None if TTS is unavailable or the caregiver's
+    monthly quota is spent (the card still saves — just silently)."""
     s = settings or current_settings()
     text = (text or "").strip()
     if not text:
@@ -30,12 +43,20 @@ def ensure_tts_asset(text: str, settings: Settings | None = None) -> str | None:
 
     hit = media_repo.find_tts_by_digest(key)
     if hit:
-        return hit["id"]
+        return hit["id"]  # cache hit costs nothing — no quota check
+
+    caregiver_id = _caregiver_id()
+    if caregiver_id and not quotas.within(caregiver_id, tts_chars=len(text)):
+        _log.warning("tts quota exceeded for caregiver %s; skipping synthesis", caregiver_id)
+        return None
 
     try:
         result = provider.synthesize(req)
     except TTSError:
         return None
+
+    if caregiver_id:
+        quotas.record(caregiver_id, tts_chars=len(text))
 
     ext = "wav" if "wav" in result.mime else "mp3"
     path = f"{key}.{ext}"

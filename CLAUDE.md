@@ -158,15 +158,30 @@ supabase db push                       # apply to the linked project
 
 ## Current phase
 
-**Phase 0 — scaffolding.** Building repo structure, Flask app factory, config,
-health check, CI, deploy config. Feature modules come later; see `docs/roadmap.md`
-for phase order (Foundation → AAC → Schedule → Tokens → Calming → AI Stories →
-Reading/Writing → Hardening).
+**Phases 0–8 all built on `dev`.** All 6 feature modules (AAC, Schedule, Tokens
+& rewards, Calming, AI stories, Reading & writing) are live in the User-Mode
+home tiles and the caregiver dashboard. Hardening done (quotas, logging,
+security headers, retention script, load test). `docs/roadmap.md` has the
+per-phase detail; `docs/launch-checklist.md` has what's left before promotion.
+
+`main` is still at Phase 1 — **nothing is promoted to production**; wait for the
+user to say so (see the branch-promotion memory).
+
+## Backend layout notes (post Phase 8)
+
+- `services/quotas.py` — per-caregiver monthly caps, checked via the service
+  role (no request context). TTS degrades silently on over-quota; image gen
+  hard-fails 429.
+- `services/ai/` — story agent: OpenAI adapter + deterministic stub (no key).
+- `services/retention.py` + `scripts/retention_purge.py` — inactivity sweep.
+- `observability.py` — request IDs, JSON logs, Sentry, security headers.
+- `services/hebrew.py` — lenient Hebrew compare for writing practice.
 
 ## Known blockers (waiting on the user)
 
-- Symbol library licence choice (Mulberry Symbols / CC BY-SA recommended over
-  ARASAAC's non-commercial licence).
-- Google Stitch screen exports for the AAC board and caregiver dashboard.
-- External accounts: GitHub, two Supabase projects (EU), Railway (2 envs),
-  Azure Speech.
+- Symbol library licence (Mulberry Symbols / CC BY-SA recommended); calming
+  audio and PWA icons are also placeholders.
+- Google Stitch screen exports (final visual styling).
+- Cloud Supabase (EU) + Azure Speech + OpenAI keys — everything runs on
+  stubs/local until these exist.
+- Legal review before launch (minors' data, worldwide) — `docs/privacy.md`.

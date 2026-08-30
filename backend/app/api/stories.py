@@ -12,6 +12,7 @@ from flask import Blueprint, g, jsonify
 
 from app.api._helpers import ApiError, parse_body
 from app.auth.decorators import require_caregiver_mode, require_session
+from app.extensions import limiter
 from app.repositories import audit as audit_repo
 from app.repositories import children as children_repo
 from app.repositories import stories as repo
@@ -39,6 +40,7 @@ def _messages(models) -> list[dict]:
 
 @bp.post("/chat")
 @require_caregiver_mode
+@limiter.limit("40 per hour")
 def chat():
     data = parse_body(ChatRequest)
     _own_child_or_404(data.child_id)
@@ -53,12 +55,13 @@ def chat():
 
 @bp.post("/compose")
 @require_caregiver_mode
+@limiter.limit("15 per hour; 40 per day")
 def compose():
     data = parse_body(ComposeRequest)
     _own_child_or_404(data.child_id)
 
     try:
-        check(g.db, g.caregiver_id, images=5, llm_tokens=3000)
+        check(g.caregiver_id, images=5, llm_tokens=3000)
     except QuotaExceeded as e:
         raise ApiError(429, "quota_exceeded", e.resource) from e
 

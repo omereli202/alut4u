@@ -38,8 +38,8 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 | 4 | Tokens & rewards | ✅ Behavior rule cards, token ledger + trigger balance, caregiver awards, reward store, redemption → held → approval queue + dashboard badge; reject refunds. |
 | 5 | Calming zone | ✅ Sound player (4 bundled ambient loops — **placeholder** procedural WAVs), guided-breathing circle (reduced-motion aware), calm memory game from the symbol set. Purely client-side; no autoplay, no flashing. |
 | 6 | AI social stories | ✅ Caregiver chats with an interview agent → structured story JSON → per-page illustration + pre-generated read-aloud → saved; child reads it in User Mode (page-turner). OpenAI adapter written (models env-configurable); **deterministic stub** runs without a key. AI usage counts against monthly quotas. |
-| 7 | Reading & writing | ✅ Bundled graded Hebrew reading texts (3 levels, w/ generated read-aloud); caregiver marks pass/fail via an inline PIN gate → auto-awards tokens (no STT). Writing practice: copy/spell a target, lenient Hebrew check server-side (niqqud / final-forms / punctuation ignored) → self-serve token on success. **← current** |
-| 8 | Hardening & launch | AI quotas enforced, monitoring, load test, retention purge, a11y audit, legal review, billing. |
+| 7 | Reading & writing | ✅ Bundled graded Hebrew reading texts (3 levels, w/ generated read-aloud); caregiver marks pass/fail via an inline PIN gate → auto-awards tokens (no STT). Writing practice: copy/spell a target, lenient Hebrew check server-side (niqqud / final-forms / punctuation ignored) → self-serve token on success. |
+| 8 | Hardening & launch | ✅ *(code parts)* AI/TTS quotas enforced everywhere (TTS degrades silently, images hard-fail), atomic usage RPC, structured JSON logs + `X-Request-Id` + optional Sentry, CSP/HSTS/security headers (Caddy + Flask), retention sweep script (18mo warn / 24mo purge), load-test script, CI adds pip-audit + security-header + axe checks. Remaining are non-code: legal review, billing, prod keys, real-device a11y/offline — see `docs/launch-checklist.md`. **← current** |
 
 ## Blockers (owner: user)
 

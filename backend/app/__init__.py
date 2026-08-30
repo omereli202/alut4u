@@ -11,7 +11,6 @@ For local development one process can serve both: set ``SERVE_FRONTEND=1``
 
 from __future__ import annotations
 
-import logging
 from datetime import timedelta
 from pathlib import Path
 
@@ -20,6 +19,8 @@ from flask import Flask, jsonify, send_from_directory
 from app.api._helpers import ApiError
 from app.config import Settings, get_settings
 from app.extensions import limiter
+from app.observability import configure_logging, init_sentry
+from app.observability import register as register_observability
 
 FRONTEND_DIR = Path(__file__).resolve().parent.parent.parent / "frontend"
 
@@ -28,10 +29,8 @@ def create_app(settings: Settings | None = None) -> Flask:
     settings = settings or get_settings()
     settings.require_production_secrets()
 
-    logging.basicConfig(
-        level=settings.log_level,
-        format="%(asctime)s %(levelname)s %(name)s %(message)s",
-    )
+    configure_logging(settings)
+    init_sentry(settings)
 
     app = Flask(__name__, static_folder=None)
     app.config["SETTINGS"] = settings
@@ -44,6 +43,7 @@ def create_app(settings: Settings | None = None) -> Flask:
     app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=365)
 
     limiter.init_app(app)
+    register_observability(app, settings)
     _register_blueprints(app)
     if settings.serve_frontend and FRONTEND_DIR.is_dir():
         _register_frontend(app)

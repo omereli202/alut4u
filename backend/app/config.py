@@ -67,6 +67,14 @@ class Settings(BaseSettings):
     quota_image_count_per_month: int = 100
     quota_llm_tokens_per_month: int = 500_000
 
+    # Data retention — accounts idle this long are warned, then purged.
+    retention_warn_days: int = 540
+    retention_purge_days: int = 730
+
+    # Observability — optional Sentry DSN; structured JSON logs when true.
+    sentry_dsn: str = ""
+    json_logs: bool = False
+
     @property
     def is_production(self) -> bool:
         return self.app_env == "production"
