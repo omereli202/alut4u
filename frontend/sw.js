@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v13"; // v13: home tile icons, dashboard toggles/avatar, auth wordmark, empty states
+const SHELL_CACHE = "shell-v14"; // v14: re-bump — v13's install-time cache.addAll silently failed on first deploy
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
@@ -74,7 +74,15 @@ self.addEventListener("install", (event) => {
     caches
       .open(SHELL_CACHE)
       .then((cache) => cache.addAll(SHELL))
-      .then(() => self.skipWaiting()),
+      .then(() => self.skipWaiting())
+      // A transient failure here (one bad fetch during a rolling deploy)
+      // used to fail silently — the install would abort with no trace, and
+      // since the SW script is otherwise unchanged the browser wouldn't
+      // retry until the next real edit. Surface it instead of swallowing it.
+      .catch((err) => {
+        console.error("[sw] install failed, shell cache may be incomplete:", err);
+        throw err;
+      }),
   );
 });
 
