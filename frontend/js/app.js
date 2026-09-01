@@ -4,7 +4,7 @@
 import { api } from "./api.js";
 import { exitCaregiverMode, logout, refresh, state } from "./session.js";
 import { startOutbox } from "./outbox.js";
-import { el, errText, mount } from "./ui.js";
+import { el, errText, icon, initOfflineBanner, mount } from "./ui.js";
 import { renderAuth } from "./views/auth.js";
 import { renderDashboard } from "./views/dashboard.js";
 import { renderHome } from "./views/home.js";
@@ -15,6 +15,8 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js").catch((e) => console.warn("SW failed", e));
   });
 }
+
+initOfflineBanner();
 
 async function route() {
   document.body.dataset.mode = state.mode;
@@ -82,15 +84,41 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
+// T3.3, docs/design/stitch-export-2/boot_screen/. Loading and error share one
+// mount and cross-fade via opacity (not display toggling), so it degrades to
+// an instant switch under prefers-reduced-motion rather than losing the
+// error state's affordance.
+function bootScreen() {
+  const loading = el(
+    "div",
+    { class: "boot-state active" },
+    el("div", { class: "spinner", "aria-hidden": "true" }),
+    el("p", { class: "muted" }, "טוען…"),
+  );
+  const errorState = el(
+    "div",
+    { class: "boot-state" },
+    el("p", { class: "err" }, "אין חיבור לשרת."),
+    el("button", { class: "btn-link", onclick: boot }, icon("refresh"), " נסה שוב"),
+  );
+  mount(
+    el(
+      "div",
+      { class: "boot-screen" },
+      el("h1", { class: "boot-wordmark" }, "alut4u"),
+      el("div", { class: "boot-states" }, loading, errorState),
+    ),
+  );
+  return { loading, errorState };
+}
+
 async function boot() {
-  mount(el("p", { class: "muted" }, "טוען…"));
+  const { loading, errorState } = bootScreen();
   try {
     await refresh();
   } catch {
-    mount(
-      el("p", { class: "err" }, "אין חיבור לשרת."),
-      el("button", { class: "btn-link", onclick: boot }, "נסה שוב"),
-    );
+    loading.classList.remove("active");
+    errorState.classList.add("active");
     return;
   }
   route();

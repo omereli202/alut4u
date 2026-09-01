@@ -1,7 +1,7 @@
 // "Where are we now" — one big task at a time with a large checkmark that
 // advances to the next incomplete task after a calm confirmation.
 
-import { el, icon } from "../../ui.js";
+import { celebration, el, emptyState, icon } from "../../ui.js";
 import { audioUrl, toggleItem, visualNode } from "./data.js";
 
 export function renderFocus(host, { items, onList, onExit, onChange }) {
@@ -20,16 +20,14 @@ export function renderFocus(host, { items, onList, onExit, onChange }) {
       return el(
         "div",
         { class: "focus-empty" },
-        el("p", { class: "muted" }, "אין משימות להיום."),
-        onExit && el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
+        emptyState({ title: "אין משימות להיום.", onBack: onExit }),
       );
     }
     if (!left.length) {
       return el(
         "div",
         { class: "focus-done" },
-        el("div", { class: "focus-celebrate" }, icon("celebration", { size: 80 })),
-        el("h1", {}, "כל הכבוד! סיימנו להיום"),
+        celebration({ title: "כל הכבוד! סיימנו להיום" }),
         el("button", { class: "btn-link", onclick: () => onList?.() }, "צפייה בכל היום"),
       );
     }
@@ -46,7 +44,7 @@ export function renderFocus(host, { items, onList, onExit, onChange }) {
       el(
         "button",
         { class: "focus-card", onclick: () => speak(current) },
-        visualNode(el, current, "focus-visual"),
+        visualNode(current, "focus-visual"),
         el("h1", { class: "focus-title" }, current.title),
         current.start_time && el("p", { class: "focus-time" }, current.start_time.slice(0, 5)),
       ),

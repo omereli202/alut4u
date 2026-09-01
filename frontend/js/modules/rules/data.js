@@ -1,5 +1,5 @@
 import { api } from "../../api.js";
-import { el } from "../../ui.js";
+import { visual } from "../../ui.js";
 
 export function loadRulesModule(childId) {
   const id = encodeURIComponent(childId);
@@ -16,13 +16,7 @@ export function loadRulesModule(childId) {
 }
 
 export function visualNode(item, cls = "rule-visual") {
-  if (item.symbol_id) {
-    return el("img", { class: cls, src: `/assets/symbols/${item.symbol_id}.svg`, alt: "" });
-  }
-  if (item.icon_asset_id) {
-    return el("img", { class: cls, src: `/api/media/${item.icon_asset_id}`, alt: "" });
-  }
-  return el("div", { class: `${cls} rule-visual-text` }, (item.title || "").slice(0, 2));
+  return visual(item, cls);
 }
 
 export function playExplanation(rule) {

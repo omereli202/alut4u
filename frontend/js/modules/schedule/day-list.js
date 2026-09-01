@@ -37,7 +37,7 @@ export function renderDayList(host, { items, onFocus, onExit, onChange }) {
           render();
         },
       }),
-      visualNode(el, item, "sched-row-visual"),
+      visualNode(item, "sched-row-visual"),
       el("span", { class: "sched-row-title" }, item.title),
       item.start_time && el("span", { class: "sched-row-time" }, item.start_time.slice(0, 5)),
     );

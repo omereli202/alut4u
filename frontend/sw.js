@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v10"; // v10: bundled icon sprite (docs/design.md §6)
+const SHELL_CACHE = "shell-v11"; // v11: per-screen layout pass + 10 more icons
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 

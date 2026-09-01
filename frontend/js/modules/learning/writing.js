@@ -2,7 +2,7 @@
 // comparison) and awards a token on success — fully self-serve.
 
 import { api } from "../../api.js";
-import { el, icon, toast } from "../../ui.js";
+import { celebration, el, icon, toast } from "../../ui.js";
 
 export function renderWriting(host, { childId, onBalance }) {
   let prompts = [];
@@ -45,18 +45,14 @@ export function renderWriting(host, { childId, onBalance }) {
           el(
             "div",
             { class: "lesson-result" },
-            el(
-              "p",
-              { class: "lesson-result-icon" },
-              res.correct ? icon("celebration", { size: 64 }) : "🤏",
-            ),
-            el(
-              "p",
-              {},
-              res.correct
-                ? `נכון! +${res.tokens_awarded} אסימון`
-                : `כמעט! הכיתוב הנכון: ${res.target}`,
-            ),
+            res.correct
+              ? celebration({ title: "נכון!", body: `+${res.tokens_awarded} אסימון` })
+              : el(
+                  "div",
+                  { class: "lesson-result-gentle" },
+                  icon("thumb_up", { size: 48 }),
+                  el("p", {}, `כמעט! הכיתוב הנכון: ${res.target}`),
+                ),
             el("button", { class: "btn-link", onclick: () => open(prompt) }, "נסה שוב"),
             el("button", { class: "btn-link", onclick: list }, "תרגיל אחר"),
           ),

@@ -57,9 +57,75 @@ export function mount(...nodes) {
 }
 
 export function toast(message, kind = "info") {
-  const t = el("div", { class: `toast toast-${kind}`, role: "status" }, message);
+  const t = el(
+    "div",
+    { class: `toast toast-${kind}`, role: "status" },
+    icon(kind === "error" ? "warning" : "check_circle"),
+    el("span", {}, message),
+  );
   document.body.append(t);
   setTimeout(() => t.remove(), 4000);
+}
+
+// Symbol/photo for a card-like item, with a plain-text fallback (first two
+// characters of its label) when it has neither. `cls` sets sizing/shape via
+// CSS — shared by the AAC board, schedule and rules cards, which each pass
+// their own class rather than duplicating this lookup three times.
+export function visual(item, cls) {
+  if (item.symbol_id) {
+    return el("img", { class: cls, src: `/assets/symbols/${item.symbol_id}.svg`, alt: "" });
+  }
+  if (item.icon_asset_id) {
+    return el("img", { class: cls, src: `/api/media/${item.icon_asset_id}`, alt: "" });
+  }
+  const text = (item.label ?? item.title ?? "").slice(0, 2);
+  return el("div", { class: `${cls} ${cls}-text` }, text);
+}
+
+// Offline banner (T3.13) — global, mounted once at startup (see app.js), not
+// per-screen, so it survives route() swapping #main's content. navigator's
+// online/offline events are the same signal outbox.js's flush-on-reconnect
+// already relies on.
+export function initOfflineBanner() {
+  const banner = el(
+    "div",
+    { class: "offline-banner", role: "status" },
+    icon("wifi_off"),
+    el("span", {}, "אין חיבור — חלק מהתכונות לא זמינות"),
+  );
+  function sync() {
+    banner.classList.toggle("visible", !navigator.onLine);
+  }
+  document.body.prepend(banner);
+  window.addEventListener("online", sync);
+  window.addEventListener("offline", sync);
+  sync();
+}
+
+// Empty state (T3.13): centered muted icon + heading + optional line +
+// optional back link. `iconName` defaults to "inbox".
+export function emptyState({ iconName = "inbox", title, body, onBack, backLabel = "חזרה" } = {}) {
+  return el(
+    "div",
+    { class: "empty-state" },
+    icon(iconName, { size: 40 }),
+    title && el("h3", {}, title),
+    body && el("p", { class: "muted" }, body),
+    onBack && el("button", { class: "btn-link", onclick: onBack }, backLabel),
+  );
+}
+
+// Celebration state (T3.13): filled card, icon in a soft circle, big heading
+// + muted line. Used by the schedule "all done today", memory-game win, and
+// reading/writing success states so they share one look.
+export function celebration({ iconName = "celebration", title, body } = {}) {
+  return el(
+    "div",
+    { class: "celebration-state" },
+    el("div", { class: "celebration-icon" }, icon(iconName, { size: 48 })),
+    title && el("h2", {}, title),
+    body && el("p", {}, body),
+  );
 }
 
 export function errText(e) {

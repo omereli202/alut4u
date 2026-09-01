@@ -1,7 +1,7 @@
 // User Mode: "כללים ואסימונים" — token balance, behavior rule cards, reward store.
 
 import { api, ApiError } from "../../api.js";
-import { el, icon, mount, toast } from "../../ui.js";
+import { el, emptyState, icon, mount, toast } from "../../ui.js";
 import { confirmDialog } from "../../dialog.js";
 import { loadRulesModule, playExplanation, visualNode } from "./data.js";
 
@@ -10,10 +10,7 @@ export async function renderRules({ childId, childName, onExit }) {
   try {
     data = await loadRulesModule(childId);
   } catch {
-    return mount(
-      el("p", { class: "err" }, "לא ניתן לטעון."),
-      el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
-    );
+    return mount(emptyState({ title: "לא ניתן לטעון.", onBack: onExit }));
   }
 
   let tab = "rules";

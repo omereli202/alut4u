@@ -41,7 +41,7 @@ export async function renderLearning({ childId, childName, onExit }) {
         : renderWriting(host, { childId, onBalance: setBalance });
   }
 
-  const tabsHost = el("div", { class: "cat-tabs" });
+  const tabsHost = el("div", { class: "cat-tabs segmented" });
   function paintTabs() {
     tabsHost.replaceChildren(
       el(

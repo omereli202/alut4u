@@ -62,6 +62,18 @@ ICONS: dict[str, str] = {
     "undo": "ביטול פעולה",
     "remove": "הפחתה",
     "thumb_up": "כל הכבוד",
+    # Added for docs/design/stitch-export-2 (PIN gate, boot screen, shared
+    # states, reading & writing, story reader).
+    "arrow_forward": "קדימה",
+    "auto_stories": "קריאה",
+    "dashboard": "לוח בקרה",
+    "gpp_maybe": "אזהרת אבטחה",
+    "inbox": "ריק",
+    "manage_accounts": "ניהול חשבון",
+    "refresh": "רענון",
+    "security": "אבטחה",
+    "toll": "אסימון",
+    "wifi_off": "אין חיבור",
 }
 
 _SYMBOL_RE = re.compile(r'<svg[^>]*viewBox="([^"]+)"[^>]*>(.*)</svg>', re.S)

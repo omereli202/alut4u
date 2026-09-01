@@ -2,6 +2,7 @@
 
 import { api } from "../../api.js";
 import { enqueue } from "../../outbox.js";
+import { visual } from "../../ui.js";
 
 export function todayISO() {
   const d = new Date();
@@ -25,12 +26,6 @@ export function audioUrl(id) {
   return id ? `/api/media/${id}` : null;
 }
 
-export function visualNode(el, item, cls = "sched-visual") {
-  if (item.symbol_id) {
-    return el("img", { class: cls, src: `/assets/symbols/${item.symbol_id}.svg`, alt: "" });
-  }
-  if (item.icon_asset_id) {
-    return el("img", { class: cls, src: `/api/media/${item.icon_asset_id}`, alt: "" });
-  }
-  return el("div", { class: `${cls} sched-visual-text` }, item.title.slice(0, 2));
+export function visualNode(item, cls = "sched-visual") {
+  return visual(item, cls);
 }

@@ -2,24 +2,24 @@
 // appends it to the sentence bar and speaks it.
 
 import { api } from "../../api.js";
-import { el, icon, mount } from "../../ui.js";
+import { el, emptyState, icon, mount, visual } from "../../ui.js";
 import { createSentenceBar } from "./sentence-bar.js";
 import { prefetch } from "./speech.js";
 
 const GRID_KEY = "alut4u.aac.grid"; // remembered columns (2–5)
 
-function cardVisual(card) {
-  if (card.symbol_id) {
-    return el("img", {
-      class: "card-visual",
-      src: `/assets/symbols/${card.symbol_id}.svg`,
-      alt: "",
-    });
-  }
-  if (card.icon_asset_id) {
-    return el("img", { class: "card-visual", src: `/api/media/${card.icon_asset_id}`, alt: "" });
-  }
-  return el("div", { class: "card-visual card-visual-text" }, card.label.slice(0, 2));
+// The card's picture/photo sits in a colour-tinted medallion (docs/design/
+// stitch-export §T1.1) rather than filling the card edge-to-edge. The tint is
+// the card's own category colour when the caregiver set one, else a neutral
+// secondary wash — same --cat custom property the category tab already uses,
+// so a card always matches its tab.
+function cardVisual(card, cats) {
+  const cat = cats.find((c) => c.id === card.category_id);
+  return el(
+    "span",
+    { class: "card-medallion", style: cat?.color ? `--cat:${cat.color}` : null },
+    visual(card, "card-visual"),
+  );
 }
 
 export async function renderAacBoard({ childId, childName, onExit }) {
@@ -27,10 +27,7 @@ export async function renderAacBoard({ childId, childName, onExit }) {
   try {
     board = await api.get(`/aac/board?child_id=${encodeURIComponent(childId)}`);
   } catch {
-    return mount(
-      el("p", { class: "err" }, "לא ניתן לטעון את הלוח."),
-      el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
-    );
+    return mount(emptyState({ title: "לא ניתן לטעון את הלוח.", onBack: onExit }));
   }
 
   prefetch(board.cards);
@@ -58,7 +55,7 @@ export async function renderAacBoard({ childId, childName, onExit }) {
             role: "listitem",
             onclick: () => sentence.add(card),
           },
-          cardVisual(card),
+          cardVisual(card, cats),
           el("span", { class: "card-label" }, card.label),
         ),
       ),

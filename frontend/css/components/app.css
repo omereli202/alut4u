@@ -202,6 +202,124 @@ hr {
   flex-wrap: wrap;
 }
 
+/* Empty / celebration states (T3.13) — shared by any screen that previously
+   hand-rolled its own version of one of these. */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-8);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+.empty-state .icon {
+  color: var(--color-border-strong);
+}
+.celebration-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-8);
+  text-align: center;
+  background: var(--color-primary-soft);
+  border-radius: var(--radius-lg);
+}
+.celebration-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 72px;
+  block-size: 72px;
+  margin-block-end: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+/* Offline banner (T3.13) — thin strip, unobtrusive, fixed above everything
+   including the skip link's focus position. */
+.offline-banner {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding-block: var(--space-1);
+  font-size: var(--text-sm);
+  background: var(--color-surface-sunken);
+  /* text-muted here is a hairline 4.50:1 at this font size — too close to the
+     4.5:1 floor to trust. Full text colour clears it with real margin. */
+  color: var(--color-text);
+  transform: translateY(-100%);
+  transition: transform 200ms ease;
+}
+.offline-banner.visible {
+  transform: translateY(0);
+}
+
+/* Boot screen (T3.3) — mount() already stripped #main's own .boot centering
+   utility (base.css) by the time this renders, so it centers itself. */
+.boot-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  min-block-size: 100dvh;
+  justify-content: center;
+  padding: var(--space-6);
+  text-align: center;
+}
+.boot-wordmark {
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+}
+.boot-states {
+  position: relative;
+  inline-size: 100%;
+  max-inline-size: 320px;
+  min-block-size: 80px;
+}
+.boot-state {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+.boot-state.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.spinner {
+  inline-size: 32px;
+  block-size: 32px;
+  border: 3px solid var(--color-border);
+  border-block-start-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 900ms linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-block-start-color: var(--color-border); /* a static ring, not a frozen mid-spin frame */
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* PIN pad */
 .pin-card {
   text-align: center;
@@ -432,6 +550,27 @@ hr {
   border-color: transparent;
 }
 
+/* Segmented variant (docs/design/stitch-export-2/_2/) — a track with the tabs
+   inset inside it, rather than free-floating pills. Used where there are
+   always exactly two or three fixed tabs filling the width (reading &
+   writing) rather than a scrollable category row. */
+.cat-tabs.segmented {
+  flex-wrap: nowrap;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-pill);
+}
+.cat-tabs.segmented .cat-tab {
+  flex: 1;
+  border: none;
+  background: none;
+}
+.cat-tabs.segmented .cat-tab.active {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+
 /* Card grid */
 .aac-grid {
   display: grid;
@@ -445,30 +584,49 @@ hr {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   aspect-ratio: 1;
-  padding: var(--space-2);
-  border: 2px solid var(--color-border);
+  padding: var(--space-3);
+  border: none;
   border-radius: var(--radius-lg);
-  background: var(--color-bg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
   cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
 }
 .aac-card:active {
-  border-color: var(--color-primary);
-  background: var(--color-surface);
+  transform: scale(0.96);
+  box-shadow: none;
+}
+/* The picture/photo sits in a colour-tinted medallion, not edge-to-edge —
+   docs/design/stitch-export §T1.1. --cat (set per the card's own category,
+   board.js) tints it to match that category's tab; no category colour falls
+   back to the secondary wash so every card still reads as "tappable". */
+.card-medallion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 60%;
+  max-inline-size: 96px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--cat, var(--color-secondary-soft));
+  flex: none;
 }
 .card-visual {
-  inline-size: 64%;
-  block-size: 64%;
+  inline-size: 62%;
+  block-size: 62%;
   object-fit: contain;
 }
 .card-visual-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--text-2xl);
+  inline-size: 100%;
+  block-size: 100%;
+  font-size: var(--text-lg);
   font-weight: 700;
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
 }
 .card-label {
   font-size: var(--text-base);
@@ -685,13 +843,6 @@ hr {
 .focus-empty {
   text-align: center;
   padding-block: var(--space-12);
-}
-.focus-celebrate {
-  display: flex;
-  justify-content: center;
-  /* base --color-warning is 2.1:1 on --color-bg — fails even 3:1 for an
-     80px mark. -ink clears it (5.9:1) in both themes. */
-  color: var(--color-warning-ink);
 }
 
 /* Day list */
@@ -1003,7 +1154,6 @@ hr {
 .memory-card.shown { background: var(--color-bg); border-color: var(--color-primary); }
 .memory-card img { inline-size: 70%; block-size: 70%; object-fit: contain; }
 .memory-back { font-size: var(--text-xl); font-weight: 700; color: var(--color-text-muted); }
-.memory-win { font-size: var(--text-xl); text-align: center; padding-block: var(--space-8); }
 
 /* ----------------------------------------------------------- Social stories */
 
@@ -1067,12 +1217,65 @@ hr {
   padding: var(--space-6);
 }
 .lesson-result { text-align: center; padding-block: var(--space-8); display: flex; flex-direction: column; gap: var(--space-3); }
-.lesson-result-icon { font-size: 4rem; }
-.lesson-pin { display: flex; flex-direction: column; gap: var(--space-3); max-inline-size: 320px; }
-.pin-inline, .writing-input {
-  padding: var(--space-3); font-size: var(--text-lg); text-align: center;
-  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
-  inline-size: 100%; letter-spacing: 0.3em;
+.lesson-result-gentle {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-3);
+  color: var(--color-text-muted);
 }
-.writing-input { letter-spacing: normal; text-align: start; }
+.writing-input {
+  padding: var(--space-3); font-size: var(--text-lg); text-align: start;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+  inline-size: 100%;
+}
 .writing-hint { font-size: var(--text-xl); margin-block: var(--space-3); }
+
+/* pin.inline (T3.11) — docs/design/stitch-export-2/pin/. */
+.pin-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  max-inline-size: 360px;
+  margin-inline: auto;
+  padding: var(--space-6);
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-1);
+}
+.pin-gate-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 56px;
+  block-size: 56px;
+  margin-block-end: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.pin-boxes {
+  display: flex;
+  gap: var(--space-3);
+  margin-block: var(--space-4);
+}
+.pin-box {
+  /* export 2's reference is 64px; matches --touch-min even though this gate
+     is caregiver-operated, not the child. */
+  inline-size: var(--touch-min);
+  block-size: var(--touch-min);
+  font-size: var(--text-xl);
+  text-align: center;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+}
+.pin-box:focus-visible {
+  border-color: var(--color-focus);
+}
+.pin-gate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  inline-size: 100%;
+}
