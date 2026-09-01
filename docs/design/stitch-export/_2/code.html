@@ -1,0 +1,241 @@
+<!DOCTYPE html><html dir="rtl" lang="he"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Token Board - חנות הפרסים</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeedf2",
+                        "primary-fixed": "#d4e3ff",
+                        "on-primary-container": "#fdfcff",
+                        "on-tertiary-fixed": "#281900",
+                        "primary-container": "#5476a6",
+                        "on-primary-fixed-variant": "#234875",
+                        "secondary": "#3e6658",
+                        "inverse-on-surface": "#f1f0f5",
+                        "primary-fixed-dim": "#a6c8fd",
+                        "inverse-primary": "#a6c8fd",
+                        "tertiary-container": "#956e27",
+                        "error": "#ba1a1a",
+                        "primary": "#3a5d8b",
+                        "tertiary": "#79550e",
+                        "tertiary-fixed": "#ffdeac",
+                        "background": "#faf9fd",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1f",
+                        "surface-dim": "#dad9de",
+                        "surface": "#FFFFFF",
+                        "on-primary-fixed": "#001c3a",
+                        "on-tertiary-container": "#fffbff",
+                        "text-muted": "#636E72",
+                        "text": "#2D3436",
+                        "success": "#7FB069",
+                        "on-secondary-fixed": "#002117",
+                        "danger": "#D66853",
+                        "focus": "#4A90E2",
+                        "surface-tint": "#3d608e",
+                        "on-surface-variant": "#43474f",
+                        "on-surface": "#1a1c1f",
+                        "outline-variant": "#c3c6d0",
+                        "surface-variant": "#e2e2e6",
+                        "outline": "#737780",
+                        "bg": "#F7F9F9",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f4f3f7",
+                        "secondary-container": "#c0ecda",
+                        "on-secondary-container": "#446c5e",
+                        "surface-bright": "#faf9fd",
+                        "secondary-fixed": "#c0ecda",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f3034",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e2e6",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#efbf70",
+                        "secondary-fixed-dim": "#a5d0be",
+                        "on-secondary-fixed-variant": "#264e41",
+                        "border": "#DCDFE6",
+                        "warning": "#E6A23C",
+                        "surface-container-high": "#e8e8ec"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "12": "3rem",
+                        "3": "0.75rem",
+                        "8": "2rem",
+                        "1": "0.25rem",
+                        "4": "1rem",
+                        "6": "1.5rem",
+                        "2": "0.5rem",
+                        "16": "4rem",
+                        "24": "6rem"
+                    },
+                    "fontFamily": {
+                        "display-user": ["Rubik"],
+                        "caption": ["Rubik"],
+                        "body": ["Rubik"],
+                        "subheading": ["Rubik"],
+                        "heading-caregiver": ["Rubik"]
+                    },
+                    "fontSize": {
+                        "display-user": ["2.6rem", { "lineHeight": "1.15", "fontWeight": "500" }],
+                        "caption": ["0.9rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body": ["1.125rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "subheading": ["1.4rem", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "heading-caregiver": ["1.9rem", { "lineHeight": "1.2", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Rubik', sans-serif; }
+        
+        /* Subtle continuous pulse for affordable rewards */
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .affordable-reward:hover {
+            animation: subtle-pulse 2s infinite ease-in-out;
+        }
+
+        /* Press animation for tiles */
+        .tile-press:active {
+            transform: scale(0.96);
+            transition: transform 0.1s;
+        }
+        
+        /* Dimmed lock state */
+        .locked-overlay {
+            background-color: rgba(255,255,255,0.7);
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen text-on-background flex flex-col" data-mode="user">
+<!-- TopAppBar -->
+<header aria-label="Main Navigation" class="bg-surface dark:bg-surface-dim shadow-sm docked full-width top-0 z-10 flex flex-row justify-between items-center w-full px-6 py-4">
+<!-- Leading Action (Exit/Back) -->
+<button aria-label="יציאה" class="w-12 h-12 flex items-center justify-center rounded-full text-primary hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-3xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Brand/Child Name -->
+<div class="text-center">
+<h1 class="font-display-user text-display-user text-primary dark:text-primary-fixed-dim">נועה</h1>
+</div>
+<!-- Trailing Action (Tokens) -->
+<div class="flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed px-4 py-2 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-2xl text-tertiary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-subheading text-subheading font-bold">12</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col p-8 lg:p-12 max-w-6xl mx-auto w-full">
+<!-- Tabs -->
+<nav aria-label="Tab Navigation" class="flex justify-center gap-4 mb-8">
+<button class="px-8 py-4 rounded-full font-subheading text-subheading bg-surface text-on-surface-variant shadow-sm hover:bg-surface-container-high transition-colors active:scale-95 duration-200 tile-press">
+                כללים
+            </button>
+<button class="px-8 py-4 rounded-full font-subheading text-subheading font-bold bg-primary-container text-on-primary-container shadow-md active:scale-95 transition-transform duration-200 tile-press">
+                חנות הפרסים
+            </button>
+</nav>
+<!-- Reward Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full pb-24">
+<!-- Reward 1: Affordable -->
+<button class="bg-surface rounded-3xl shadow-sm border-2 border-transparent hover:border-primary-fixed hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden tile-press affordable-reward outline-none focus:ring-4 focus:ring-focus group">
+<div class="h-40 w-full relative bg-surface-container-low flex items-center justify-center p-4">
+<img class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" data-alt="A bright, colorful vector illustration of a red bicycle on a soft pastel background. The style is simple, playful, and minimalist, designed for children. High key lighting, cheerful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAskPTP7jUSCvSVO2uwH-BXngs-v1koNwb8Xl8lGZJIvE7cu76IN-2A554JEEaygHJCAM-3RNxNqnbB53JHbekTZ4Ji1kN-HTz4o-SGB9CGv_g2StydKnfbpqt2AnuqaJQkIupFYZ8KPryXc-Ey2DZ2JVy9_F3JuWMoGyIb1NNruQ_0zninWhVmZRnX-HpngfHPiO6hMAr1Y1T9Mju-pA-EO6-T_gtqcAlZ8L-jvUOVuceBOvXvnihlhg">
+</div>
+<div class="p-4 flex flex-col items-center w-full gap-2 bg-surface-bright">
+<span class="font-subheading text-subheading text-on-surface text-center">אופניים</span>
+<div class="flex items-center gap-1 bg-surface-container px-4 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body text-body font-bold text-on-surface">5</span>
+</div>
+</div>
+</button>
+<!-- Reward 2: Affordable -->
+<button class="bg-surface rounded-3xl shadow-sm border-2 border-transparent hover:border-primary-fixed hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden tile-press affordable-reward outline-none focus:ring-4 focus:ring-focus group">
+<div class="h-40 w-full relative bg-surface-container-low flex items-center justify-center p-4">
+<img class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" data-alt="A bright, colorful vector illustration of an ice cream cone with colorful sprinkles on a soft pastel background. The style is simple, playful, and minimalist, designed for children. High key lighting, cheerful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkyq_vQ4j88ktZZRNljho-MgVrk5qQuyjATNxsgYgB62FAlhb5Co_Tfkn88Se0dZiTN1Bb_4N4B0T8-a3uigup5RIJsw0LtUdMQLj4InozHxLIZQXCthSxgN6NjINtoDCCie0vak59q6bwpZ6klgZagKQfeZXdP-5l8erEFo9yv8ughPPU0u__VCdDlVipvsFrU3qeCH1usrqZFPmOloD99N8UAUesxTcROM5L04P8BEsEPeYS_9DIFQ">
+</div>
+<div class="p-4 flex flex-col items-center w-full gap-2 bg-surface-bright">
+<span class="font-subheading text-subheading text-on-surface text-center">גלידה</span>
+<div class="flex items-center gap-1 bg-surface-container px-4 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body text-body font-bold text-on-surface">3</span>
+</div>
+</div>
+</button>
+<!-- Reward 3: Affordable -->
+<button class="bg-surface rounded-3xl shadow-sm border-2 border-transparent hover:border-primary-fixed hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden tile-press affordable-reward outline-none focus:ring-4 focus:ring-focus group">
+<div class="h-40 w-full relative bg-surface-container-low flex items-center justify-center p-4">
+<img class="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" data-alt="A bright, colorful vector illustration of a puzzle box on a soft pastel background. The style is simple, playful, and minimalist, designed for children. High key lighting, cheerful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSxSRbuIW-6rkVyryHm-dz4056tatmuiqwDJ7UKHUGIa2mqiOUnYDq3BwRUxJc0NN1WXQ3G32YUpiVWqWEyNthVwS5TPAHq_158DbRRfIswkrjlLlDV2q_19-VBQHeOpzIT63ga77g3V6trl4A7dztX_v16SSYcs0BArHRjj4yPSc8SlKQuH1jf5l3WqdWWz5EbcuCznhAhj8e2oj1qZ7U33mvatp_oHR3GuqG2KUqWYru1MSn8AYNeQ">
+</div>
+<div class="p-4 flex flex-col items-center w-full gap-2 bg-surface-bright">
+<span class="font-subheading text-subheading text-on-surface text-center">פאזל</span>
+<div class="flex items-center gap-1 bg-surface-container px-4 py-1 rounded-full">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body text-body font-bold text-on-surface">10</span>
+</div>
+</div>
+</button>
+<!-- Reward 4: Locked (Cannot afford) -->
+<button class="bg-surface rounded-3xl shadow-sm border-2 border-transparent relative flex flex-col overflow-hidden opacity-75 cursor-not-allowed group">
+<div class="absolute inset-0 locked-overlay z-10 flex flex-col items-center justify-center gap-2">
+<div class="bg-surface-variant p-3 rounded-full">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="h-40 w-full relative bg-surface-container-low flex items-center justify-center p-4 grayscale opacity-50">
+<img class="w-full h-full object-contain drop-shadow-md" data-alt="A bright, colorful vector illustration of a video game controller on a soft pastel background. The style is simple, playful, and minimalist, designed for children. High key lighting, cheerful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6FtLhrmybHz61ska2mNGcSqZxqO2xD_dlQiK0EC9QnrWm5FtNZmIAtNvECEBWKcuePb6z9QVqbd-y9FIgkLdtkJRx-Z0NcO8EZt3WUMERBzLlbzI7PVqJS-Ym3PIREbSpnfcronaGAaw5mLtU4TVOXHFewrD5gM9JDOY4Ki9oiKTnx70PxXkC1phIIYVlrzspSCXXZZJNSK0txbN11edzHLDVJ1xaMiVhFHyV6kxdUV96M2iXkS8Eww">
+</div>
+<div class="p-4 flex flex-col items-center w-full gap-2 bg-surface-bright grayscale">
+<span class="font-subheading text-subheading text-outline text-center">משחק וידאו</span>
+<div class="flex items-center gap-1 bg-surface-container px-4 py-1 rounded-full">
+<span class="material-symbols-outlined text-outline text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body text-body font-bold text-outline">15</span>
+</div>
+</div>
+</button>
+<!-- Reward 5: Locked (Cannot afford) -->
+<button class="bg-surface rounded-3xl shadow-sm border-2 border-transparent relative flex flex-col overflow-hidden opacity-75 cursor-not-allowed group">
+<div class="absolute inset-0 locked-overlay z-10 flex flex-col items-center justify-center gap-2">
+<div class="bg-surface-variant p-3 rounded-full">
+<span class="material-symbols-outlined text-outline text-3xl" data-icon="lock">lock</span>
+</div>
+</div>
+<div class="h-40 w-full relative bg-surface-container-low flex items-center justify-center p-4 grayscale opacity-50">
+<img class="w-full h-full object-contain drop-shadow-md" data-alt="A bright, colorful vector illustration of a trip to the zoo, showing a stylized lion, on a soft pastel background. The style is simple, playful, and minimalist, designed for children. High key lighting, cheerful mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl3H7em5_eI_c-LsTqf6DOYPN6NMjMwFYsPWS6cdrcupfpl7mWuJl5TJapvtlfCOJcVN7dkrWOZ61HfEWEIcUOquYswWTVBg_cgQPPV1DpyXDMBh6HJYblYTJPm7As4VMGN7-WVWfdxi0VTSpMZmQPbVdIkjA5GVbWW_rQ0otlBD6iHqGE3lIY771gaijqwp8ulKbMT8_gGeDTOOvKBYT0v99zQGX0f3ci6pYSlDnM_AW-mf5jZvSrgg">
+</div>
+<div class="p-4 flex flex-col items-center w-full gap-2 bg-surface-bright grayscale">
+<span class="font-subheading text-subheading text-outline text-center">ביקור בגן חיות</span>
+<div class="flex items-center gap-1 bg-surface-container px-4 py-1 rounded-full">
+<span class="material-symbols-outlined text-outline text-xl" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body text-body font-bold text-outline">20</span>
+</div>
+</div>
+</button>
+</div>
+</main>
+</body></html>

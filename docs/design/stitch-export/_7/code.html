@@ -1,0 +1,195 @@
+<!DOCTYPE html><html class="light" dir="rtl" lang="he"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, orientation=landscape" name="viewport">
+<title>עריכת סדר כרטיסיות</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "text": "#2D3436",
+                        "warning": "#E6A23C",
+                        "background": "#faf9fd",
+                        "text-muted": "#636E72",
+                        "on-primary-fixed": "#001c3a",
+                        "surface-container-highest": "#e2e2e6",
+                        "inverse-primary": "#a6c8fd",
+                        "on-secondary-fixed": "#002117",
+                        "on-secondary-container": "#446c5e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "primary-fixed": "#d4e3ff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#a5d0be",
+                        "primary-container": "#5476a6",
+                        "primary": "#3a5d8b",
+                        "surface-container": "#eeedf2",
+                        "surface-bright": "#faf9fd",
+                        "on-surface": "#1a1c1f",
+                        "bg": "#F7F9F9",
+                        "secondary": "#3e6658",
+                        "on-secondary-fixed-variant": "#264e41",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "border": "#DCDFE6",
+                        "danger": "#D66853",
+                        "on-background": "#1a1c1f",
+                        "success": "#7FB069",
+                        "on-tertiary-fixed": "#281900",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f1f0f5",
+                        "surface": "#FFFFFF",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#3d608e",
+                        "tertiary-container": "#956e27",
+                        "surface-variant": "#e2e2e6",
+                        "tertiary-fixed": "#ffdeac",
+                        "primary-fixed-dim": "#a6c8fd",
+                        "secondary-container": "#c0ecda",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c3c6d0",
+                        "inverse-surface": "#2f3034",
+                        "on-primary-container": "#fdfcff",
+                        "tertiary": "#79550e",
+                        "secondary-fixed": "#c0ecda",
+                        "surface-dim": "#dad9de",
+                        "focus": "#4A90E2",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474f",
+                        "outline": "#737780",
+                        "surface-container-high": "#e8e8ec",
+                        "tertiary-fixed-dim": "#efbf70",
+                        "surface-container-low": "#f4f3f7",
+                        "on-primary-fixed-variant": "#234875"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "1": "0.25rem",
+                        "2": "0.5rem",
+                        "3": "0.75rem",
+                        "4": "1rem",
+                        "6": "1.5rem",
+                        "8": "2rem",
+                        "12": "3rem"
+                    },
+                    "fontFamily": {
+                        "body": ["Rubik"],
+                        "display-user": ["Rubik"],
+                        "subheading": ["Rubik"],
+                        "caption": ["Rubik"],
+                        "heading-caregiver": ["Rubik"]
+                    },
+                    "fontSize": {
+                        "body": ["1.125rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "display-user": ["2.6rem", { "lineHeight": "1.15", "fontWeight": "500" }],
+                        "subheading": ["1.4rem", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "caption": ["0.9rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "heading-caregiver": ["1.9rem", { "lineHeight": "1.2", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Rubik', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col" data-mode="caregiver">
+<!-- TopAppBar equivalent for Editor -->
+<header class="fixed top-0 w-full h-16 bg-surface-bright shadow-sm flex flex-row-reverse justify-between items-center px-6 z-50">
+<!-- Right side (Cancel) -->
+<button class="flex items-center gap-2 text-on-surface-variant hover:bg-surface-container rounded-lg px-4 py-2 transition-transform duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+<span class="font-subheading text-subheading">ביטול</span>
+</button>
+<!-- Center (Title) -->
+<h1 class="font-heading-caregiver text-heading-caregiver text-primary font-bold">עריכת לוח תקשורת - נועה</h1>
+<!-- Left side (Save) -->
+<button class="flex items-center gap-2 bg-primary text-on-primary rounded-lg px-6 py-2 transition-transform duration-150 active:scale-95 shadow-sm hover:brightness-95">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+<span class="font-subheading text-subheading">שמירת סדר</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-16 p-8 relative">
+<div class="max-w-6xl mx-auto flex flex-col items-center">
+<!-- Instructions -->
+<p class="font-body text-body text-text-muted mb-8 bg-surface-container-low px-6 py-3 rounded-full flex items-center gap-2 shadow-sm"><span class="material-symbols-outlined text-outline">info</span>
+<span>גררו כרטיסיות לשינוי סדר או לתוך תיקיות. לחצו על תיקייה לעריכת התוכן שלה.</span></p>
+<!-- Editor Grid -->
+<div class="grid grid-cols-4 lg:grid-cols-6 gap-6 w-full relative"><div class="bg-surface-variant rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-pointer hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2">arrow_back</span>
+<span class="font-subheading text-subheading text-on-surface-variant">חזרה</span>
+</div><div class="bg-surface-container-low rounded-xl p-4 shadow-sm border border-dashed border-primary flex flex-col items-center justify-center aspect-square relative cursor-pointer hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-primary mb-2 group-hover:scale-110 transition-transform">create_new_folder</span>
+<span class="font-subheading text-subheading text-primary font-bold">תיקייה חדשה</span>
+</div>
+<!-- Tile 1 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-primary mb-2" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-subheading text-subheading text-on-surface">עוד</span>
+</div>
+<!-- Tile 2 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-secondary mb-2" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="font-subheading text-subheading text-on-surface">בבקשה</span>
+</div>
+<!-- Tile 3 (Ghost Placeholder - where the dragged tile came from) -->
+<div class="rounded-xl p-4 border-2 border-dashed border-outline-variant bg-surface-container-low opacity-50 flex flex-col items-center justify-center aspect-square relative">
+</div>
+<!-- Tile 4 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-danger mb-2" style="font-variation-settings: 'FILL' 1;">cancel</span>
+<span class="font-subheading text-subheading text-on-surface">לא</span>
+</div>
+<!-- Tile 5 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-primary-container mb-2" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="font-subheading text-subheading text-on-surface">מים</span>
+</div>
+<!-- Tile 6 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border-2 border-tertiary/30 flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-tertiary-container/10 transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined absolute top-2 left-2 text-tertiary text-xl">folder</span>
+<span class="material-symbols-outlined text-4xl text-tertiary mb-2" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="font-subheading text-subheading text-on-surface font-bold">אוכל</span>
+<div class="absolute bottom-2 w-1/2 h-1 bg-tertiary/20 rounded-full"></div>
+</div>
+<!-- Tile 7 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-warning mb-2" style="font-variation-settings: 'FILL' 1;">sentiment_satisfied</span>
+<span class="font-subheading text-subheading text-on-surface">שמח</span>
+</div>
+<!-- Tile 8 -->
+<div class="bg-surface rounded-xl p-4 shadow-sm border border-border flex flex-col items-center justify-center aspect-square relative cursor-move hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined absolute top-2 right-2 text-outline-variant text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-primary-fixed-dim mb-2" style="font-variation-settings: 'FILL' 1;">bed</span>
+<span class="font-subheading text-subheading text-on-surface">לישון</span>
+</div>
+</div>
+<!-- The Dragged Tile (Floating State) -->
+<!-- Positioned absolutely to simulate drag-in-progress, slightly scaled up, elevated, rotated slightly, and ringed with focus color -->
+<div class="absolute top-[30%] left-[45%] w-32 h-32 bg-surface rounded-xl p-4 shadow-2xl border border-focus ring-2 ring-focus ring-offset-2 flex flex-col items-center justify-center z-50 transform scale-105 rotate-3 opacity-95 cursor-grabbing">
+<span class="material-symbols-outlined absolute top-2 right-2 text-focus text-sm">drag_indicator</span>
+<span class="material-symbols-outlined text-4xl text-success mb-2" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-subheading text-subheading text-on-surface">כן</span>
+</div>
+</div>
+</main>
+</body></html>

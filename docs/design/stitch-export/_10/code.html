@@ -1,0 +1,274 @@
+<!DOCTYPE html><html dir="rtl" lang="he" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>לוח תקשורת - אוכל - צהריים</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#c0ecda",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c3c6d0",
+                        "warning": "#E6A23C",
+                        "inverse-on-surface": "#f1f0f5",
+                        "bg": "#F7F9F9",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#3d608e",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#5476a6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-fixed-variant": "#264e41",
+                        "on-primary-fixed": "#001c3a",
+                        "on-surface": "#1a1c1f",
+                        "surface-container": "#eeedf2",
+                        "secondary": "#3e6658",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1a1c1f",
+                        "tertiary-fixed-dim": "#efbf70",
+                        "on-secondary-fixed": "#002117",
+                        "surface-container-high": "#e8e8ec",
+                        "focus": "#4A90E2",
+                        "secondary-fixed-dim": "#a5d0be",
+                        "on-primary-container": "#fdfcff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a6c8fd",
+                        "danger": "#D66853",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "surface-bright": "#faf9fd",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2f3034",
+                        "on-tertiary-fixed": "#281900",
+                        "on-primary-fixed-variant": "#234875",
+                        "text": "#2D3436",
+                        "tertiary-container": "#956e27",
+                        "on-secondary-container": "#446c5e",
+                        "primary-fixed": "#d4e3ff",
+                        "background": "#faf9fd",
+                        "surface": "#FFFFFF",
+                        "error": "#ba1a1a",
+                        "primary": "#3a5d8b",
+                        "inverse-primary": "#a6c8fd",
+                        "tertiary": "#79550e",
+                        "outline": "#737780",
+                        "surface-variant": "#e2e2e6",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-fixed": "#ffdeac",
+                        "success": "#7FB069",
+                        "secondary-container": "#c0ecda",
+                        "surface-dim": "#dad9de",
+                        "border": "#DCDFE6",
+                        "surface-container-highest": "#e2e2e6",
+                        "text-muted": "#636E72",
+                        "surface-container-low": "#f4f3f7",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "1": "0.25rem",
+                        "8": "2rem",
+                        "3": "0.75rem",
+                        "6": "1.5rem",
+                        "4": "1rem",
+                        "12": "3rem",
+                        "2": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "subheading": ["Rubik"],
+                        "caption": ["Rubik"],
+                        "display-user": ["Rubik"],
+                        "heading-caregiver": ["Rubik"],
+                        "body": ["Rubik"]
+                    },
+                    "fontSize": {
+                        "subheading": ["1.4rem", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "caption": ["0.9rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "display-user": ["2.6rem", { "lineHeight": "1.15", "fontWeight": "500" }],
+                        "heading-caregiver": ["1.9rem", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body": ["1.125rem", { "lineHeight": "1.4", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        body {
+            background-color: var(--color-bg);
+            /* Prevent pull-to-refresh on mobile for AAC users */
+            overscroll-behavior-y: none;
+        }
+        /* Sub-category active styling */
+        .sub-active {
+            border-bottom: 4px solid #3a5d8b; /* primary color */
+            color: #3a5d8b;
+        }
+    </style>
+</head>
+<body class="bg-bg text-on-background font-body min-h-screen flex flex-col md:flex-row-reverse" data-mode="user">
+<!-- JSON: TopAppBar -->
+<header class="bg-surface shadow-sm docked full-width top-0 z-50 flex flex-row-reverse justify-between items-center w-full px-6 py-4 md:hidden">
+<div class="text-heading-caregiver font-heading-caregiver text-primary font-bold">
+            נועה
+        </div>
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl" data-icon="exit_to_app">exit_to_app</span>
+</div>
+</header>
+<!-- JSON: SideNavBar (Visible on Web) -->
+<nav class="hidden md:flex bg-surface-container-low border-l border-outline-variant fixed right-0 top-0 h-full flex-col pt-20 z-40 w-64 px-4 py-8">
+<div class="mb-8">
+<div class="text-heading-caregiver font-heading-caregiver text-primary text-center font-bold mb-2">נועה</div>
+<div class="text-subheading font-subheading text-on-surface text-center opacity-70">קטגוריות</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-subheading text-subheading">בית</span>
+</a>
+<a class="bg-primary-container text-on-primary-container rounded-xl font-bold flex items-center gap-4 px-4 py-3 scale-98 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-subheading text-subheading">אוכל</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+<span class="font-subheading text-subheading">רגשות</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined" data-icon="videogame_asset">videogame_asset</span><span class="font-subheading text-subheading">משחק</span></a>
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-subheading text-subheading">אנשים</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col md:mr-64 pb-24 md:pb-0 pt-20 md:pt-8 px-4 md:px-12 max-w-7xl mx-auto w-full">
+<!-- Sentence Bar (Elevated) -->
+<section class="bg-surface rounded-xl shadow-md mb-8 p-4 min-h-[100px] flex items-center border border-surface-variant">
+<!-- Selected items would appear here. Placeholder for "I want lunch" -->
+<div class="flex gap-4 w-full overflow-x-auto p-2">
+<div class="flex flex-col items-center justify-center bg-surface-container-low rounded-lg p-3 w-24 h-24 border border-border shadow-sm shrink-0">
+<span class="material-symbols-outlined text-4xl text-primary mb-1">person</span>
+<span class="font-body text-body text-center leading-tight">אני</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-surface-container-low rounded-lg p-3 w-24 h-24 border border-border shadow-sm shrink-0">
+<span class="material-symbols-outlined text-4xl text-primary mb-1">favorite</span>
+<span class="font-body text-body text-center leading-tight">רוצה</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg p-3 w-24 h-24 shadow-sm shrink-0">
+<span class="material-symbols-outlined text-4xl mb-1">restaurant</span>
+<span class="font-body text-body text-center leading-tight">לאכול</span>
+</div>
+</div>
+<div class="ml-auto pl-4 border-l border-border flex flex-col gap-2">
+<button class="bg-secondary text-on-secondary p-3 rounded-full shadow-sm hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+<button class="bg-surface-variant text-on-surface-variant p-3 rounded-full shadow-sm hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">backspace</span>
+</button>
+</div>
+</section>
+<!-- Sub-category Tabs (Lunch active) -->
+<div class="flex border-b border-border mb-8 overflow-x-auto hide-scrollbar">
+<button class="px-6 py-3 font-subheading text-subheading text-on-surface-variant whitespace-nowrap hover:bg-surface-container-low transition-colors">
+                ארוחת בוקר
+            </button>
+<button class="px-6 py-3 font-subheading text-subheading text-primary sub-active whitespace-nowrap font-bold">
+                ארוחת צהריים
+            </button>
+<button class="px-6 py-3 font-subheading text-subheading text-on-surface-variant whitespace-nowrap hover:bg-surface-container-low transition-colors">
+                ארוחת ערב
+            </button>
+<button class="px-6 py-3 font-subheading text-subheading text-on-surface-variant whitespace-nowrap hover:bg-surface-container-low transition-colors">
+                חטיפים
+            </button>
+</div>
+<!-- Food Cards Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<button class="bg-surface rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all active:scale-95 min-h-[160px]">
+<div class="w-20 h-20 rounded-full bg-secondary-fixed flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-5xl text-on-secondary-fixed">soup_kitchen</span>
+</div>
+<span class="font-display-user text-display-user text-on-surface">מרק</span>
+</button>
+<!-- Card 2 -->
+<button class="bg-surface rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all active:scale-95 min-h-[160px]">
+<div class="w-20 h-20 rounded-full bg-tertiary-fixed flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-5xl text-on-tertiary-fixed">rice_bowl</span>
+</div>
+<span class="font-display-user text-display-user text-on-surface">אורז</span>
+</button>
+<!-- Card 3 -->
+<button class="bg-surface rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all active:scale-95 min-h-[160px]">
+<div class="w-20 h-20 rounded-full bg-error-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-5xl text-on-error-container">bakery_dining</span>
+</div>
+<span class="font-display-user text-display-user text-on-surface">קציצות</span>
+</button>
+<!-- Card 4 -->
+<button class="bg-surface rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all active:scale-95 min-h-[160px]">
+<div class="w-20 h-20 rounded-full bg-primary-fixed flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-5xl text-on-primary-fixed">ramen_dining</span>
+</div>
+<span class="font-display-user text-display-user text-on-surface">פסטה</span>
+</button>
+<!-- Card 5 -->
+<button class="bg-surface rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all active:scale-95 min-h-[160px]">
+<div class="w-20 h-20 rounded-full bg-success/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-5xl text-success">eco</span>
+</div>
+<span class="font-display-user text-display-user text-on-surface">סלט</span>
+</button>
+<!-- Card 6 -->
+<button class="bg-surface rounded-2xl shadow-sm border border-surface-variant p-6 flex flex-col items-center justify-center gap-4 hover:shadow-md hover:-translate-y-1 transition-all active:scale-95 min-h-[160px]">
+<div class="w-20 h-20 rounded-full bg-tertiary-fixed-dim/40 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-5xl text-tertiary">kebab_dining</span>
+</div>
+<span class="font-display-user text-display-user text-on-surface">עוף</span>
+</button>
+</div>
+</main>
+<!-- JSON: BottomNavBar (Visible on Mobile) -->
+<nav class="md:hidden bg-surface shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="backspace">backspace</span>
+<span class="font-caption text-caption">מחק הכל</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl p-3 scale-90 transition-transform duration-100">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="volume_up">volume_up</span>
+<span class="font-caption text-caption font-bold">השמע</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="undo">undo</span>
+<span class="font-caption text-caption">חזור</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="settings">settings</span>
+<span class="font-caption text-caption">הגדרות</span>
+</button>
+</nav>
+<style>
+        /* Helper to hide scrollbar but keep functionality for horizontal scroll areas */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

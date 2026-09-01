@@ -13,6 +13,13 @@ accessible; the Stitch visual pass replaces these values later").
 **Workflow:** generate screens in Stitch → export → apply the three passes in
 §6 → the palette lands in `tokens.css`, the layout in `app.css`.
 
+> **Status:** the export landed — 14 screens, `docs/design/stitch-export/`
+> (that folder's README maps each one to a screen ID below and to what it did
+> and didn't change). The foundation pass is done: `tokens.css` corrected
+> against the real values, the icon set and `dialog` component built. A
+> per-screen layout pass for the screens the export didn't cover is still
+> open — see `docs/launch-checklist.md`.
+
 ---
 
 ## §0 — How to use this file

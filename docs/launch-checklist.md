@@ -39,9 +39,17 @@ families. Grouped by owner.
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
 - [ ] Replace placeholder assets: symbol library (licensed set — Mulberry
       Symbols / CC BY-SA recommended), calming audio loops, PWA icons
-- [ ] Final visual styling — run the Google Stitch brief (`docs/design.md`),
-      apply the three-pass pipeline, then the follow-on code work it lists
-      (dialog component, unified PIN component, icon set, drop dead `router.js`)
+- [ ] Final visual styling — the Stitch export landed
+      (`docs/design/stitch-export/`) and the foundation pass is done: tokens,
+      shared components (buttons/badges/tabs/inputs), the icon sprite (24
+      emoji controls → SVG, `scripts/build_icons.py`), and the `dialog`
+      component (native `<dialog>`, replaces all 6 `confirm()`/`prompt()`
+      sites). Still open: a per-screen layout pass for the ~24 screens the
+      export didn't cover (home, dashboard, auth, PIN pad, calming, stories,
+      reading/writing — see the export README's "not exported" list) and the
+      export's internal inconsistencies flagged in that README's "watch-outs"
+      section; the unified `pin` component (keypad + inline); drop dead
+      `router.js`.
 
 ## Product / ops — outside code
 

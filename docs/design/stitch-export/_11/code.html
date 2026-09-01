@@ -1,0 +1,256 @@
+<!DOCTYPE html><html dir="rtl" lang="he" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>לוח תקשורת - אנשים</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f4f3f7",
+                        "text-muted": "#636E72",
+                        "outline-variant": "#c3c6d0",
+                        "surface-tint": "#3d608e",
+                        "text": "#2D3436",
+                        "on-primary-fixed-variant": "#234875",
+                        "primary-fixed-dim": "#a6c8fd",
+                        "tertiary-container": "#956e27",
+                        "surface-container-highest": "#e2e2e6",
+                        "border": "#DCDFE6",
+                        "danger": "#D66853",
+                        "secondary-fixed-dim": "#a5d0be",
+                        "background": "#faf9fd",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001c3a",
+                        "on-tertiary-fixed": "#281900",
+                        "tertiary-fixed": "#ffdeac",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary-fixed-variant": "#264e41",
+                        "surface-bright": "#faf9fd",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dad9de",
+                        "on-secondary-fixed": "#002117",
+                        "surface-container": "#eeedf2",
+                        "inverse-primary": "#a6c8fd",
+                        "inverse-surface": "#2f3034",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#79550e",
+                        "secondary": "#3e6658",
+                        "on-surface": "#1a1c1f",
+                        "bg": "#F7F9F9",
+                        "surface-variant": "#e2e2e6",
+                        "on-tertiary-container": "#fffbff",
+                        "warning": "#E6A23C",
+                        "error": "#ba1a1a",
+                        "success": "#7FB069",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f1f0f5",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#c0ecda",
+                        "surface": "#FFFFFF",
+                        "on-background": "#1a1c1f",
+                        "primary-container": "#5476a6",
+                        "on-secondary-container": "#446c5e",
+                        "tertiary-fixed-dim": "#efbf70",
+                        "outline": "#737780",
+                        "primary-fixed": "#d4e3ff",
+                        "on-surface-variant": "#43474f",
+                        "surface-container-high": "#e8e8ec",
+                        "focus": "#4A90E2",
+                        "secondary-container": "#c0ecda",
+                        "primary": "#3a5d8b",
+                        "on-primary-container": "#fdfcff",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "8": "2rem",
+                        "3": "0.75rem",
+                        "6": "1.5rem",
+                        "1": "0.25rem",
+                        "2": "0.5rem",
+                        "4": "1rem",
+                        "12": "3rem"
+                    },
+                    "fontFamily": {
+                        "caption": ["Rubik", "sans-serif"],
+                        "body": ["Rubik", "sans-serif"],
+                        "subheading": ["Rubik", "sans-serif"],
+                        "display-user": ["Rubik", "sans-serif"],
+                        "heading-caregiver": ["Rubik", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "caption": ["0.9rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "body": ["1.125rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "subheading": ["1.4rem", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-user": ["2.6rem", { "lineHeight": "1.15", "fontWeight": "500" }],
+                        "heading-caregiver": ["1.9rem", { "lineHeight": "1.2", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Utilities for Touch & Tactile Feel */
+        .touch-target {
+            min-height: 60px;
+            min-width: 60px;
+        }
+        
+        .tile-press {
+            transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .tile-press:active {
+            transform: scale(0.96);
+            box-shadow: none;
+        }
+        
+        /* Sentence Bar animation space */
+        .chip-enter {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body class="bg-bg text-on-background min-h-screen flex flex-col" data-mode="user">
+<!-- TopAppBar -->
+<header class="flex flex-row-reverse justify-between items-center w-full px-6 py-4 z-50 bg-surface shadow-sm sticky top-0 full-width">
+<!-- Brand / Product Name -->
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">account_circle</span>
+<h1 class="font-heading-caregiver text-heading-caregiver text-primary font-bold">נועה</h1>
+</div>
+<!-- User Requested Centered Element -->
+<div class="font-heading-caregiver text-heading-caregiver text-primary font-bold">
+            לוח תקשורת
+        </div>
+<!-- Trailing Action -->
+<button aria-label="Exit User Mode" class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-primary">exit_to_app</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col md:flex-row pb-24 md:pb-0 pt-4 px-4 md:px-8 gap-6 max-w-7xl mx-auto w-full relative">
+<!-- MAIN CANVAS -->
+<div class="flex-1 flex flex-col gap-6 w-full">
+<!-- SENTENCE BAR (Elevated, Level 2 Shadow) -->
+<div class="bg-surface shadow-md rounded-xl p-4 flex items-center justify-between min-h-[100px] border border-surface-variant relative z-20" id="sentence-bar">
+<!-- Collected Words -->
+<div class="flex items-center gap-3 flex-wrap flex-1 pr-2">
+<div class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-subheading text-subheading shadow-sm flex items-center gap-2">
+<img class="w-8 h-8 object-contain" data-alt="A simple, calming line drawing of a person pointing to themselves, representing the concept 'I' or 'Me'. Soft pastel colors on a pure white background. Minimalist aesthetic suitable for neurodivergent accessibility. Clean edges, no clutter." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+                        אני
+                    </div>
+<div class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-subheading text-subheading shadow-sm flex items-center gap-2">
+<img class="w-8 h-8 object-contain" data-alt="A simple, calming line drawing of hands reaching out gently, representing the concept 'Want'. Soft pastel colors on a pure white background. Minimalist aesthetic, low sensory arousal. Clean edges, highly legible." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+                        רוצה
+                    </div>
+<div class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-subheading text-subheading shadow-sm flex items-center gap-2">
+<img class="w-8 h-8 object-contain" data-alt="A simple, calming line drawing of a spoon and bowl, representing the concept 'To Eat'. Soft pastel colors on a pure white background. Minimalist aesthetic, predictable and safe visual style. High clarity." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+                        לאכול
+                    </div>
+</div>
+<!-- Sentence Actions -->
+<div class="flex items-center gap-2 border-r border-outline-variant pr-4 ml-2">
+<button aria-label="Speak sentence" class="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:scale-95 transition-transform shadow-sm">
+<span class="material-symbols-outlined text-2xl">volume_up</span>
+</button>
+<button aria-label="Backspace" class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center hover:bg-surface-variant transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">backspace</span>
+</button>
+<button aria-label="Clear all" class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center hover:bg-surface-variant transition-colors text-danger">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- SUB-CATEGORY TABS -->
+<div class="flex gap-4 overflow-x-auto pb-2 -mx-2 px-2 scrollbar-hide">
+<button class="px-6 py-3 rounded-full bg-primary text-on-primary font-subheading text-subheading whitespace-nowrap shadow-sm hover:scale-95 transition-transform flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">wb_sunny</span>
+                    ארוחת בוקר
+                </button>
+<button class="px-6 py-3 rounded-full bg-surface text-primary font-subheading text-subheading whitespace-nowrap shadow-sm hover:bg-surface-container-low transition-colors border border-outline-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">light_mode</span>
+                    ארוחת צהריים
+                </button>
+<button class="px-6 py-3 rounded-full bg-surface text-primary font-subheading text-subheading whitespace-nowrap shadow-sm hover:bg-surface-container-low transition-colors border border-outline-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">dark_mode</span>
+                    ארוחת ערב
+                </button>
+</div>
+<!-- AAC TILE GRID (Bento-style layout, high padding, 60x60 min targets) -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-6 flex-1 pb-8">
+<!-- Tile: Bread -->
+<button class="aac-tile bg-surface rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm border border-transparent hover:border-outline-variant min-h-[160px]">
+<div class="w-24 h-24 rounded-xl bg-surface-container-lowest flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A simple, calming illustration of a loaf of sliced bread. Soft, muted warm tones (beiges and light browns) on a pure white background. Minimalist, uncluttered style designed for neurodivergent accessibility. No harsh shadows or bright highlights." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<span class="font-display-user text-display-user text-on-surface">לחם</span>
+</button>
+<!-- Tile: Cheese -->
+<button class="aac-tile bg-surface rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm border border-transparent hover:border-outline-variant min-h-[160px]">
+<div class="w-24 h-24 rounded-xl bg-surface-container-lowest flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A simple, calming illustration of a slice of yellow cheese with small holes. Soft pastel yellow tones on a pure white background. Minimalist, highly legible style, avoiding sensory overload. Flat design with soft rounded edges." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<span class="font-display-user text-display-user text-on-surface">גבינה</span>
+</button>
+<!-- Tile: Egg -->
+<button class="aac-tile bg-surface rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm border border-transparent hover:border-outline-variant min-h-[160px]">
+<div class="w-24 h-24 rounded-xl bg-surface-container-lowest flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A simple, calming illustration of a fried egg. Soft white and pale yellow on a pure white background. Minimalist, tactile vector art style. Clean, predictable, and devoid of distracting background elements or complex textures." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<span class="font-display-user text-display-user text-on-surface">ביצה</span>
+</button>
+<!-- Tile: Vegetables -->
+<button class="aac-tile bg-surface rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm border border-transparent hover:border-outline-variant min-h-[160px]">
+<div class="w-24 h-24 rounded-xl bg-surface-container-lowest flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A simple, calming illustration of a cucumber and a tomato slice. Soft pastel greens and muted reds on a pure white background. Minimalist, non-threatening visual style suitable for a communication board. Clear outlines." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<span class="font-display-user text-display-user text-on-surface">ירקות</span>
+</button>
+<!-- Tile: Cereal -->
+<button class="aac-tile bg-surface rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm border border-transparent hover:border-outline-variant min-h-[160px]">
+<div class="w-24 h-24 rounded-xl bg-surface-container-lowest flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A simple, calming illustration of a bowl of cereal with milk. Soft, muted colors on a pure white background. Minimalist vector graphic designed for clarity and low cognitive load. Gentle, rounded shapes." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<span class="font-display-user text-display-user text-on-surface">דגנים</span>
+</button>
+<!-- Tile: Fruit -->
+<button class="aac-tile bg-surface rounded-2xl p-6 flex flex-col items-center justify-center gap-4 shadow-sm border border-transparent hover:border-outline-variant min-h-[160px]">
+<div class="w-24 h-24 rounded-xl bg-surface-container-lowest flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A simple, calming illustration of a sliced apple and a banana. Soft, subdued reds and yellows on a pure white background. Minimalist, highly recognizable imagery tailored for a pediatric communication app. No visual noise." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg">
+</div>
+<span class="font-display-user text-display-user text-on-surface">פרי</span>
+</button>
+</div>
+</div>
+<!-- SIDE NAVIGATION BAR (Visible on Web/Tablet, executing JSON structure) -->
+<aside class="hidden md:flex fixed right-0 top-0 h-full flex-col pt-20 z-40 bg-surface-container-low dark:bg-surface-container-highest border-l border-outline-variant w-64 shadow-none">
+<div class="p-4 mb-2">
+<h2 class="text-subheading font-subheading text-on-surface dark:text-on-surface-variant px-2">קטגוריות</h2>
+</div>
+<nav class="flex flex-col gap-2 px-3">
+<!-- Home (Inactive) -->
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-subheading text-subheading">בית</span>
+</a>
+<!-- Food (Active - Semantic Match) -->
+<a class="bg-primary-container text-on-primary-container rounded-xl font-bold flex items-center gap-4 px-4 py-3 scale-98 transition-all duration-200" href="#"><span class="material-symbols-outlined">videogame_asset</span><span class="font-subheading text-subheading">משחק</span></a></nav></aside></main></body></html>

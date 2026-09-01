@@ -1,0 +1,291 @@
+<!DOCTYPE html><html dir="rtl" lang="he" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>לוח תקשורת - אוכל - נועה</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#c0ecda",
+                      "on-primary": "#ffffff",
+                      "outline-variant": "#c3c6d0",
+                      "warning": "#E6A23C",
+                      "inverse-on-surface": "#f1f0f5",
+                      "bg": "#F7F9F9",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#3d608e",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#5476a6",
+                      "on-tertiary-container": "#fffbff",
+                      "on-secondary-fixed-variant": "#264e41",
+                      "on-primary-fixed": "#001c3a",
+                      "on-surface": "#1a1c1f",
+                      "surface-container": "#eeedf2",
+                      "secondary": "#3e6658",
+                      "on-error-container": "#93000a",
+                      "on-background": "#1a1c1f",
+                      "tertiary-fixed-dim": "#efbf70",
+                      "on-secondary-fixed": "#002117",
+                      "surface-container-high": "#e8e8ec",
+                      "focus": "#4A90E2",
+                      "secondary-fixed-dim": "#a5d0be",
+                      "on-primary-container": "#fdfcff",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed-dim": "#a6c8fd",
+                      "danger": "#D66853",
+                      "on-tertiary-fixed-variant": "#604100",
+                      "surface-bright": "#faf9fd",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#2f3034",
+                      "on-tertiary-fixed": "#281900",
+                      "on-primary-fixed-variant": "#234875",
+                      "text": "#2D3436",
+                      "tertiary-container": "#956e27",
+                      "on-secondary-container": "#446c5e",
+                      "primary-fixed": "#d4e3ff",
+                      "background": "#faf9fd",
+                      "surface": "#FFFFFF",
+                      "error": "#ba1a1a",
+                      "primary": "#3a5d8b",
+                      "inverse-primary": "#a6c8fd",
+                      "tertiary": "#79550e",
+                      "outline": "#737780",
+                      "surface-variant": "#e2e2e6",
+                      "on-surface-variant": "#43474f",
+                      "tertiary-fixed": "#ffdeac",
+                      "success": "#7FB069",
+                      "secondary-container": "#c0ecda",
+                      "surface-dim": "#dad9de",
+                      "border": "#DCDFE6",
+                      "surface-container-highest": "#e2e2e6",
+                      "text-muted": "#636E72",
+                      "surface-container-low": "#f4f3f7",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "1": "0.25rem",
+                      "8": "2rem",
+                      "3": "0.75rem",
+                      "6": "1.5rem",
+                      "4": "1rem",
+                      "12": "3rem",
+                      "2": "0.5rem"
+              },
+              "fontFamily": {
+                      "subheading": [
+                              "Rubik"
+                      ],
+                      "caption": [
+                              "Rubik"
+                      ],
+                      "display-user": [
+                              "Rubik"
+                      ],
+                      "heading-caregiver": [
+                              "Rubik"
+                      ],
+                      "body": [
+                              "Rubik"
+                      ]
+              },
+              "fontSize": {
+                      "subheading": [
+                              "1.4rem",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "caption": [
+                              "0.9rem",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-user": [
+                              "2.6rem",
+                              {
+                                      "lineHeight": "1.15",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "heading-caregiver": [
+                              "1.9rem",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body": [
+                              "1.125rem",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Rubik', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-bg text-on-background min-h-screen flex flex-col" data-mode="user">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-background shadow-sm flex flex-row-reverse justify-between items-center w-full px-6 py-4 z-50 docked full-width top-0">
+<div class="flex items-center gap-4">
+<span aria-hidden="true" class="material-symbols-outlined text-primary dark:text-primary-fixed text-3xl">dashboard</span>
+<h1 class="text-heading-caregiver font-heading-caregiver text-primary dark:text-primary-fixed font-bold tracking-tight">נועה</h1>
+</div>
+<button aria-label="Exit to App" class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="exit_to_app" data-weight="fill">exit_to_app</span>
+</button>
+</header>
+<div class="flex flex-1 pt-4 pb-24 md:pb-4 overflow-hidden relative">
+<!-- SideNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex bg-surface-container-low dark:bg-surface-container-highest border-l border-outline-variant docked h-full right-0 w-64 fixed right-0 top-0 flex-col pt-20 z-40">
+<div class="px-6 py-4 border-b border-outline-variant/30 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">נ</div>
+<h2 class="text-subheading font-subheading text-on-surface dark:text-on-surface-variant">קטגוריות</h2>
+</div>
+<ul class="flex-1 overflow-y-auto p-4 space-y-2">
+<li class="">
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors w-full text-right font-body text-body" href="#">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill">home</span>
+                        בית
+                    </a>
+</li>
+<li class="">
+<a aria-current="page" class="bg-primary-container text-on-primary-container rounded-xl font-bold flex items-center gap-4 px-4 py-3 hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-all duration-200 transform hover:scale-98 w-full text-right font-body text-body" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant" data-weight="fill">restaurant</span>
+                        אוכל
+                    </a>
+</li>
+<li class="">
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors w-full text-right font-body text-body" href="#">
+<span class="material-symbols-outlined" data-icon="sentiment_satisfied" data-weight="fill">sentiment_satisfied</span>
+                        רגשות
+                    </a>
+</li>
+<li class="">
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors w-full text-right font-body text-body" href="#"><span class="material-symbols-outlined" data-icon="videogame_asset" data-weight="fill">videogame_asset</span>
+                        משחק
+                    </a>
+</li>
+<li class="">
+<a class="text-on-surface-variant flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors w-full text-right font-body text-body" href="#">
+<span class="material-symbols-outlined" data-icon="group" data-weight="fill">group</span>
+                        אנשים
+                    </a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 w-full md:pr-64 px-4 md:px-8 py-4 flex flex-col gap-6 overflow-y-auto">
+<!-- Sentence Bar -->
+<section aria-label="Sentence Bar" class="bg-surface rounded-xl shadow-md p-4 flex items-center gap-4 min-h-[100px] border border-border sticky top-0 z-30">
+<div class="flex-1 flex gap-3 overflow-x-auto p-2" id="sentence-container">
+<!-- Example active tile in sentence bar -->
+<div class="w-20 h-24 bg-surface-container-lowest rounded-lg border border-outline-variant flex flex-col items-center justify-center shrink-0 shadow-sm relative group cursor-grab active:cursor-grabbing">
+<button aria-label="Remove" class="absolute top-1 right-1 text-outline-variant hover:text-error opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<img alt="חביתה" class="w-10 h-10 object-contain mb-2 pointer-events-none" data-alt="A simple, minimalist vector illustration of a sunny side up egg on a white background. The lines are soft and rounded, colors are low saturation yellows and whites. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZvynUzWMX-vnodo3x00rh-ECunrqE4BU8bRmujmgLtjuShMpRWGErP9cDWJLUG4YcxbtN3RwSO-y_AH0GlsRDQB5cSZsgqDsec3P5PJ1qKAjAZyAMaD8qLC1THXbU9fDL41GUt7tqYVciQkQbvsYWvw0qVGjDo96QoNpHFaPgJbyRygRwGS3dLDn4sFcSZlOrT20TBkLdeIxselDwrl1FrrcGdeXwcrSG7oqqzzAmO4vz2smRKMOBbw">
+<span class="font-body text-body text-center leading-tight">חביתה</span>
+</div>
+</div>
+<button aria-label="Speak Sentence" class="bg-primary text-on-primary w-14 h-14 rounded-full flex items-center justify-center shadow-sm hover:scale-95 transition-transform shrink-0">
+<span class="material-symbols-outlined text-3xl" data-icon="volume_up" data-weight="fill">volume_up</span>
+</button>
+</section>
+<!-- Sub-Category Tabs -->
+<nav aria-label="Sub-categories" class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-3 rounded-full bg-surface text-on-surface border border-outline-variant whitespace-nowrap hover:bg-surface-container-low transition-colors font-body text-body shadow-sm active:scale-98">ארוחת בוקר</button>
+<button class="px-6 py-3 rounded-full bg-surface text-on-surface border border-outline-variant whitespace-nowrap hover:bg-surface-container-low transition-colors font-body text-body shadow-sm active:scale-98">ארוחת צהריים</button>
+<button aria-current="true" class="px-6 py-3 rounded-full bg-secondary-container text-on-secondary-container font-bold whitespace-nowrap shadow-sm font-body text-body active:scale-98 ring-2 ring-secondary-container ring-offset-2 ring-offset-bg">ארוחת ערב</button>
+</nav>
+<!-- Grid of Food Cards -->
+<section aria-label="Food Items" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-fr pb-8">
+<!-- Card 1 -->
+<button class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md border border-border hover:border-primary-container transition-all hover:-translate-y-1 active:scale-95 h-48 group">
+<div class="w-24 h-24 mb-4 rounded-xl bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img alt="חביתה" class="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300" data-alt="A simple, minimalist vector illustration of a sunny side up egg in a small pan. The lines are soft and rounded, colors are low saturation yellows and grays. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBMIJNT9RrUI1LE4yjn8WGSuwOMDsgPoHHE8jSxclgbgDEonALHwwn1-SoeQ1RAJkL16g6Kg2m5HRWoS5joMgr-AknSxnGDksrvim3mjea8iRiRVyflMpg3UpgqsydS1xzPVwijuKafiD39ykr1mOiBi-r9mC7VYWih5xBWlJ1h38BdP2jC3Ed_XoiEVvVGeP70Ipk8JjHfglYb7xHpF_94kvHb0AKxKFv-S_NWcD2WK_dk-fKOGDFpQ">
+</div>
+<span class="font-heading-caregiver text-heading-caregiver text-on-surface text-center font-bold">חביתה</span>
+</button>
+<!-- Card 2 -->
+<button class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md border border-border hover:border-primary-container transition-all hover:-translate-y-1 active:scale-95 h-48 group">
+<div class="w-24 h-24 mb-4 rounded-xl bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img alt="טוסט" class="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300" data-alt="A simple, minimalist vector illustration of two slices of toasted bread. The lines are soft and rounded, colors are warm, low saturation browns and tans. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzkE2rUXAX7Fy96Rh2JeJjBMtTAEWGryxlMb65OzYHC9dD_tsOJNfbot_Dtz1DiiQRoyf11xgA8R3OAeUFQdP34hBa3w0BPCuzdviC8olZFO2oSWjEi4ni_SqF742SIOIC_q1Aye7d-gLxSPx46HZfuusWIjG0mS5xlOpeVKMLiIdzHEyF6_P7ci2KjvAJG5nJD6KsLYonOUfYs1yWqVm09HBIezFrivA29uYD-X79bEpWxNhkG0iBTg">
+</div>
+<span class="font-heading-caregiver text-heading-caregiver text-on-surface text-center font-bold">טוסט</span>
+</button>
+<!-- Card 3 -->
+<button class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md border border-border hover:border-primary-container transition-all hover:-translate-y-1 active:scale-95 h-48 group">
+<div class="w-24 h-24 mb-4 rounded-xl bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img alt="יוגורט" class="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300" data-alt="A simple, minimalist vector illustration of a small cup of yogurt with a spoon. The lines are soft and rounded, colors are cool, low saturation whites and light blues. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMH6PgUG14avhD2Xm3uWg6I-DIlEl3qDod_K1AW6AUOvj-fLuWqQlGSKvdlVGvTh394oFfMY5fZKaWHA9IHGBSuXWdRg-aSCAbGlufU260I4Xut0wVSI1i-6hAM7u3Pi5DD2O6n-XIinE3q-g7RKDKQkcR2wIPayiVN2pIWPXz3AkmQ57xRBH8Yaq-If63aIIX0eyUQNjWKHQDUD3uR_KjmQjxmlGXl0362gGenPG5ks6SIld-dqOC6A">
+</div>
+<span class="font-heading-caregiver text-heading-caregiver text-on-surface text-center font-bold">יוגורט</span>
+</button>
+<!-- Card 4 -->
+<button class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md border border-border hover:border-primary-container transition-all hover:-translate-y-1 active:scale-95 h-48 group">
+<div class="w-24 h-24 mb-4 rounded-xl bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img alt="סלט פירות" class="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300" data-alt="A simple, minimalist vector illustration of a bowl of fruit salad featuring soft shapes of bananas and apples. The lines are soft and rounded, colors are muted, low saturation pastels. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdzvwCND-jCDbrEyDp53bOvb5j5WAgd2XJVRQDOCBLgKWGFLPICQUMu1vdiJ2V2KQ1AmGRjay9GKmVNYFcgCNyIrcp0dJJAm8sUDzrT9KX5lWrv_KN4u0PQudrzb2EO2DyKi_nQRnlFKexQDVUuOGpEW0jFOWZFUhUR5F9c-K95eceVKGwi6jzniM12gHO0VqDqChrUYw_eIY9jqX7SVWuKQ2It46HhOABUn1a2RRhxbjlwd96-PtIFw">
+</div>
+<span class="font-heading-caregiver text-heading-caregiver text-on-surface text-center font-bold">סלט פירות</span>
+</button>
+<!-- Card 5 -->
+<button class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md border border-border hover:border-primary-container transition-all hover:-translate-y-1 active:scale-95 h-48 group">
+<div class="w-24 h-24 mb-4 rounded-xl bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img alt="תה" class="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300" data-alt="A simple, minimalist vector illustration of a warm mug of tea with a small tea tag hanging over the edge. The lines are soft and rounded, colors are warm earthy tones. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv7wqZCxyTgDBo2Wf024uj7dVbgTz69kuhOlUVGAhLMR0TNR6DjI8TI5lSRbYIWyqQ4AG3XR5qAjV5pmJzyJJodZBjrjF1P-Y_m2p_rp-GhEHtLu7gN5bwvT2RqRSevdB9K2TGAFXWrZiG4LePP076bAHrRHT4cm-dV8pJSz2aKX7CBSB6Xxake4cd69n_RijM7yrJcH_Uig__CLmg2b9Fl4jfJ293obMd7pvFJwhVa8KAokN7auUfRw">
+</div>
+<span class="font-heading-caregiver text-heading-caregiver text-on-surface text-center font-bold">תה</span>
+</button>
+<!-- Card 6 -->
+<button class="bg-surface rounded-2xl p-4 flex flex-col items-center justify-center shadow-sm hover:shadow-md border border-border hover:border-primary-container transition-all hover:-translate-y-1 active:scale-95 h-48 group">
+<div class="w-24 h-24 mb-4 rounded-xl bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img alt="פשטידה" class="w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300" data-alt="A simple, minimalist vector illustration of a slice of savory pie or quiche. The lines are soft and rounded, colors are muted golden yellows and light greens. Serene Path design system aesthetic, non-distracting, high contrast but calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtH1U16Cmpg0XSJ_bJtLmiehMDl1GX2-SK--JtAi9OgKkRUgOZqUpuGowPy_A6TktFDXNZvLdihpkw4nIyeEaso-TDnmIVJO4rHFwJ1zgS7j9XifXw1At89I1O03IjgZEPsveHa9Rj1q4Ds4hOC4w6AbXH5mz26muhUsR662i8AOrKap5MLEXsCBKrQKblMOyrzO9XyJGFO4a1ahLXUqTGVoKEOc6Lfbl3psOxNd74Y9QjzkyB6vp6tQ">
+</div>
+<span class="font-heading-caregiver text-heading-caregiver text-on-surface text-center font-bold">פשטידה</span>
+</button>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Visible only on Mobile) -->
+<nav class="md:hidden bg-surface dark:bg-on-background shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 docked full-width rounded-t-xl pb-6">
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="backspace" data-weight="fill">backspace</span>
+<span class="font-caption text-caption">מחק הכל</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="volume_up" data-weight="fill">volume_up</span>
+<span class="font-caption text-caption">השמע</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="undo" data-weight="fill">undo</span>
+<span class="font-caption text-caption">חזור</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 hover:bg-surface-container-high rounded-xl transition-colors">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="settings" data-weight="fill">settings</span>
+<span class="font-caption text-caption">הגדרות</span>
+</button>
+</nav>
+
+
+</body></html>
