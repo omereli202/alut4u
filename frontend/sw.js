@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v11"; // v11: per-screen layout pass + 10 more icons
+const SHELL_CACHE = "shell-v12"; // v12: .btn-link chip restyle
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
