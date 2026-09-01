@@ -1,0 +1,7 @@
+Material Symbols (Outlined, weight 400)
+Copyright Google Inc.
+Licensed under the Apache License, Version 2.0:
+https://www.apache.org/licenses/LICENSE-2.0
+
+Fetched as plain SVG via https://github.com/marella/material-symbols (also Apache-2.0) by scripts/build_icons.py. Not modified beyond
+wrapping each glyph in a <symbol> for use with <use href="#name">.

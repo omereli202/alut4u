@@ -2,7 +2,8 @@
 // account data controls, and exit back to User Mode.
 
 import { api } from "../api.js";
-import { el, errText, mount, toast } from "../ui.js";
+import { el, errText, icon, mount, toast } from "../ui.js";
+import { destructiveDialog, typeToConfirmDialog } from "../dialog.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
 import { renderScheduleEditor } from "../modules/schedule/editor.js";
 import { renderRulesEditor } from "../modules/rules/editor.js";
@@ -44,7 +45,12 @@ export async function renderDashboard({ onExit, onLogout }) {
           {},
           "מצב מטפל",
           pending.length
-            ? el("span", { class: "queue-badge", title: "בקשות פרס ממתינות" }, ` ${pending.length} ⭐`)
+            ? el(
+                "span",
+                { class: "queue-badge", title: "בקשות פרס ממתינות" },
+                String(pending.length),
+                icon("star", { size: 16 }),
+              )
             : null,
         ),
         el("button", { class: "btn-link", onclick: exit }, "יציאה ממצב מטפל"),
@@ -142,7 +148,12 @@ export async function renderDashboard({ onExit, onLogout }) {
           {
             class: "btn-link danger",
             onclick: async () => {
-              if (!confirm(`להסתיר את הפרופיל של ${child.name}?`)) return;
+              const ok = await destructiveDialog({
+                title: "הסתרת פרופיל",
+                body: `להסתיר את הפרופיל של ${child.name}?`,
+                confirmLabel: "הסתרה",
+              });
+              if (!ok) return;
               await api.del(`/children/${child.id}`);
               load();
             },
@@ -242,8 +253,12 @@ export async function renderDashboard({ onExit, onLogout }) {
   }
 
   async function deleteAccount() {
-    const answer = prompt('פעולה בלתי הפיכה. הקלד/י DELETE כדי לאשר מחיקה מלאה:');
-    if (answer !== "DELETE") return;
+    const ok = await typeToConfirmDialog({
+      title: "מחיקת חשבון וכל הנתונים",
+      body: "פעולה בלתי הפיכה. הקלד/י DELETE כדי לאשר מחיקה מלאה:",
+      word: "DELETE",
+    });
+    if (!ok) return;
     await api.del("/account", { confirm: "DELETE" });
     location.reload();
   }

@@ -2,7 +2,7 @@
 // then a caregiver marks pass/fail — which awards tokens. No speech recognition.
 
 import { api, ApiError } from "../../api.js";
-import { el, errText, toast } from "../../ui.js";
+import { el, errText, icon, toast } from "../../ui.js";
 
 export function renderReading(host, { childId, onBalance }) {
   let texts = [];
@@ -52,7 +52,11 @@ export function renderReading(host, { childId, onBalance }) {
           el(
             "div",
             { class: "lesson-result" },
-            el("p", { class: "lesson-result-icon" }, v === "pass" ? "🎉" : "💪"),
+            el(
+              "p",
+              { class: "lesson-result-icon" },
+              v === "pass" ? icon("celebration", { size: 64 }) : icon("thumb_up", { size: 64 }),
+            ),
             el("p", {}, v === "pass" ? `כל הכבוד! +${res.tokens_awarded} אסימונים` : "עוד נתרגל יחד"),
             el("button", { class: "btn-link", onclick: list }, "לטקסט נוסף"),
           ),
@@ -107,16 +111,16 @@ export function renderReading(host, { childId, onBalance }) {
           el(
             "div",
             { class: "lesson-top" },
-            el("button", { class: "btn-link", onclick: list }, "→ חזרה"),
+            el("button", { class: "btn-link", onclick: list }, icon("arrow_back", { flip: true }), " חזרה"),
             el("strong", {}, text.title),
           ),
           el("p", { class: "reading-body" }, text.body),
           el(
             "div",
             { class: "lesson-actions" },
-            el("button", { class: "sb-btn speak", onclick: speak }, "🔊 שמיעה"),
-            el("button", { class: "sb-btn", onclick: () => verdict("pass") }, "✓ קרא/ה יפה"),
-            el("button", { class: "sb-btn", onclick: () => verdict("fail") }, "✗ עוד תרגול"),
+            el("button", { class: "sb-btn speak", onclick: speak }, icon("volume_up"), " שמיעה"),
+            el("button", { class: "sb-btn", onclick: () => verdict("pass") }, icon("check"), " קרא/ה יפה"),
+            el("button", { class: "sb-btn", onclick: () => verdict("fail") }, icon("cancel"), " עוד תרגול"),
           ),
         ),
       );

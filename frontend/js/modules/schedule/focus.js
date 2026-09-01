@@ -1,7 +1,7 @@
 // "Where are we now" — one big task at a time with a large checkmark that
 // advances to the next incomplete task after a calm confirmation.
 
-import { el } from "../../ui.js";
+import { el, icon } from "../../ui.js";
 import { audioUrl, toggleItem, visualNode } from "./data.js";
 
 export function renderFocus(host, { items, onList, onExit, onChange }) {
@@ -28,7 +28,7 @@ export function renderFocus(host, { items, onList, onExit, onChange }) {
       return el(
         "div",
         { class: "focus-done" },
-        el("div", { class: "focus-celebrate" }, "🎉"),
+        el("div", { class: "focus-celebrate" }, icon("celebration", { size: 80 })),
         el("h1", {}, "כל הכבוד! סיימנו להיום"),
         el("button", { class: "btn-link", onclick: () => onList?.() }, "צפייה בכל היום"),
       );
@@ -57,7 +57,7 @@ export function renderFocus(host, { items, onList, onExit, onChange }) {
           "aria-label": `סימון "${current.title}" כבוצע`,
           onclick: () => complete(current),
         },
-        "✓",
+        icon("check", { size: 48 }),
       ),
       el(
         "div",

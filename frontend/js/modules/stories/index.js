@@ -1,7 +1,7 @@
 // User Mode: list of finished social stories → reader.
 
 import { api } from "../../api.js";
-import { el, mount, toast } from "../../ui.js";
+import { el, icon, mount, toast } from "../../ui.js";
 import { renderReader } from "./reader.js";
 
 export async function renderStories({ childId, childName, onExit }) {
@@ -49,7 +49,7 @@ export async function renderStories({ childId, childName, onExit }) {
       el(
         "div",
         { class: "aac-topbar" },
-        el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, "✕"),
+        el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, icon("close")),
         el("h1", { class: "aac-title" }, `הסיפורים של ${childName || ""}`),
       ),
       host,

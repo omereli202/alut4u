@@ -1,6 +1,6 @@
 // The full day as a list, with a "read the whole day" button.
 
-import { el } from "../../ui.js";
+import { el, icon } from "../../ui.js";
 import { audioUrl, toggleItem, visualNode } from "./data.js";
 
 export function renderDayList(host, { items, onFocus, onExit, onChange }) {
@@ -54,7 +54,8 @@ export function renderDayList(host, { items, onFocus, onExit, onChange }) {
           el(
             "button",
             { class: "sb-btn speak", onclick: reading ? () => (reading = false) : readAll },
-            reading ? "⏹ עצור" : "▶ הקראת כל היום",
+            reading ? icon("stop_circle") : icon("play_arrow"),
+            reading ? " עצור" : " הקראת כל היום",
           ),
           onFocus && el("button", { class: "btn-link", onclick: onFocus }, "מיקוד"),
           onExit && el("button", { class: "btn-link", onclick: onExit }, "יציאה"),

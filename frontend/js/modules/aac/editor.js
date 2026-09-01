@@ -1,7 +1,8 @@
 // AAC card editor (Caregiver Mode). Manage categories and cards for one child.
 
 import { api } from "../../api.js";
-import { el, errText, mount, toast } from "../../ui.js";
+import { el, errText, icon, mount, toast } from "../../ui.js";
+import { confirmDialog, destructiveDialog } from "../../dialog.js";
 import { recordClip } from "./recorder.js";
 import { createSymbolPicker } from "./symbol-picker.js";
 
@@ -80,7 +81,11 @@ export async function renderAacEditor({ childId, childName, onExit }) {
           {
             class: "btn-link danger",
             onclick: async () => {
-              if (!confirm(`למחוק את הקטגוריה "${cat.name}"? הכרטיסים יישארו ללא קטגוריה.`)) return;
+              const ok = await destructiveDialog({
+                title: "מחיקת קטגוריה",
+                body: `למחוק את הקטגוריה "${cat.name}"? הכרטיסים יישארו ללא קטגוריה.`,
+              });
+              if (!ok) return;
               await api.del(`/aac/categories/${cat.id}`);
               load();
             },
@@ -111,7 +116,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         el(
           "button",
           { class: "sb-btn", "aria-label": "הזז ימינה", disabled: i === 0, onclick: () => move(siblings, i, -1) },
-          "→",
+          icon("chevron_right"),
         ),
         el(
           "button",
@@ -121,7 +126,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
             disabled: i === siblings.length - 1,
             onclick: () => move(siblings, i, 1),
           },
-          "←",
+          icon("chevron_left"),
         ),
         el("button", { class: "btn-link", onclick: () => openCardForm(card) }, "ערוך"),
         el(
@@ -129,7 +134,8 @@ export async function renderAacEditor({ childId, childName, onExit }) {
           {
             class: "btn-link danger",
             onclick: async () => {
-              if (!confirm(`למחוק את "${card.label}"?`)) return;
+              const ok = await destructiveDialog({ title: "מחיקת כרטיס", body: `למחוק את "${card.label}"?` });
+              if (!ok) return;
               await api.del(`/aac/cards/${card.id}`);
               load();
             },
@@ -249,7 +255,8 @@ export async function renderAacEditor({ childId, childName, onExit }) {
             class: "btn-link",
             onclick: () => attachRecording(audioStatus, (id) => (state.audio_asset_id = id)),
           },
-          "🎙 הקלטה",
+          icon("mic"),
+          " הקלטה",
         ),
         state.audio_asset_id &&
           el(
@@ -306,7 +313,12 @@ export async function renderAacEditor({ childId, childName, onExit }) {
 
   async function attachRecording(statusEl, setId) {
     if (!voiceConsent) {
-      if (!confirm("הקלטת קול דורשת אישור. לאשר עכשיו?")) return;
+      const ok = await confirmDialog({
+        title: "הקלטת קול",
+        body: "הקלטת קול דורשת אישור. לאשר עכשיו?",
+        confirmLabel: "אישור",
+      });
+      if (!ok) return;
       try {
         await api.post("/auth/voice-consent", { accept: true });
         voiceConsent = true;

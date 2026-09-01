@@ -1,6 +1,6 @@
 // Calming sound player. Bundled loops, no autoplay, one at a time.
 
-import { el } from "../../ui.js";
+import { el, icon } from "../../ui.js";
 
 const TRACKS = [
   { slug: "rain", label: "גשם", emoji: "🌧️" },
@@ -43,7 +43,9 @@ export function renderSounds(host) {
             },
             el("span", { class: "calm-emoji" }, t.emoji),
             el("span", {}, t.label),
-            el("span", { class: "calm-state" }, playing === t.slug ? "⏸" : "▶"),
+            // Decorative — the button's aria-pressed + label already carry the
+            // state for assistive tech.
+            el("span", { class: "calm-state" }, playing === t.slug ? icon("pause") : icon("play_arrow")),
           ),
         ),
       ),

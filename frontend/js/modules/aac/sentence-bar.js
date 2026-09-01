@@ -1,7 +1,7 @@
 // The sentence builder strip. Holds an ordered list of cards; renders chips and
 // the speak / clear / backspace controls.
 
-import { el } from "../../ui.js";
+import { el, icon } from "../../ui.js";
 import { speak, speakSequence } from "./speech.js";
 
 export function createSentenceBar() {
@@ -38,7 +38,8 @@ export function createSentenceBar() {
             disabled: cards.length === 0,
             onclick: () => speakSequence(cards),
           },
-          "▶ הקראה",
+          icon("play_arrow"),
+          " הקראה",
         ),
         el(
           "button",
@@ -51,7 +52,7 @@ export function createSentenceBar() {
               render();
             },
           },
-          "⌫",
+          icon("backspace", { flip: true }),
         ),
         el(
           "button",

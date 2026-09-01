@@ -2,7 +2,7 @@
 // appends it to the sentence bar and speaks it.
 
 import { api } from "../../api.js";
-import { el, mount } from "../../ui.js";
+import { el, icon, mount } from "../../ui.js";
 import { createSentenceBar } from "./sentence-bar.js";
 import { prefetch } from "./speech.js";
 
@@ -94,7 +94,7 @@ export async function renderAacBoard({ childId, childName, onExit }) {
       el(
         "div",
         { class: "aac-topbar" },
-        el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, "✕"),
+        el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, icon("close")),
         el("h1", { class: "aac-title" }, childName || "לוח תקשורת"),
         gridControl(),
       ),

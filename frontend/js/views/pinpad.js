@@ -1,7 +1,7 @@
 // 4-digit PIN pad. Used both to set a PIN (onboarding) and to enter Caregiver
 // Mode. Large targets, no text input focus traps.
 
-import { el, mount } from "../ui.js";
+import { el, icon, mount } from "../ui.js";
 
 export function renderPinpad({ title, hint, onSubmit, onCancel }) {
   let pin = "";
@@ -26,7 +26,14 @@ export function renderPinpad({ title, hint, onSubmit, onCancel }) {
         ? el("button", { type: "button", class: "pin-key subtle", onclick: onCancel }, "ביטול")
         : el("span"),
       el("button", { type: "button", class: "pin-key", onclick: () => press("0") }, "0"),
-      el("button", { type: "button", class: "pin-key subtle", onclick: back }, "⌫"),
+      el(
+        "button",
+        { type: "button", class: "pin-key subtle", "aria-label": "מחיקת ספרה", onclick: back },
+        // .pin-keys forces direction: ltr (the keypad reads 1-2-3 left-to-right
+        // even on an RTL page), so the glyph's default left-pointing orientation
+        // is already correct here — no .icon-flip.
+        icon("backspace"),
+      ),
     );
     return el(
       "section",

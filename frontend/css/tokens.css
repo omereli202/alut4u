@@ -1,28 +1,44 @@
 /* Design tokens — the single place to change the look.
  *
- * When the Google Stitch exports arrive, extract their palette / spacing / type
- * scale into THESE variables rather than scattering values through components.
- * Values below are placeholders tuned for accessibility (high contrast, calm
- * hues, generous spacing), not a final brand.
+ * Palette / type / shape below come from the Google Stitch export
+ * ("Serene Path" theme — docs/design.md §6 pass 2). This is the ONLY file that
+ * carries raw values; components reference these variables, never literals.
+ *
+ * Contrast: Stitch's own semantic hues (success/warning/danger) are calm but do
+ * NOT clear WCAG AA as text on light surfaces. They stay as-is for fills, icons
+ * and large marks; the darker `-ink` variants are for text. Ratios recorded in
+ * docs/accessibility.md.
  */
 
 :root {
   color-scheme: light;
 
-  /* Palette */
-  --color-bg: #ffffff;
-  --color-surface: #f4f6f8;
-  --color-text: #14181c;
-  --color-text-muted: #4b5563;
-  --color-primary: #1f6feb;
-  --color-primary-contrast: #ffffff;
-  --color-success: #1a7f37;
-  --color-warning: #9a6700;
-  --color-danger: #b42318;
-  --color-focus: #ffbf00;
-  --color-border: #d0d7de;
+  /* Palette — light */
+  --color-bg: #f7f9f9;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #eeedf2; /* inset wells: sentence bar, card image area */
+  --color-text: #2d3436;
+  --color-text-muted: #636e72;
 
-  /* Spacing scale */
+  --color-primary: #3a5d8b;
+  --color-primary-contrast: #ffffff;
+  --color-primary-soft: #d4e3ff; /* selected/press ring, not a text colour */
+
+  --color-secondary: #3e6658;
+  --color-secondary-soft: #c0ecda; /* active tab / toggle-on wash */
+
+  --color-success: #7fb069;
+  --color-success-ink: #4a7a33; /* success text — 5.09:1 on white */
+  --color-warning: #e6a23c;
+  --color-warning-ink: #8a5a00; /* warning text — 5.93:1 on white */
+  --color-danger: #d66853;
+  --color-danger-ink: #a63a25; /* danger text (caregiver only) — 6.45:1 on white */
+
+  --color-focus: #4a90e2;
+  --color-border: #dcdfe6; /* hairline dividers / card outlines (decorative) */
+  --color-border-strong: #737780; /* input outlines — needs >= 3:1 */
+
+  /* Spacing scale — unchanged (Stitch echoed it exactly) */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -31,10 +47,16 @@
   --space-8: 2rem;
   --space-12: 3rem;
 
-  /* Radii */
-  --radius-sm: 6px;
+  /* Radii — corrected against the actual Stitch export (docs/design/stitch-export/),
+     not the placeholder guess. Its Tailwind config resolves rounded-lg to 8px and
+     rounded-xl to 12px (the dominant radius, 114 uses across 14 screens); 16/24px
+     show up on cards/tiles less consistently. --radius-xl covers the biggest
+     User-Mode tiles/modals. */
+  --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
 
   /* Type */
   --font-sans: "Rubik", "Assistant", "Heebo", system-ui, -apple-system, "Segoe UI",
@@ -44,6 +66,7 @@
   --text-lg: 1.4rem;
   --text-xl: 1.9rem;
   --text-2xl: 2.6rem;
+  --font-weight-heading: 500; /* Stitch sets 500 on every heading, not 700 */
 
   /* User Mode: minimum interactive target */
   --touch-min: 60px;
@@ -52,16 +75,35 @@
   --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.16);
 }
 
+/* Dark — a genuine dark theme. Values derived from the Material-3 tokens Stitch
+   emitted (inverse-surface, inverse-primary, on-primary-fixed…), kept calm. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --color-bg: #0d1117;
-    --color-surface: #161b22;
-    --color-text: #e6edf3;
-    --color-text-muted: #9198a1;
-    --color-primary: #4c8dff;
-    --color-primary-contrast: #04122b;
-    --color-border: #30363d;
+    --color-bg: #131518;
+    --color-surface: #1e2126;
+    --color-surface-sunken: #0e1013;
+    --color-text: #e8e9ec;
+    --color-text-muted: #b4b8c0;
+
+    --color-primary: #a6c8fd;
+    --color-primary-contrast: #001c3a;
+    --color-primary-soft: #234875;
+
+    --color-secondary: #a5d0be;
+    --color-secondary-soft: #264e41;
+
+    /* semantic hues already clear 7:1 on dark surfaces, so ink == base */
+    --color-success: #8fcb79;
+    --color-success-ink: #8fcb79;
+    --color-warning: #efbf70;
+    --color-warning-ink: #efbf70;
+    --color-danger: #f0968a;
+    --color-danger-ink: #f0968a;
+
+    --color-focus: #8fc0ff;
+    --color-border: #3a3f47;
+    --color-border-strong: #8c929e;
   }
 }
 

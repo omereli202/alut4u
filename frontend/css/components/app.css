@@ -1,5 +1,6 @@
-/* Phase 1 UI: auth, PIN pad, User Mode home, Caregiver dashboard.
- * Plain and accessible; the Stitch visual pass replaces these values later.
+/* App components: auth, PIN pad, User Mode home, Caregiver dashboard, and the
+ * six feature modules. All colours/radii/type reference tokens.css (the
+ * Stitch "Serene Path" palette, docs/design.md §6 pass 2) — no literals here.
  * RTL throughout — logical properties only.
  */
 
@@ -18,6 +19,11 @@
   box-shadow: var(--shadow-1);
 }
 
+h1,
+h2,
+h3 {
+  font-weight: var(--font-weight-heading);
+}
 h1 {
   font-size: var(--text-xl);
   margin-block-end: var(--space-3);
@@ -34,7 +40,9 @@ h3 {
   color: var(--color-text-muted);
 }
 .err {
-  color: var(--color-danger);
+  /* Base --color-danger is only 3.5:1 on light surfaces (fails 4.5:1 for
+     body text) — the darker -ink variant is for text, base is for fills. */
+  color: var(--color-danger-ink);
   min-block-size: 1.2em;
   margin-block-start: var(--space-2);
 }
@@ -55,8 +63,8 @@ hr {
 .field select {
   padding: var(--space-3);
   font-size: var(--text-base);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
   background: var(--color-bg);
 }
 .checkbox {
@@ -83,7 +91,7 @@ hr {
   color: var(--color-primary-contrast);
   background: var(--color-primary);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   margin-block-start: var(--space-2);
 }
@@ -102,7 +110,15 @@ hr {
   font-size: var(--text-base);
 }
 .btn-link.danger {
-  color: var(--color-danger);
+  color: var(--color-danger-ink);
+}
+.btn-primary.danger {
+  /* Base --color-danger can't clear 4.5:1 with white (or dark) text at body
+     size — same reasoning as .toast-error. -ink holds 6.45:1 with white. */
+  background: var(--color-danger-ink);
+}
+.btn-primary.danger:hover {
+  filter: brightness(1.15);
 }
 
 .toast {
@@ -119,8 +135,71 @@ hr {
   box-shadow: var(--shadow-2);
 }
 .toast-error {
-  background: var(--color-danger);
-  color: #fff;
+  /* White-on-base-danger is 3.5:1 (fails 4.5:1 for body text) in light mode.
+     Ink-on-surface holds >= 6.4:1 in both themes. */
+  background: var(--color-surface);
+  color: var(--color-danger-ink);
+  border: 2px solid var(--color-danger);
+}
+
+/* Dialogs — replaces native confirm()/prompt(); frontend/js/dialog.js.
+   Real <dialog>: showModal() gives the focus trap and Esc-close for free. */
+.dialog {
+  max-inline-size: 480px;
+  inline-size: calc(100vw - var(--space-8));
+  padding: var(--space-6);
+  margin: auto; /* centers a modal <dialog>, both axes */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border: none;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-2);
+}
+.dialog::backdrop {
+  /* A plain scrim, not backdrop-filter — no glassmorphism (docs/design.md §3). */
+  background: color-mix(in srgb, var(--color-text) 45%, transparent);
+}
+.dialog-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.dialog-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 40px;
+  block-size: 40px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-surface-sunken);
+  color: var(--color-primary);
+}
+.dialog.destructive .dialog-icon {
+  background: color-mix(in srgb, var(--color-danger) 20%, var(--color-surface-sunken));
+  color: var(--color-danger-ink);
+}
+.dialog-head h2 {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+.dialog-body {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin: 0;
+}
+/* The redeem-reward confirm (rules/index.js) is the one child-facing dialog —
+   data-mode="user" pulls in the app-wide 60px floor from base.css. */
+[data-mode="user"].dialog .dialog-actions {
+  flex-wrap: wrap;
 }
 
 /* PIN pad */
@@ -154,8 +233,8 @@ hr {
 .pin-key {
   min-block-size: 64px;
   font-size: var(--text-lg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill); /* docs/design/stitch-export DESIGN.md: "Keypads: … perfectly circular or high roundedness" */
   background: var(--color-bg);
   cursor: pointer;
 }
@@ -207,7 +286,7 @@ hr {
 .chip {
   padding: var(--space-2) var(--space-4);
   border: 1px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--color-bg);
   cursor: pointer;
   font-size: var(--text-base);
@@ -282,7 +361,7 @@ hr {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2);
-  background: var(--color-surface);
+  background: var(--color-surface-sunken);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   min-block-size: calc(var(--touch-min) + var(--space-2) * 2);
@@ -302,10 +381,14 @@ hr {
   gap: var(--space-2);
 }
 .sb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
   min-block-size: var(--touch-min);
   min-inline-size: var(--touch-min);
   padding-inline: var(--space-3);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: var(--color-bg);
   font-size: var(--text-base);
@@ -330,16 +413,23 @@ hr {
 .cat-tab {
   min-block-size: var(--touch-min);
   padding-inline: var(--space-4);
-  border: 2px solid var(--cat, var(--color-border));
-  border-radius: var(--radius-md);
+  border: 2px solid var(--cat, var(--color-border-strong));
+  border-radius: var(--radius-pill);
   background: var(--color-bg);
   font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
 }
 .cat-tab.active {
-  background: var(--cat, var(--color-primary));
-  color: #fff;
+  /* Selection state uses the secondary wash, keeping --color-primary sparse for
+     primary actions only (docs/design.md §3 "one accent"; confirmed by the
+     export — the active category tab is a secondary-container pill, not
+     primary). A caregiver-assigned category colour (--cat) still overrides the
+     fill; text stays the dark secondary ink rather than white, since a custom
+     --cat is more often a light/pastel pick than a dark one. */
+  background: var(--cat, var(--color-secondary-soft));
+  color: var(--color-secondary);
+  border-color: transparent;
 }
 
 /* Card grid */
@@ -405,7 +495,7 @@ hr {
   padding: var(--space-2);
   font-size: var(--text-base);
   font-weight: 600;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   background: var(--color-bg);
 }
@@ -470,7 +560,7 @@ hr {
 .symbol-search {
   inline-size: 100%;
   padding: var(--space-2);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   margin-block-end: var(--space-2);
 }
@@ -577,7 +667,9 @@ hr {
   border-radius: 50%;
   border: none;
   background: var(--color-success);
-  color: #fff;
+  /* White-on-base-success is 2.5:1 (fails even the 3:1 large-text/icon
+     floor) — --color-text on the base fill holds 5:1. */
+  color: var(--color-text);
   font-size: 3.5rem;
   cursor: pointer;
   transition: transform 200ms ease;
@@ -595,7 +687,11 @@ hr {
   padding-block: var(--space-12);
 }
 .focus-celebrate {
-  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  /* base --color-warning is 2.1:1 on --color-bg — fails even 3:1 for an
+     80px mark. -ink clears it (5.9:1) in both themes. */
+  color: var(--color-warning-ink);
 }
 
 /* Day list */
@@ -617,7 +713,7 @@ hr {
   gap: var(--space-3);
   padding: var(--space-3);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg); /* matches the real day-list row, docs/design/stitch-export/_1 */
   font-size: var(--text-lg);
 }
 .sched-row.done {
@@ -709,7 +805,7 @@ hr {
 }
 .sched-item-form input {
   padding: var(--space-2);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
 }
 
@@ -728,19 +824,32 @@ hr {
   gap: var(--space-4);
 }
 .token-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
   font-size: var(--text-lg);
   font-weight: 700;
   background: var(--color-warning);
-  color: #fff;
+  /* White-on-base-warning is 2.2:1 (fails even the 3:1 large-text floor) —
+     --color-text on the base fill holds 5.8:1. */
+  color: var(--color-text);
   padding: var(--space-1) var(--space-3);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 .queue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   font-size: var(--text-base);
-  background: var(--color-danger);
-  color: #fff;
-  border-radius: 999px;
+  font-weight: 700;
+  /* Base --color-danger can't clear 4.5:1 for normal text against either
+     black or white (its own luminance sits between the two) — ink-on-surface
+     holds >= 6.4:1 in both themes instead of filling with the raw hue. */
+  background: var(--color-surface);
+  color: var(--color-danger-ink);
+  border: 1.5px solid var(--color-danger);
+  border-radius: var(--radius-pill);
   padding: 0 var(--space-2);
 }
 
@@ -806,8 +915,11 @@ hr {
   object-fit: contain;
 }
 .reward-cost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
   font-weight: 700;
-  color: var(--color-warning);
+  color: var(--color-warning-ink);
 }
 
 .award-form,
@@ -820,7 +932,7 @@ hr {
 .award-form input {
   inline-size: 8rem;
   padding: var(--space-2);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
 }
 .tx-list {
@@ -835,11 +947,11 @@ hr {
   border-block-start: 1px solid var(--color-border);
 }
 .tx-pos {
-  color: var(--color-success);
+  color: var(--color-success-ink);
   font-weight: 700;
 }
 .tx-neg {
-  color: var(--color-danger);
+  color: var(--color-danger-ink);
   font-weight: 700;
 }
 .editor-card-row.inactive {
@@ -929,7 +1041,7 @@ hr {
 .chat-msg.me { background: var(--color-primary); color: var(--color-primary-contrast); align-self: flex-end; }
 .chat-form { display: flex; gap: var(--space-2); }
 .chat-form input {
-  flex: 1; padding: var(--space-2); border: 1px solid var(--color-border);
+  flex: 1; padding: var(--space-2); border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
 }
 
@@ -945,7 +1057,7 @@ hr {
 }
 .lesson-level {
   font-size: var(--text-sm); background: var(--color-surface);
-  border-radius: 999px; padding: 2px var(--space-2); color: var(--color-text-muted);
+  border-radius: var(--radius-pill); padding: 2px var(--space-2); color: var(--color-text-muted);
 }
 .lesson-top { display: flex; gap: var(--space-3); align-items: center; margin-block-end: var(--space-3); }
 .lesson-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-block-start: var(--space-4); }
@@ -959,7 +1071,7 @@ hr {
 .lesson-pin { display: flex; flex-direction: column; gap: var(--space-3); max-inline-size: 320px; }
 .pin-inline, .writing-input {
   padding: var(--space-3); font-size: var(--text-lg); text-align: center;
-  border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
   inline-size: 100%; letter-spacing: 0.3em;
 }
 .writing-input { letter-spacing: normal; text-align: start; }

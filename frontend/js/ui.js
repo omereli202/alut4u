@@ -18,6 +18,35 @@ export function el(tag, attrs = {}, ...children) {
   return node;
 }
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+const XLINK_NS = "http://www.w3.org/1999/xlink";
+
+// Control glyph from the bundled sprite (frontend/assets/icons/sprite.svg —
+// Material Symbols Outlined, see scripts/build_icons.py). Decorative by
+// default (aria-hidden) — the usual pattern is an aria-label on the enclosing
+// button (see views/home.js's .lock-btn). Pass `label` only when the icon
+// stands alone with no other accessible name nearby. Pass `flip: true` for a
+// single-direction glyph (arrow_back, backspace) that needs mirroring in RTL —
+// see .icon-flip in base.css.
+export function icon(name, { label, size, flip } = {}) {
+  const svg = document.createElementNS(SVG_NS, "svg");
+  svg.setAttribute("class", flip ? "icon icon-flip" : "icon");
+  // Inline style, not width/height attributes — the [data-mode="user"] CSS
+  // rule sets both via a class selector, which beats a presentation attribute.
+  if (size) svg.setAttribute("style", `width:${size}px;height:${size}px`);
+  if (label) {
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", label);
+  } else {
+    svg.setAttribute("aria-hidden", "true");
+  }
+  const use = document.createElementNS(SVG_NS, "use");
+  use.setAttributeNS(XLINK_NS, "href", `/assets/icons/sprite.svg#${name}`);
+  use.setAttribute("href", `/assets/icons/sprite.svg#${name}`);
+  svg.append(use);
+  return svg;
+}
+
 export function mount(...nodes) {
   const main = document.getElementById("main");
   main.classList.remove("boot"); // shed the initial centering layout

@@ -2,7 +2,7 @@
 // token counter (correct answers award tokens).
 
 import { api } from "../../api.js";
-import { el, mount } from "../../ui.js";
+import { el, icon, mount } from "../../ui.js";
 import { renderReading } from "./reading.js";
 import { renderWriting } from "./writing.js";
 
@@ -17,11 +17,18 @@ export async function renderLearning({ childId, childName, onExit }) {
   let tab = "reading";
   let cleanup = null;
   const host = el("div", { class: "learn-host" });
-  const badge = el("div", { class: "token-badge" }, `⭐ ${balance}`);
+  const balanceText = el("span", {}, String(balance));
+  const badge = el(
+    "div",
+    { class: "token-badge", "aria-label": `${balance} אסימונים` },
+    icon("star", { size: 22 }),
+    balanceText,
+  );
 
   function setBalance(n) {
     balance = n;
-    badge.textContent = `⭐ ${balance}`;
+    balanceText.textContent = String(balance);
+    badge.setAttribute("aria-label", `${balance} אסימונים`);
   }
 
   function show(key) {
@@ -60,7 +67,7 @@ export async function renderLearning({ childId, childName, onExit }) {
         el(
           "button",
           { class: "lock-btn", "aria-label": "יציאה", onclick: () => { cleanup?.(); onExit(); } },
-          "✕",
+          icon("close"),
         ),
         el("h1", { class: "aac-title" }, `קריאה וכתיבה — ${childName || ""}`),
         badge,

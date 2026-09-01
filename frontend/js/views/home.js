@@ -3,7 +3,7 @@
 // placeholders. A small corner control opens the PIN pad for Caregiver Mode.
 
 import { api } from "../api.js";
-import { el, mount, toast } from "../ui.js";
+import { el, icon, mount, toast } from "../ui.js";
 import { renderAacBoard } from "../modules/aac/board.js";
 import { renderSchedule } from "../modules/schedule/index.js";
 import { renderRules } from "../modules/rules/index.js";
@@ -43,7 +43,7 @@ export async function renderHome({ onEnterCaregiver }) {
     const lockBtn = el(
       "button",
       { class: "lock-btn", "aria-label": "מצב מטפל", onclick: onEnterCaregiver },
-      "🔒",
+      icon("lock"),
     );
 
     if (!children.length) {

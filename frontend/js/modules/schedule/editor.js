@@ -1,7 +1,7 @@
 // Schedule editor (Caregiver Mode): build a day's tasks + manage calendar events.
 
 import { api } from "../../api.js";
-import { el, errText, mount, toast } from "../../ui.js";
+import { el, errText, icon, mount, toast } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
 import { todayISO } from "./data.js";
 
@@ -93,8 +93,21 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
       el(
         "div",
         { class: "editor-card-actions" },
-        el("button", { class: "sb-btn", disabled: i === 0, onclick: () => move(i, -1) }, "→"),
-        el("button", { class: "sb-btn", disabled: i === items.length - 1, onclick: () => move(i, 1) }, "←"),
+        el(
+          "button",
+          { class: "sb-btn", "aria-label": "הזז מוקדם יותר", disabled: i === 0, onclick: () => move(i, -1) },
+          icon("chevron_right"),
+        ),
+        el(
+          "button",
+          {
+            class: "sb-btn",
+            "aria-label": "הזז מאוחר יותר",
+            disabled: i === items.length - 1,
+            onclick: () => move(i, 1),
+          },
+          icon("chevron_left"),
+        ),
         el(
           "button",
           {

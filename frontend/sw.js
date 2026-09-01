@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v8";
+const SHELL_CACHE = "shell-v10"; // v10: bundled icon sprite (docs/design.md §6)
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
@@ -23,6 +23,7 @@ const SHELL = [
   "/js/outbox.js",
   "/js/session.js",
   "/js/ui.js",
+  "/js/dialog.js",
   "/js/views/auth.js",
   "/js/views/pinpad.js",
   "/js/views/home.js",
@@ -54,6 +55,18 @@ const SHELL = [
   "/js/modules/learning/writing.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
+  // Self-hosted Rubik — offline AAC/schedule must still render Hebrew (+ the
+  // Latin digits in times, dates and the PIN keypad) in the real typeface.
+  "/assets/fonts/rubik-hebrew-400.woff2",
+  "/assets/fonts/rubik-hebrew-500.woff2",
+  "/assets/fonts/rubik-hebrew-700.woff2",
+  "/assets/fonts/rubik-latin-400.woff2",
+  "/assets/fonts/rubik-latin-500.woff2",
+  "/assets/fonts/rubik-latin-700.woff2",
+  "/assets/fonts/rubik-latin-ext-400.woff2",
+  "/assets/fonts/rubik-latin-ext-500.woff2",
+  "/assets/fonts/rubik-latin-ext-700.woff2",
+  "/assets/icons/sprite.svg",
 ];
 
 self.addEventListener("install", (event) => {

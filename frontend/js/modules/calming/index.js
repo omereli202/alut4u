@@ -1,6 +1,6 @@
 // Calming & sensory zone (User Mode). Three calm activities; nothing autoplays.
 
-import { el, mount } from "../../ui.js";
+import { el, icon, mount } from "../../ui.js";
 import { renderBreathing } from "./breathing.js";
 import { renderMemory } from "./memory.js";
 import { renderSounds } from "./sounds.js";
@@ -55,7 +55,7 @@ export function renderCalming({ childName, onExit }) {
               onExit();
             },
           },
-          "✕",
+          icon("close"),
         ),
         el("h1", { class: "aac-title" }, "פינת רוגע"),
       ),

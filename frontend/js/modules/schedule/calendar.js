@@ -1,7 +1,7 @@
 // Visual monthly calendar of events.
 
 import { api } from "../../api.js";
-import { el } from "../../ui.js";
+import { el, icon } from "../../ui.js";
 
 const MONTHS = [
   "ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני",
@@ -50,9 +50,9 @@ export async function renderCalendar(host, { childId, onExit }) {
         el(
           "div",
           { class: "cal-head" },
-          el("button", { class: "sb-btn", "aria-label": "חודש קודם", onclick: () => step(-1) }, "→"),
+          el("button", { class: "sb-btn", "aria-label": "חודש קודם", onclick: () => step(-1) }, icon("chevron_right")),
           el("h1", {}, `${MONTHS[month]} ${year}`),
-          el("button", { class: "sb-btn", "aria-label": "חודש הבא", onclick: () => step(1) }, "←"),
+          el("button", { class: "sb-btn", "aria-label": "חודש הבא", onclick: () => step(1) }, icon("chevron_left")),
           onExit && el("button", { class: "btn-link", onclick: onExit }, "יציאה"),
         ),
         el("div", { class: "cal-grid" }, ...WEEKDAYS.map((w) => el("div", { class: "cal-wd" }, w)), ...cells),
