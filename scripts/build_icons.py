@@ -119,6 +119,12 @@ def main() -> None:
         encoding="utf-8",
     )
     print(f"\nWrote {len(ICONS)} icons to {ICON_DIR / 'sprite.svg'}")
+    print(
+        f"\nDon't forget: bump the sprite.svg?v= query string to {len(ICONS)} (or higher) "
+        "in BOTH frontend/js/ui.js's SPRITE_URL and the matching entry in "
+        "frontend/sw.js's SHELL list — that query string is what actually busts "
+        "Railway's CDN edge cache on deploy; the content changing alone does not."
+    )
 
 
 if __name__ == "__main__":

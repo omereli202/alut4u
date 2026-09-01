@@ -66,7 +66,11 @@ const SHELL = [
   "/assets/fonts/rubik-latin-ext-400.woff2",
   "/assets/fonts/rubik-latin-ext-500.woff2",
   "/assets/fonts/rubik-latin-ext-700.woff2",
-  "/assets/icons/sprite.svg",
+  // Keep this in sync with ui.js's SPRITE_URL — a versioned URL is what
+  // actually defeats Railway's CDN edge cache (see ui.js's comment); an
+  // unversioned entry here would just precache a *different* URL than the
+  // one icon() ever requests.
+  "/assets/icons/sprite.svg?v=41",
 ];
 
 self.addEventListener("install", (event) => {

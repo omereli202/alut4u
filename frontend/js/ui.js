@@ -21,6 +21,17 @@ export function el(tag, attrs = {}, ...children) {
 const SVG_NS = "http://www.w3.org/2000/svg";
 const XLINK_NS = "http://www.w3.org/1999/xlink";
 
+// Bump whenever scripts/build_icons.py regenerates the sprite (also update
+// the matching entry in sw.js's SHELL list). frontend/Caddyfile caches
+// /assets/* for 7 days (Cache-Control: max-age=604800), and Railway's CDN
+// caches it *again* at the edge on top of that, independently per edge node
+// — a plain unversioned URL can silently keep serving a week-old sprite to
+// some visitors after a deploy, regardless of any client-side cache the
+// service worker or browser manage. A version query string is a new URL,
+// so every cache layer treats it as a fresh resource instead of revalidating
+// a stale one.
+const SPRITE_URL = "/assets/icons/sprite.svg?v=41";
+
 // Control glyph from the bundled sprite (frontend/assets/icons/sprite.svg —
 // Material Symbols Outlined, see scripts/build_icons.py). Decorative by
 // default (aria-hidden) — the usual pattern is an aria-label on the enclosing
@@ -41,8 +52,8 @@ export function icon(name, { label, size, flip } = {}) {
     svg.setAttribute("aria-hidden", "true");
   }
   const use = document.createElementNS(SVG_NS, "use");
-  use.setAttributeNS(XLINK_NS, "href", `/assets/icons/sprite.svg#${name}`);
-  use.setAttribute("href", `/assets/icons/sprite.svg#${name}`);
+  use.setAttributeNS(XLINK_NS, "href", `${SPRITE_URL}#${name}`);
+  use.setAttribute("href", `${SPRITE_URL}#${name}`);
   svg.append(use);
   return svg;
 }
