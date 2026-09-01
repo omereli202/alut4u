@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Social Story Reader</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#c0ecda",
+                        "on-primary-container": "#fdfcff",
+                        "warning": "#E6A23C",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#3d608e",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#ffdeac",
+                        "outline": "#737780",
+                        "secondary-fixed-dim": "#a5d0be",
+                        "tertiary-fixed-dim": "#efbf70",
+                        "surface-container-low": "#f4f3f7",
+                        "on-primary-fixed-variant": "#234875",
+                        "on-error-container": "#93000a",
+                        "text": "#2D3436",
+                        "inverse-primary": "#a6c8fd",
+                        "border": "#DCDFE6",
+                        "surface-container-highest": "#e2e2e6",
+                        "tertiary-container": "#956e27",
+                        "focus": "#4A90E2",
+                        "inverse-surface": "#2f3034",
+                        "surface": "#FFFFFF",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#001c3a",
+                        "surface-container": "#eeedf2",
+                        "inverse-on-surface": "#f1f0f5",
+                        "primary-container": "#5476a6",
+                        "on-surface": "#1a1c1f",
+                        "secondary-fixed": "#c0ecda",
+                        "on-tertiary-fixed": "#281900",
+                        "on-background": "#1a1c1f",
+                        "bg": "#F7F9F9",
+                        "success": "#7FB069",
+                        "tertiary": "#79550e",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-fixed-dim": "#a6c8fd",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#faf9fd",
+                        "surface-dim": "#dad9de",
+                        "on-secondary-fixed-variant": "#264e41",
+                        "text-muted": "#636E72",
+                        "on-surface-variant": "#43474f",
+                        "outline-variant": "#c3c6d0",
+                        "on-secondary-fixed": "#002117",
+                        "secondary": "#3e6658",
+                        "background": "#faf9fd",
+                        "surface-container-high": "#e8e8ec",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e2e2e6",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary-container": "#446c5e",
+                        "primary-fixed": "#d4e3ff",
+                        "danger": "#D66853",
+                        "primary": "#3a5d8b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "3": "0.75rem",
+                        "8": "2rem",
+                        "1": "0.25rem",
+                        "4": "1rem",
+                        "12": "3rem",
+                        "6": "1.5rem",
+                        "2": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "body": ["Rubik"],
+                        "caption": ["Rubik"],
+                        "display-user": ["Rubik"],
+                        "heading-caregiver": ["Rubik"],
+                        "subheading": ["Rubik"]
+                    },
+                    "fontSize": {
+                        "body": ["1.125rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "caption": ["0.9rem", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "display-user": ["2.6rem", { "lineHeight": "1.15", "fontWeight": "500" }],
+                        "heading-caregiver": ["1.9rem", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "subheading": ["1.4rem", { "lineHeight": "1.3", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body flex flex-col" data-mode="user">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-on-background fixed top-0 w-full flex flex-row-reverse justify-between items-center px-6 h-16 z-50 transition-transform duration-200 flat no shadows">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center p-2 rounded-full text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="font-subheading text-subheading font-medium text-on-surface dark:text-on-surface-variant font-bold tracking-tight">
+            Social Story Reader
+        </div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-24 pb-32 px-8 flex flex-col items-center justify-center">
+<!-- Lesson Header -->
+<div class="w-full max-w-4xl flex items-center justify-between mb-12">
+<h1 class="font-display-user text-display-user text-on-surface text-center flex-grow">
+                הכלב שלי
+            </h1>
+<button class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity p-4 rounded-xl active:scale-98">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+<span class="font-subheading text-subheading">חזרה</span>
+</button>
+</div>
+<!-- Reading Passage -->
+<div class="w-full max-w-4xl bg-surface rounded-xl shadow-md p-12 mb-12 text-center"><div class="flex flex-col items-center gap-2 mb-8">
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+</div>
+<span class="text-caption font-body text-on-surface-variant opacity-70">3 מתוך 5</span>
+</div><div class="mb-8 flex justify-center"><img alt="A very simple, calm, and friendly illustration of a small happy dog playing with a ball" class="rounded-lg max-w-full h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwGjGNNb9FN8owIgpxTLgjJvvkFSgbbQM2I5o0FG37o7JYt9KZGYshfTsQYkquVupRBaGoH9ncD4WmjXOr_ubbXjrQZgSaZ5LvBRSbZjPtOIX3cvlbHFQY32k9f9iQnmMwry0LyPVUkqGiCFZ1zQt2Itw1CsP8JqfohfKfPvUKeDccuGKs9FVAY27sCVnCMI9yLffAePNpF_cxx7M-4nVcQUOsBxtTcMwUJH4meR5eUYriQcybpSPXHQ"/></div>
+<p class="font-display-user text-display-user text-on-surface leading-loose">
+                זה הכלב שלי. קוראים לו רקס. רקס אוהב לשחק בכדור. 
+                <br/><br/>
+                הוא כלב טוב מאוד. אני אוהב את רקס.
+            </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-row flex-wrap justify-center gap-8 w-full max-w-4xl">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl p-8 shadow-md hover:bg-surface-variant active:scale-98 transition-all min-w-[200px]">
+<span class="material-symbols-outlined text-[4rem] mb-4" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-subheading text-subheading">שמיעה</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-success text-on-primary rounded-xl p-8 shadow-md hover:opacity-80 active:scale-98 transition-all min-w-[200px]">
+<span class="material-symbols-outlined text-[4rem] mb-4" style="font-variation-settings: 'FILL' 1;">check</span>
+<span class="font-subheading text-subheading">קרא/ה יפה</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-error-container text-on-error-container rounded-xl p-8 shadow-md hover:opacity-80 active:scale-98 transition-all min-w-[200px]">
+<span class="material-symbols-outlined text-[4rem] mb-4" style="font-variation-settings: 'FILL' 1;">close</span>
+<span class="font-subheading text-subheading">עוד תרגול</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex flex-row-reverse justify-around items-center px-8 pb-4 bg-surface dark:bg-surface-container-lowest shadow-lg z-50 h-24">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-8 py-3 hover:bg-surface-variant dark:hover:bg-surface-container-high active:scale-98 transition-all duration-200 rounded-xl">
+<span class="material-symbols-outlined mb-1">arrow_forward</span>
+<span class="font-body text-body">Next</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-fixed text-on-primary-container dark:text-on-primary-fixed rounded-xl px-8 py-3 hover:bg-surface-variant dark:hover:bg-surface-container-high active:scale-98 transition-all duration-200">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+<span class="font-body text-body">Speak</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-8 py-3 hover:bg-surface-variant dark:hover:bg-surface-container-high active:scale-98 transition-all duration-200 rounded-xl">
+<span class="material-symbols-outlined mb-1">arrow_back</span>
+<span class="font-body text-body">Back</span>
+</button>
+</nav>
+</body></html>

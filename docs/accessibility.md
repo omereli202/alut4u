@@ -75,6 +75,22 @@ and large marks only, per the rule below:
 (`docs/design/stitch-export/`) rather than a guess — see that folder's README
 — but radius has no contrast implication, only the colour table above does.
 
+### Contrast — per-screen layout pass (docs/design/stitch-export-2)
+
+New pairs introduced applying the PIN gate, boot screen, and shared states:
+
+| Pair | Light | Dark |
+|---|---|---|
+| `--color-primary` on `--color-primary-soft` (`.pin-gate-icon`, `.celebration-icon`) | 5.20:1 | 5.45:1 |
+| `--color-text` on `--color-primary-soft` (`.celebration-state` body text) | 9.80:1 | 7.67:1 |
+
+`.offline-banner` was drafted with `--color-text-muted` on
+`--color-surface-sunken` first — computed at **4.50:1**, technically over the
+4.5:1 floor but with no real margin at `--text-sm` size, so it uses full
+`--color-text` instead (comfortably clear in both themes — see the table
+above for that pair on `--color-bg`; `--color-surface-sunken` is close enough
+in lightness not to need a separate ratio).
+
 ## Verification
 
 - **CI**: axe-core against key views (added in Phase 1).

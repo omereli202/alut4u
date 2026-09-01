@@ -38,17 +38,23 @@ families. Grouped by owner.
       `docs/kiosk-setup.md`
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
 - [ ] Replace placeholder assets: symbol library (licensed set — Mulberry
-      Symbols / CC BY-SA recommended), calming audio loops, PWA icons
-- [ ] Final visual styling — the Stitch export landed
-      (`docs/design/stitch-export/`) and the foundation pass is done: tokens,
-      shared components (buttons/badges/tabs/inputs), the icon sprite (24
-      emoji controls → SVG, `scripts/build_icons.py`), and the `dialog`
-      component (native `<dialog>`, replaces all 6 `confirm()`/`prompt()`
-      sites). Still open: a per-screen layout pass for the ~24 screens the
-      export didn't cover (home, dashboard, auth, PIN pad, calming, stories,
-      reading/writing — see the export README's "not exported" list) and the
-      export's internal inconsistencies flagged in that README's "watch-outs"
-      section; the unified `pin` component (keypad + inline); drop dead
+      Symbols / CC BY-SA recommended), calming audio loops, PWA icons — a real
+      app-logo source is also now needed: `docs/design/stitch-export-2/` has
+      the logo as a PNG mockup only (Google-hosted URL, no SVG), not enough to
+      make crisp icons at multiple sizes.
+- [ ] Final visual styling — two Stitch exports have landed
+      (`docs/design/stitch-export/`, `docs/design/stitch-export-2/`). Done:
+      tokens, shared components (buttons/badges/tabs/inputs/dialog/icon
+      sprite, now 39 glyphs), the AAC board (card medallions, category tabs,
+      sentence bar), the PIN inline gate (`pin.inline`), the boot/loading+
+      error screen, shared states (offline banner, empty state, celebration
+      state), and reading/writing/story-reader. Still open: User-Mode home
+      (T1.3), caregiver dashboard (T1.4), AAC card form (T1.5), schedule
+      editor (T2.4), calming module (T2.8–10), sign-in/up (T3.1–2), the full
+      PIN keypad (`pin.keypad`, `views/pinpad.js` — only `pin.inline` has
+      reference art so far) — none of these have reference art from either
+      export yet. Both export READMEs' "watch-outs" sections have specifics
+      to avoid reintroducing if a future export covers them. Drop dead
       `router.js`.
 
 ## Product / ops — outside code

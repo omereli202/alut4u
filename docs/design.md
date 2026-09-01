@@ -13,12 +13,16 @@ accessible; the Stitch visual pass replaces these values later").
 **Workflow:** generate screens in Stitch → export → apply the three passes in
 §6 → the palette lands in `tokens.css`, the layout in `app.css`.
 
-> **Status:** the export landed — 14 screens, `docs/design/stitch-export/`
-> (that folder's README maps each one to a screen ID below and to what it did
-> and didn't change). The foundation pass is done: `tokens.css` corrected
-> against the real values, the icon set and `dialog` component built. A
-> per-screen layout pass for the screens the export didn't cover is still
-> open — see `docs/launch-checklist.md`.
+> **Status:** two exports have landed — `docs/design/stitch-export/` (14
+> screens: AAC board, editor, schedule, rewards, dialogs, recorder) and
+> `docs/design/stitch-export-2/` (10 more: PIN inline gate, boot screen,
+> shared states, reading/writing, story reader). Each folder's README maps
+> its screens to a §4 ID and records what it confirmed vs. changed. The
+> foundation pass (tokens, icon set, dialog component) and a per-screen
+> layout pass covering both exports' screens are both done. Still open — see
+> `docs/launch-checklist.md`: home, dashboard, AAC card form, schedule
+> editor, calming, sign-in/up, and the full PIN keypad have no reference art
+> from either export yet.
 
 ---
 

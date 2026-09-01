@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Serene Path - Delete Account Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary-container": "#fdfcff",
+                "focus": "#4A90E2",
+                "on-tertiary-container": "#fffbff",
+                "warning": "#E6A23C",
+                "on-surface": "#1a1c1f",
+                "surface-variant": "#e2e2e6",
+                "secondary-fixed-dim": "#a5d0be",
+                "on-primary": "#ffffff",
+                "outline-variant": "#c3c6d0",
+                "secondary": "#3e6658",
+                "text-muted": "#636E72",
+                "on-background": "#1a1c1f",
+                "text": "#2D3436",
+                "on-error-container": "#93000a",
+                "error": "#ba1a1a",
+                "on-secondary-fixed-variant": "#264e41",
+                "background": "#faf9fd",
+                "danger": "#D66853",
+                "tertiary-fixed": "#ffdeac",
+                "on-error": "#ffffff",
+                "outline": "#737780",
+                "secondary-fixed": "#c0ecda",
+                "secondary-container": "#c0ecda",
+                "error-container": "#ffdad6",
+                "surface-container-highest": "#e2e2e6",
+                "primary-fixed": "#d4e3ff",
+                "inverse-surface": "#2f3034",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#efbf70",
+                "on-primary-fixed": "#001c3a",
+                "inverse-primary": "#a6c8fd",
+                "success": "#7FB069",
+                "surface-bright": "#faf9fd",
+                "surface": "#FFFFFF",
+                "tertiary-container": "#956e27",
+                "tertiary": "#79550e",
+                "on-primary-fixed-variant": "#234875",
+                "surface-tint": "#3d608e",
+                "inverse-on-surface": "#f1f0f5",
+                "primary-fixed-dim": "#a6c8fd",
+                "border": "#DCDFE6",
+                "bg": "#F7F9F9",
+                "on-secondary-container": "#446c5e",
+                "primary": "#3a5d8b",
+                "surface-container-low": "#f4f3f7",
+                "surface-container": "#eeedf2",
+                "on-tertiary-fixed-variant": "#604100",
+                "surface-container-high": "#e8e8ec",
+                "surface-container-lowest": "#ffffff",
+                "on-surface-variant": "#43474f",
+                "on-tertiary-fixed": "#281900",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#002117",
+                "surface-dim": "#dad9de",
+                "primary-container": "#5476a6"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "6": "1.5rem",
+                "2": "0.5rem",
+                "1": "0.25rem",
+                "4": "1rem",
+                "8": "2rem",
+                "12": "3rem",
+                "3": "0.75rem"
+        },
+        "fontFamily": {
+                "caption": [
+                        "Rubik"
+                ],
+                "display-user": [
+                        "Rubik"
+                ],
+                "heading-caregiver": [
+                        "Rubik"
+                ],
+                "body": [
+                        "Rubik"
+                ],
+                "subheading": [
+                        "Rubik"
+                ]
+        },
+        "fontSize": {
+                "caption": [
+                        "0.9rem",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-user": [
+                        "2.6rem",
+                        {
+                                "lineHeight": "1.15",
+                                "fontWeight": "500"
+                        }
+                ],
+                "heading-caregiver": [
+                        "1.9rem",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body": [
+                        "1.125rem",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "400"
+                        }
+                ],
+                "subheading": [
+                        "1.4rem",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body {
+        font-family: 'Rubik', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    .dialog-overlay {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+    
+    .dialog-card {
+        animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideUpFade {
+        from { 
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+        to { 
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+</style>
+</head>
+<body class="bg-surface-container-low text-on-surface h-screen w-full overflow-hidden flex" data-mode="caregiver">
+<!-- Mock Background (Dashboard) -->
+<div class="absolute inset-0 flex">
+<!-- Side Nav Area -->
+<div class="hidden md:flex flex-col h-full w-64 bg-surface-container-low py-8 space-y-4 shadow-sm z-0">
+<div class="px-6 mb-4">
+<h1 class="font-heading-caregiver text-heading-caregiver text-secondary">Serene Path</h1>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Caregiver Portal</p>
+</div>
+<div class="flex-1 px-4 space-y-2">
+<div class="flex items-center p-3 text-on-surface-variant mx-2 rounded-lg">
+<span class="material-symbols-outlined ml-3" data-icon="dashboard">dashboard</span>
+<span class="font-body text-body">Dashboard</span>
+</div>
+<div class="flex items-center p-3 text-on-surface-variant mx-2 rounded-lg">
+<span class="material-symbols-outlined ml-3" data-icon="auto_stories">auto_stories</span>
+<span class="font-body text-body">Library</span>
+</div>
+<div class="flex items-center p-3 text-secondary font-bold bg-secondary-container/30 rounded-lg mx-2">
+<span class="material-symbols-outlined ml-3" data-icon="manage_accounts">manage_accounts</span>
+<span class="font-body text-body">Account</span>
+</div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 p-8 bg-background filter blur-[2px]">
+<h2 class="font-heading-caregiver text-heading-caregiver text-on-surface mb-6">הגדרות חשבון</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Mock Cards -->
+<div class="bg-surface p-6 rounded-xl shadow-sm border border-border h-48">
+<div class="h-4 w-1/3 bg-surface-variant rounded mb-4"></div>
+<div class="h-3 w-full bg-surface-variant rounded mb-2"></div>
+<div class="h-3 w-5/6 bg-surface-variant rounded mb-8"></div>
+<div class="h-10 w-32 bg-primary/10 rounded-lg"></div>
+</div>
+<div class="bg-surface p-6 rounded-xl shadow-sm border border-border h-48">
+<div class="h-4 w-1/4 bg-surface-variant rounded mb-4"></div>
+<div class="h-3 w-full bg-surface-variant rounded mb-2"></div>
+<div class="h-3 w-4/5 bg-surface-variant rounded mb-8"></div>
+<div class="h-10 w-full bg-surface-variant rounded-lg"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dialog Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-on-surface/30 backdrop-blur-sm dialog-overlay">
+<!-- Type-to-Confirm Modal Card -->
+<div aria-labelledby="dialog-title" aria-modal="true" class="bg-surface w-full max-w-md rounded-xl shadow-sm border border-outline-variant overflow-hidden dialog-card relative" role="dialog" style="border-radius: 20px;">
+<div class="h-1.5 w-full bg-error"></div>
+<div class="p-8">
+<div class="flex items-center mb-6">
+<div class="flex-shrink-0 w-12 h-12 bg-error-container rounded-full flex items-center justify-center ml-4">
+<span class="material-symbols-outlined text-error text-2xl" data-icon="warning">warning</span>
+</div>
+<h2 class="font-heading-caregiver text-heading-caregiver text-on-surface font-bold" id="dialog-title">מחיקת חשבון וכל הנתונים</h2>
+</div>
+<div class="mb-6">
+<p class="font-body text-body text-on-surface leading-relaxed">
+                        פעולה זו היא <strong class="text-error font-bold">בלתי הפיכה</strong>. כל הנתונים, הפרופילים וההגדרות יימחקו לצמיתות ולא ניתן יהיה לשחזר אותם.
+                    </p>
+</div>
+<div class="mb-8">
+<label class="block font-subheading text-subheading text-on-surface mb-3" for="confirm-input">
+                        הקלד/י <span class="font-bold text-on-surface bg-surface-container-high px-2 py-1 rounded select-all" dir="ltr">DELETE</span> כדי לאשר מחיקה מלאה:
+                    </label>
+<div class="relative">
+<input autocomplete="off" class="w-full h-14 px-4 bg-surface-bright border border-outline rounded-lg font-body text-body text-on-surface placeholder-on-surface-variant/50 focus:border-error focus:ring-0 transition-colors" dir="ltr" id="confirm-input" name="confirm-input" placeholder="הקלד/י כאן..." type="text"/>
+</div>
+</div>
+<div class="flex items-center justify-end space-x-reverse space-x-4 pt-6 border-t border-outline-variant">
+<button class="px-6 py-3 font-body text-body font-medium text-secondary hover:bg-secondary-container/30 rounded-lg transition-colors active:scale-95" type="button">
+                        ביטול
+                    </button>
+<button class="px-8 py-3 font-body text-body font-bold text-on-error bg-error/50 cursor-not-allowed rounded-lg transition-all duration-200" disabled="" id="delete-btn" type="button">
+                        מחיקה לצמיתות
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('confirm-input');
+            const deleteBtn = document.getElementById('delete-btn');
+            
+            input.addEventListener('input', (e) => {
+                const val = e.target.value.trim().toUpperCase();
+                
+                if (val === 'DELETE') {
+                    deleteBtn.disabled = false;
+                    deleteBtn.classList.remove('bg-error/50', 'cursor-not-allowed');
+                    deleteBtn.classList.add('bg-error', 'hover:bg-on-error-container', 'active:scale-95', 'shadow-sm');
+                } else {
+                    deleteBtn.disabled = true;
+                    deleteBtn.classList.add('bg-error/50', 'cursor-not-allowed');
+                    deleteBtn.classList.remove('bg-error', 'hover:bg-on-error-container', 'active:scale-95', 'shadow-sm');
+                }
+            });
+            
+            // Focus input on load for immediate interaction
+            setTimeout(() => {
+                input.focus();
+            }, 400);
+        });
+    </script>
+</body></html>
