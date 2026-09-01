@@ -111,6 +111,24 @@ carrying text) — light mode clears it at 3.52:1; dark mode's `--color-danger`
 equals `--color-danger-ink` there (both resolve to the same pastel base hue),
 so it's the same 7.25:1 as the row above.
 
+### Contrast — dashboard toggle switch
+
+`.toggle input` (the module-enable switches) is a real `<input
+type="checkbox">` repainted as a track+thumb switch via a background image —
+`::before`/`::after` don't render on a replaced element like `<input>`, so
+there's no pseudo-element to check separately; the thumb *is* the
+`--color-surface` circle in the background image. Non-text UI, 3:1 floor:
+
+| Pair | Light | Dark |
+|---|---|---|
+| thumb (`--color-surface`) on track, off (`--color-border-strong`) | 4.49:1 | 5.17:1 |
+| thumb (`--color-surface`) on track, on (`--color-secondary`) | 6.47:1 | 9.51:1 |
+
+The thumb's slide direction is a deliberate physical exception —
+`background-position` has no logical (inline-start/end) form in CSS today —
+not an RTL oversight: off sits at the reading start (right), `:checked`
+slides it to the end (left).
+
 ## Verification
 
 - **CI**: axe-core against key views (added in Phase 1).
