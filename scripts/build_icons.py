@@ -74,6 +74,10 @@ ICONS: dict[str, str] = {
     "security": "אבטחה",
     "toll": "אסימון",
     "wifi_off": "אין חיבור",
+    # Added for the User-Mode home tile grid (T1.3) — no existing glyph fit
+    # "communication" (mic is already claimed by voice recording) or "calm".
+    "forum": "תקשורת",
+    "spa": "פינת רוגע",
 }
 
 _SYMBOL_RE = re.compile(r'<svg[^>]*viewBox="([^"]+)"[^>]*>(.*)</svg>', re.S)

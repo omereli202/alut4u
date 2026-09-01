@@ -56,7 +56,7 @@ export async function renderRules({ childId, childName, onExit }) {
   }
 
   function rulesView() {
-    if (!data.rules.length) return el("p", { class: "muted" }, "אין כללים כרגע.");
+    if (!data.rules.length) return emptyState({ iconName: "inbox", title: "אין כללים כרגע." });
     return el(
       "div",
       { class: "rules-list" },
@@ -77,7 +77,7 @@ export async function renderRules({ childId, childName, onExit }) {
   }
 
   function storeView() {
-    if (!data.rewards.length) return el("p", { class: "muted" }, "אין פרסים כרגע.");
+    if (!data.rewards.length) return emptyState({ iconName: "toll", title: "אין פרסים כרגע." });
     return el(
       "div",
       { class: "tile-grid" },

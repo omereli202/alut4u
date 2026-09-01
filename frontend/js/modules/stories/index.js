@@ -1,7 +1,7 @@
 // User Mode: list of finished social stories → reader.
 
 import { api } from "../../api.js";
-import { el, icon, mount, toast } from "../../ui.js";
+import { el, emptyState, icon, mount, toast } from "../../ui.js";
 import { renderReader } from "./reader.js";
 
 export async function renderStories({ childId, childName, onExit }) {
@@ -29,7 +29,11 @@ export async function renderStories({ childId, childName, onExit }) {
               ),
             ),
           )
-        : el("p", { class: "muted" }, "אין עדיין סיפורים. מטפל יכול ליצור סיפור במצב מטפל."),
+        : emptyState({
+            iconName: "auto_stories",
+            title: "אין עדיין סיפורים.",
+            body: "מטפל יכול ליצור סיפור במצב מטפל.",
+          }),
     );
   }
 

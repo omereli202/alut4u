@@ -1,6 +1,6 @@
 // The full day as a list, with a "read the whole day" button.
 
-import { el, icon } from "../../ui.js";
+import { el, emptyState, icon } from "../../ui.js";
 import { audioUrl, toggleItem, visualNode } from "./data.js";
 
 export function renderDayList(host, { items, onFocus, onExit, onChange }) {
@@ -62,7 +62,7 @@ export function renderDayList(host, { items, onFocus, onExit, onChange }) {
         ),
         items.length
           ? el("div", { class: "sched-rows" }, ...items.map(row))
-          : el("p", { class: "muted" }, "אין משימות להיום."),
+          : emptyState({ iconName: "calendar_month", title: "אין משימות להיום." }),
       ),
     );
   }

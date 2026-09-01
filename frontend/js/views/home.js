@@ -3,7 +3,7 @@
 // placeholders. A small corner control opens the PIN pad for Caregiver Mode.
 
 import { api } from "../api.js";
-import { el, icon, mount, toast } from "../ui.js";
+import { el, emptyState, icon, mount, toast } from "../ui.js";
 import { renderAacBoard } from "../modules/aac/board.js";
 import { renderSchedule } from "../modules/schedule/index.js";
 import { renderRules } from "../modules/rules/index.js";
@@ -11,13 +11,13 @@ import { renderCalming } from "../modules/calming/index.js";
 import { renderStories } from "../modules/stories/index.js";
 import { renderLearning } from "../modules/learning/index.js";
 
-const MODULE_LABELS = {
-  aac_enabled: "תקשורת",
-  schedule_enabled: "לוח זמנים",
-  rules_enabled: "כללים ואסימונים",
-  calming_enabled: "פינת רוגע",
-  social_stories_enabled: "סיפורים חברתיים",
-  reading_writing_enabled: "קריאה וכתיבה",
+const MODULES = {
+  aac_enabled: { label: "תקשורת", icon: "forum" },
+  schedule_enabled: { label: "לוח זמנים", icon: "calendar_month" },
+  rules_enabled: { label: "כללים ואסימונים", icon: "toll" },
+  calming_enabled: { label: "פינת רוגע", icon: "spa" },
+  social_stories_enabled: { label: "סיפורים חברתיים", icon: "auto_stories" },
+  reading_writing_enabled: { label: "קריאה וכתיבה", icon: "menu_book" },
 };
 
 const ACTIVE_CHILD_KEY = "alut4u.activeChild";
@@ -51,8 +51,10 @@ export async function renderHome({ onEnterCaregiver }) {
         "section",
         { class: "home", "data-mode": "user" },
         lockBtn,
-        el("h1", {}, "ברוכים הבאים"),
-        el("p", { class: "muted" }, "מטפל צריך להוסיף פרופיל ילד/ה במצב מטפל."),
+        emptyState({
+          title: "ברוכים הבאים",
+          body: "מטפל צריך להוסיף פרופיל ילד/ה במצב מטפל.",
+        }),
       );
     }
 
@@ -62,7 +64,7 @@ export async function renderHome({ onEnterCaregiver }) {
     } catch {
       /* leave empty */
     }
-    const enabled = Object.keys(MODULE_LABELS).filter((k) => modules[k]);
+    const enabled = Object.keys(MODULES).filter((k) => modules[k]);
 
     return el(
       "section",
@@ -70,14 +72,20 @@ export async function renderHome({ onEnterCaregiver }) {
       lockBtn,
       children.length > 1 && childSwitcher(),
       el("h1", {}, `שלום, ${child?.name ?? ""}`),
-      el(
-        "div",
-        { class: "tile-grid" },
-        ...enabled.map((k) =>
-          el("button", { class: "tile", onclick: () => openModule(k, child) }, MODULE_LABELS[k]),
-        ),
-      ),
-      !enabled.length && el("p", { class: "muted" }, "אין מודולים פעילים כרגע."),
+      enabled.length
+        ? el(
+            "div",
+            { class: "tile-grid" },
+            ...enabled.map((k) =>
+              el(
+                "button",
+                { class: "tile", onclick: () => openModule(k, child) },
+                icon(MODULES[k].icon, { size: 40 }),
+                el("span", {}, MODULES[k].label),
+              ),
+            ),
+          )
+        : emptyState({ title: "אין מודולים פעילים כרגע." }),
     );
   }
 

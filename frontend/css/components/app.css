@@ -19,6 +19,18 @@
   box-shadow: var(--shadow-1);
 }
 
+/* Sign-in/up (original work — no reference art from either export, so this
+   stays conservative: the existing type/colour system, nothing invented). */
+.auth-card {
+  max-inline-size: 400px;
+  margin-block-start: var(--space-12);
+}
+.auth-card h1 {
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin-block-end: var(--space-1);
+}
+
 h1,
 h2,
 h3 {
@@ -407,14 +419,32 @@ hr {
   margin-block-start: var(--space-4);
 }
 .tile {
-  min-block-size: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-block-size: 140px;
+  padding: var(--space-4);
   font-size: var(--text-lg);
   font-weight: 600;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-lg);
+  border: none;
+  /* The biggest kiosk-level radius — docs/design.md's "Large tiles and
+     modals in User Mode use the largest radius" — this is the app's most
+     prominent navigation surface. */
+  border-radius: var(--radius-xl);
   background: var(--color-surface);
   color: var(--color-text);
+  box-shadow: var(--shadow-1);
   cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.tile:active {
+  transform: scale(0.96);
+  box-shadow: none;
+}
+.tile .icon {
+  color: var(--color-primary);
 }
 .child-switch,
 .toggle-list {
@@ -447,6 +477,29 @@ hr {
   align-items: baseline;
   gap: var(--space-4);
 }
+.child-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+/* Echoes .card-medallion's colour-tinted-circle language rather than
+   inventing a new one. */
+.child-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 40px;
+  block-size: 40px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-secondary-soft);
+  color: var(--color-secondary);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+.child-card-head h3 {
+  margin: 0;
+}
 .child-card .toggle-list {
   flex-direction: column;
   gap: var(--space-3);
@@ -458,10 +511,37 @@ hr {
   gap: var(--space-2);
   font-size: var(--text-base);
 }
+/* Real track+thumb switch (docs/design.md §3 "toggle row — label + switch"),
+   drawn entirely on the native <input> — ::before/::after don't render on a
+   replaced element like <input>, so a thumb "element" has to be a background
+   image, not a pseudo-element. Stays a real, fully keyboard/AT-operable
+   checkbox; only its paint changes. */
 .toggle input {
-  inline-size: 1.4rem;
-  block-size: 1.4rem;
+  appearance: none;
+  -webkit-appearance: none;
+  inline-size: 44px;
+  block-size: 26px;
+  margin: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-border-strong);
+  background-image: radial-gradient(circle, var(--color-surface) 9px, transparent 9.5px);
+  background-repeat: no-repeat;
+  /* background-position has no logical (inline-start/end) form — this is a
+     deliberate physical exception, not an RTL slip: off sits at the reading
+     start (right), :checked slides the thumb to the end (left). */
+  background-position: right 4px center;
   flex: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, background-position 150ms ease;
+}
+.toggle input:checked {
+  background-color: var(--color-secondary);
+  background-position: left 4px center;
+}
+.toggle input:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 /* ------------------------------------------------------------------ AAC board */

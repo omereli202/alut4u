@@ -2,7 +2,7 @@
 // account data controls, and exit back to User Mode.
 
 import { api } from "../api.js";
-import { el, errText, icon, mount, toast } from "../ui.js";
+import { el, emptyState, errText, icon, mount, toast } from "../ui.js";
 import { destructiveDialog, typeToConfirmDialog } from "../dialog.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
 import { renderScheduleEditor } from "../modules/schedule/editor.js";
@@ -58,7 +58,7 @@ export async function renderDashboard({ onExit, onLogout }) {
       el("h2", {}, "ילדים"),
       ...(children.length
         ? await Promise.all(children.map(childCard))
-        : [el("p", { class: "muted" }, "עדיין לא נוספו ילדים.")]),
+        : [emptyState({ iconName: "manage_accounts", title: "עדיין לא נוספו ילדים." })]),
       addChildForm(),
       el("h2", {}, "החשבון שלי"),
       accountSection(),
@@ -75,7 +75,12 @@ export async function renderDashboard({ onExit, onLogout }) {
     return el(
       "article",
       { class: "card child-card" },
-      el("h3", {}, child.name),
+      el(
+        "div",
+        { class: "child-card-head" },
+        el("span", { class: "child-avatar", "aria-hidden": "true" }, child.name.slice(0, 1)),
+        el("h3", {}, child.name),
+      ),
       el(
         "div",
         { class: "toggle-list" },

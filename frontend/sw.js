@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v12"; // v12: .btn-link chip restyle
+const SHELL_CACHE = "shell-v13"; // v13: home tile icons, dashboard toggles/avatar, auth wordmark, empty states
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
