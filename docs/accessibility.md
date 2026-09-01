@@ -91,6 +91,26 @@ New pairs introduced applying the PIN gate, boot screen, and shared states:
 above for that pair on `--color-bg`; `--color-surface-sunken` is close enough
 in lightness not to need a separate ratio).
 
+### Contrast — `.btn-link` as a bordered chip
+
+`.btn-link` (back/cancel/action links, 53 call sites) moved from underlined
+text to a bordered chip — `docs/design.md` §3 already permits either
+treatment. New background is `--color-surface`, not `--color-bg`, so the
+existing border-strong ratios don't quite apply verbatim; recomputed for the
+actual pair:
+
+| Pair | Light | Dark |
+|---|---|---|
+| `--color-primary` on `--color-surface` (text) | 6.73:1 | 9.46:1 |
+| `--color-border-strong` on `--color-surface` (border) | 4.49:1 | 5.17:1 |
+| `--color-danger-ink` on `--color-surface` (`.btn-link.danger` text) | 6.45:1 | 7.25:1 |
+| `--color-danger` on `--color-surface` (`.btn-link.danger` border) | 3.52:1 | 7.25:1 |
+
+The danger border only needs the 3:1 non-text-UI floor (it's decorative, not
+carrying text) — light mode clears it at 3.52:1; dark mode's `--color-danger`
+equals `--color-danger-ink` there (both resolve to the same pastel base hue),
+so it's the same 7.25:1 as the row above.
+
 ## Verification
 
 - **CI**: axe-core against key views (added in Phase 1).

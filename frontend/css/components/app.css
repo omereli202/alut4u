@@ -99,18 +99,41 @@ hr {
   opacity: 0.6;
   cursor: progress;
 }
+/* A quiet bordered chip, not underlined text — docs/design.md §3 permits
+   either for .btn-link ("underline or subtle border"); this is the border
+   variant, applied everywhere so every back/cancel/action link reads as a
+   pressable control. --color-primary on --color-surface and
+   --color-border-strong on --color-surface are both already-verified pairs
+   (docs/accessibility.md) — reused, not new combinations. */
 .btn-link {
-  display: inline-block;
-  background: none;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
   color: var(--color-primary);
-  text-decoration: underline;
   cursor: pointer;
-  padding: var(--space-2) 0;
+  padding: var(--space-2) var(--space-4);
   font-size: var(--text-base);
+  font-weight: 600;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.btn-link:hover {
+  background: var(--color-surface-sunken);
+}
+.btn-link:active {
+  transform: scale(0.97);
+}
+.btn-link:disabled {
+  opacity: 0.6;
+  cursor: progress;
 }
 .btn-link.danger {
+  /* Same outline-chip pattern already used for .queue-badge. */
   color: var(--color-danger-ink);
+  border-color: var(--color-danger);
 }
 .btn-primary.danger {
   /* Base --color-danger can't clear 4.5:1 with white (or dark) text at body
@@ -192,6 +215,7 @@ hr {
 }
 .dialog-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: var(--space-3);
   margin: 0;
@@ -418,6 +442,7 @@ hr {
 /* Dashboard */
 .dash-head {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: var(--space-4);
@@ -752,6 +777,7 @@ hr {
 }
 .form-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-4);
   align-items: center;
   margin-block-start: var(--space-3);
@@ -837,6 +863,7 @@ hr {
 }
 .focus-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-6);
 }
 .focus-done,
@@ -1141,7 +1168,7 @@ hr {
   .breath-circle { transition: none; }
 }
 
-.memory-head { display: flex; gap: var(--space-4); align-items: center; margin-block-end: var(--space-3); }
+.memory-head { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; margin-block-end: var(--space-3); }
 .memory-grid {
   display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr);
   gap: var(--space-2);
@@ -1167,7 +1194,7 @@ hr {
 .story-emoji { font-size: 2rem; }
 
 .story-reader { display: flex; flex-direction: column; gap: var(--space-4); align-items: center; }
-.story-topbar { display: flex; justify-content: space-between; inline-size: 100%; align-items: center; }
+.story-topbar { display: flex; flex-wrap: wrap; justify-content: space-between; inline-size: 100%; align-items: center; }
 .story-image {
   inline-size: 100%; max-inline-size: 420px; aspect-ratio: 4/3;
   object-fit: cover; border-radius: var(--radius-lg); background: var(--color-surface);
@@ -1209,7 +1236,7 @@ hr {
   font-size: var(--text-sm); background: var(--color-surface);
   border-radius: var(--radius-pill); padding: 2px var(--space-2); color: var(--color-text-muted);
 }
-.lesson-top { display: flex; gap: var(--space-3); align-items: center; margin-block-end: var(--space-3); }
+.lesson-top { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-block-end: var(--space-3); }
 .lesson-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-block-start: var(--space-4); }
 .reading-body {
   font-size: var(--text-xl); line-height: 1.9; text-align: start;
