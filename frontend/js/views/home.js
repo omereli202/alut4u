@@ -80,7 +80,7 @@ export async function renderHome({ onEnterCaregiver }) {
               el(
                 "button",
                 { class: "tile", onclick: () => openModule(k, child) },
-                icon(MODULES[k].icon, { size: 40 }),
+                el("span", { class: "tile-medallion" }, icon(MODULES[k].icon, { size: 32 })),
                 el("span", {}, MODULES[k].label),
               ),
             ),

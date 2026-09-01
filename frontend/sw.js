@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v14"; // v14: re-bump — v13's install-time cache.addAll silently failed on first deploy
+const SHELL_CACHE = "shell-v15"; // v15: home tile icon medallions
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 

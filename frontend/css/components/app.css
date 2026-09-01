@@ -443,8 +443,20 @@ hr {
   transform: scale(0.96);
   box-shadow: none;
 }
-.tile .icon {
-  color: var(--color-primary);
+/* Matches .card-medallion's language (AAC cards) rather than inventing a
+   second one — a colour-tinted circle housing the icon, sized up for the
+   home screen's bigger, more prominent tiles. Secondary, not primary,
+   keeping --color-primary sparse (docs/design.md §3 "one accent") — the
+   same choice already made for .card-medallion's default wash. */
+.tile-medallion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 64px;
+  block-size: 64px;
+  border-radius: 50%;
+  background: var(--color-secondary-soft);
+  color: var(--color-secondary);
 }
 .child-switch,
 .toggle-list {
