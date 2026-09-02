@@ -13,3 +13,4 @@ def test_service_client_rejects_unapproved_operation(settings):
 def test_allowed_operations_are_explicit_and_frozen():
     assert isinstance(ALLOWED_SERVICE_OPERATIONS, frozenset)
     assert "create_auth_user" in ALLOWED_SERVICE_OPERATIONS
+    assert "regenerate_tts" in ALLOWED_SERVICE_OPERATIONS
