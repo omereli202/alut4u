@@ -40,8 +40,13 @@
 		Content-Security-Policy "default-src 'self'; img-src 'self' data:; media-src 'self' blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
 	}
 
-	# Never let the HTML shell or the service worker be stale-cached.
-	@nocache path / /index.html /sw.js
+	# Never let the HTML shell, the service worker, or CSS/JS be stale-cached.
+	# Railway's CDN edge-caches per-node independently of any header here — an
+	# unversioned static path with no explicit Cache-Control can silently serve
+	# yesterday's deploy from one edge node while another has the current one.
+	# The service worker (versioned via SHELL_CACHE) is the real cache layer
+	# for these, so the origin must always answer with the latest bytes.
+	@nocache path / /index.html /sw.js /css/* /js/*
 	header @nocache Cache-Control "no-cache"
 
 	# Bundled immutable assets (symbols, calming loops, icons) can cache hard.
