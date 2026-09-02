@@ -255,6 +255,7 @@ hr {
   flex: 1;
   min-block-size: 0;
   block-size: auto;
+  margin: 0;
 }
 
 /* Empty / celebration states (T3.13) — shared by any screen that previously
@@ -627,6 +628,12 @@ hr {
 
 .aac-board {
   block-size: 100dvh;
+  /* #main has padding: var(--space-4) on every side (app.css's #main rule) —
+     cancel it here so a *fixed* 100dvh actually reaches the real viewport
+     edges. Without this the padding pushes the board past the bottom of the
+     screen and the page scrolls, defeating the no-scroll grid-fit below.
+     Not needed for the preview variant, which isn't inside #main. */
+  margin: calc(-1 * var(--space-4));
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
