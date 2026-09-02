@@ -37,6 +37,8 @@ Computed from the hex values in `tokens.css`. AA floors: 4.5:1 body text,
 | `--color-text` on `--color-bg` | 12.00:1 | 15.07:1 |
 | `--color-text-muted` on `--color-bg` | 4.96:1 | 9.20:1 |
 | `--color-text` on `--color-surface` | 12.68:1 | — |
+| `--color-secondary` on `--color-secondary-soft` (`.cat-tab.active`, `.cat-card.active`) | 5.01:1 | 5.50:1 |
+| `--color-border-strong` on `--color-surface` (`.caregiver-entry`, `.nav-btn` border) | 4.49:1 | 5.17:1 |
 | `--color-primary-contrast` on `--color-primary` | 6.73:1 | 10.02:1 |
 | `--color-border-strong` on `--color-bg` (input outlines) | 4.25:1 | 5.85:1 |
 | `--color-focus` on `--color-bg` / `--color-surface` | 3.12:1 / 3.29:1 | — |

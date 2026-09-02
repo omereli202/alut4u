@@ -1,7 +1,7 @@
 // Schedule editor (Caregiver Mode): build a day's tasks + manage calendar events.
 
 import { api } from "../../api.js";
-import { el, errText, icon, mount, toast } from "../../ui.js";
+import { el, errText, icon, mount, toast, withBusy } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
 import { todayISO } from "./data.js";
 
@@ -30,7 +30,7 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `לוח זמנים — ${childName}`),
+          el("h1", {}, `סדר יום — ${childName}`),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
         el(
@@ -156,36 +156,42 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
   async function addItem(e, getSymbol) {
     e.preventDefault();
     const f = new FormData(e.target);
-    try {
-      await api.post("/schedule/items", {
-        child_id: childId,
-        the_date: dateISO,
-        title: f.get("title").trim(),
-        start_time: f.get("start_time") || null,
-        symbol_id: getSymbol(),
-        sort_order: items.length,
-      });
-      load();
-    } catch (err) {
-      e.target.querySelector(".err").textContent = errText(err);
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/schedule/items", {
+          child_id: childId,
+          the_date: dateISO,
+          title: f.get("title").trim(),
+          start_time: f.get("start_time") || null,
+          symbol_id: getSymbol(),
+          sort_order: items.length,
+        });
+        load();
+      } catch (err) {
+        e.target.querySelector(".err").textContent = errText(err);
+      }
+    });
   }
 
   async function copyDay(e) {
     e.preventDefault();
     const from = new FormData(e.target).get("from");
     if (!from) return;
-    try {
-      const { copied } = await api.post("/schedule/copy-day", {
-        child_id: childId,
-        from_date: from,
-        to_date: dateISO,
-      });
-      toast(`הועתקו ${copied} משימות`);
-      load();
-    } catch (err) {
-      toast(errText(err), "error");
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        const { copied } = await api.post("/schedule/copy-day", {
+          child_id: childId,
+          from_date: from,
+          to_date: dateISO,
+        });
+        toast(`הועתקו ${copied} משימות`);
+        load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
   }
 
   // --- calendar events ----------------------------------------------
@@ -224,17 +230,20 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
   async function addEvent(e) {
     e.preventDefault();
     const f = new FormData(e.target);
-    try {
-      await api.post("/schedule/events", {
-        child_id: childId,
-        title: f.get("title").trim(),
-        event_date: f.get("event_date"),
-        note: f.get("note").trim() || null,
-      });
-      load();
-    } catch (err) {
-      e.target.querySelector(".err").textContent = errText(err);
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/schedule/events", {
+          child_id: childId,
+          title: f.get("title").trim(),
+          event_date: f.get("event_date"),
+          note: f.get("note").trim() || null,
+        });
+        load();
+      } catch (err) {
+        e.target.querySelector(".err").textContent = errText(err);
+      }
+    });
   }
 
   await load();

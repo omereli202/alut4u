@@ -12,12 +12,12 @@ import { renderStories } from "../modules/stories/index.js";
 import { renderLearning } from "../modules/learning/index.js";
 
 const MODULES = {
-  aac_enabled: { label: "תקשורת", icon: "forum" },
-  schedule_enabled: { label: "לוח זמנים", icon: "calendar_month" },
-  rules_enabled: { label: "כללים ואסימונים", icon: "toll" },
+  aac_enabled: { label: "בוא נדבר", icon: "forum" },
+  schedule_enabled: { label: "סדר יום", icon: "calendar_month" },
+  rules_enabled: { label: "הכללים שלי", icon: "toll" },
   calming_enabled: { label: "פינת רוגע", icon: "spa" },
   social_stories_enabled: { label: "סיפורים חברתיים", icon: "auto_stories" },
-  reading_writing_enabled: { label: "קריאה וכתיבה", icon: "menu_book" },
+  reading_writing_enabled: { label: "תרגול קריאה וכתיבה", icon: "menu_book" },
 };
 
 const ACTIVE_CHILD_KEY = "alut4u.activeChild";
@@ -40,20 +40,22 @@ export async function renderHome({ onEnterCaregiver }) {
 
   async function view() {
     const child = children.find((c) => c.id === activeId);
-    const lockBtn = el(
+    // A clearly separate, labeled control — not an unlabeled icon crowded
+    // next to the friend-switcher chips, which used to read as one cluster.
+    const caregiverEntry = el(
       "button",
-      { class: "lock-btn", "aria-label": "מצב מטפל", onclick: onEnterCaregiver },
+      { class: "caregiver-entry", onclick: onEnterCaregiver },
       icon("lock"),
+      el("span", {}, "מצב מטפל"),
     );
 
     if (!children.length) {
       return el(
         "section",
         { class: "home", "data-mode": "user" },
-        lockBtn,
+        el("div", { class: "home-head" }, el("h1", {}, "ברוכים הבאים"), caregiverEntry),
         emptyState({
-          title: "ברוכים הבאים",
-          body: "מטפל צריך להוסיף פרופיל ילד/ה במצב מטפל.",
+          body: "מטפל צריך להוסיף פרופיל חבר/ה במצב מטפל.",
         }),
       );
     }
@@ -69,9 +71,8 @@ export async function renderHome({ onEnterCaregiver }) {
     return el(
       "section",
       { class: "home", "data-mode": "user" },
-      lockBtn,
+      el("div", { class: "home-head" }, el("h1", {}, `שלום, ${child?.name ?? ""}`), caregiverEntry),
       children.length > 1 && childSwitcher(),
-      el("h1", {}, `שלום, ${child?.name ?? ""}`),
       enabled.length
         ? el(
             "div",
@@ -80,7 +81,7 @@ export async function renderHome({ onEnterCaregiver }) {
               el(
                 "button",
                 { class: "tile", onclick: () => openModule(k, child) },
-                el("span", { class: "tile-medallion" }, icon(MODULES[k].icon, { size: 32 })),
+                el("span", { class: "tile-medallion" }, icon(MODULES[k].icon, { size: 40 })),
                 el("span", {}, MODULES[k].label),
               ),
             ),
@@ -90,24 +91,24 @@ export async function renderHome({ onEnterCaregiver }) {
   }
 
   function openModule(key, child) {
-    const back = async () => mount(await view());
+    const home = async () => mount(await view());
     if (key === "aac_enabled") {
-      return renderAacBoard({ childId: child.id, childName: child.name, onExit: back });
+      return renderAacBoard({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     if (key === "schedule_enabled") {
-      return renderSchedule({ childId: child.id, childName: child.name, onExit: back });
+      return renderSchedule({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     if (key === "rules_enabled") {
-      return renderRules({ childId: child.id, childName: child.name, onExit: back });
+      return renderRules({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     if (key === "calming_enabled") {
-      return renderCalming({ childName: child.name, onExit: back });
+      return renderCalming({ childName: child.name, onExit: home, onHome: home });
     }
     if (key === "social_stories_enabled") {
-      return renderStories({ childId: child.id, childName: child.name, onExit: back });
+      return renderStories({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     if (key === "reading_writing_enabled") {
-      return renderLearning({ childId: child.id, childName: child.name, onExit: back });
+      return renderLearning({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     toast("המודול יתווסף בשלב הבא");
   }

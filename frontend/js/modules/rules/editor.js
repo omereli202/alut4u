@@ -2,7 +2,7 @@
 // and resolve pending redemption requests.
 
 import { api } from "../../api.js";
-import { el, errText, mount, toast } from "../../ui.js";
+import { el, errText, mount, toast, withBusy } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
 
 const QUICK_AWARDS = [1, 2, 5];
@@ -31,7 +31,7 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `כללים ואסימונים — ${childName}`),
+          el("h1", {}, `הכללים שלי — ${childName}`),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
 
@@ -44,7 +44,7 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
             "form",
             { class: "award-form", onsubmit: award },
             ...QUICK_AWARDS.map((n) =>
-              el("button", { type: "button", class: "sb-btn", onclick: () => quickAward(n) }, `+${n}`),
+              el("button", { type: "button", class: "sb-btn", onclick: (e) => quickAward(n, e.target) }, `+${n}`),
             ),
             el("input", { name: "amount", type: "number", placeholder: "כמות", min: -100, max: 100 }),
             el("input", { name: "reason", type: "text", placeholder: "סיבה (רשות)", maxlength: 120 }),
@@ -118,14 +118,16 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
 
   // --- tokens -------------------------------------------------------
 
-  async function quickAward(n) {
-    try {
-      const res = await api.post("/tokens/award", { child_id: childId, amount: n });
-      state.balance = res.balance;
-      await load();
-    } catch (err) {
-      toast(errText(err), "error");
-    }
+  async function quickAward(n, btn) {
+    await withBusy(btn, async () => {
+      try {
+        const res = await api.post("/tokens/award", { child_id: childId, amount: n });
+        state.balance = res.balance;
+        await load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
   }
 
   async function award(e) {
@@ -133,16 +135,19 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
     const f = new FormData(e.target);
     const amount = Number(f.get("amount"));
     if (!amount) return;
-    try {
-      await api.post("/tokens/award", {
-        child_id: childId,
-        amount,
-        reason: f.get("reason").trim() || null,
-      });
-      load();
-    } catch (err) {
-      toast(errText(err), "error");
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/tokens/award", {
+          child_id: childId,
+          amount,
+          reason: f.get("reason").trim() || null,
+        });
+        load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
   }
 
   async function resolve(id, action) {
@@ -197,18 +202,21 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
   async function addRule(e, getSymbol) {
     e.preventDefault();
     const f = new FormData(e.target);
-    try {
-      await api.post("/tokens/rules", {
-        child_id: childId,
-        title: f.get("title").trim(),
-        body: f.get("body").trim() || null,
-        symbol_id: getSymbol(),
-        sort_order: state.rules.length,
-      });
-      load();
-    } catch (err) {
-      e.target.querySelector(".err").textContent = errText(err);
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/tokens/rules", {
+          child_id: childId,
+          title: f.get("title").trim(),
+          body: f.get("body").trim() || null,
+          symbol_id: getSymbol(),
+          sort_order: state.rules.length,
+        });
+        load();
+      } catch (err) {
+        e.target.querySelector(".err").textContent = errText(err);
+      }
+    });
   }
 
   // --- rewards ----------------------------------------------------
@@ -269,18 +277,21 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
   async function addReward(e, getSymbol) {
     e.preventDefault();
     const f = new FormData(e.target);
-    try {
-      await api.post("/tokens/rewards", {
-        child_id: childId,
-        title: f.get("title").trim(),
-        cost: Number(f.get("cost")),
-        symbol_id: getSymbol(),
-        sort_order: state.rewards.length,
-      });
-      load();
-    } catch (err) {
-      e.target.querySelector(".err").textContent = errText(err);
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/tokens/rewards", {
+          child_id: childId,
+          title: f.get("title").trim(),
+          cost: Number(f.get("cost")),
+          symbol_id: getSymbol(),
+          sort_order: state.rewards.length,
+        });
+        load();
+      } catch (err) {
+        e.target.querySelector(".err").textContent = errText(err);
+      }
+    });
   }
 
   await load();

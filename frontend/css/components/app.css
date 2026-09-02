@@ -237,6 +237,25 @@ hr {
 [data-mode="user"].dialog .dialog-actions {
   flex-wrap: wrap;
 }
+/* AAC-board preview (aac/editor.js) — a near-full-screen variant so the
+   caregiver sees the board at close to its real on-device size, not a
+   phone-sized modal. */
+.dialog-preview {
+  max-inline-size: 900px;
+  inline-size: calc(100vw - var(--space-8));
+  block-size: calc(100vh - var(--space-8));
+  padding: var(--space-4);
+}
+.preview-body {
+  display: flex;
+  flex: 1;
+  min-block-size: 0;
+}
+.aac-board.aac-board-preview {
+  flex: 1;
+  min-block-size: 0;
+  block-size: auto;
+}
 
 /* Empty / celebration states (T3.13) — shared by any screen that previously
    hand-rolled its own version of one of these. */
@@ -350,6 +369,14 @@ hr {
     border-block-start-color: var(--color-border); /* a static ring, not a frozen mid-spin frame */
   }
 }
+/* Inline variant for a busy button (ui.js's withBusy()) — same ring, sized to
+   sit next to a button label instead of filling a boot screen. */
+.spinner-sm {
+  inline-size: 18px;
+  block-size: 18px;
+  border-width: 2px;
+  vertical-align: middle;
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -412,11 +439,50 @@ hr {
   cursor: pointer;
   padding: var(--space-2);
 }
+/* Home header row: greeting on one side, the caregiver-mode entry clearly
+   separated on the other — previously an unlabeled icon absolutely
+   positioned right next to the child-switcher chips, which read as one
+   cluster. Both live in their own row now, not stacked on the switcher. */
+.home-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.home-head h1 {
+  margin: 0;
+}
+.caregiver-entry {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  min-block-size: var(--touch-min);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+}
+.caregiver-entry:active {
+  transform: scale(0.97);
+}
 .tile-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
-  margin-block-start: var(--space-4);
+  margin-block-start: var(--space-6);
+}
+/* Three columns is right for the primary kiosk tablet target but too tight
+   for the phone-portrait secondary target (docs/design.md) at this tile
+   size — drop to two there. */
+@media (max-width: 600px) {
+  .tile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .tile {
   display: flex;
@@ -424,9 +490,9 @@ hr {
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  min-block-size: 140px;
+  min-block-size: 200px;
   padding: var(--space-4);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 600;
   border: none;
   /* The biggest kiosk-level radius — docs/design.md's "Large tiles and
@@ -452,8 +518,8 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: 64px;
-  block-size: 64px;
+  inline-size: 80px;
+  block-size: 80px;
   border-radius: 50%;
   background: var(--color-secondary-soft);
   color: var(--color-secondary);
@@ -465,6 +531,7 @@ hr {
   gap: var(--space-2);
 }
 .child-switch {
+  margin-block-start: var(--space-4);
   margin-block-end: var(--space-4);
 }
 .chip {
@@ -559,34 +626,41 @@ hr {
 /* ------------------------------------------------------------------ AAC board */
 
 .aac-board {
-  min-height: 100dvh;
+  block-size: 100dvh;
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
-.aac-topbar {
+/* Shared User-Mode back+home bar (ui.js's navBar()) — replaces the old
+   close-icon-only .aac-topbar as every module screen's persistent header, so
+   both controls stay visible above whatever sub-view the module swaps in. */
+.nav-bar {
   display: flex;
   align-items: center;
   gap: var(--space-3);
 }
-.aac-title {
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-block-size: var(--touch-min);
+  padding-inline: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+}
+.nav-btn:active {
+  transform: scale(0.97);
+}
+.nav-title {
   flex: 1;
   margin: 0;
   font-size: var(--text-lg);
-}
-.aac-topbar .lock-btn {
-  position: static;
-  font-size: 1.2rem;
-}
-.grid-control {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-.grid-count {
-  min-inline-size: 1.5ch;
   text-align: center;
-  color: var(--color-text-muted);
 }
 
 /* Sentence bar */
@@ -688,12 +762,58 @@ hr {
   box-shadow: var(--shadow-1);
 }
 
-/* Card grid */
+/* Category cards — the AAC board's own category selector (board.js only;
+   .cat-tab above is unchanged and still used by rules/calming/reading&writing).
+   Same visual/card-medallion language as the card grid below, so a category
+   reads as a tappable tile rather than plain labeled text. */
+.cat-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.cat-card {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: var(--touch-min);
+  padding: var(--space-1) var(--space-4) var(--space-1) var(--space-1);
+  border: 2px solid var(--cat, var(--color-border-strong));
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+}
+.cat-card .card-medallion {
+  inline-size: 44px;
+  block-size: 44px;
+  max-inline-size: none;
+}
+.cat-card.active {
+  background: var(--cat, var(--color-secondary-soft));
+  color: var(--color-secondary);
+  border-color: transparent;
+}
+
+/* Card grid — sized to always fit the viewport with no scrolling: board.js
+   measures the grid box and picks --cols/--rows for the active category's
+   card count, rather than letting content overflow into a scrollbar (a
+   locked kiosk tablet gives a child no way to scroll back). */
 .aac-grid {
   display: grid;
   grid-template-columns: repeat(var(--cols, 3), 1fr);
+  grid-template-rows: repeat(var(--rows, 1), 1fr);
   gap: var(--space-3);
   flex: 1;
+  min-block-size: 0;
+  overflow: hidden;
+}
+/* Only reached past ~100 cards in one category on a real tablet (board.js's
+   fitGrid comment) — cards would drop under the 60px touch floor to keep
+   fitting on one screen, so this scrolls instead as the accessibility floor
+   takes priority over the no-scroll preference. */
+.aac-grid.aac-grid-scroll {
+  overflow-y: auto;
   align-content: start;
 }
 .aac-card {
@@ -702,7 +822,8 @@ hr {
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  aspect-ratio: 1;
+  min-block-size: var(--touch-min);
+  min-inline-size: var(--touch-min);
   padding: var(--space-3);
   border: none;
   border-radius: var(--radius-lg);

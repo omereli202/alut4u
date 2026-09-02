@@ -1,13 +1,13 @@
 // Schedule module entry (User Mode). Focus view by default; toggles to the full
 // day list and the monthly calendar.
 
-import { el, icon, mount, toast } from "../../ui.js";
+import { el, icon, mount, navBar, toast } from "../../ui.js";
 import { renderCalendar } from "./calendar.js";
 import { renderDayList } from "./day-list.js";
 import { loadDay, todayISO } from "./data.js";
 import { renderFocus } from "./focus.js";
 
-export async function renderSchedule({ childId, childName, onExit }) {
+export async function renderSchedule({ childId, childName, onExit, onHome }) {
   const dateISO = todayISO();
   let items = [];
   try {
@@ -20,13 +20,12 @@ export async function renderSchedule({ childId, childName, onExit }) {
   const screen = el(
     "section",
     { class: "schedule", "data-mode": "user" },
-    el(
-      "div",
-      { class: "aac-topbar" },
-      el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, icon("close")),
-      el("h1", { class: "aac-title" }, childName || "הלוח שלי"),
-      el("button", { class: "btn-link", onclick: showCalendar }, icon("calendar_month"), " חודש"),
-    ),
+    navBar({
+      onBack: onExit,
+      onHome: onHome ?? onExit,
+      title: childName || "סדר יום",
+      extra: el("button", { class: "btn-link", onclick: showCalendar }, icon("calendar_month"), " חודש"),
+    }),
     host,
   );
 

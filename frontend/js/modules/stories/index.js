@@ -1,10 +1,10 @@
 // User Mode: list of finished social stories → reader.
 
 import { api } from "../../api.js";
-import { el, emptyState, icon, mount, toast } from "../../ui.js";
+import { el, emptyState, mount, navBar, toast } from "../../ui.js";
 import { renderReader } from "./reader.js";
 
-export async function renderStories({ childId, childName, onExit }) {
+export async function renderStories({ childId, childName, onExit, onHome }) {
   let stories = [];
   try {
     stories = (await api.get(`/stories?child_id=${encodeURIComponent(childId)}`)).stories;
@@ -50,12 +50,7 @@ export async function renderStories({ childId, childName, onExit }) {
     el(
       "section",
       { class: "stories", "data-mode": "user" },
-      el(
-        "div",
-        { class: "aac-topbar" },
-        el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, icon("close")),
-        el("h1", { class: "aac-title" }, `הסיפורים של ${childName || ""}`),
-      ),
+      navBar({ onBack: onExit, onHome: onHome ?? onExit, title: `הסיפורים של ${childName || ""}` }),
       host,
     ),
   );

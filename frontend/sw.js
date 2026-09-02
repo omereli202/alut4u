@@ -7,7 +7,7 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v15"; // v15: home tile icon medallions
+const SHELL_CACHE = "shell-v16"; // v16: nav bar, 3x2 home grid, AAC no-scroll grid
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
@@ -70,7 +70,7 @@ const SHELL = [
   // actually defeats Railway's CDN edge cache (see ui.js's comment); an
   // unversioned entry here would just precache a *different* URL than the
   // one icon() ever requests.
-  "/assets/icons/sprite.svg?v=41",
+  "/assets/icons/sprite.svg?v=42",
 ];
 
 self.addEventListener("install", (event) => {

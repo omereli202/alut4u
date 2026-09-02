@@ -1,11 +1,11 @@
 // User Mode: "כללים ואסימונים" — token balance, behavior rule cards, reward store.
 
 import { api, ApiError } from "../../api.js";
-import { el, emptyState, icon, mount, toast } from "../../ui.js";
+import { el, emptyState, icon, mount, navBar, toast } from "../../ui.js";
 import { confirmDialog } from "../../dialog.js";
 import { loadRulesModule, playExplanation, visualNode } from "./data.js";
 
-export async function renderRules({ childId, childName, onExit }) {
+export async function renderRules({ childId, childName, onExit, onHome }) {
   let data;
   try {
     data = await loadRulesModule(childId);
@@ -19,18 +19,17 @@ export async function renderRules({ childId, childName, onExit }) {
     return el(
       "section",
       { class: "rules-screen", "data-mode": "user" },
-      el(
-        "div",
-        { class: "aac-topbar" },
-        el("button", { class: "lock-btn", "aria-label": "יציאה", onclick: onExit }, icon("close")),
-        el("h1", { class: "aac-title" }, childName || "כללים ואסימונים"),
-        el(
+      navBar({
+        onBack: onExit,
+        onHome: onHome ?? onExit,
+        title: childName || "הכללים שלי",
+        extra: el(
           "div",
           { class: "token-badge", "aria-label": `${data.balance} אסימונים` },
           icon("star", { size: 22 }),
           String(data.balance),
         ),
-      ),
+      }),
       el(
         "div",
         { class: "cat-tabs" },

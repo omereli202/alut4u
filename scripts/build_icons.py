@@ -78,6 +78,8 @@ ICONS: dict[str, str] = {
     # "communication" (mic is already claimed by voice recording) or "calm".
     "forum": "תקשורת",
     "spa": "פינת רוגע",
+    # Added for the shared User-Mode back+home nav bar (UX fix batch).
+    "home": "בית",
 }
 
 _SYMBOL_RE = re.compile(r'<svg[^>]*viewBox="([^"]+)"[^>]*>(.*)</svg>', re.S)

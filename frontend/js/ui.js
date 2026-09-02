@@ -30,7 +30,7 @@ const XLINK_NS = "http://www.w3.org/1999/xlink";
 // service worker or browser manage. A version query string is a new URL,
 // so every cache layer treats it as a fresh resource instead of revalidating
 // a stale one.
-const SPRITE_URL = "/assets/icons/sprite.svg?v=41";
+const SPRITE_URL = "/assets/icons/sprite.svg?v=42";
 
 // Control glyph from the bundled sprite (frontend/assets/icons/sprite.svg —
 // Material Symbols Outlined, see scripts/build_icons.py). Decorative by
@@ -65,6 +65,27 @@ export function mount(...nodes) {
   main.scrollTo?.(0, 0);
   window.scrollTo(0, 0);
   main.focus?.();
+}
+
+// Disable `btn` and show a spinner in place of its label while `fn` runs,
+// re-enabling it in a `finally` so a thrown/rejected `fn` never leaves it
+// stuck. Also guards re-entry with a plain flag (not just the `disabled`
+// attribute) so a second Enter/tap fired before the first paint can't slip a
+// duplicate submit through. Every caregiver create-form's onsubmit should
+// route its request through this — see the UX fix batch plan.
+export async function withBusy(btn, fn) {
+  if (!btn || btn.dataset.busy === "1") return;
+  btn.dataset.busy = "1";
+  btn.disabled = true;
+  const original = btn.innerHTML;
+  btn.replaceChildren(el("span", { class: "spinner spinner-sm", "aria-hidden": "true" }), el("span", {}, "…"));
+  try {
+    return await fn();
+  } finally {
+    btn.disabled = false;
+    delete btn.dataset.busy;
+    btn.innerHTML = original;
+  }
 }
 
 export function toast(message, kind = "info") {
@@ -123,6 +144,31 @@ export function emptyState({ iconName = "inbox", title, body, onBack, backLabel 
     title && el("h3", {}, title),
     body && el("p", { class: "muted" }, body),
     onBack && el("button", { class: "btn-link", onclick: onBack }, backLabel),
+  );
+}
+
+// Shared User-Mode top bar (UX fix batch): a labeled back button and a
+// labeled home button, always both present and always in the same place —
+// predictable, redundant navigation beats a single "smart" back button for
+// this audience. `onBack` returns to the previous view (the module's own
+// root screen wires this to the same home callback as `onHome`). `title`,
+// when given, sits between the two buttons. Caregiver Mode does not use
+// this — it keeps its existing `חזרה` links. `extra` is an optional node
+// (a module's own status badge or secondary action) placed between the
+// title and the home button.
+export function navBar({ onBack, onHome, title, extra } = {}) {
+  return el(
+    "div",
+    { class: "nav-bar" },
+    el(
+      "button",
+      { class: "nav-btn", onclick: onBack },
+      icon("arrow_back", { flip: true }),
+      el("span", {}, "חזרה"),
+    ),
+    title && el("h1", { class: "nav-title" }, title),
+    extra,
+    el("button", { class: "nav-btn", onclick: onHome }, icon("home"), el("span", {}, "בית")),
   );
 }
 

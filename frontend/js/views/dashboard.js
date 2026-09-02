@@ -2,7 +2,7 @@
 // account data controls, and exit back to User Mode.
 
 import { api } from "../api.js";
-import { el, emptyState, errText, icon, mount, toast } from "../ui.js";
+import { el, emptyState, errText, icon, mount, toast, withBusy } from "../ui.js";
 import { destructiveDialog, typeToConfirmDialog } from "../dialog.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
 import { renderScheduleEditor } from "../modules/schedule/editor.js";
@@ -10,12 +10,12 @@ import { renderRulesEditor } from "../modules/rules/editor.js";
 import { renderStoriesEditor } from "../modules/stories/editor.js";
 
 const MODULES = [
-  ["aac_enabled", "תקשורת (AAC)"],
-  ["schedule_enabled", "לוח זמנים"],
-  ["rules_enabled", "כללים ואסימונים"],
+  ["aac_enabled", "בוא נדבר (AAC)"],
+  ["schedule_enabled", "סדר יום"],
+  ["rules_enabled", "הכללים שלי"],
   ["calming_enabled", "פינת רוגע"],
   ["social_stories_enabled", "סיפורים חברתיים"],
-  ["reading_writing_enabled", "קריאה וכתיבה"],
+  ["reading_writing_enabled", "תרגול קריאה וכתיבה"],
 ];
 
 export async function renderDashboard({ onExit, onLogout }) {
@@ -55,10 +55,10 @@ export async function renderDashboard({ onExit, onLogout }) {
         ),
         el("button", { class: "btn-link", onclick: exit }, "יציאה ממצב מטפל"),
       ),
-      el("h2", {}, "ילדים"),
+      el("h2", {}, "חברים"),
       ...(children.length
         ? await Promise.all(children.map(childCard))
-        : [emptyState({ iconName: "manage_accounts", title: "עדיין לא נוספו ילדים." })]),
+        : [emptyState({ iconName: "manage_accounts", title: "עדיין לא נוספו חברים." })]),
       addChildForm(),
       el("h2", {}, "החשבון שלי"),
       accountSection(),
@@ -173,7 +173,7 @@ export async function renderDashboard({ onExit, onLogout }) {
     return el(
       "form",
       { class: "card", onsubmit: addChild },
-      el("h3", {}, "הוספת ילד/ה"),
+      el("h3", {}, "הוספת חבר/ה"),
       el(
         "div",
         { class: "field" },
@@ -244,17 +244,20 @@ export async function renderDashboard({ onExit, onLogout }) {
     const f = new FormData(e.target);
     const errEl = document.getElementById("nc-err");
     errEl.textContent = "";
-    try {
-      await api.post("/children", {
-        name: f.get("name"),
-        consent_basis: f.get("consent_basis"),
-        parental_consent_attested: f.get("parental_consent_attested") === "on",
-        board_template_id: f.get("board_template_id") || null,
-      });
-      load();
-    } catch (err) {
-      errEl.textContent = errText(err);
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/children", {
+          name: f.get("name"),
+          consent_basis: f.get("consent_basis"),
+          parental_consent_attested: f.get("parental_consent_attested") === "on",
+          board_template_id: f.get("board_template_id") || null,
+        });
+        load();
+      } catch (err) {
+        errEl.textContent = errText(err);
+      }
+    });
   }
 
   async function deleteAccount() {

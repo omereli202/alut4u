@@ -1,8 +1,9 @@
 // AAC card editor (Caregiver Mode). Manage categories and cards for one child.
 
 import { api } from "../../api.js";
-import { el, errText, icon, mount, toast } from "../../ui.js";
+import { el, errText, icon, mount, toast, withBusy } from "../../ui.js";
 import { confirmDialog, destructiveDialog } from "../../dialog.js";
+import { renderAacBoard } from "./board.js";
 import { recordClip } from "./recorder.js";
 import { createSymbolPicker } from "./symbol-picker.js";
 
@@ -37,7 +38,8 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `לוח תקשורת — ${childName}`),
+          el("h1", {}, `בוא נדבר — ${childName}`),
+          el("button", { class: "btn-link", onclick: openPreview }, "תצוגה מקדימה"),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
         ...board.categories.map(categoryBlock),
@@ -171,12 +173,30 @@ export async function renderAacEditor({ childId, childName, onExit }) {
   async function addCategory(e) {
     e.preventDefault();
     const name = new FormData(e.target).get("name").trim();
-    try {
-      await api.post("/aac/categories", { child_id: childId, name });
-      load();
-    } catch (err) {
-      toast(errText(err), "error");
-    }
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/aac/categories", { child_id: childId, name });
+        load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
+  }
+
+  // Opens the real child-facing board, read-only, in a near-full-screen
+  // dialog — so "does it fit without scrolling" is answered by the actual
+  // renderer, not a second hand-built layout that could drift from it.
+  function openPreview() {
+    const previewHost = el("div", { class: "preview-body" });
+    const dlg = el("dialog", { class: "dialog dialog-preview" }, previewHost);
+    document.body.append(dlg);
+    dlg.addEventListener("click", (e) => {
+      if (e.target === dlg) dlg.close();
+    });
+    dlg.addEventListener("close", () => dlg.remove(), { once: true });
+    dlg.showModal();
+    renderAacBoard({ childId, childName, preview: true, host: previewHost, onExit: () => dlg.close() });
   }
 
   // --- card add/edit form ------------------------------------------------
@@ -289,23 +309,26 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         icon_asset_id: state.icon_asset_id,
         category_id: state.category_id,
       };
-      try {
-        if (editing) {
-          await api.patch(`/aac/cards/${card.id}`, { ...body, audio_asset_id: state.audio_asset_id });
-        } else {
-          await api.post("/aac/cards", { child_id: childId, ...body });
-          if (state.audio_asset_id) {
-            // second call to attach the recording to the just-created card
-            const created = (await api.get(
-              `/aac/board?child_id=${encodeURIComponent(childId)}`,
-            )).cards.at(-1);
-            await api.patch(`/aac/cards/${created.id}`, { audio_asset_id: state.audio_asset_id });
+      const btn = e.target.querySelector('button[type="submit"]');
+      await withBusy(btn, async () => {
+        try {
+          if (editing) {
+            await api.patch(`/aac/cards/${card.id}`, { ...body, audio_asset_id: state.audio_asset_id });
+          } else {
+            await api.post("/aac/cards", { child_id: childId, ...body });
+            if (state.audio_asset_id) {
+              // second call to attach the recording to the just-created card
+              const created = (await api.get(
+                `/aac/board?child_id=${encodeURIComponent(childId)}`,
+              )).cards.at(-1);
+              await api.patch(`/aac/cards/${created.id}`, { audio_asset_id: state.audio_asset_id });
+            }
           }
+          load();
+        } catch (err) {
+          document.getElementById("cf-err").textContent = errText(err);
         }
-        load();
-      } catch (err) {
-        document.getElementById("cf-err").textContent = errText(err);
-      }
+      });
     }
 
     mount(dialog);

@@ -1,6 +1,6 @@
 // Calming & sensory zone (User Mode). Three calm activities; nothing autoplays.
 
-import { el, icon, mount } from "../../ui.js";
+import { el, mount, navBar } from "../../ui.js";
 import { renderBreathing } from "./breathing.js";
 import { renderMemory } from "./memory.js";
 import { renderSounds } from "./sounds.js";
@@ -11,7 +11,7 @@ const TABS = [
   ["memory", "זיכרון", renderMemory],
 ];
 
-export function renderCalming({ childName, onExit }) {
+export function renderCalming({ childName, onExit, onHome }) {
   let tab = "sounds";
   let cleanup = null;
   const host = el("div", { class: "calm-host" });
@@ -38,27 +38,20 @@ export function renderCalming({ childName, onExit }) {
 
   const tabsHost = el("div", { class: "cat-tabs" });
 
+  function leave() {
+    cleanup?.();
+    onExit();
+  }
+  function goHome() {
+    cleanup?.();
+    (onHome ?? onExit)();
+  }
+
   mount(
     el(
       "section",
       { class: "calming", "data-mode": "user" },
-      el(
-        "div",
-        { class: "aac-topbar" },
-        el(
-          "button",
-          {
-            class: "lock-btn",
-            "aria-label": "יציאה",
-            onclick: () => {
-              cleanup?.();
-              onExit();
-            },
-          },
-          icon("close"),
-        ),
-        el("h1", { class: "aac-title" }, "פינת רוגע"),
-      ),
+      navBar({ onBack: leave, onHome: goHome, title: "פינת רוגע" }),
       tabsHost,
       host,
     ),

@@ -2,11 +2,11 @@
 // token counter (correct answers award tokens).
 
 import { api } from "../../api.js";
-import { el, icon, mount } from "../../ui.js";
+import { el, icon, mount, navBar } from "../../ui.js";
 import { renderReading } from "./reading.js";
 import { renderWriting } from "./writing.js";
 
-export async function renderLearning({ childId, childName, onExit }) {
+export async function renderLearning({ childId, childName, onExit, onHome }) {
   let balance = 0;
   try {
     balance = (await api.get(`/tokens/balance?child_id=${childId}`)).balance;
@@ -57,21 +57,25 @@ export async function renderLearning({ childId, childName, onExit }) {
     );
   }
 
+  function leave() {
+    cleanup?.();
+    onExit();
+  }
+  function goHome() {
+    cleanup?.();
+    (onHome ?? onExit)();
+  }
+
   mount(
     el(
       "section",
       { class: "learning", "data-mode": "user" },
-      el(
-        "div",
-        { class: "aac-topbar" },
-        el(
-          "button",
-          { class: "lock-btn", "aria-label": "יציאה", onclick: () => { cleanup?.(); onExit(); } },
-          icon("close"),
-        ),
-        el("h1", { class: "aac-title" }, `קריאה וכתיבה — ${childName || ""}`),
-        badge,
-      ),
+      navBar({
+        onBack: leave,
+        onHome: goHome,
+        title: `תרגול קריאה וכתיבה — ${childName || ""}`,
+        extra: badge,
+      }),
       tabsHost,
       host,
     ),

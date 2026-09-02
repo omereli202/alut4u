@@ -272,7 +272,7 @@ table, required elements, and extra states.
 
 #### T1.1 — AAC communication board
 
-- **Mode:** User · **File:** `frontend/js/modules/aac/board.js` · **Reached:** child taps the תקשורת tile on the home screen.
+- **Mode:** User · **File:** `frontend/js/modules/aac/board.js` · **Reached:** child taps the בוא נדבר tile on the home screen.
 
 ```
 A full-screen communication board for a non-speaking child, Hebrew, right-to-left,
@@ -359,8 +359,8 @@ A large friendly greeting headline: "שלום, נועה".
 
 Below it, centred, a grid of 2–6 big square tiles — this is the whole screen.
 Each tile is a large rounded card with a simple line icon and a Hebrew label:
-"תקשורת", "לוח זמנים", "כללים ואסימונים", "פינת רוגע", "סיפורים חברתיים",
-"קריאה וכתיבה". Tiles are big enough to hit easily, generously spaced, muted
+"בוא נדבר", "סדר יום", "הכללים שלי", "פינת רוגע", "סיפורים חברתיים",
+"תרגול קריאה וכתיבה". Tiles are big enough to hit easily, generously spaced, muted
 colours, gentle press feedback. No other navigation, no bottom bar, no clutter.
 ```
 
@@ -368,16 +368,16 @@ colours, gentle press feedback. No other navigation, no bottom bar, no clutter.
 |---|---|
 | `מצב מטפל` | caregiver mode |
 | `שלום, {שם}` | Hello, {name} |
-| `תקשורת` | Communication |
-| `לוח זמנים` | Schedule |
-| `כללים ואסימונים` | Rules & tokens |
+| `בוא נדבר` | Let's talk |
+| `סדר יום` | Daily routine |
+| `הכללים שלי` | My rules |
 | `פינת רוגע` | Calming corner |
 | `סיפורים חברתיים` | Social stories |
-| `קריאה וכתיבה` | Reading & writing |
+| `תרגול קריאה וכתיבה` | Reading & writing practice |
 
 **Must include:** corner lock button; optional child-switch chip row; tile grid
 (2–6 tiles, responsive). **Also generate:** the no-children empty state — same
-frame, headline `ברוכים הבאים`, one muted line `מטפל צריך להוסיף פרופיל ילד/ה
+frame, headline `ברוכים הבאים`, one muted line `מטפל צריך להוסיף פרופיל חבר/ה
 במצב מטפל.`, no tiles.
 
 ---
@@ -396,15 +396,15 @@ showing a number and a star (pending reward requests), and a quiet text button
 
 Main content, a single column of cards:
 
-1. Section heading "ילדים". Then one card per child. Each child card has the
+1. Section heading "חברים". Then one card per child. Each child card has the
    child's name as a heading, then a vertical list of six labelled toggle
-   switches: "תקשורת (AAC)", "לוח זמנים", "כללים ואסימונים", "פינת רוגע",
-   "סיפורים חברתיים", "קריאה וכתיבה". Below the toggles, a row of quiet action
+   switches: "בוא נדבר (AAC)", "סדר יום", "הכללים שלי", "פינת רוגע",
+   "סיפורים חברתיים", "תרגול קריאה וכתיבה". Below the toggles, a row of quiet action
    buttons that appear only for enabled modules: "ערוך לוח תקשורת",
    "ערוך לוח זמנים", "כללים ואסימונים", "סיפורים חברתיים", and a red text button
    "הסתרת פרופיל".
 
-2. A card titled "הוספת ילד/ה" — a small form: a text field "שם", a select
+2. A card titled "הוספת חבר/ה" — a small form: a text field "שם", a select
    "בסיס להסכמה", and a primary button "הוספה".
 
 3. Section heading "החשבון שלי". A card with: a link "הורדת כל הנתונים שלי (JSON)",
@@ -419,9 +419,9 @@ only on the two destructive text buttons.
 |---|---|
 | `מצב מטפל` | Caregiver mode |
 | `יציאה ממצב מטפל` | Exit caregiver mode |
-| `ילדים` | Children |
+| `חברים` | Friends |
 | `החשבון שלי` | My account |
-| `הוספת ילד/ה` | Add a child |
+| `הוספת חבר/ה` | Add a friend |
 | toggle labels | see T1.4 prompt |
 | `הסתרת פרופיל` | Hide profile |
 | `הורדת כל הנתונים שלי (JSON)` | Download all my data (JSON) |
@@ -430,7 +430,7 @@ only on the two destructive text buttons.
 
 **Must include:** header with optional queue badge; repeating child card with
 toggle list + conditional action row; add-child form card; account card.
-**Also generate:** empty state (`עדיין לא נוספו ילדים.`).
+**Also generate:** empty state (`עדיין לא נוספו חברים.`).
 
 ---
 
@@ -486,7 +486,7 @@ file-upload row, audio row, sticky footer actions, inline error slot.
 
 #### T2.1 — Schedule: focus view ("where are we now")
 
-- **Mode:** User · **File:** `frontend/js/modules/schedule/focus.js` (+ `index.js` shell) · **Reached:** the לוח זמנים tile; default sub-view.
+- **Mode:** User · **File:** `frontend/js/modules/schedule/focus.js` (+ `index.js` shell) · **Reached:** the סדר יום tile; default sub-view.
 
 ```
 A "what's happening now" screen for a child's visual daily schedule, Hebrew RTL,
@@ -577,7 +577,7 @@ colour; a cell with an event shows a small label under the date. Cells at least
 An editor for a parent to build a child's daily schedule, Hebrew RTL, adult
 density.
 
-Header "לוח זמנים — נועה" with a "חזרה" button.
+Header "סדר יום — נועה" with a "חזרה" button.
 
 A date field "תאריך" at the top.
 
@@ -593,7 +593,7 @@ title, a date, an optional note "הערה (רשות)", and an "הוסף אירו
 
 | Hebrew | Meaning |
 |---|---|
-| `לוח זמנים — {שם}` | Schedule — {name} |
+| `סדר יום — {שם}` | Schedule — {name} |
 | `תאריך` | Date |
 | `משימות היום` | Today's tasks |
 | `מחק` | Delete |
@@ -611,7 +611,7 @@ title, a date, an optional note "הערה (רשות)", and an "הוסף אירו
 
 #### T2.5 — Rules & tokens: rules tab
 
-- **Mode:** User · **File:** `frontend/js/modules/rules/index.js` · **Reached:** the כללים ואסימונים tile.
+- **Mode:** User · **File:** `frontend/js/modules/rules/index.js` · **Reached:** the הכללים שלי tile.
 
 ```
 A screen showing a child their behaviour-support rules, Hebrew RTL, calm.
@@ -629,7 +629,7 @@ and active tab.
 
 | Hebrew | Meaning |
 |---|---|
-| `כללים ואסימונים` | Rules & tokens |
+| `הכללים שלי` | My rules |
 | `{n} אסימונים` | {n} tokens |
 | `כללים` | Rules |
 | `חנות הפרסים` | Reward store |
@@ -670,7 +670,7 @@ not loud.
 
 ```
 A parent's editor for a child's token economy, Hebrew RTL, adult density.
-Header "כללים ואסימונים — נועה". Four stacked cards:
+Header "הכללים שלי — נועה". Four stacked cards:
 
 1. "אסימונים: 12 ⭐" — quick-award buttons "+1" "+2" "+5", a "כמות" number field,
    a "סיבה (רשות)" text field, an "הענקה" button. Below, a short list of recent
@@ -842,18 +842,18 @@ Card "סיפורים קיימים": a list of already-made stories, each with a 
 
 #### T2.14 — Reading: lesson list
 
-- **Mode:** User · **File:** `frontend/js/modules/learning/index.js` + `reading.js` · **Reached:** the קריאה וכתיבה tile.
+- **Mode:** User · **File:** `frontend/js/modules/learning/index.js` + `reading.js` · **Reached:** the תרגול קריאה וכתיבה tile.
 
 ```
 A reading-practice list for a child, Hebrew RTL. Top bar: exit icon (right),
-title "קריאה וכתיבה — נועה" (centre), a token badge (left). Two tabs: "קריאה"
+title "תרגול קריאה וכתיבה — נועה" (centre), a token badge (left). Two tabs: "קריאה"
 (selected), "כתיבה". A vertical list of short lessons, each row: a level pill
 "רמה 1" and the lesson title. Calm, few items, big rows.
 ```
 
 | Hebrew | Meaning |
 |---|---|
-| `קריאה וכתיבה — {שם}` | Reading & writing — {name} |
+| `תרגול קריאה וכתיבה — {שם}` | Reading & writing — {name} |
 | `קריאה` / `כתיבה` | Reading / Writing |
 | `רמה {n}` | Level {n} |
 
@@ -998,7 +998,7 @@ Inside the communication-board frame: a centered gentle message "לא ניתן �
 
 ```
 A parent's editor for a child's communication board, Hebrew RTL, adult density.
-Header "לוח תקשורת — נועה" with a "חזרה" button.
+Header "בוא נדבר — נועה" with a "חזרה" button.
 
 One card per category. Each category card: an inline-editable name field on the
 right, a red "מחק קטגוריה" button on the left, then a list of the cards in that
@@ -1012,7 +1012,7 @@ Footer: a small form to add a new category — a "שם קטגוריה חדשה" 
 
 | Hebrew | Meaning |
 |---|---|
-| `לוח תקשורת — {שם}` | Communication board — {name} |
+| `בוא נדבר — {שם}` | Communication board — {name} |
 | `מחק קטגוריה` | Delete category |
 | `הזז ימינה` / `הזז שמאלה` | Move right / Move left |
 | `ערוך` / `מחק` | Edit / Delete |
@@ -1043,7 +1043,7 @@ inside a form, not as a popup.
 - **Mode:** Caregiver · **File:** `frontend/js/views/dashboard.js` · **Reached:** the add-child card on the dashboard.
 
 ```
-The "הוספת ילד/ה" form card expanded, Hebrew RTL. Fields: "שם"; a select "בסיס
+The "הוספת חבר/ה" form card expanded, Hebrew RTL. Fields: "שם"; a select "בסיס
 להסכמה" with options "הורה" / "אפוטרופוס" / "איש מקצוע (בהסכמת הורה)"; a checkbox
 "אני מאשר/ת שקיבלתי את הסכמת ההורה/אפוטרופוס" that only appears when "איש מקצוע"
 is chosen; a select "לוח תקשורת התחלתי" whose first option is "ללא — אתחיל
