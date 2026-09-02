@@ -7,7 +7,12 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v16"; // v16: nav bar, 3x2 home grid, AAC no-scroll grid
+const SHELL_CACHE = "shell-v17"; // v17: force-refresh clients stuck on a shell cached
+// before the Caddyfile fix that put /css/* and /js/* under Cache-Control: no-cache —
+// those clients' shell-v16 install had already precached CDN-edge-stale CSS/JS, and
+// nothing about that fix touches sw.js's own bytes, so it'd never re-trigger on its
+// own. Bumping this is what makes the browser re-run install() through the now-fixed
+// origin path.
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
