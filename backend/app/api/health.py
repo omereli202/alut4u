@@ -24,7 +24,12 @@ def health():
     }
 
     if request.args.get("deep") == "1":
-        body["checks"] = {"supabase": _check_supabase(settings)}
+        from app.services.tts import get_provider
+
+        body["checks"] = {
+            "supabase": _check_supabase(settings),
+            "tts": get_provider(settings).name,  # "azure-he" | "silent" — no network call
+        }
         if body["checks"]["supabase"] != "ok":
             body["status"] = "degraded"
             return jsonify(body), 503

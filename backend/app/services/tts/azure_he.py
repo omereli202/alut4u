@@ -23,6 +23,7 @@ class AzureHebrewTTS(TTSProvider):
         self._key = settings.azure_speech_key
         self._region = settings.azure_speech_region
         self._default_voice = settings.azure_speech_voice
+        self._timeout = settings.azure_speech_timeout_seconds
 
     def synthesize(self, req: TTSRequest) -> TTSResult:
         if not self._key:
@@ -45,7 +46,7 @@ class AzureHebrewTTS(TTSProvider):
                     "User-Agent": "alut4u",
                 },
                 content=ssml.encode("utf-8"),
-                timeout=15.0,
+                timeout=self._timeout,
             )
         except httpx.HTTPError as e:  # network / timeout
             raise TTSError(f"azure request failed: {e}") from e

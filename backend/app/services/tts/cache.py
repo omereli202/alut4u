@@ -1,9 +1,10 @@
 """Pre-generate and cache TTS audio.
 
 Card audio is synthesised once, when a card is saved — never at tap time — so
-speech works offline. The cache is keyed by sha256(voice|rate|fmt|text) and
-shared across all children (a ``media_assets`` row with ``child_id`` null in the
-``tts`` bucket), which is the main cost lever.
+speech works offline. The cache is keyed by
+sha256(provider|voice|rate|fmt|text) and shared across all children (a
+``media_assets`` row with ``child_id`` null in the ``tts`` bucket), which is
+the main cost lever.
 """
 
 from __future__ import annotations
@@ -38,7 +39,7 @@ def ensure_tts_asset(text: str, settings: Settings | None = None) -> str | None:
         return None
 
     provider = get_provider(s)
-    req = TTSRequest(text=text, voice=s.azure_speech_voice)
+    req = TTSRequest(text=text, voice=s.azure_speech_voice, provider=provider.name)
     key = req.cache_key()
 
     hit = media_repo.find_tts_by_digest(key)
@@ -52,7 +53,10 @@ def ensure_tts_asset(text: str, settings: Settings | None = None) -> str | None:
 
     try:
         result = provider.synthesize(req)
-    except TTSError:
+    except TTSError as e:
+        # Silent by design (the card still saves) — but not silent in the
+        # logs, or a misconfigured key produces zero signal anywhere.
+        _log.warning("tts synthesis failed (provider=%s): %s", provider.name, e)
         return None
 
     if caregiver_id:

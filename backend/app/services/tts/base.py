@@ -11,14 +11,19 @@ from typing import Protocol
 class TTSRequest:
     text: str
     voice: str
+    provider: str  # TTSProvider.name of the renderer — part of the key so a
+    # stub-rendered asset (see SilentTTS) can never satisfy a lookup meant for
+    # a real engine's output. Required, not defaulted: a default would let a
+    # future call site silently reintroduce that collision. See the
+    # silent-audio poisoning incident this fixed.
     rate: float = 1.0  # 1.0 == natural speed
     fmt: str = "audio-24khz-48kbitrate-mono-mp3"
 
     def cache_key(self) -> str:
-        """Stable key for the shared audio cache. Identical text+voice+rate
-        across all children resolves to one cached file — the main TTS cost
-        lever."""
-        raw = f"{self.voice}|{self.rate}|{self.fmt}|{self.text}".encode()
+        """Stable key for the shared audio cache. Identical provider+text+
+        voice+rate across all children resolves to one cached file — the main
+        TTS cost lever."""
+        raw = f"{self.provider}|{self.voice}|{self.rate}|{self.fmt}|{self.text}".encode()
         return hashlib.sha256(raw).hexdigest()
 
 

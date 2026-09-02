@@ -56,6 +56,11 @@ class Settings(BaseSettings):
     azure_speech_key: str = ""
     azure_speech_region: str = "westeurope"
     azure_speech_voice: str = "he-IL-HilaNeural"
+    # Kept below gunicorn's --timeout (60s, see backend/Dockerfile) with room for
+    # several sequential calls — board-template seeding synthesizes one card at
+    # a time. A slow Azure call should fail fast into the silent-degrade path
+    # rather than eat the whole request budget.
+    azure_speech_timeout_seconds: float = 8.0
 
     # OpenAI (Phase 6). Confirm the current model ids for your account.
     openai_api_key: str = ""
@@ -101,6 +106,7 @@ class Settings(BaseSettings):
                 "supabase_service_role_key",
                 "supabase_jwt_secret",
                 "session_token_enc_key",
+                "azure_speech_key",
             )
             if not getattr(self, name) or getattr(self, name) == "dev-insecure-change-me"
         ]
