@@ -59,10 +59,10 @@ environment (`railway variable set --service alut4u-backend --environment <env> 
 | `FLASK_SECRET_KEY` | random | random (different) |
 | `SUPABASE_URL` / `SUPABASE_ANON_KEY` / `SUPABASE_SERVICE_ROLE_KEY` / `SUPABASE_JWT_SECRET` | dev project | prod project |
 | `SESSION_TOKEN_ENC_KEY` | Fernet key | Fernet key (different) |
-| `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` | — | — |
+| `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` | set ✓ (dev live since 2026-09) | **required** — `require_production_secrets()` now refuses to boot without it, so it must be set *before* promoting to `main` or the deploy healthcheck fails |
 
 Production also: `JSON_LOGS=true`, and (recommended) `SENTRY_DSN`,
-`OPENAI_API_KEY` + model ids, `AZURE_SPEECH_KEY`.
+`OPENAI_API_KEY` + model ids.
 
 The **`alut4u-web`** service only needs `BACKEND_ORIGIN` (already set).
 Full list with descriptions: `.env.example`.

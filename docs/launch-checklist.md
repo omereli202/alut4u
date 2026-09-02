@@ -65,7 +65,10 @@ families. Grouped by owner.
 - [ ] Supabase projects in an **EU region**, one per environment, never shared
 - [ ] Set the backend env vars per environment (`docs/deployment.md`), then flip
       `APP_ENV=production` on prod
-- [ ] OpenAI + Azure Speech accounts with billing; confirm the current model ids
+- [x] Azure Speech account with billing — key live on dev since 2026-09;
+      **must be set on prod too before promotion**, `require_production_secrets()`
+      now refuses to boot without it
+- [ ] OpenAI account with billing; confirm the current model ids
       for `OPENAI_CHAT_MODEL` / `OPENAI_IMAGE_MODEL`
 - [ ] Billing / subscriptions (Stripe or Paddle) — schema is migration-friendly
       for it but nothing is wired yet

@@ -33,7 +33,7 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 |---|---|---|
 | 0 | Scaffolding | ✅ Repo, Flask factory, config, health check, CI, deploy config. |
 | 1 | Foundation | ✅ Auth via Flask, device sessions + revocation, PIN + lockout, children CRUD, module toggles, all RLS + cross-tenant test, versioned consent flow, account export + hard-delete, rate limiting, usage counters, caregiver UI (onboarding / dashboard / PIN gate). |
-| 2 | AAC → **first release** | ✅ Grid 2–5 cols + sentence bar + tap-to-speak (pre-generated audio, offline via SW media cache), categories, bundled symbol library (**placeholder emoji set** — swap for Mulberry) w/ Hebrew search, card editor (symbol / icon-upload / audio-upload / record), 3 starter templates, `/api/media/<id>` pipeline, TTS hash cache. Azure adapter written; **silent stub** runs until an Azure key is set. |
+| 2 | AAC → **first release** | ✅ Grid 2–5 cols + sentence bar + tap-to-speak (pre-generated audio, offline via SW media cache), categories, bundled symbol library (**placeholder emoji set** — swap for Mulberry) w/ Hebrew search, card editor (symbol / icon-upload / audio-upload / record), 3 starter templates, `/api/media/<id>` pipeline, TTS hash cache. Azure adapter written; **real he-IL neural voice live on dev since 2026-09** (silent stub still used wherever no key is configured, e.g. local dev/CI). |
 | 3 | Schedule | ✅ Daily list, "where are we now" focus view + big checkmark, read-the-day-aloud, monthly calendar, schedule editor, offline task completion via the outbox. |
 | 4 | Tokens & rewards | ✅ Behavior rule cards, token ledger + trigger balance, caregiver awards, reward store, redemption → held → approval queue + dashboard badge; reject refunds. |
 | 5 | Calming zone | ✅ Sound player (4 bundled ambient loops — **placeholder** procedural WAVs), guided-breathing circle (reduced-motion aware), calm memory game from the symbol set. Purely client-side; no autoplay, no flashing. |
@@ -48,8 +48,9 @@ The authoritative phase plan. Mirrors the approved implementation plan.
    licensed: drop real SVGs into `frontend/assets/symbols/` (same ids), add a
    migration updating `symbols`, re-run `scripts/build_symbols.py`.
 2. **Cloud Supabase + Azure Speech keys** — set on the Railway `alut4u-backend`
-   service per env (`docs/deployment.md`). Until then prod/dev run as
-   `env: development` with no backend features, and TTS uses the silent stub.
+   service per env (`docs/deployment.md`). Both live on **dev** since
+   2026-09; **prod is still unset**, and `require_production_secrets()` now
+   refuses to boot without an Azure key, so this must happen before promotion.
 3. Google Stitch exports — replace the plain Phase 1/2 UI styling.
 4. Confirm market = Hebrew speakers globally (not multi-language).
 5. Real-device offline test of the AAC board (airplane mode).
