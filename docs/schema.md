@@ -32,7 +32,7 @@ Enums: `consent_basis`, `media_kind`.
 |---|---|
 | `aac_categories` | `child_id` FK, name, color, sort_order. |
 | `aac_cards` | `child_id`, `category_id`, label, `tts_text`, `grid_order`; **either** `symbol_id` **or** `icon_asset_id` (CHECK), optional `audio_asset_id`. |
-| `symbols` | Global read-only. Bundled library: slug, file_path, `keywords_he text[]`, licence, source. Not child-scoped. |
+| `symbols` | Global read-only. Bundled library: slug, file_path, `keywords_he text[]`, licence, source. Not child-scoped. `file_path` is always `<id>.svg`, flat, no subfolders — every frontend render site depends on this (see `ui.js`'s `symbolUrl()`). |
 | `board_templates` | Global. Starter boards: `name_he`, `level`, `cards jsonb`. |
 
 ## Later phases (designed, not built)

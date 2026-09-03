@@ -179,8 +179,10 @@ user to say so (see the branch-promotion memory).
 
 ## Known blockers (waiting on the user)
 
-- Symbol library licence (Mulberry Symbols / CC BY-SA recommended); calming
-  audio and PWA icons are also placeholders.
+- Symbol library — Mulberry Symbols (CC BY-SA 4.0) licensed and being
+  ingested in batches (`docs/symbols.md`); 26/36 core ids done, ~2,955 more
+  concepts staged for Hebrew-label review. Calming audio and PWA icons are
+  still placeholders.
 - Google Stitch screen exports (final visual styling). Brief is ready:
   `docs/design.md` (per-screen prompts + design system + post-export pipeline).
 - Cloud Supabase (EU) + Azure Speech + OpenAI keys — everything runs on

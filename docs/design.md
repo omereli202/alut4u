@@ -1172,7 +1172,7 @@ Do **not** ask Stitch to design or generate these; each has its own source:
 
 | Thing | Why not Stitch | Placeholder in repo |
 |---|---|---|
-| **AAC symbol artwork** (the picture vocabulary) | Needs a licensed pictogram set — Mulberry Symbols (CC BY-SA) is the recommendation. This is separate from the §3 UI icon set. | placeholder emoji SVGs in `frontend/assets/symbols/` (`scripts/build_symbols.py`) |
+| **AAC symbol artwork** (the picture vocabulary) | Mulberry Symbols (CC BY-SA 4.0) licensed, ingestion in progress — see `docs/symbols.md`. This is separate from the §3 UI icon set. | 26/36 core ids real Mulberry artwork, 10 kept placeholder (no adequate equivalent), ~2,955 more concepts pending Hebrew-label review — `frontend/assets/symbols/` (`scripts/build_symbols.py`) |
 | **PWA app icons** (home-screen / install) | Product branding decision, needs the final wordmark | placeholder in `frontend/` icon slots |
 | **Any image of a real child** | Privacy — the app never stores or shows real children's photos | n/a — illustrations only |
 | **Marketing / landing / app-store pages** | Not part of the product | n/a |

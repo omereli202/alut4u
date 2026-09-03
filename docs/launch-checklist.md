@@ -37,11 +37,13 @@ families. Grouped by owner.
 - [ ] Kiosk test: iPadOS Guided Access / Android Screen Pinning per
       `docs/kiosk-setup.md`
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
-- [ ] Replace placeholder assets: symbol library (licensed set — Mulberry
-      Symbols / CC BY-SA recommended), calming audio loops, PWA icons — a real
-      app-logo source is also now needed: `docs/design/stitch-export-2/` has
-      the logo as a PNG mockup only (Google-hosted URL, no SVG), not enough to
-      make crisp icons at multiple sizes.
+- [ ] Replace placeholder assets: symbol library — **in progress**, Mulberry
+      Symbols (CC BY-SA 4.0) licensed and 26/36 core ids ingested, ~2,955 more
+      concepts staged for review (`docs/symbols.md`) — plus calming audio
+      loops, PWA icons; a real app-logo source is also now needed:
+      `docs/design/stitch-export-2/` has the logo as a PNG mockup only
+      (Google-hosted URL, no SVG), not enough to make crisp icons at multiple
+      sizes.
 - [ ] Final visual styling — two Stitch exports have landed
       (`docs/design/stitch-export/`, `docs/design/stitch-export-2/`). Done:
       tokens, shared components (buttons/badges/tabs/inputs/dialog/icon

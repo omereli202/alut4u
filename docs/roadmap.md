@@ -33,7 +33,7 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 |---|---|---|
 | 0 | Scaffolding | ✅ Repo, Flask factory, config, health check, CI, deploy config. |
 | 1 | Foundation | ✅ Auth via Flask, device sessions + revocation, PIN + lockout, children CRUD, module toggles, all RLS + cross-tenant test, versioned consent flow, account export + hard-delete, rate limiting, usage counters, caregiver UI (onboarding / dashboard / PIN gate). |
-| 2 | AAC → **first release** | ✅ Grid 2–5 cols + sentence bar + tap-to-speak (pre-generated audio, offline via SW media cache), categories, bundled symbol library (**placeholder emoji set** — swap for Mulberry) w/ Hebrew search, card editor (symbol / icon-upload / audio-upload / record), 3 starter templates, `/api/media/<id>` pipeline, TTS hash cache. Azure adapter written; **real he-IL neural voice live on dev since 2026-09** (silent stub still used wherever no key is configured, e.g. local dev/CI). |
+| 2 | AAC → **first release** | ✅ Grid 2–5 cols + sentence bar + tap-to-speak (pre-generated audio, offline via SW media cache), categories, bundled symbol library (**Mulberry Symbols swap in progress** — 26/36 core ids live, see blocker 1) w/ Hebrew search, card editor (symbol / icon-upload / audio-upload / record), 3 starter templates, `/api/media/<id>` pipeline, TTS hash cache. Azure adapter written; **real he-IL neural voice live on dev since 2026-09** (silent stub still used wherever no key is configured, e.g. local dev/CI). |
 | 3 | Schedule | ✅ Daily list, "where are we now" focus view + big checkmark, read-the-day-aloud, monthly calendar, schedule editor, offline task completion via the outbox. |
 | 4 | Tokens & rewards | ✅ Behavior rule cards, token ledger + trigger balance, caregiver awards, reward store, redemption → held → approval queue + dashboard badge; reject refunds. |
 | 5 | Calming zone | ✅ Sound player (4 bundled ambient loops — **placeholder** procedural WAVs), guided-breathing circle (reduced-motion aware), calm memory game from the symbol set. Purely client-side; no autoplay, no flashing. |
@@ -43,10 +43,14 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 
 ## Blockers (owner: user)
 
-1. **Symbol library licence** — the shipped set is placeholder emoji SVGs.
-   Mulberry Symbols (CC BY-SA) recommended over ARASAAC (non-commercial). When
-   licensed: drop real SVGs into `frontend/assets/symbols/` (same ids), add a
-   migration updating `symbols`, re-run `scripts/build_symbols.py`.
+1. **Symbol library — in progress.** Mulberry Symbols (CC BY-SA 4.0) licensed
+   and being ingested via `scripts/mulberry_manifest.py` +
+   `scripts/build_symbols.py`: of the 36 core-vocabulary ids, 26 now ship real
+   Mulberry artwork (`0011_mulberry_symbols.sql`), 10 keep the original emoji
+   placeholder where no adequate Mulberry equivalent exists (reviewed by hand
+   via a published Artifact, not auto-picked). ~2,955 more Mulberry concepts
+   are staged in the manifest as `pending`, to be labeled in Hebrew and
+   reviewed in batches — see `docs/symbols.md`.
 2. **Cloud Supabase + Azure Speech keys** — set on the Railway `alut4u-backend`
    service per env (`docs/deployment.md`). Both live on **dev** since
    2026-09; **prod is still unset**, and `require_production_secrets()` now
