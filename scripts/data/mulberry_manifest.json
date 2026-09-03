@@ -752,7 +752,7 @@
       "label_he": "כדור",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "ball",
       "status": "approved"
@@ -1693,7 +1693,7 @@
       "label_he": "לסיים",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "finish",
       "status": "approved"
@@ -8691,7 +8691,7 @@
       "label_he": "מפחד",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "afraid_man",
       "status": "approved"
@@ -8942,7 +8942,7 @@
       "label_he": "שמח",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "happy_man",
       "status": "approved"
@@ -9362,10 +9362,10 @@
       "label_he": "אוהב",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "heart_shape",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "1646": {
       "category_en": "Food Kitchen actions",
@@ -9496,7 +9496,7 @@
       "label_he": "שלום",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "hello",
       "status": "approved"
@@ -9928,7 +9928,7 @@
       "label_he": "חם",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "hot",
       "status": "approved"
@@ -10023,10 +10023,10 @@
       "label_he": "בית",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "house",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "1691": {
       "category_en": "Politics",
@@ -13875,10 +13875,10 @@
       "label_he": "לא",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "mistake_no_wrong",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "1958": {
       "category_en": "Plants and Trees",
@@ -14165,7 +14165,7 @@
       "label_he": "עוד",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "more",
       "status": "approved"
@@ -14402,7 +14402,7 @@
       "label_he": "אמא",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "mum_parent",
       "status": "approved"
@@ -14445,7 +14445,7 @@
       "label_he": "מוזיקה",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "music",
       "status": "approved"
@@ -15281,10 +15281,10 @@
       "label_he": "ספר",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "notebook",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "2053": {
       "category_en": "Work and School Stationery",
@@ -18093,10 +18093,10 @@
       "label_he": "כואב",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "plaster",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "2248": {
       "category_en": "Science",
@@ -18434,7 +18434,7 @@
       "label_he": "אתה",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
       "src": "point_,_to",
       "status": "approved"
@@ -20791,7 +20791,7 @@
       "label_he": "עצוב",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "sad_man",
       "status": "approved"
@@ -23355,10 +23355,10 @@
       "label_he": "קר",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "snow",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "2611": {
       "category_en": "Healthcare Grooming items",
@@ -27117,7 +27117,7 @@
       "label_he": "שירותים",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "toilet_,_go_to_the",
       "status": "approved"
@@ -31763,7 +31763,7 @@
       "label_he": "לאכול",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "eat_,_to",
       "status": "approved"
@@ -32144,7 +32144,7 @@
       "label_he": "ללכת",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "go_,_to",
       "status": "approved"
@@ -32356,7 +32356,7 @@
       "label_he": "עזרה",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "help_,_to",
       "status": "approved"
@@ -32763,7 +32763,7 @@
       "label_he": "להסתכל",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "look_,_to",
       "status": "approved"
@@ -32844,7 +32844,7 @@
       "label_he": "לפתוח",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "open_,_to",
       "status": "approved"
@@ -33095,7 +33095,7 @@
       "label_he": "לשחק",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "play_,_to",
       "status": "approved"
@@ -33606,7 +33606,7 @@
       "label_he": "הפסקה",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
       "src": "rest_,_to",
       "status": "approved"
@@ -33986,7 +33986,7 @@
       "label_he": "אני",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
       "src": "show_me_,_to",
       "status": "approved"
@@ -34173,7 +34173,7 @@
       "label_he": "לישון",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "sleep_male_,_to",
       "status": "approved"
@@ -35035,7 +35035,7 @@
       "label_he": "לחכות",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "wait_,_to",
       "status": "approved"
@@ -35143,7 +35143,7 @@
       "label_he": "רוצה",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "want_,_to",
       "status": "approved"
@@ -35849,7 +35849,7 @@
       "label_he": "כועס",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "angry_man",
       "status": "approved"
@@ -39194,10 +39194,10 @@
       "label_he": "כן",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": "substitute",
-      "src": "correct",
-      "status": "approved"
+      "src": null,
+      "status": "edited"
     },
     "611": {
       "category_en": "People Descriptive",
@@ -42758,7 +42758,7 @@
       "label_he": "אבא",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "dad_parent",
       "status": "approved"
@@ -44245,7 +44245,7 @@
       "label_he": "לשתות",
       "locked": true,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": "drink_,_to",
       "status": "approved"
@@ -44808,10 +44808,10 @@
       "label_he": "לא רוצה",
       "locked": true,
       "note": "no Mulberry equivalent — keeping current placeholder SVG",
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": null,
-      "status": "approved"
+      "status": "edited"
     },
     "locked:stop": {
       "category_en": null,
@@ -44826,10 +44826,10 @@
       "label_he": "מספיק",
       "locked": true,
       "note": "no Mulberry equivalent — keeping current placeholder SVG",
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": null,
-      "status": "approved"
+      "status": "edited"
     },
     "locked:thanks": {
       "category_en": null,
@@ -44842,10 +44842,10 @@
       "label_he": "תודה",
       "locked": true,
       "note": "no Mulberry equivalent — keeping current placeholder SVG",
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
       "scrutiny": null,
       "src": null,
-      "status": "approved"
+      "status": "edited"
     }
   },
   "mulberry_version": "3.6.1",

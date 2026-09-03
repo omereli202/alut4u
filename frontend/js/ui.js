@@ -37,7 +37,7 @@ const SPRITE_URL = "/assets/icons/sprite.svg?v=42";
 // script regenerates it, or Railway's per-node edge cache can keep serving
 // some visitors a stale (or even pre-Mulberry placeholder) symbol for up to
 // 7 days after a deploy, since the *path* doesn't change, only the bytes.
-export const SYMBOLS_VERSION = "20260914a";
+export const SYMBOLS_VERSION = "20260914b";
 
 // Accepts either a bare symbol id ("eat") or the DB's file_path ("eat.svg")
 // — both resolve to the same flat, versioned URL. file_path must stay

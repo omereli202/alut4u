@@ -7,12 +7,14 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v18"; // v18: force-refresh clients stuck on a shell cached
-// before the Caddyfile fix that put /css/* and /js/* under Cache-Control: no-cache —
-// those clients' shell-v16 install had already precached CDN-edge-stale CSS/JS, and
-// nothing about that fix touches sw.js's own bytes, so it'd never re-trigger on its
-// own. Bumping this is what makes the browser re-run install() through the now-fixed
-// origin path. Also v18: ui.js gets SYMBOLS_VERSION/symbolUrl().
+const SHELL_CACHE = "shell-v19"; // v19: ui.js's SYMBOLS_VERSION bumped to 20260914b —
+// the first real Mulberry Symbols batch landed (26 ids swapped from the emoji
+// placeholder to real artwork). v18: force-refresh clients stuck on a shell
+// cached before the Caddyfile fix that put /css/* and /js/* under
+// Cache-Control: no-cache — those clients' shell-v16 install had already
+// precached CDN-edge-stale CSS/JS, and nothing about that fix touches sw.js's
+// own bytes, so it'd never re-trigger on its own. Bumping this is what makes
+// the browser re-run install() through the now-fixed origin path.
 const SYMBOL_CACHE = "symbols-v1"; // AAC symbol images — deliberately separate from
 // SHELL_CACHE (see symbolUrl()'s ?v= in ui.js): a shell bump must not evict every
 // offline-cached symbol just because unrelated JS/CSS changed, and a symbol-set

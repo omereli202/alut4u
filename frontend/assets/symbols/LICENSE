@@ -1,0 +1,15 @@
+Mulberry Symbols, version 3.6.1
+Copyright 2018-2026 Steve Lee
+Licensed under Creative Commons Attribution-ShareAlike 4.0 International:
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Source: https://mulberrysymbols.org/
+Modified by scripts/build_symbols.py: width/height/overflow attributes and
+the redundant full-canvas bounding-box path removed, role="img"/aria-label
+added, files renamed to this app's symbol ids. Path data and any embedded
+<style> block are unmodified. As required by ShareAlike, these modified
+files remain licensed CC BY-SA 4.0.
+
+A few core-vocabulary ids (see the manifest — entries with a null `src`)
+have no adequate Mulberry equivalent and keep this project's own
+placeholder artwork instead; those files are not derived from Mulberry.
