@@ -7,12 +7,16 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v17"; // v17: force-refresh clients stuck on a shell cached
+const SHELL_CACHE = "shell-v18"; // v18: force-refresh clients stuck on a shell cached
 // before the Caddyfile fix that put /css/* and /js/* under Cache-Control: no-cache —
 // those clients' shell-v16 install had already precached CDN-edge-stale CSS/JS, and
 // nothing about that fix touches sw.js's own bytes, so it'd never re-trigger on its
 // own. Bumping this is what makes the browser re-run install() through the now-fixed
-// origin path.
+// origin path. Also v18: ui.js gets SYMBOLS_VERSION/symbolUrl().
+const SYMBOL_CACHE = "symbols-v1"; // AAC symbol images — deliberately separate from
+// SHELL_CACHE (see symbolUrl()'s ?v= in ui.js): a shell bump must not evict every
+// offline-cached symbol just because unrelated JS/CSS changed, and a symbol-set
+// regeneration must not force every shell asset to re-download either.
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
@@ -96,7 +100,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  const keep = new Set([SHELL_CACHE, MEDIA_CACHE, DATA_CACHE]);
+  const keep = new Set([SHELL_CACHE, SYMBOL_CACHE, MEDIA_CACHE, DATA_CACHE]);
   event.waitUntil(
     caches
       .keys()
@@ -147,7 +151,15 @@ self.addEventListener("fetch", (event) => {
 
   if (url.pathname.startsWith("/api/")) return; // network-only
 
-  // App shell / static / symbols: cache-first, fall back to index.html for navs.
+  // AAC symbol images: own cache-first cache (see SYMBOL_CACHE above). The
+  // ?v= in every symbolUrl() means a stale entry is simply never looked up
+  // again, not that it needs active eviction.
+  if (url.pathname.startsWith("/assets/symbols/")) {
+    event.respondWith(cacheFirst(request, SYMBOL_CACHE).catch(() => Response.error()));
+    return;
+  }
+
+  // App shell / static: cache-first, fall back to index.html for navs.
   event.respondWith(
     caches.match(request).then(
       (hit) =>

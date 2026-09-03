@@ -4,7 +4,7 @@
 import { api } from "../../api.js";
 import { el, emptyState, icon, mount, navBar, visual } from "../../ui.js";
 import { createSentenceBar } from "./sentence-bar.js";
-import { prefetch } from "./speech.js";
+import { prefetch, prefetchSymbols } from "./speech.js";
 
 // Matches --space-3 in tokens.css — the grid's actual gap. Read as a constant
 // rather than measured, since the fit calculation below needs it before the
@@ -75,7 +75,10 @@ export async function renderAacBoard({
     return host ? host.replaceChildren(empty) : mount(empty);
   }
 
-  if (!preview) prefetch(board.cards);
+  if (!preview) {
+    prefetch(board.cards);
+    prefetchSymbols(board.cards);
+  }
 
   const cats = board.categories;
   let activeCat = cats[0]?.id ?? null;

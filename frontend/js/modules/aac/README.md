@@ -10,5 +10,10 @@ Planned files:
 - `editor.js` — caregiver: add/edit/reorder/delete cards, symbol picker vs icon
   upload, per-card audio upload or `MediaRecorder` capture (consent-gated)
 
-Offline: the board snapshot, every symbol/icon image and every audio file are
-cached by the service worker under stable `/api/media/<id>` URLs on first load.
+Offline: the board snapshot is cached (`sw.js`'s `DATA_CACHE`), every
+caregiver-uploaded icon/audio file is cached under its stable `/api/media/<id>`
+URL (`MEDIA_CACHE`), and every bundled symbol image is cached under its
+versioned `/assets/symbols/<id>.svg?v=` URL (`SYMBOL_CACHE`, see `ui.js`'s
+`symbolUrl()`) — `board.js` explicitly prefetches both on load
+(`speech.js`'s `prefetch()` + `prefetchSymbols()`) rather than relying on
+whatever happened to render while online.

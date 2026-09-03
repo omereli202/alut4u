@@ -1,7 +1,7 @@
 // Searchable symbol grid, used inside the card editor.
 
 import { api } from "../../api.js";
-import { el } from "../../ui.js";
+import { el, symbolUrl } from "../../ui.js";
 
 export function createSymbolPicker(onPick) {
   const results = el("div", { class: "symbol-results" });
@@ -21,7 +21,7 @@ export function createSymbolPicker(onPick) {
             title: s.label_he,
             onclick: () => onPick(s),
           },
-          el("img", { src: `/assets/symbols/${s.file_path}`, alt: s.label_he }),
+          el("img", { src: symbolUrl(s.file_path), alt: s.label_he }),
         ),
       ),
     );

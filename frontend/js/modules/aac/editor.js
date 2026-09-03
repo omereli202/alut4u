@@ -1,7 +1,7 @@
 // AAC card editor (Caregiver Mode). Manage categories and cards for one child.
 
 import { api } from "../../api.js";
-import { el, errText, icon, mount, toast, withBusy } from "../../ui.js";
+import { el, errText, icon, mount, symbolUrl, toast, withBusy } from "../../ui.js";
 import { confirmDialog, destructiveDialog } from "../../dialog.js";
 import { renderAacBoard } from "./board.js";
 import { recordClip } from "./recorder.js";
@@ -150,7 +150,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
 
   function cardThumb(card) {
     if (card.symbol_id) {
-      return el("img", { class: "editor-thumb", src: `/assets/symbols/${card.symbol_id}.svg`, alt: "" });
+      return el("img", { class: "editor-thumb", src: symbolUrl(card.symbol_id), alt: "" });
     }
     if (card.icon_asset_id) {
       return el("img", { class: "editor-thumb", src: `/api/media/${card.icon_asset_id}`, alt: "" });
@@ -216,7 +216,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
     function refreshPreview() {
       if (state.symbol_id) {
         visualPreview.replaceChildren(
-          el("img", { src: `/assets/symbols/${state.symbol_id}.svg`, alt: "" }),
+          el("img", { src: symbolUrl(state.symbol_id), alt: "" }),
         );
       } else if (state.icon_asset_id) {
         visualPreview.replaceChildren(

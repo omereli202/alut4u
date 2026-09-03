@@ -32,6 +32,21 @@ const XLINK_NS = "http://www.w3.org/1999/xlink";
 // a stale one.
 const SPRITE_URL = "/assets/icons/sprite.svg?v=42";
 
+// Same reasoning as SPRITE_URL above, for the AAC symbol library
+// (frontend/assets/symbols/, scripts/build_symbols.py): bump whenever the
+// script regenerates it, or Railway's per-node edge cache can keep serving
+// some visitors a stale (or even pre-Mulberry placeholder) symbol for up to
+// 7 days after a deploy, since the *path* doesn't change, only the bytes.
+export const SYMBOLS_VERSION = "20260914a";
+
+// Accepts either a bare symbol id ("eat") or the DB's file_path ("eat.svg")
+// — both resolve to the same flat, versioned URL. file_path must stay
+// `<id>.svg` (no subfolders) for this to hold; see build_symbols.py.
+export function symbolUrl(s) {
+  const file = s.endsWith(".svg") ? s : `${s}.svg`;
+  return `/assets/symbols/${file}?v=${SYMBOLS_VERSION}`;
+}
+
 // Control glyph from the bundled sprite (frontend/assets/icons/sprite.svg —
 // Material Symbols Outlined, see scripts/build_icons.py). Decorative by
 // default (aria-hidden) — the usual pattern is an aria-label on the enclosing
@@ -105,7 +120,7 @@ export function toast(message, kind = "info") {
 // their own class rather than duplicating this lookup three times.
 export function visual(item, cls) {
   if (item.symbol_id) {
-    return el("img", { class: cls, src: `/assets/symbols/${item.symbol_id}.svg`, alt: "" });
+    return el("img", { class: cls, src: symbolUrl(item.symbol_id), alt: "" });
   }
   if (item.icon_asset_id) {
     return el("img", { class: cls, src: `/api/media/${item.icon_asset_id}`, alt: "" });

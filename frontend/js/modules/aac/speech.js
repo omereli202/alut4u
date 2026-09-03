@@ -2,6 +2,8 @@
 // served from the stable /api/media/<id> URL, which the service worker caches —
 // so this works offline. Priority: caregiver audio → pre-generated TTS.
 
+import { symbolUrl } from "../../ui.js";
+
 let current = null;
 
 export function audioUrlFor(card) {
@@ -40,5 +42,14 @@ export function prefetch(cards) {
   for (const card of cards) {
     const url = audioUrlFor(card);
     if (url) fetch(url, { credentials: "include" }).catch(() => {});
+  }
+}
+
+// Same, for the symbol images cards render (frontend/sw.js's SYMBOL_CACHE).
+// Without this a symbol is only offline-safe by accident of having been
+// rendered while online — the board otherwise never warms it up front.
+export function prefetchSymbols(cards) {
+  for (const card of cards) {
+    if (card.symbol_id) fetch(symbolUrl(card.symbol_id), { credentials: "include" }).catch(() => {});
   }
 }

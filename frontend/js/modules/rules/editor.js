@@ -2,7 +2,7 @@
 // and resolve pending redemption requests.
 
 import { api } from "../../api.js";
-import { el, errText, mount, toast, withBusy } from "../../ui.js";
+import { el, errText, mount, symbolUrl, toast, withBusy } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
 
 const QUICK_AWARDS = [1, 2, 5];
@@ -185,7 +185,7 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
     const preview = el("span", { class: "muted" }, "סמל (רשות)");
     const picker = createSymbolPicker((s) => {
       symbolId = s.id;
-      preview.replaceChildren(el("img", { class: "editor-thumb", src: `/assets/symbols/${s.file_path}`, alt: s.label_he }));
+      preview.replaceChildren(el("img", { class: "editor-thumb", src: symbolUrl(s.file_path), alt: s.label_he }));
     });
     return el(
       "form",
@@ -260,7 +260,7 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
     const preview = el("span", { class: "muted" }, "סמל (רשות)");
     const picker = createSymbolPicker((s) => {
       symbolId = s.id;
-      preview.replaceChildren(el("img", { class: "editor-thumb", src: `/assets/symbols/${s.file_path}`, alt: s.label_he }));
+      preview.replaceChildren(el("img", { class: "editor-thumb", src: symbolUrl(s.file_path), alt: s.label_he }));
     });
     return el(
       "form",

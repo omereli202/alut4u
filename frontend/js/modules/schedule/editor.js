@@ -1,7 +1,7 @@
 // Schedule editor (Caregiver Mode): build a day's tasks + manage calendar events.
 
 import { api } from "../../api.js";
-import { el, errText, icon, mount, toast, withBusy } from "../../ui.js";
+import { el, errText, icon, mount, symbolUrl, toast, withBusy } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
 import { todayISO } from "./data.js";
 
@@ -139,7 +139,7 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
     const preview = el("span", { class: "muted" }, "בחר סמל (רשות)");
     const picker = createSymbolPicker((s) => {
       symbolId = s.id;
-      preview.replaceChildren(el("img", { class: "editor-thumb", src: `/assets/symbols/${s.file_path}`, alt: s.label_he }));
+      preview.replaceChildren(el("img", { class: "editor-thumb", src: symbolUrl(s.file_path), alt: s.label_he }));
     });
     return el(
       "form",

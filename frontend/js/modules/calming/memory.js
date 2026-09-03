@@ -1,7 +1,7 @@
 // A calm memory / matching game built from the bundled symbol set. No timer,
 // no score pressure — just turn cards until all pairs are found.
 
-import { celebration, el } from "../../ui.js";
+import { celebration, el, symbolUrl } from "../../ui.js";
 
 const POOL = [
   "happy", "ball", "book", "music", "home", "sleep",
@@ -69,7 +69,7 @@ export function renderMemory(host) {
                       onclick: () => flip(card),
                     },
                     shown
-                      ? el("img", { src: `/assets/symbols/${card.sym}.svg`, alt: "" })
+                      ? el("img", { src: symbolUrl(card.sym), alt: "" })
                       : el("span", { class: "memory-back" }, "?"),
                   );
                 }),
