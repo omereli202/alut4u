@@ -116,7 +116,10 @@ def _sql_text_array(items: list[str]) -> str:
     inner = ",".join(
         '"' + i.replace("\\", "\\\\").replace('"', '\\"') + '"' for i in items
     )
-    return "'{" + inner + "}'"
+    # The whole thing is also wrapped in a single-quoted SQL string literal —
+    # an apostrophe inside any item (e.g. "צ'יפס") must be doubled here too,
+    # or it prematurely closes that outer literal and breaks the migration.
+    return "'" + ("{" + inner + "}").replace("'", "''") + "'"
 
 
 def _next_migration_number() -> int:
@@ -132,7 +135,9 @@ def _pcs_reskinned_ids() -> set[str]:
     silently overwrite that file (dev-only; the PCS set may not be present)."""
     if not PCS_MANIFEST.exists():
         return set()
-    return set(json.loads(PCS_MANIFEST.read_text(encoding="utf-8")).get("core_overrides", {}))
+    return set(
+        json.loads(PCS_MANIFEST.read_text(encoding="utf-8")).get("core_overrides", {})
+    )
 
 
 def _entries_to_ingest(manifest: dict, only: set[str] | None) -> list[tuple[str, dict]]:
