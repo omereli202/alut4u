@@ -330,13 +330,13 @@
       "grammar": "Noun",
       "id": "elbow",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מרפק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "elbow",
-      "status": "pending"
+      "status": "approved"
     },
     "1021": {
       "category_en": "Electrical Computer",
@@ -775,13 +775,13 @@
       "grammar": "Noun",
       "id": "eye",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eye",
-      "status": "pending"
+      "status": "approved"
     },
     "1052": {
       "category_en": "Healthcare Medical items",
@@ -814,26 +814,28 @@
       "grammar": "Noun",
       "id": "eyebrow",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גבה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyebrow",
-      "status": "pending"
+      "status": "approved"
     },
     "1055": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "eyebrow-bushy",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גבה"
+      ],
+      "label_he": "גבה סבוכה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyebrow_bushy",
-      "status": "pending"
+      "status": "approved"
     },
     "1056": {
       "category_en": "Healthcare Grooming items",
@@ -853,13 +855,13 @@
       "grammar": "Noun",
       "id": "eyelash",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ריס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyelash",
-      "status": "pending"
+      "status": "approved"
     },
     "1058": {
       "category_en": "Healthcare Grooming items",
@@ -879,13 +881,13 @@
       "grammar": "Noun",
       "id": "eyes",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עיניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyes",
-      "status": "pending"
+      "status": "approved"
     },
     "106": {
       "category_en": "Leisure Toys",
@@ -904,27 +906,31 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "eyes-blue",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עיניים"
+      ],
+      "label_he": "עיניים כחולות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyes_blue",
-      "status": "pending"
+      "status": "approved"
     },
     "1061": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "eyes-brown",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עיניים"
+      ],
+      "label_he": "עיניים חומות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyes_brown",
-      "status": "pending"
+      "status": "approved"
     },
     "1062": {
       "category_en": "People Descriptive",
@@ -943,14 +949,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "eyes-green",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עיניים"
+      ],
+      "label_he": "עיניים ירוקות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eyes_green",
-      "status": "pending"
+      "status": "approved"
     },
     "1064": {
       "category_en": "Alphabet",
@@ -1281,14 +1289,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "features-facial",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פנים"
+      ],
+      "label_he": "תווי פנים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "features_facial",
-      "status": "pending"
+      "status": "approved"
     },
     "1088": {
       "category_en": "Animal Activity Feeding",
@@ -1333,14 +1343,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "feet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רגליים"
+      ],
+      "label_he": "כפות רגליים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "feet",
-      "status": "pending"
+      "status": "approved"
     },
     "1091": {
       "category_en": "Work and School Stationery",
@@ -1594,13 +1606,13 @@
       "grammar": "Noun",
       "id": "finger",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אצבע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "finger",
-      "status": "pending"
+      "status": "approved"
     },
     "1109": {
       "category_en": "Art Making",
@@ -1646,39 +1658,39 @@
       "grammar": "Noun",
       "id": "fingernail",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ציפורן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fingernail",
-      "status": "pending"
+      "status": "approved"
     },
     "1112": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "fingernails",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ציפורניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fingernails",
-      "status": "pending"
+      "status": "approved"
     },
     "1113": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "fingers",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אצבעות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fingers",
-      "status": "pending"
+      "status": "approved"
     },
     "1114": {
       "category_en": "Descriptive Direction",
@@ -1741,14 +1753,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "fire-helmet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסדה"
+      ],
+      "label_he": "קסדת כבאי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fire_helmet",
-      "status": "pending"
+      "status": "approved"
     },
     "1119": {
       "category_en": "Tools Workshop",
@@ -2014,14 +2028,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "fist",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יד קפוצה"
+      ],
+      "label_he": "אגרוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fist",
-      "status": "pending"
+      "status": "approved"
     },
     "1138": {
       "category_en": "Number",
@@ -6122,14 +6138,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "foot",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רגל"
+      ],
+      "label_he": "כף רגל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "foot",
-      "status": "pending"
+      "status": "approved"
     },
     "1422": {
       "category_en": "Sport Accessories",
@@ -6786,13 +6804,13 @@
       "grammar": "Noun",
       "id": "forearm",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אמת היד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "forearm",
-      "status": "pending"
+      "status": "approved"
     },
     "1469": {
       "category_en": "Food Kitchen items",
@@ -6968,13 +6986,13 @@
       "grammar": "Noun",
       "id": "freckles",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נמשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "freckles",
-      "status": "pending"
+      "status": "approved"
     },
     "1481": {
       "category_en": "Food Kitchen items",
@@ -7059,13 +7077,13 @@
       "grammar": "Noun",
       "id": "front",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חזית הגוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "front",
-      "status": "pending"
+      "status": "approved"
     },
     "1488": {
       "category_en": "Building Structure",
@@ -7618,13 +7636,13 @@
       "grammar": "Noun",
       "id": "gloves",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כפפות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "gloves",
-      "status": "pending"
+      "status": "approved"
     },
     "1526": {
       "category_en": "Work and School Stationery",
@@ -8362,13 +8380,13 @@
       "grammar": "Noun",
       "id": "gum",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חניכיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "gum",
-      "status": "pending"
+      "status": "approved"
     },
     "1578": {
       "category_en": "Celebration Item",
@@ -8967,14 +8985,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "hard-hat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסדה"
+      ],
+      "label_he": "קסדת מגן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hard_hat",
-      "status": "pending"
+      "status": "approved"
     },
     "1619": {
       "category_en": "Animal Mammal",
@@ -9032,27 +9052,31 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "hat-ladies",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כובע"
+      ],
+      "label_he": "כובע נשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hat_-_ladies",
-      "status": "pending"
+      "status": "approved"
     },
     "1623": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "hat-mans",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כובע"
+      ],
+      "label_he": "כובע גברים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hat_-_mans",
-      "status": "pending"
+      "status": "approved"
     },
     "1624": {
       "category_en": "Celebration Item",
@@ -9111,13 +9135,13 @@
       "grammar": "Noun",
       "id": "head",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ראש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "head",
-      "status": "pending"
+      "status": "approved"
     },
     "1629": {
       "category_en": "People Profession",
@@ -9137,13 +9161,13 @@
       "grammar": "Noun",
       "id": "belt",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חגורה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "belt",
-      "status": "pending"
+      "status": "approved"
     },
     "1630": {
       "category_en": "People Profession",
@@ -9305,14 +9329,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Verb",
       "id": "hear",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שמיעה"
+      ],
+      "label_he": "לשמוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hear_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "1642": {
       "category_en": "Healthcare Medical items",
@@ -9345,13 +9371,13 @@
       "grammar": "Noun",
       "id": "heart",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "heart",
-      "status": "pending"
+      "status": "approved"
     },
     "1645": {
       "category_en": "Descriptive Shape",
@@ -9453,26 +9479,26 @@
       "grammar": "Noun",
       "id": "heel",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עקב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "heel",
-      "status": "pending"
+      "status": "approved"
     },
     "1652": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "heel-of-shoe",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עקב הנעל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "heel_of_shoe",
-      "status": "pending"
+      "status": "approved"
     },
     "1653": {
       "category_en": "Transport Air",
@@ -9521,14 +9547,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "helmet-pilot",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסדה"
+      ],
+      "label_he": "קסדת טייס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "helmet_pilot",
-      "status": "pending"
+      "status": "approved"
     },
     "1657": {
       "category_en": "Descriptive Shape",
@@ -9625,14 +9653,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "hip",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מותן"
+      ],
+      "label_he": "ירך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hip",
-      "status": "pending"
+      "status": "approved"
     },
     "1664": {
       "category_en": "Animal Mammal",
@@ -9652,13 +9682,13 @@
       "grammar": "Noun",
       "id": "hips",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ירכיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hips",
-      "status": "pending"
+      "status": "approved"
     },
     "1666": {
       "category_en": "Work and School Subjects",
@@ -9821,26 +9851,28 @@
       "grammar": "Noun",
       "id": "hood-hoodie",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ברדס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hood_hoodie",
-      "status": "pending"
+      "status": "approved"
     },
     "1678": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "hooded-top",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ברדס"
+      ],
+      "label_he": "סווצ'ר עם ברדס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hooded_top",
-      "status": "pending"
+      "status": "approved"
     },
     "1679": {
       "category_en": "Animal Features",
@@ -10165,14 +10197,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "bib",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סינר"
+      ],
+      "label_he": "סינר האכלה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bib",
-      "status": "pending"
+      "status": "approved"
     },
     "1700": {
       "category_en": "Food Sweets and desserts",
@@ -10374,13 +10408,13 @@
       "grammar": "Noun",
       "id": "intestine",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "intestine",
-      "status": "pending"
+      "status": "approved"
     },
     "1715": {
       "category_en": "Electrical Phone",
@@ -10647,39 +10681,41 @@
       "grammar": "Noun",
       "id": "jacket",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ז'קט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jacket",
-      "status": "pending"
+      "status": "approved"
     },
     "1734": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "jacket-mans",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ז'קט"
+      ],
+      "label_he": "ז'קט גברים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jacket_-_mans",
-      "status": "pending"
+      "status": "approved"
     },
     "1735": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "jacket-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ז'קט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jacket_2",
-      "status": "pending"
+      "status": "approved"
     },
     "1736": {
       "category_en": "Food Vegetables and salads",
@@ -10737,14 +10773,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "bikini",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ביקיני"
+      ],
+      "label_he": "בגד ים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bikini",
-      "status": "pending"
+      "status": "approved"
     },
     "1740": {
       "category_en": "People Feelings",
@@ -10777,13 +10815,13 @@
       "grammar": "Noun",
       "id": "jeans",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ג'ינס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jeans",
-      "status": "pending"
+      "status": "approved"
     },
     "1743": {
       "category_en": "Transport Road",
@@ -10985,13 +11023,13 @@
       "grammar": "Noun",
       "id": "jumper",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סוודר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jumper",
-      "status": "pending"
+      "status": "approved"
     },
     "1758": {
       "category_en": "Leisure Playground",
@@ -11193,13 +11231,13 @@
       "grammar": "Noun",
       "id": "kidneys",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כליות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "kidneys",
-      "status": "pending"
+      "status": "approved"
     },
     "1772": {
       "category_en": "Animal Fish and Marine mammals",
@@ -11245,26 +11283,28 @@
       "grammar": "Noun",
       "id": "knee",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ברך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "knee",
-      "status": "pending"
+      "status": "approved"
     },
     "1776": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "knickers",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תחתונים"
+      ],
+      "label_he": "תחתוני נשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "knickers",
-      "status": "pending"
+      "status": "approved"
     },
     "1777": {
       "category_en": "Food Kitchen items",
@@ -11817,39 +11857,39 @@
       "grammar": "Noun",
       "id": "left-hand",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "יד שמאל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "left_hand",
-      "status": "pending"
+      "status": "approved"
     },
     "1815": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "leg",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רגל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "leg",
-      "status": "pending"
+      "status": "approved"
     },
     "1816": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "leg-warmers",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מחממי רגליים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "leg_warmers",
-      "status": "pending"
+      "status": "approved"
     },
     "1817": {
       "category_en": "Leisure Toys",
@@ -11869,13 +11909,13 @@
       "grammar": "Noun",
       "id": "legs",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רגליים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "legs",
-      "status": "pending"
+      "status": "approved"
     },
     "1819": {
       "category_en": "Food Fruit",
@@ -12219,40 +12259,44 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "lip-bottom",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שפתיים"
+      ],
+      "label_he": "שפה תחתונה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lip_bottom",
-      "status": "pending"
+      "status": "approved"
     },
     "1843": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "lip-top",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שפתיים"
+      ],
+      "label_he": "שפה עליונה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lip_top",
-      "status": "pending"
+      "status": "approved"
     },
     "1844": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "lips-1",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שפתיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lips_1",
-      "status": "pending"
+      "status": "approved"
     },
     "1845": {
       "category_en": "Healthcare Grooming items",
@@ -12401,14 +12445,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "long-johns",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תחתונים"
+      ],
+      "label_he": "תחתונים ארוכים תרמיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "long_johns",
-      "status": "pending"
+      "status": "approved"
     },
     "1856": {
       "category_en": "Healthcare Grooming activities",
@@ -12649,13 +12695,13 @@
       "grammar": "Noun",
       "id": "lungs",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ריאות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lungs",
-      "status": "pending"
+      "status": "approved"
     },
     "1873": {
       "category_en": "Alphabet",
@@ -13481,13 +13527,13 @@
       "grammar": "Noun",
       "id": "bladder",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שלפוחית השתן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bladder",
-      "status": "pending"
+      "status": "approved"
     },
     "1930": {
       "category_en": "Descriptive State",
@@ -13623,14 +13669,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "bladder-kidneys",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כליות"
+      ],
+      "label_he": "שלפוחית וכליות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bladder_kidneys",
-      "status": "pending"
+      "status": "approved"
     },
     "1940": {
       "category_en": "People Profession",
@@ -13900,14 +13948,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "mittens",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כפפות"
+      ],
+      "label_he": "כפפות בלי אצבעות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mittens",
-      "status": "pending"
+      "status": "approved"
     },
     "196": {
       "category_en": "Building Furniture",
@@ -14083,13 +14133,13 @@
       "grammar": "Noun",
       "id": "mole",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שומה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mole",
-      "status": "pending"
+      "status": "approved"
     },
     "1972": {
       "category_en": "Money",
@@ -14295,13 +14345,13 @@
       "grammar": "Noun",
       "id": "mouth",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mouth",
-      "status": "pending"
+      "status": "approved"
     },
     "1987": {
       "category_en": "Healthcare Grooming items",
@@ -14415,13 +14465,13 @@
       "grammar": "Noun",
       "id": "muscles",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שרירים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "muscles",
-      "status": "pending"
+      "status": "approved"
     },
     "1995": {
       "category_en": "Food Vegetables and salads",
@@ -14770,13 +14820,13 @@
       "grammar": "Noun",
       "id": "neck",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צוואר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "neck",
-      "status": "pending"
+      "status": "approved"
     },
     "2018": {
       "category_en": "Clothes Jewellery",
@@ -14951,14 +15001,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "blouse",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חולצה"
+      ],
+      "label_he": "חולצת נשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "blouse",
-      "status": "pending"
+      "status": "approved"
     },
     "2030": {
       "category_en": "People Profession",
@@ -15043,13 +15095,13 @@
       "grammar": "Noun",
       "id": "nightgown",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כתונת לילה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "nightgown",
-      "status": "pending"
+      "status": "approved"
     },
     "2037": {
       "category_en": "Number",
@@ -15264,13 +15316,13 @@
       "grammar": "Noun",
       "id": "nostril",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נחיר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "nostril",
-      "status": "pending"
+      "status": "approved"
     },
     "2052": {
       "category_en": "Work and School Stationery",
@@ -15813,14 +15865,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "bobble-hat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כובע"
+      ],
+      "label_he": "כובע צמר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bobble_hat",
-      "status": "pending"
+      "status": "approved"
     },
     "2090": {
       "category_en": "Descriptive Position",
@@ -16255,14 +16309,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "body-outline",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גוף"
+      ],
+      "label_he": "מתאר הגוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "body_outline",
-      "status": "pending"
+      "status": "approved"
     },
     "2120": {
       "category_en": "Tools Workshop",
@@ -16373,13 +16429,13 @@
       "grammar": "Noun",
       "id": "pants",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מכנסיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pants",
-      "status": "pending"
+      "status": "approved"
     },
     "2129": {
       "category_en": "Work and School Stationery",
@@ -16685,13 +16741,13 @@
       "grammar": "Noun",
       "id": "bone-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עצם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bone_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2150": {
       "category_en": "Food Fruit",
@@ -16802,13 +16858,13 @@
       "grammar": "Noun",
       "id": "patch-on-clothes",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "טלאי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "patch_on_clothes",
-      "status": "pending"
+      "status": "approved"
     },
     "2159": {
       "category_en": "Food Meals and snacks",
@@ -17478,13 +17534,13 @@
       "grammar": "Noun",
       "id": "petticoat",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תחתונית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "petticoat",
-      "status": "pending"
+      "status": "approved"
     },
     "2205": {
       "category_en": "Electrical Phone",
@@ -17699,13 +17755,13 @@
       "grammar": "Noun",
       "id": "bootees",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נעלי תינוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bootees",
-      "status": "pending"
+      "status": "approved"
     },
     "2220": {
       "category_en": "Food Sweets and desserts",
@@ -17842,13 +17898,13 @@
       "grammar": "Noun",
       "id": "boots",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מגפיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "boots",
-      "status": "pending"
+      "status": "approved"
     },
     "2230": {
       "category_en": "Drink Type",
@@ -18405,26 +18461,26 @@
       "grammar": "Noun",
       "id": "pocket",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כיס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pocket",
-      "status": "pending"
+      "status": "approved"
     },
     "227": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "bottom-3",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ישבן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bottom_3",
-      "status": "pending"
+      "status": "approved"
     },
     "2270": {
       "category_en": "Descriptive Direction",
@@ -18511,14 +18567,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "police-helmet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסדה"
+      ],
+      "label_he": "קסדת משטרה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "police_helmet",
-      "status": "pending"
+      "status": "approved"
     },
     "2277": {
       "category_en": "Electrical Phone",
@@ -18615,14 +18673,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "pop-socks",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גרביים"
+      ],
+      "label_he": "גרביונים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pop_socks",
-      "status": "pending"
+      "status": "approved"
     },
     "2284": {
       "category_en": "Food Breads and baking",
@@ -19266,13 +19326,13 @@
       "grammar": "Noun",
       "id": "pupil",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אישון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pupil",
-      "status": "pending"
+      "status": "approved"
     },
     "2329": {
       "category_en": "Leisure Toys",
@@ -19422,13 +19482,13 @@
       "grammar": "Noun",
       "id": "pyjamas",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פיג'מה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pyjamas",
-      "status": "pending"
+      "status": "approved"
     },
     "234": {
       "category_en": "Sport Accessories",
@@ -19682,13 +19742,13 @@
       "grammar": "Noun",
       "id": "raincoat",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעיל גשם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "raincoat",
-      "status": "pending"
+      "status": "approved"
     },
     "2358": {
       "category_en": "Food Fruit",
@@ -20149,14 +20209,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "boxer-shorts",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תחתונים"
+      ],
+      "label_he": "תחתוני בוקסר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "boxer_shorts",
-      "status": "pending"
+      "status": "approved"
     },
     "2390": {
       "category_en": "People Descriptive",
@@ -20358,13 +20420,13 @@
       "grammar": "Noun",
       "id": "right-hand",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "יד ימין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "right_hand",
-      "status": "pending"
+      "status": "approved"
     },
     "2404": {
       "category_en": "Clothes Jewellery",
@@ -20449,13 +20511,13 @@
       "grammar": "Noun",
       "id": "bra",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חזייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bra",
-      "status": "pending"
+      "status": "approved"
     },
     "2410": {
       "category_en": "Transport Space",
@@ -20882,13 +20944,13 @@
       "grammar": "Noun",
       "id": "brain",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "brain",
-      "status": "pending"
+      "status": "approved"
     },
     "2440": {
       "category_en": "Food Vegetables and salad",
@@ -21012,13 +21074,13 @@
       "grammar": "Noun",
       "id": "sandals",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סנדלים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sandals",
-      "status": "pending"
+      "status": "approved"
     },
     "245": {
       "category_en": "Plants and Trees",
@@ -21441,13 +21503,13 @@
       "grammar": "Noun",
       "id": "scar",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צלקת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "scar",
-      "status": "pending"
+      "status": "approved"
     },
     "248": {
       "category_en": "Food Breads and baking",
@@ -21480,13 +21542,13 @@
       "grammar": "Noun",
       "id": "scarf",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צעיף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "scarf",
-      "status": "pending"
+      "status": "approved"
     },
     "2482": {
       "category_en": "People Descriptive",
@@ -21909,13 +21971,13 @@
       "grammar": "Noun",
       "id": "senses",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חושים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "senses",
-      "status": "pending"
+      "status": "approved"
     },
     "2511": {
       "category_en": "Building School",
@@ -22364,13 +22426,13 @@
       "grammar": "Noun",
       "id": "shin",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shin",
-      "status": "pending"
+      "status": "approved"
     },
     "2543": {
       "category_en": "Descriptive State",
@@ -22390,39 +22452,43 @@
       "grammar": "Noun",
       "id": "shirt",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חולצה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shirt",
-      "status": "pending"
+      "status": "approved"
     },
     "2545": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "shoe-ladies",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נעליים"
+      ],
+      "label_he": "נעל נשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shoe_-_ladies",
-      "status": "pending"
+      "status": "approved"
     },
     "2546": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "shoe-mans",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נעליים"
+      ],
+      "label_he": "נעל גברים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shoe_-_mans",
-      "status": "pending"
+      "status": "approved"
     },
     "2547": {
       "category_en": "Science",
@@ -22520,26 +22586,26 @@
       "grammar": "Noun",
       "id": "shorts",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מכנסיים קצרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shorts",
-      "status": "pending"
+      "status": "approved"
     },
     "2554": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "shoulder",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כתף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shoulder",
-      "status": "pending"
+      "status": "approved"
     },
     "2555": {
       "category_en": "Healthcare Grooming items",
@@ -23001,13 +23067,13 @@
       "grammar": "Noun",
       "id": "skeleton",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שלד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skeleton",
-      "status": "pending"
+      "status": "approved"
     },
     "2588": {
       "category_en": "Sport",
@@ -23027,13 +23093,13 @@
       "grammar": "Noun",
       "id": "skin",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skin",
-      "status": "pending"
+      "status": "approved"
     },
     "259": {
       "category_en": "Descriptive State",
@@ -23053,13 +23119,13 @@
       "grammar": "Noun",
       "id": "skirt",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חצאית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skirt",
-      "status": "pending"
+      "status": "approved"
     },
     "2591": {
       "category_en": "Sport Accessories",
@@ -23079,13 +23145,13 @@
       "grammar": "Noun",
       "id": "skull",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גולגולת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skull",
-      "status": "pending"
+      "status": "approved"
     },
     "2593": {
       "category_en": "Animal Mammal",
@@ -23118,13 +23184,13 @@
       "grammar": "Noun",
       "id": "sleep-suit-baby",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בגד שינה לתינוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sleep_suit_baby",
-      "status": "pending"
+      "status": "approved"
     },
     "2596": {
       "category_en": "Transport Road",
@@ -23209,13 +23275,13 @@
       "grammar": "Noun",
       "id": "slippers",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נעלי בית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "slippers",
-      "status": "pending"
+      "status": "approved"
     },
     "2601": {
       "category_en": "People Descriptive",
@@ -23381,13 +23447,13 @@
       "grammar": "Noun",
       "id": "socks",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גרביים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "socks",
-      "status": "pending"
+      "status": "approved"
     },
     "2613": {
       "category_en": "Descriptive State",
@@ -23458,14 +23524,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "sole",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תחתית כף רגל"
+      ],
+      "label_he": "כף הרגל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sole",
-      "status": "pending"
+      "status": "approved"
     },
     "2619": {
       "category_en": "Descriptive Quantity",
@@ -23927,13 +23995,13 @@
       "grammar": "Noun",
       "id": "spine",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עמוד שדרה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spine",
-      "status": "pending"
+      "status": "approved"
     },
     "2651": {
       "category_en": "Healthcare Grooming items",
@@ -24719,27 +24787,31 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "stomach",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קיבה"
+      ],
+      "label_he": "בטן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stomach",
-      "status": "pending"
+      "status": "approved"
     },
     "2706": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "stomach-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קיבה"
+      ],
+      "label_he": "בטן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stomach_1",
-      "status": "pending"
+      "status": "approved"
     },
     "2707": {
       "category_en": "Healthcare Medical conditions",
@@ -25018,27 +25090,31 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "suit-ladys",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חליפה"
+      ],
+      "label_he": "חליפת נשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "suit_-_ladys",
-      "status": "pending"
+      "status": "approved"
     },
     "2727": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "suit-mans",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חליפה"
+      ],
+      "label_he": "חליפת גברים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "suit_-_mans",
-      "status": "pending"
+      "status": "approved"
     },
     "2728": {
       "category_en": "Holiday and travel",
@@ -25227,13 +25303,13 @@
       "grammar": "Noun",
       "id": "sweatshirt",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סווצ'ר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sweatshirt",
-      "status": "pending"
+      "status": "approved"
     },
     "2741": {
       "category_en": "Food Vegetables and salads",
@@ -25837,14 +25913,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "tartan",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טרטן"
+      ],
+      "label_he": "משבצות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tartan",
-      "status": "pending"
+      "status": "approved"
     },
     "2784": {
       "category_en": "Food Feeding and eating",
@@ -26202,26 +26280,26 @@
       "grammar": "Noun",
       "id": "teeth",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שיניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "teeth",
-      "status": "pending"
+      "status": "approved"
     },
     "2809": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "teeth-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שיניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "teeth_2",
-      "status": "pending"
+      "status": "approved"
     },
     "281": {
       "category_en": "Healthcare Medical conditions",
@@ -26267,13 +26345,13 @@
       "grammar": "Noun",
       "id": "temple",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רקה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "temple",
-      "status": "pending"
+      "status": "approved"
     },
     "2813": {
       "category_en": "Number",
@@ -26436,13 +26514,13 @@
       "grammar": "Noun",
       "id": "thigh",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ירך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "thigh",
-      "status": "pending"
+      "status": "approved"
     },
     "2825": {
       "category_en": "People Descriptive",
@@ -26618,13 +26696,13 @@
       "grammar": "Noun",
       "id": "throat",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גרון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "throat",
-      "status": "pending"
+      "status": "approved"
     },
     "2838": {
       "category_en": "Descriptive Direction",
@@ -26644,13 +26722,13 @@
       "grammar": "Noun",
       "id": "thumb",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אגודל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "thumb",
-      "status": "pending"
+      "status": "approved"
     },
     "284": {
       "category_en": "Celebration Item",
@@ -26670,13 +26748,13 @@
       "grammar": "Noun",
       "id": "thumbs",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אגודלים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "thumbs",
-      "status": "pending"
+      "status": "approved"
     },
     "2841": {
       "category_en": "Environment Weather",
@@ -26709,13 +26787,13 @@
       "grammar": "Noun",
       "id": "tie",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עניבה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tie",
-      "status": "pending"
+      "status": "approved"
     },
     "2844": {
       "category_en": "Healthcare Grooming activities",
@@ -26748,13 +26826,13 @@
       "grammar": "Noun",
       "id": "tights",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גרביונים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tights",
-      "status": "pending"
+      "status": "approved"
     },
     "2847": {
       "category_en": "Work and School Timetable",
@@ -27073,13 +27151,13 @@
       "grammar": "Noun",
       "id": "toe-nail",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ציפורן רגל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "toe_nail",
-      "status": "pending"
+      "status": "approved"
     },
     "287": {
       "category_en": "Animal Activity Grooming",
@@ -27260,26 +27338,26 @@
       "grammar": "Noun",
       "id": "tongue",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לשון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tongue",
-      "status": "pending"
+      "status": "approved"
     },
     "2882": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "tooth",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tooth",
-      "status": "pending"
+      "status": "approved"
     },
     "2883": {
       "category_en": "Healthcare Medical conditions",
@@ -27572,13 +27650,13 @@
       "grammar": "Noun",
       "id": "trachea",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קנה הנשימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trachea",
-      "status": "pending"
+      "status": "approved"
     },
     "2903": {
       "category_en": "Clothes Sport",
@@ -27637,13 +27715,13 @@
       "grammar": "Noun",
       "id": "trainers",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נעלי ספורט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trainers",
-      "status": "pending"
+      "status": "approved"
     },
     "2908": {
       "category_en": "Sport Accessories",
@@ -27910,13 +27988,13 @@
       "grammar": "Noun",
       "id": "trousers",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מכנסיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trousers",
-      "status": "pending"
+      "status": "approved"
     },
     "2927": {
       "category_en": "Tools Garden",
@@ -27935,14 +28013,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "t-shirt",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טישרט"
+      ],
+      "label_he": "חולצת טי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "t-shirt",
-      "status": "pending"
+      "status": "approved"
     },
     "2929": {
       "category_en": "Plants and Trees",
@@ -28326,26 +28406,26 @@
       "grammar": "Noun",
       "id": "underarm",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בית שחי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "underarm",
-      "status": "pending"
+      "status": "approved"
     },
     "2956": {
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "underarm-hair",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שיער בית שחי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "underarm_hair",
-      "status": "pending"
+      "status": "approved"
     },
     "2957": {
       "category_en": "Transport Rail",
@@ -28430,13 +28510,13 @@
       "grammar": "Noun",
       "id": "upper-arm",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "זרוע עליונה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "upper_arm",
-      "status": "pending"
+      "status": "approved"
     },
     "2963": {
       "category_en": "Science Astronomy",
@@ -28651,13 +28731,13 @@
       "grammar": "Noun",
       "id": "vest",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גופייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "vest",
-      "status": "pending"
+      "status": "approved"
     },
     "2979": {
       "category_en": "Tools Workshop",
@@ -28781,13 +28861,13 @@
       "grammar": "Noun",
       "id": "visor",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מצחייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "visor",
-      "status": "pending"
+      "status": "approved"
     },
     "2988": {
       "category_en": "Clothes Sport",
@@ -28924,13 +29004,13 @@
       "grammar": "Noun",
       "id": "waistcoat",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אפוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "waistcoat",
-      "status": "pending"
+      "status": "approved"
     },
     "2998": {
       "category_en": "Animal Activity Grooming",
@@ -29093,13 +29173,13 @@
       "grammar": "Noun",
       "id": "warm-clothes",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בגדים חמים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "warm_clothes",
-      "status": "pending"
+      "status": "approved"
     },
     "3008": {
       "category_en": "Descriptive State",
@@ -29586,14 +29666,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "wellington-boots",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מגפיים"
+      ],
+      "label_he": "מגפי גומי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wellington_boots",
-      "status": "pending"
+      "status": "approved"
     },
     "3042": {
       "category_en": "Descriptive Direction",
@@ -30016,13 +30098,13 @@
       "grammar": "Noun",
       "id": "windpipe",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קנה הנשימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "windpipe",
-      "status": "pending"
+      "status": "approved"
     },
     "3072": {
       "category_en": "Drink Type",
@@ -30379,14 +30461,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "wrist",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שורש כף יד"
+      ],
+      "label_he": "פרק כף היד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wrist",
-      "status": "pending"
+      "status": "approved"
     },
     "3098": {
       "category_en": "People Descriptive",
@@ -30418,14 +30502,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "airways",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נשימה"
+      ],
+      "label_he": "דרכי נשימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "airways",
-      "status": "pending"
+      "status": "approved"
     },
     "310": {
       "category_en": "Leisure Toys",
@@ -35192,14 +35278,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "calf",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רגל"
+      ],
+      "label_he": "שוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "calf",
-      "status": "pending"
+      "status": "approved"
     },
     "3390": {
       "category_en": "Verb",
@@ -36084,14 +36172,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "cap",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כובע"
+      ],
+      "label_he": "כובע מצחייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cap",
-      "status": "pending"
+      "status": "approved"
     },
     "352": {
       "category_en": "Transport Road",
@@ -36635,13 +36725,13 @@
       "grammar": "Noun",
       "id": "ankle",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קרסול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ankle",
-      "status": "pending"
+      "status": "approved"
     },
     "390": {
       "category_en": "Drink Containers and measures",
@@ -37376,13 +37466,13 @@
       "grammar": "Noun",
       "id": "cheek",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לחי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cheek",
-      "status": "pending"
+      "status": "approved"
     },
     "441": {
       "category_en": "Food Dairy",
@@ -37818,13 +37908,13 @@
       "grammar": "Noun",
       "id": "chin",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סנטר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chin",
-      "status": "pending"
+      "status": "approved"
     },
     "472": {
       "category_en": "Food Vegetables and salads",
@@ -38519,14 +38609,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "arm",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יד"
+      ],
+      "label_he": "זרוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "arm",
-      "status": "pending"
+      "status": "approved"
     },
     "520": {
       "category_en": "Building Contents",
@@ -38714,27 +38806,29 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "clothes-female",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בגדים"
+      ],
+      "label_he": "בגדי נשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_female",
-      "status": "pending"
+      "status": "approved"
     },
     "534": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "clothes-generic",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בגדים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_generic",
-      "status": "pending"
+      "status": "approved"
     },
     "535": {
       "category_en": "Building Contents",
@@ -38766,14 +38860,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "clothes-male",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בגדים"
+      ],
+      "label_he": "בגדי גברים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_male",
-      "status": "pending"
+      "status": "approved"
     },
     "538": {
       "category_en": "Descriptive Quantity",
@@ -38805,14 +38901,16 @@
       "category_en": "Healthcare Body parts",
       "grammar": "Noun",
       "id": "arms",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ידיים"
+      ],
+      "label_he": "זרועות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "arms",
-      "status": "pending"
+      "status": "approved"
     },
     "540": {
       "category_en": "Building Contents",
@@ -38884,13 +38982,13 @@
       "grammar": "Noun",
       "id": "coat",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעיל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "coat",
-      "status": "pending"
+      "status": "approved"
     },
     "546": {
       "category_en": "Food Feeding and eating",
@@ -39027,13 +39125,13 @@
       "grammar": "Noun",
       "id": "collar-1",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צווארון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "collar_1",
-      "status": "pending"
+      "status": "approved"
     },
     "556": {
       "category_en": "Animal Activity Grooming",
@@ -42853,13 +42951,13 @@
       "grammar": "Noun",
       "id": "back",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "back",
-      "status": "pending"
+      "status": "approved"
     },
     "820": {
       "category_en": "Sport",
@@ -42996,13 +43094,13 @@
       "grammar": "Noun",
       "id": "back-1",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "back_1",
-      "status": "pending"
+      "status": "approved"
     },
     "830": {
       "category_en": "Descriptive Shape",
@@ -43048,13 +43146,13 @@
       "grammar": "Noun",
       "id": "crown",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כתר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "crown",
-      "status": "pending"
+      "status": "approved"
     },
     "834": {
       "category_en": "Religion General",
@@ -44766,13 +44864,13 @@
       "grammar": "Noun",
       "id": "dress",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שמלה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dress",
-      "status": "pending"
+      "status": "approved"
     },
     "953": {
       "category_en": "Building Furniture",
@@ -44791,14 +44889,16 @@
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "dressing-gown",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חלוק"
+      ],
+      "label_he": "חלוק רחצה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dressing_gown",
-      "status": "pending"
+      "status": "approved"
     },
     "955": {
       "category_en": "Building Furniture",
@@ -45330,26 +45430,28 @@
       "grammar": "Noun",
       "id": "ear",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אוזן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ear",
-      "status": "pending"
+      "status": "approved"
     },
     "992": {
       "category_en": "Clothes General",
       "grammar": "Noun",
       "id": "ear-muffs",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוזניות חמות"
+      ],
+      "label_he": "אטמי אוזניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ear_muffs",
-      "status": "pending"
+      "status": "approved"
     },
     "993": {
       "category_en": "Clothes Jewellery",
