@@ -236,6 +236,35 @@ export async function renderDashboard({ onExit, onLogout }) {
       ),
       el("hr"),
       el("button", { class: "btn-link", onclick: () => onLogout?.() }, "התנתקות מהמכשיר"),
+      el("hr"),
+      // CC BY-SA 4.0 requires attribution — see docs/symbols.md.
+      el(
+        "p",
+        { class: "muted", style: "font-size: var(--text-sm)" },
+        "סמלי התקשורת בלוח: ",
+        el(
+          "a",
+          {
+            href: "https://mulberrysymbols.org/",
+            target: "_blank",
+            rel: "noopener",
+            style: "color: inherit; text-decoration: underline",
+          },
+          "Mulberry Symbols",
+        ),
+        " מאת Steve Lee, ברישיון ",
+        el(
+          "a",
+          {
+            href: "https://creativecommons.org/licenses/by-sa/4.0/",
+            target: "_blank",
+            rel: "noopener",
+            style: "color: inherit; text-decoration: underline",
+          },
+          "CC BY-SA 4.0",
+        ),
+        ". אייקוני הממשק: Material Symbols מאת Google, ברישיון Apache-2.0.",
+      ),
     );
   }
 
