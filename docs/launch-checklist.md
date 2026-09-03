@@ -38,12 +38,18 @@ families. Grouped by owner.
       `docs/kiosk-setup.md`
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
 - [ ] Replace placeholder assets: symbol library — **in progress**, Mulberry
-      Symbols (CC BY-SA 4.0) licensed and 26/36 core ids ingested, ~2,955 more
+      Symbols (CC BY-SA 4.0) licensed and 34/36 core ids ingested, ~2,955 more
       concepts staged for review (`docs/symbols.md`) — plus calming audio
       loops, PWA icons; a real app-logo source is also now needed:
       `docs/design/stitch-export-2/` has the logo as a PNG mockup only
       (Google-hosted URL, no SVG), not enough to make crisp icons at multiple
       sizes.
+- [ ] **PCS / Boardmaker symbol set** (`scripts/build_pcs_symbols.py`, dev only)
+      — proprietary; either license it from Tobii Dynavox or remove it (delete
+      `frontend/assets/symbols/pcs/`, `supabase/migrations/*_pcs_symbols.sql`,
+      `scripts/data/pcs_manifest.json`; revert the core-id re-skin with
+      `scripts/build_symbols.py --apply`). `scripts/release.sh` blocks it from
+      production until then.
 - [ ] Final visual styling — two Stitch exports have landed
       (`docs/design/stitch-export/`, `docs/design/stitch-export-2/`). Done:
       tokens, shared components (buttons/badges/tabs/inputs/dialog/icon

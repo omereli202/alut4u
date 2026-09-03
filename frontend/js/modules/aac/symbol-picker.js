@@ -5,12 +5,13 @@ import { el, symbolUrl } from "../../ui.js";
 
 export function createSymbolPicker(onPick) {
   const results = el("div", { class: "symbol-results" });
+  const count = el("p", { class: "symbol-count muted" });
   let timer = null;
 
   async function run(q) {
-    const { symbols } = await api.get(`/symbols?q=${encodeURIComponent(q)}`).catch(() => ({
-      symbols: [],
-    }));
+    const { symbols, total } = await api
+      .get(`/symbols?q=${encodeURIComponent(q)}`)
+      .catch(() => ({ symbols: [], total: 0 }));
     results.replaceChildren(
       ...symbols.map((s) =>
         el(
@@ -25,6 +26,13 @@ export function createSymbolPicker(onPick) {
         ),
       ),
     );
+    if (!symbols.length) {
+      count.textContent = q ? "לא נמצאו סמלים" : "";
+    } else if (total > symbols.length) {
+      count.textContent = `מציג ${symbols.length} מתוך ${total} — נסו חיפוש מדויק יותר`;
+    } else {
+      count.textContent = `${total} סמלים`;
+    }
   }
 
   const search = el("input", {
@@ -39,5 +47,5 @@ export function createSymbolPicker(onPick) {
   });
 
   run("");
-  return el("div", { class: "symbol-picker" }, search, results);
+  return el("div", { class: "symbol-picker" }, search, count, results);
 }

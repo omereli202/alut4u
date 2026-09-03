@@ -15,4 +15,5 @@ bp = Blueprint("symbols", __name__, url_prefix="/api/symbols")
 def search():
     _ = g.caregiver_id  # require_session populated it
     q = request.args.get("q", "")
-    return jsonify(symbols=repo.search(q))
+    hits, total = repo.search(q)
+    return jsonify(symbols=hits, total=total)

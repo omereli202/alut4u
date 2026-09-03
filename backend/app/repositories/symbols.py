@@ -46,19 +46,34 @@ def refresh_cache() -> None:
     _all.cache_clear()
 
 
-def search(query: str, *, limit: int = 40) -> list[dict]:
+def search(query: str, *, limit: int = 60) -> tuple[list[dict], int]:
+    """Return (page, total_matches). Ranked, because the library is now a few
+    thousand rows (Mulberry + the bundled PCS set) and a flat substring scan
+    would surface 60 arbitrary rows for a common word like "לא".
+
+    Rank order: exact label > label prefix > exact keyword > label substring
+    > keyword substring > id substring. Ties keep id order (deck grouping)."""
     q = (query or "").strip()
     items = _all()
     if not q:
-        return list(items[:limit])
-    hits = [
-        s
-        for s in items
-        if q in s["id"]
-        or q in (s.get("label_he") or "")
-        or any(q in kw for kw in s.get("keywords_he") or [])
-    ]
-    return hits[:limit]
+        return list(items[:limit]), len(items)
+
+    def rank(s: dict) -> int | None:
+        label = s.get("label_he") or ""
+        kws = s.get("keywords_he") or []
+        tiers = (
+            label == q,
+            label.startswith(q),
+            q in kws,
+            q in label,
+            any(q in kw for kw in kws),
+            q in s["id"],
+        )
+        return next((i for i, hit in enumerate(tiers) if hit), None)
+
+    scored = [(r, i, s) for i, s in enumerate(items) if (r := rank(s)) is not None]
+    scored.sort(key=lambda t: (t[0], t[1]))
+    return [s for _r, _i, s in scored[:limit]], len(scored)
 
 
 def get(symbol_id: str) -> dict | None:

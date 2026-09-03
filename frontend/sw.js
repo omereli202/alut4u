@@ -7,7 +7,10 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v19"; // v19: ui.js's SYMBOLS_VERSION bumped to 20260914b —
+const SHELL_CACHE = "shell-v20"; // v20: ui.js changed — SYMBOLS_VERSION bumped to
+// 20260914c and symbolUrl() now resolves bare `pcs-*` ids and subfoldered
+// file_paths (the bundled Boardmaker/PCS set, dev only — see
+// scripts/build_pcs_symbols.py). v19: ui.js's SYMBOLS_VERSION bumped to 20260914b —
 // the first real Mulberry Symbols batch landed (26 ids swapped from the emoji
 // placeholder to real artwork). v18: force-refresh clients stuck on a shell
 // cached before the Caddyfile fix that put /css/* and /js/* under

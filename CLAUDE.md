@@ -179,10 +179,15 @@ user to say so (see the branch-promotion memory).
 
 ## Known blockers (waiting on the user)
 
-- Symbol library — Mulberry Symbols (CC BY-SA 4.0) licensed and being
-  ingested in batches (`docs/symbols.md`); 26/36 core ids done, ~2,955 more
-  concepts staged for Hebrew-label review. Calming audio and PWA icons are
-  still placeholders.
+- Symbol library — two sets now bundled:
+  - Mulberry Symbols (CC BY-SA 4.0), ingested in batches (`docs/symbols.md`);
+    34/36 core ids done. **This is the only set cleared for production.**
+  - PCS / Boardmaker (`scripts/build_pcs_symbols.py`, ~4,560 symbols): a
+    proprietary set imported from the owner's PowerPoint, bundled for **`dev`
+    only**. `scripts/release.sh` blocks its migration on production. Still
+    blocking `main` promotion — needs a Boardmaker licence or removal. See
+    `frontend/assets/symbols/pcs/LICENSE.md`.
+  Calming audio and PWA icons are still placeholders.
 - Google Stitch screen exports (final visual styling). Brief is ready:
   `docs/design.md` (per-screen prompts + design system + post-export pipeline).
 - Cloud Supabase (EU) + Azure Speech + OpenAI keys — everything runs on
