@@ -1,8 +1,11 @@
 """symbols — global read-only pictogram library.
 
-The bundled library is small (hundreds of rows), so search fetches all and
-filters in Python — robust for Hebrew substring matching without wrestling
-PostgREST array-filter syntax.
+Search fetches all rows and filters in Python — robust for Hebrew substring
+matching without wrestling PostgREST array-filter syntax, and the library is
+small enough in absolute terms (thousands, not millions) for this to stay
+cheap. It does mean _all() must page past PostgREST's default max_rows (1000,
+see supabase/config.toml) — an unranged select silently truncates past that,
+which would 422 `unknown_symbol` for every card using a later-sorting id.
 """
 
 from __future__ import annotations
@@ -13,6 +16,7 @@ from app.repositories._base import one_or_none, rows
 from app.services.supabase_client import service_client
 
 _TABLE = "symbols"
+_PAGE_SIZE = 1000
 
 
 def _svc():
@@ -21,7 +25,21 @@ def _svc():
 
 @lru_cache(maxsize=1)
 def _all() -> tuple[dict, ...]:
-    return tuple(rows(_svc().table(_TABLE).select("*").order("id").execute()))
+    out: list[dict] = []
+    start = 0
+    while True:
+        page = rows(
+            _svc()
+            .table(_TABLE)
+            .select("*")
+            .order("id")
+            .range(start, start + _PAGE_SIZE - 1)
+            .execute()
+        )
+        out.extend(page)
+        if len(page) < _PAGE_SIZE:
+            return tuple(out)
+        start += _PAGE_SIZE
 
 
 def refresh_cache() -> None:
