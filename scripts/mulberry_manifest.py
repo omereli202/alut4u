@@ -22,7 +22,7 @@ import json
 import re
 import unicodedata
 import zipfile
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -45,19 +45,31 @@ _SVG_DIR = "EN-symbols/"
 # label_he / keywords_he are copied verbatim from the current
 # scripts/build_symbols.py SYMBOLS dict — authored once, not regenerated.
 LOCKED: dict[str, dict[str, Any]] = {
-    "yes": {"src": "correct", "label_he": "כן", "keywords_he": ["כן", "מסכים", "אישור"]},
+    "yes": {
+        "src": "correct",
+        "label_he": "כן",
+        "keywords_he": ["כן", "מסכים", "אישור"],
+    },
     "no": {
         "src": "mistake_no_wrong",
         "label_he": "לא",
         "keywords_he": ["לא", "מסרב", "שלילה"],
     },
-    "more": {"src": "more", "label_he": "עוד", "keywords_he": ["עוד", "עוד פעם", "להוסיף"]},
+    "more": {
+        "src": "more",
+        "label_he": "עוד",
+        "keywords_he": ["עוד", "עוד פעם", "להוסיף"],
+    },
     "stop": {
         "src": None,
         "label_he": "מספיק",
         "keywords_he": ["מספיק", "עצור", "די", "להפסיק"],
     },
-    "want": {"src": "want_,_to", "label_he": "רוצה", "keywords_he": ["רוצה", "אני רוצה", "בבקשה"]},
+    "want": {
+        "src": "want_,_to",
+        "label_he": "רוצה",
+        "keywords_he": ["רוצה", "אני רוצה", "בבקשה"],
+    },
     "dont-want": {
         "src": None,
         "label_he": "לא רוצה",
@@ -85,8 +97,16 @@ LOCKED: dict[str, dict[str, Any]] = {
         "label_he": "עזרה",
         "keywords_he": ["עזרה", "עזור לי", "צריך עזרה"],
     },
-    "hurt": {"src": "plaster", "label_he": "כואב", "keywords_he": ["כואב", "כאב", "אאוץ׳"]},
-    "play": {"src": "play_,_to", "label_he": "לשחק", "keywords_he": ["לשחק", "משחק", "צעצוע"]},
+    "hurt": {
+        "src": "plaster",
+        "label_he": "כואב",
+        "keywords_he": ["כואב", "כאב", "אאוץ׳"],
+    },
+    "play": {
+        "src": "play_,_to",
+        "label_he": "לשחק",
+        "keywords_he": ["לשחק", "משחק", "צעצוע"],
+    },
     "break": {
         "src": "rest_,_to",
         "label_he": "הפסקה",
@@ -99,8 +119,16 @@ LOCKED: dict[str, dict[str, Any]] = {
     },
     "mom": {"src": "mum_parent", "label_he": "אמא", "keywords_he": ["אמא", "אימא"]},
     "dad": {"src": "dad_parent", "label_he": "אבא", "keywords_he": ["אבא"]},
-    "music": {"src": "music", "label_he": "מוזיקה", "keywords_he": ["מוזיקה", "שיר", "לשמוע"]},
-    "book": {"src": "notebook", "label_he": "ספר", "keywords_he": ["ספר", "לקרוא", "סיפור"]},
+    "music": {
+        "src": "music",
+        "label_he": "מוזיקה",
+        "keywords_he": ["מוזיקה", "שיר", "לשמוע"],
+    },
+    "book": {
+        "src": "notebook",
+        "label_he": "ספר",
+        "keywords_he": ["ספר", "לקרוא", "סיפור"],
+    },
     "ball": {"src": "ball", "label_he": "כדור", "keywords_he": ["כדור", "לשחק בכדור"]},
     "sleep": {
         "src": "sleep_male_,_to",
@@ -109,8 +137,16 @@ LOCKED: dict[str, dict[str, Any]] = {
     },
     "hot": {"src": "hot", "label_he": "חם", "keywords_he": ["חם", "חום"]},
     "cold": {"src": "snow", "label_he": "קר", "keywords_he": ["קר", "קור"]},
-    "happy": {"src": "happy_man", "label_he": "שמח", "keywords_he": ["שמח", "שמחה", "כיף"]},
-    "sad": {"src": "sad_man", "label_he": "עצוב", "keywords_he": ["עצוב", "עצב", "בוכה"]},
+    "happy": {
+        "src": "happy_man",
+        "label_he": "שמח",
+        "keywords_he": ["שמח", "שמחה", "כיף"],
+    },
+    "sad": {
+        "src": "sad_man",
+        "label_he": "עצוב",
+        "keywords_he": ["עצוב", "עצב", "בוכה"],
+    },
     "angry": {
         "src": "angry_man",
         "label_he": "כועס",
@@ -131,9 +167,17 @@ LOCKED: dict[str, dict[str, Any]] = {
         "label_he": "לסיים",
         "keywords_he": ["לסיים", "סיימתי", "גמרתי", "נגמר"],
     },
-    "hello": {"src": "hello", "label_he": "שלום", "keywords_he": ["שלום", "היי", "להתראות"]},
+    "hello": {
+        "src": "hello",
+        "label_he": "שלום",
+        "keywords_he": ["שלום", "היי", "להתראות"],
+    },
     "thanks": {"src": None, "label_he": "תודה", "keywords_he": ["תודה", "תודה רבה"]},
-    "wait": {"src": "wait_,_to", "label_he": "לחכות", "keywords_he": ["לחכות", "רגע", "המתנה"]},
+    "wait": {
+        "src": "wait_,_to",
+        "label_he": "לחכות",
+        "keywords_he": ["לחכות", "רגע", "המתנה"],
+    },
     "go": {"src": "go_,_to", "label_he": "ללכת", "keywords_he": ["ללכת", "בוא", "נלך"]},
     "look": {
         "src": "look_,_to",
@@ -146,7 +190,16 @@ LOCKED: dict[str, dict[str, Any]] = {
 # Ids in LOCKED whose Mulberry substitute is an approximation, not a direct
 # match — flagged for extra review scrutiny, excluded from bulk-approve.
 SUBSTITUTE_IDS = {
-    "yes", "no", "love", "you", "i", "hurt", "book", "cold", "home", "break",
+    "yes",
+    "no",
+    "love",
+    "you",
+    "i",
+    "hurt",
+    "book",
+    "cold",
+    "home",
+    "break",
 }
 
 # Whole-category exclusions: zero relevance to a Hebrew children's AAC board,
@@ -191,12 +244,16 @@ def iter_source(zip_path: Path = DEFAULT_SOURCE_ZIP) -> list[SourceRow]:
     with zipfile.ZipFile(zip_path) as z:
         data = z.read(_CSV_NAME).decode("utf-8-sig")
         svg_names = {
-            n[len(_SVG_DIR) : -4] for n in z.namelist() if n.startswith(_SVG_DIR) and n.endswith(".svg")
+            n[len(_SVG_DIR) : -4]
+            for n in z.namelist()
+            if n.startswith(_SVG_DIR) and n.endswith(".svg")
         }
     rows = []
     for r in csv.DictReader(io.StringIO(data)):
         if r["symbol-en"] not in svg_names:
-            raise ValueError(f"CSV row {r['symbol-id']} ({r['symbol-en']!r}) has no matching SVG")
+            raise ValueError(
+                f"CSV row {r['symbol-id']} ({r['symbol-en']!r}) has no matching SVG"
+            )
         rows.append(
             SourceRow(
                 symbol_id=r["symbol-id"],
@@ -238,7 +295,9 @@ def bootstrap(zip_path: Path = DEFAULT_SOURCE_ZIP) -> dict[str, Any]:
             "status": "approved",  # already-authored Hebrew — not up for re-review
             "locked": True,
             "scrutiny": "substitute" if app_id in SUBSTITUTE_IDS else None,
-            "note": None if v["src"] else "no Mulberry equivalent — keeping current placeholder SVG",
+            "note": None
+            if v["src"]
+            else "no Mulberry equivalent — keeping current placeholder SVG",
             "reviewed_at": None,
         }
 
@@ -250,7 +309,9 @@ def bootstrap(zip_path: Path = DEFAULT_SOURCE_ZIP) -> dict[str, Any]:
             entries[row.symbol_id] = _rejected_entry(row, "explicit content (rated=1)")
             continue
         if row.category_en in EXCLUDED_CATEGORIES:
-            entries[row.symbol_id] = _rejected_entry(row, f"excluded category: {row.category_en}")
+            entries[row.symbol_id] = _rejected_entry(
+                row, f"excluded category: {row.category_en}"
+            )
             continue
 
         slug = slugify(row.symbol_en)
@@ -275,15 +336,26 @@ def bootstrap(zip_path: Path = DEFAULT_SOURCE_ZIP) -> dict[str, Any]:
             "reviewed_at": None,
         }
 
-    return {"schema": SCHEMA_VERSION, "mulberry_version": MULBERRY_VERSION, "entries": entries}
+    return {
+        "schema": SCHEMA_VERSION,
+        "mulberry_version": MULBERRY_VERSION,
+        "entries": entries,
+    }
 
 
 # Files known (from the archive scan during planning) to render via <text>/font
 # glyphs rather than pure vector paths — flagged so a reviewer knows a device's
 # installed fonts affect how these look.
 _TEXT_GLYPH_STEMS = {
-    "add", "half", "percent", "quarter", "three_quarters", "print", "inbox",
-    "outbox", "ready",
+    "add",
+    "half",
+    "percent",
+    "quarter",
+    "three_quarters",
+    "print",
+    "inbox",
+    "outbox",
+    "ready",
 }
 
 
@@ -314,7 +386,8 @@ def load_manifest(path: Path = DEFAULT_MANIFEST) -> dict[str, Any]:
 def save_manifest(manifest: dict[str, Any], path: Path = DEFAULT_MANIFEST) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        json.dumps(manifest, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
     )
 
 
@@ -322,11 +395,21 @@ def merge_review(
     manifest: dict[str, Any], review_rows: list[dict[str, Any]], *, force: bool = False
 ) -> dict[str, Any]:
     """Write reviewed decisions from the review Artifact back into the
-    manifest. `review_rows` items: {symbol_id, id, label_he, keywords_he,
-    status, note, reviewed_at}. Rows absent from review_rows are untouched
-    (still pending). Refuses to downgrade an already-approved/edited row to
-    pending/rejected without force=True — a partial or stale export from the
-    artifact must never silently erase a prior approval."""
+    manifest. `review_rows` items: {symbol_id, id, src, label_he,
+    keywords_he, status, note, reviewed_at}. Rows absent from review_rows are
+    untouched (still pending). Refuses to downgrade an already-approved/edited
+    row to pending/rejected without force=True — a partial or stale export
+    from the artifact must never silently erase a prior approval.
+
+    Locked entries (the 36 original ids) ARE reviewable and editable here —
+    that's the whole point of flagging a substitute for scrutiny, so a
+    reviewer can correct a bad art pick (`src`) or wording (`label_he`)
+    without touching this module. What's locked is specifically `id`: it's
+    the FK target from five tables plus board_templates/memory.js's raw
+    string references, so a locked row's `id` is silently kept as-is even if
+    the review row proposes a different one — never raised as an error,
+    since the artifact shouldn't need to know this rule to render an
+    (appropriately non-editable) id field."""
     entries = manifest["entries"]
     downgraded = []
     for r in review_rows:
@@ -334,8 +417,6 @@ def merge_review(
         if sid not in entries:
             raise KeyError(f"review row references unknown symbol-id {sid}")
         current = entries[sid]
-        if current.get("locked"):
-            continue  # locked entries are never touched by review merges
         was_decided = current["status"] in ("approved", "edited")
         now_decided = r["status"] in ("approved", "edited")
         if was_decided and not now_decided and not force:
@@ -343,7 +424,8 @@ def merge_review(
             continue
         current.update(
             {
-                "id": r["id"],
+                "id": current["id"] if current.get("locked") else r["id"],
+                "src": r.get("src", current["src"]),
                 "label_he": r["label_he"],
                 "keywords_he": r["keywords_he"],
                 "status": r["status"],
@@ -384,4 +466,8 @@ def validate(manifest: dict[str, Any]) -> list[str]:
 
 
 def approved_entries(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    return {sid: e for sid, e in manifest["entries"].items() if e["status"] in ("approved", "edited")}
+    return {
+        sid: e
+        for sid, e in manifest["entries"].items()
+        if e["status"] in ("approved", "edited")
+    }
