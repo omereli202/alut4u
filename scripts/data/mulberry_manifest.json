@@ -278,13 +278,13 @@
       "grammar": "Noun",
       "id": "eighth",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שמינית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eighth",
-      "status": "pending"
+      "status": "approved"
     },
     "1018": {
       "category_en": "Number",
@@ -304,13 +304,13 @@
       "grammar": "Noun",
       "id": "either",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אחד מהשניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "either",
-      "status": "pending"
+      "status": "approved"
     },
     "102": {
       "category_en": "People Profession",
@@ -473,13 +473,13 @@
       "grammar": "Noun",
       "id": "empty",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ריק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "empty",
-      "status": "pending"
+      "status": "approved"
     },
     "1031": {
       "category_en": "Electrical General",
@@ -538,13 +538,13 @@
       "grammar": "Noun",
       "id": "enough",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מספיק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "enough",
-      "status": "pending"
+      "status": "approved"
     },
     "1036": {
       "category_en": "Descriptive Direction",
@@ -616,26 +616,26 @@
       "grammar": "Noun",
       "id": "even",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ישר (שטח)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "even",
-      "status": "pending"
+      "status": "approved"
     },
     "1041": {
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "every",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "every",
-      "status": "pending"
+      "status": "approved"
     },
     "1042": {
       "category_en": "People Feelings",
@@ -720,26 +720,26 @@
       "grammar": "Noun",
       "id": "extra",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נוסף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "extra",
-      "status": "pending"
+      "status": "approved"
     },
     "1049": {
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "extra-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נוסף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "extra_2",
-      "status": "pending"
+      "status": "approved"
     },
     "105": {
       "category_en": "Leisure Toys",
@@ -761,14 +761,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "extra-large",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מידה"
+      ],
+      "label_he": "מידה גדולה מאוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "extra_large",
-      "status": "pending"
+      "status": "approved"
     },
     "1051": {
       "category_en": "Healthcare Body parts",
@@ -1068,14 +1070,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "fancy",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מיוחד"
+      ],
+      "label_he": "מפואר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fancy",
-      "status": "pending"
+      "status": "approved"
     },
     "1072": {
       "category_en": "Animal Features",
@@ -1147,13 +1151,13 @@
       "grammar": "Noun",
       "id": "fast-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מהר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fast_2",
-      "status": "pending"
+      "status": "approved"
     },
     "1078": {
       "category_en": "People Descriptive",
@@ -1250,14 +1254,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "favourite",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מועדף"
+      ],
+      "label_he": "אהוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "favourite",
-      "status": "pending"
+      "status": "approved"
     },
     "1085": {
       "category_en": "Electrical General",
@@ -1516,14 +1522,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "fifty-percent",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אחוזים"
+      ],
+      "label_he": "חצי (50%)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fifty_percent",
-      "status": "pending"
+      "status": "approved"
     },
     "1102": {
       "category_en": "Food Fruit",
@@ -1730,13 +1738,13 @@
       "grammar": "Noun",
       "id": "fire",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fire",
-      "status": "pending"
+      "status": "approved"
     },
     "1117": {
       "category_en": "Transport Road",
@@ -1836,26 +1844,26 @@
       "grammar": "Noun",
       "id": "first",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ראשון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "first",
-      "status": "pending"
+      "status": "approved"
     },
     "1124": {
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "first-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ראשון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "first_2",
-      "status": "pending"
+      "status": "approved"
     },
     "1125": {
       "category_en": "Healthcare Medical items",
@@ -5738,13 +5746,13 @@
       "grammar": "Noun",
       "id": "flame",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "להבה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "flame",
-      "status": "pending"
+      "status": "approved"
     },
     "1395": {
       "category_en": "Animal Birds",
@@ -5777,13 +5785,13 @@
       "grammar": "Noun",
       "id": "flat",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שטוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "flat",
-      "status": "pending"
+      "status": "approved"
     },
     "1398": {
       "category_en": "Transport Road",
@@ -7222,13 +7230,13 @@
       "grammar": "Noun",
       "id": "full",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מלא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "full",
-      "status": "pending"
+      "status": "approved"
     },
     "1498": {
       "category_en": "Food Kitchen items",
@@ -7313,13 +7321,13 @@
       "grammar": "Noun",
       "id": "fuzzy",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שעיר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fuzzy",
-      "status": "pending"
+      "status": "approved"
     },
     "1503": {
       "category_en": "Alphabet",
@@ -7794,13 +7802,13 @@
       "grammar": "Noun",
       "id": "good",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "טוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "good",
-      "status": "pending"
+      "status": "approved"
     },
     "1537": {
       "category_en": "People Descriptive",
@@ -8148,13 +8156,13 @@
       "grammar": "Noun",
       "id": "great",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נהדר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "great",
-      "status": "pending"
+      "status": "approved"
     },
     "1561": {
       "category_en": "Art Colour",
@@ -8421,13 +8429,13 @@
       "grammar": "Noun",
       "id": "before",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לפני",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "before",
-      "status": "pending"
+      "status": "approved"
     },
     "1580": {
       "category_en": "Sport",
@@ -8655,13 +8663,13 @@
       "grammar": "Noun",
       "id": "half",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חצי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": "text-glyph",
       "src": "half",
-      "status": "pending"
+      "status": "approved"
     },
     "1597": {
       "category_en": "Celebration Event",
@@ -8724,13 +8732,13 @@
       "grammar": "Noun",
       "id": "behind",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מאחורי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "behind",
-      "status": "pending"
+      "status": "approved"
     },
     "1600": {
       "category_en": "Food Meals and snacks",
@@ -8975,13 +8983,13 @@
       "grammar": "Noun",
       "id": "hard",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קשה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hard",
-      "status": "pending"
+      "status": "approved"
     },
     "1618": {
       "category_en": "Clothes General",
@@ -9016,13 +9024,13 @@
       "grammar": "Noun",
       "id": "below",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מתחת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "below",
-      "status": "pending"
+      "status": "approved"
     },
     "1620": {
       "category_en": "Celebration Item",
@@ -9097,14 +9105,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "hat-too-big",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כובע"
+      ],
+      "label_he": "כובע גדול מדי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hat_too_big",
-      "status": "pending"
+      "status": "approved"
     },
     "1626": {
       "category_en": "Celebration Item",
@@ -9416,13 +9426,13 @@
       "grammar": "Noun",
       "id": "heavy",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כבד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "heavy",
-      "status": "pending"
+      "status": "approved"
     },
     "1648": {
       "category_en": "Plants and Trees",
@@ -9564,14 +9574,16 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "heptagon",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צורה"
+      ],
+      "label_he": "משובע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "heptagon",
-      "status": "pending"
+      "status": "approved"
     },
     "1658": {
       "category_en": "Animal Birds",
@@ -9591,13 +9603,13 @@
       "grammar": "Noun",
       "id": "hexagon",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "משושה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hexagon",
-      "status": "pending"
+      "status": "approved"
     },
     "166": {
       "category_en": "Science",
@@ -9617,13 +9629,13 @@
       "grammar": "Noun",
       "id": "high",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גבוה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "high",
-      "status": "pending"
+      "status": "approved"
     },
     "1661": {
       "category_en": "Building Furniture",
@@ -9643,13 +9655,13 @@
       "grammar": "Noun",
       "id": "highest",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "הכי גבוה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "highest",
-      "status": "pending"
+      "status": "approved"
     },
     "1663": {
       "category_en": "Healthcare Body parts",
@@ -9803,13 +9815,13 @@
       "grammar": "Noun",
       "id": "hollow",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חלול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hollow",
-      "status": "pending"
+      "status": "approved"
     },
     "1674": {
       "category_en": "Plants and Trees",
@@ -9896,13 +9908,13 @@
       "grammar": "Noun",
       "id": "beside-next-to",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ליד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "beside_next_to",
-      "status": "pending"
+      "status": "approved"
     },
     "1680": {
       "category_en": "Building Household tasks",
@@ -10042,13 +10054,13 @@
       "grammar": "Noun",
       "id": "between",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "between",
-      "status": "pending"
+      "status": "approved"
     },
     "1690": {
       "category_en": "Building Residential",
@@ -10098,13 +10110,13 @@
       "grammar": "Noun",
       "id": "how-many",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כמה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "how_many",
-      "status": "pending"
+      "status": "approved"
     },
     "1694": {
       "category_en": "Number",
@@ -10189,13 +10201,13 @@
       "grammar": "Noun",
       "id": "after",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אחרי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "after",
-      "status": "pending"
+      "status": "approved"
     },
     "170": {
       "category_en": "Clothes General",
@@ -10256,26 +10268,28 @@
       "grammar": "Noun",
       "id": "in",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בפנים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "in",
-      "status": "pending"
+      "status": "approved"
     },
     "1704": {
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "in-front",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לפני"
+      ],
+      "label_he": "מקדימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "in_front",
-      "status": "pending"
+      "status": "approved"
     },
     "1705": {
       "category_en": "Computer Icon",
@@ -10333,14 +10347,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "inside-out",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הפוך"
+      ],
+      "label_he": "הפוך (מבפנים החוצה)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "inside_out",
-      "status": "pending"
+      "status": "approved"
     },
     "171": {
       "category_en": "Transport Road",
@@ -10359,14 +10375,16 @@
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "inside-room",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בפנים"
+      ],
+      "label_he": "בתוך החדר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "inside_room",
-      "status": "pending"
+      "status": "approved"
     },
     "1711": {
       "category_en": "Computer Icon",
@@ -10502,14 +10520,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "is-this-enough",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מספיק"
+      ],
+      "label_he": "האם זה מספיק?",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "is_this_enough",
-      "status": "pending"
+      "status": "approved"
     },
     "1721": {
       "category_en": "People Profession",
@@ -11603,13 +11623,13 @@
       "grammar": "Noun",
       "id": "large",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גדול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "large",
-      "status": "pending"
+      "status": "approved"
     },
     "1798": {
       "category_en": "Food Meals and snacks",
@@ -11629,13 +11649,13 @@
       "grammar": "Noun",
       "id": "last",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אחרון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "last",
-      "status": "pending"
+      "status": "approved"
     },
     "18": {
       "category_en": "Descriptive Time",
@@ -11668,13 +11688,13 @@
       "grammar": "Noun",
       "id": "last-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אחרון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "last_2",
-      "status": "pending"
+      "status": "approved"
     },
     "1801": {
       "category_en": "Descriptive Time",
@@ -12123,13 +12143,13 @@
       "grammar": "Noun",
       "id": "light",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קל (משקל)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "light",
-      "status": "pending"
+      "status": "approved"
     },
     "1833": {
       "category_en": "Electrical General",
@@ -12174,53 +12194,61 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "line-diagonal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קו"
+      ],
+      "label_he": "קו אלכסוני",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "line_diagonal",
-      "status": "pending"
+      "status": "approved"
     },
     "1837": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "line-horizontal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קו"
+      ],
+      "label_he": "קו אופקי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "line_horizontal",
-      "status": "pending"
+      "status": "approved"
     },
     "1838": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "line-parallel",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קו"
+      ],
+      "label_he": "קווים מקבילים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "line_parallel",
-      "status": "pending"
+      "status": "approved"
     },
     "1839": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "line-vertical",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קו"
+      ],
+      "label_he": "קו אנכי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "line_vertical",
-      "status": "pending"
+      "status": "approved"
     },
     "184": {
       "category_en": "Celebration Item",
@@ -12334,14 +12362,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "little",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעט"
+      ],
+      "label_he": "קטן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "little",
-      "status": "pending"
+      "status": "approved"
     },
     "1848": {
       "category_en": "Communication Aid",
@@ -12426,13 +12456,13 @@
       "grammar": "Noun",
       "id": "long",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ארוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "long",
-      "status": "pending"
+      "status": "approved"
     },
     "1854": {
       "category_en": "People Descriptive",
@@ -12545,26 +12575,26 @@
       "grammar": "Noun",
       "id": "lots-more",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "הרבה יותר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lots_more",
-      "status": "pending"
+      "status": "approved"
     },
     "1862": {
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "loud",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רועש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "loud",
-      "status": "pending"
+      "status": "approved"
     },
     "1863": {
       "category_en": "Food Diet",
@@ -12584,26 +12614,26 @@
       "grammar": "Noun",
       "id": "lowest",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "הכי נמוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lowest",
-      "status": "pending"
+      "status": "approved"
     },
     "1865": {
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "lucky",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בר מזל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lucky",
-      "status": "pending"
+      "status": "approved"
     },
     "1866": {
       "category_en": "Healthcare Medical conditions",
@@ -13445,14 +13475,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "mend",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תיקון"
+      ],
+      "label_he": "לתקן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mend",
-      "status": "pending"
+      "status": "approved"
     },
     "1924": {
       "category_en": "Building Public",
@@ -13523,14 +13555,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "messy-clothes",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מבולגן"
+      ],
+      "label_he": "בגדים מבולגנים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "messy_clothes",
-      "status": "pending"
+      "status": "approved"
     },
     "193": {
       "category_en": "Healthcare Body parts",
@@ -13549,14 +13583,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "messy-room",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מבולגן"
+      ],
+      "label_he": "חדר מבולגן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "messy_room",
-      "status": "pending"
+      "status": "approved"
     },
     "1931": {
       "category_en": "Music Instrument",
@@ -13602,13 +13638,13 @@
       "grammar": "Noun",
       "id": "middle",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אמצע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "middle",
-      "status": "pending"
+      "status": "approved"
     },
     "1935": {
       "category_en": "Drink Type",
@@ -14251,13 +14287,13 @@
       "grammar": "Noun",
       "id": "most",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "הכי הרבה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "most",
-      "status": "pending"
+      "status": "approved"
     },
     "198": {
       "category_en": "Religion General",
@@ -14817,13 +14853,13 @@
       "grammar": "Noun",
       "id": "near",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קרוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "near",
-      "status": "pending"
+      "status": "approved"
     },
     "2017": {
       "category_en": "Healthcare Body parts",
@@ -14895,13 +14931,13 @@
       "grammar": "Noun",
       "id": "neither",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אף אחד מהשניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "neither",
-      "status": "pending"
+      "status": "approved"
     },
     "2022": {
       "category_en": "Science Astronomy",
@@ -15053,13 +15089,13 @@
       "grammar": "Noun",
       "id": "next",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "הבא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "next",
-      "status": "pending"
+      "status": "approved"
     },
     "2033": {
       "category_en": "Descriptive Time",
@@ -15195,27 +15231,29 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "no-smoking-sign",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עישון"
+      ],
+      "label_he": "אסור לעשן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "no_smoking_sign",
-      "status": "pending"
+      "status": "approved"
     },
     "2043": {
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "noisy",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רועש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "noisy",
-      "status": "pending"
+      "status": "approved"
     },
     "2044": {
       "category_en": "People Descriptive",
@@ -15551,26 +15589,28 @@
       "grammar": "Noun",
       "id": "octagon",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מתומן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "octagon",
-      "status": "pending"
+      "status": "approved"
     },
     "2068": {
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "off",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מנותק"
+      ],
+      "label_he": "כבוי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "off",
-      "status": "pending"
+      "status": "approved"
     },
     "2069": {
       "category_en": "Building Office and factory",
@@ -15603,13 +15643,13 @@
       "grammar": "Noun",
       "id": "old-object",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ישן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "old_object",
-      "status": "pending"
+      "status": "approved"
     },
     "2071": {
       "category_en": "People Descriptive",
@@ -15758,14 +15798,16 @@
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "on",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מחובר"
+      ],
+      "label_he": "דלוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "on",
-      "status": "pending"
+      "status": "approved"
     },
     "2082": {
       "category_en": "Number",
@@ -15811,13 +15853,13 @@
       "grammar": "Noun",
       "id": "one-third",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שליש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "one_third",
-      "status": "pending"
+      "status": "approved"
     },
     "2086": {
       "category_en": "Food Vegetables and salads",
@@ -15863,13 +15905,13 @@
       "grammar": "Noun",
       "id": "open-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פתוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "open",
-      "status": "pending"
+      "status": "approved"
     },
     "209": {
       "category_en": "Clothes General",
@@ -15891,13 +15933,13 @@
       "grammar": "Noun",
       "id": "open-2-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פתוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "open_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2091": {
       "category_en": "Building Shop",
@@ -15956,13 +15998,13 @@
       "grammar": "Noun",
       "id": "opposite",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "opposite",
-      "status": "pending"
+      "status": "approved"
     },
     "2096": {
       "category_en": "Food Fruit",
@@ -16020,14 +16062,16 @@
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "against",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נגד"
+      ],
+      "label_he": "נשען על",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "against",
-      "status": "pending"
+      "status": "approved"
     },
     "210": {
       "category_en": "Sport",
@@ -16099,39 +16143,39 @@
       "grammar": "Noun",
       "id": "outside",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בחוץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "outside",
-      "status": "pending"
+      "status": "approved"
     },
     "2105": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "oval",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אליפסה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "oval",
-      "status": "pending"
+      "status": "approved"
     },
     "2106": {
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "over",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "over",
-      "status": "pending"
+      "status": "approved"
     },
     "2107": {
       "category_en": "Animal Birds",
@@ -16569,13 +16613,13 @@
       "grammar": "Noun",
       "id": "parallelogram",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מקבילית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "parallelogram",
-      "status": "pending"
+      "status": "approved"
     },
     "2138": {
       "category_en": "People Profession",
@@ -16686,13 +16730,13 @@
       "grammar": "Noun",
       "id": "part",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חלק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "part",
-      "status": "pending"
+      "status": "approved"
     },
     "2146": {
       "category_en": "People Relationship",
@@ -17297,13 +17341,13 @@
       "grammar": "Noun",
       "id": "pentagon",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מחומש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pentagon",
-      "status": "pending"
+      "status": "approved"
     },
     "2189": {
       "category_en": "Food Vegetables and salads",
@@ -17465,14 +17509,16 @@
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "ahead",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לפני"
+      ],
+      "label_he": "קדימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ahead",
-      "status": "pending"
+      "status": "approved"
     },
     "220": {
       "category_en": "Building Furniture",
@@ -18051,13 +18097,13 @@
       "grammar": "Noun",
       "id": "both",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שניהם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "both",
-      "status": "pending"
+      "status": "approved"
     },
     "2240": {
       "category_en": "Food Feeding and eating",
@@ -18198,13 +18244,13 @@
       "grammar": "Noun",
       "id": "bottom",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תחתית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bottom",
-      "status": "pending"
+      "status": "approved"
     },
     "2250": {
       "category_en": "Work and School Stationery",
@@ -18341,13 +18387,13 @@
       "grammar": "Noun",
       "id": "bottom-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תחתית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bottom_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2260": {
       "category_en": "Leisure Games",
@@ -18515,13 +18561,13 @@
       "grammar": "Noun",
       "id": "pointed",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מחודד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pointed",
-      "status": "pending"
+      "status": "approved"
     },
     "2272": {
       "category_en": "Animal Mammal",
@@ -19207,14 +19253,16 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "prism-hexagonal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מנסרה"
+      ],
+      "label_he": "מנסרה משושה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "prism_hexagonal",
-      "status": "pending"
+      "status": "approved"
     },
     "232": {
       "category_en": "Sport",
@@ -19233,14 +19281,16 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "prism-triangular",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מנסרה"
+      ],
+      "label_he": "מנסרה משולשת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "prism_triangular",
-      "status": "pending"
+      "status": "approved"
     },
     "2321": {
       "category_en": "Food Diet",
@@ -19519,27 +19569,31 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "pyramid-square-base",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פירמידה"
+      ],
+      "label_he": "פירמידה מרובעת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pyramid_square_base",
-      "status": "pending"
+      "status": "approved"
     },
     "2341": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "pyramid-triangular-base",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פירמידה"
+      ],
+      "label_he": "פירמידה משולשת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pyramid_triangular_base",
-      "status": "pending"
+      "status": "approved"
     },
     "2342": {
       "category_en": "Alphabet",
@@ -19572,13 +19626,13 @@
       "grammar": "Noun",
       "id": "quadrilateral",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מרובע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "quadrilateral",
-      "status": "pending"
+      "status": "approved"
     },
     "2345": {
       "category_en": "Animal Birds",
@@ -19598,13 +19652,13 @@
       "grammar": "Noun",
       "id": "quarter",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רבע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": "text-glyph",
       "src": "quarter",
-      "status": "pending"
+      "status": "approved"
     },
     "2347": {
       "category_en": "Food Meals and snacks",
@@ -20014,13 +20068,13 @@
       "grammar": "Noun",
       "id": "rectangle",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מלבן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rectangle",
-      "status": "pending"
+      "status": "approved"
     },
     "2376": {
       "category_en": "Computer Icon",
@@ -20263,13 +20317,13 @@
       "grammar": "Noun",
       "id": "rhombus",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעוין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rhombus",
-      "status": "pending"
+      "status": "approved"
     },
     "2393": {
       "category_en": "Food Vegetables and salads",
@@ -21060,13 +21114,13 @@
       "grammar": "Noun",
       "id": "same",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אותו הדבר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "same",
-      "status": "pending"
+      "status": "approved"
     },
     "2448": {
       "category_en": "Leisure Toys",
@@ -21853,13 +21907,13 @@
       "grammar": "Noun",
       "id": "second-3",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שני (מספר סידורי)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "second_3",
-      "status": "pending"
+      "status": "approved"
     },
     "2502": {
       "category_en": "People Profession",
@@ -22190,27 +22244,29 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "seventy-five-percent",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אחוזים"
+      ],
+      "label_he": "75 אחוז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "seventy_five_percent",
-      "status": "pending"
+      "status": "approved"
     },
     "2526": {
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "shallow",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רדוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shallow",
-      "status": "pending"
+      "status": "approved"
     },
     "2527": {
       "category_en": "Healthcare Grooming items",
@@ -22282,13 +22338,13 @@
       "grammar": "Noun",
       "id": "shapes",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צורות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shapes",
-      "status": "pending"
+      "status": "approved"
     },
     "2532": {
       "category_en": "Leisure Toys",
@@ -22308,13 +22364,13 @@
       "grammar": "Noun",
       "id": "sharp",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sharp",
-      "status": "pending"
+      "status": "approved"
     },
     "2534": {
       "category_en": "Healthcare Grooming activities",
@@ -22451,13 +22507,13 @@
       "grammar": "Noun",
       "id": "shiny",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מבריק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shiny",
-      "status": "pending"
+      "status": "approved"
     },
     "2544": {
       "category_en": "Clothes General",
@@ -22572,13 +22628,13 @@
       "grammar": "Noun",
       "id": "short-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קצר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "short_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2552": {
       "category_en": "People Descriptive",
@@ -22754,13 +22810,13 @@
       "grammar": "Noun",
       "id": "side",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "side",
-      "status": "pending"
+      "status": "approved"
     },
     "2565": {
       "category_en": "Food Kitchen items",
@@ -23117,14 +23173,16 @@
       "category_en": "Descriptive State",
       "grammar": "Verb",
       "id": "break-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שבירה"
+      ],
+      "label_he": "לשבור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "break_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "2590": {
       "category_en": "Clothes General",
@@ -23222,13 +23280,13 @@
       "grammar": "Noun",
       "id": "slice",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פרוסה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "slice",
-      "status": "pending"
+      "status": "approved"
     },
     "2598": {
       "category_en": "Leisure Playground",
@@ -23273,14 +23331,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "break-2-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שבירה"
+      ],
+      "label_he": "לשבור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "break_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2600": {
       "category_en": "Clothes General",
@@ -23472,13 +23532,13 @@
       "grammar": "Noun",
       "id": "soft",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "soft",
-      "status": "pending"
+      "status": "approved"
     },
     "2614": {
       "category_en": "People Profession",
@@ -23552,13 +23612,13 @@
       "grammar": "Noun",
       "id": "some",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קצת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "some",
-      "status": "pending"
+      "status": "approved"
     },
     "262": {
       "category_en": "Work and School Timetable",
@@ -24071,14 +24131,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "spotty",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נקודות"
+      ],
+      "label_he": "מנומר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spotty",
-      "status": "pending"
+      "status": "approved"
     },
     "2656": {
       "category_en": "People Descriptive",
@@ -24163,13 +24225,13 @@
       "grammar": "Noun",
       "id": "square",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ריבוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "square",
-      "status": "pending"
+      "status": "approved"
     },
     "2662": {
       "category_en": "Tools Workshop",
@@ -24657,13 +24719,13 @@
       "grammar": "Noun",
       "id": "sticky",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "דביק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sticky",
-      "status": "pending"
+      "status": "approved"
     },
     "2697": {
       "category_en": "Healthcare Medical conditions",
@@ -24882,13 +24944,13 @@
       "grammar": "Noun",
       "id": "straight",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ישר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "straight",
-      "status": "pending"
+      "status": "approved"
     },
     "2711": {
       "category_en": "Food Kitchen actions",
@@ -24962,13 +25024,13 @@
       "grammar": "Noun",
       "id": "striped",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מפוספס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "striped",
-      "status": "pending"
+      "status": "approved"
     },
     "2717": {
       "category_en": "Animal Activity Grooming",
@@ -25732,14 +25794,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "bright-room",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בהיר"
+      ],
+      "label_he": "חדר מואר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bright_room",
-      "status": "pending"
+      "status": "approved"
     },
     "2770": {
       "category_en": "Healthcare Grooming activities",
@@ -26177,13 +26241,13 @@
       "grammar": "Noun",
       "id": "broken",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שבור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "broken",
-      "status": "pending"
+      "status": "approved"
     },
     "2800": {
       "category_en": "Food Kitchen items",
@@ -26515,13 +26579,13 @@
       "grammar": "Noun",
       "id": "thick",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עבה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "thick",
-      "status": "pending"
+      "status": "approved"
     },
     "2824": {
       "category_en": "Healthcare Body parts",
@@ -26554,13 +26618,13 @@
       "grammar": "Noun",
       "id": "thin-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "דק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "thin_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2827": {
       "category_en": "Food Feeding and eating",
@@ -26684,13 +26748,13 @@
       "grammar": "Noun",
       "id": "three-quarters",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שלושה רבעים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": "text-glyph",
       "src": "three_quarters",
-      "status": "pending"
+      "status": "approved"
     },
     "2836": {
       "category_en": "Religion Person",
@@ -27450,26 +27514,26 @@
       "grammar": "Noun",
       "id": "top",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "למעלה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "top",
-      "status": "pending"
+      "status": "approved"
     },
     "2888": {
       "category_en": "Descriptive Position",
       "grammar": "Noun",
       "id": "top-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "למעלה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "top_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2889": {
       "category_en": "Science Eco",
@@ -27827,13 +27891,13 @@
       "grammar": "Noun",
       "id": "trapezium",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "טרפז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trapezium",
-      "status": "pending"
+      "status": "approved"
     },
     "2913": {
       "category_en": "Holiday and travel",
@@ -27904,27 +27968,31 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "triangle-acute",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משולש"
+      ],
+      "label_he": "משולש חד זווית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "triangle_acute",
-      "status": "pending"
+      "status": "approved"
     },
     "2919": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "triangle-equilateral",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משולש"
+      ],
+      "label_he": "משולש שווה צלעות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "triangle_equilateral",
-      "status": "pending"
+      "status": "approved"
     },
     "292": {
       "category_en": "Food Sweets and desserts",
@@ -27943,53 +28011,61 @@
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "triangle-isosceles",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משולש"
+      ],
+      "label_he": "משולש שווה שוקיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "triangle_isosceles",
-      "status": "pending"
+      "status": "approved"
     },
     "2921": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "triangle-obtuse",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משולש"
+      ],
+      "label_he": "משולש קהה זווית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "triangle_obtuse",
-      "status": "pending"
+      "status": "approved"
     },
     "2922": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "triangle-right-angled",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משולש"
+      ],
+      "label_he": "משולש ישר זווית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "triangle_right-angled",
-      "status": "pending"
+      "status": "approved"
     },
     "2923": {
       "category_en": "Descriptive Shape",
       "grammar": "Noun",
       "id": "triangle-scalene",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משולש"
+      ],
+      "label_he": "משולש שונה צלעות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "triangle_scalene",
-      "status": "pending"
+      "status": "approved"
     },
     "2924": {
       "category_en": "Celebration Event",
@@ -28257,14 +28333,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "twenty-five-percent",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אחוזים"
+      ],
+      "label_he": "25 אחוז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "twenty_five_percent",
-      "status": "pending"
+      "status": "approved"
     },
     "2943": {
       "category_en": "Number",
@@ -28297,13 +28375,13 @@
       "grammar": "Noun",
       "id": "two-thirds",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שני שליש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "two_thirds",
-      "status": "pending"
+      "status": "approved"
     },
     "2946": {
       "category_en": "Alphabet",
@@ -28427,13 +28505,13 @@
       "grammar": "Noun",
       "id": "under-1",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מתחת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "under_1",
-      "status": "pending"
+      "status": "approved"
     },
     "2955": {
       "category_en": "Healthcare Body parts",
@@ -29077,13 +29155,13 @@
       "grammar": "Noun",
       "id": "above",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "above",
-      "status": "pending"
+      "status": "approved"
     },
     "30": {
       "category_en": "People Profession",
@@ -29219,14 +29297,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "warm-fire",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חם"
+      ],
+      "label_he": "אש חמימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "warm_fire",
-      "status": "pending"
+      "status": "approved"
     },
     "3009": {
       "category_en": "Electrical General",
@@ -29558,26 +29638,28 @@
       "grammar": "Noun",
       "id": "wavy",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גלי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wavy",
-      "status": "pending"
+      "status": "approved"
     },
     "3032": {
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "weak-link",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חלש"
+      ],
+      "label_he": "חוליה חלשה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "weak_link",
-      "status": "pending"
+      "status": "approved"
     },
     "3033": {
       "category_en": "Computer Icon",
@@ -29687,14 +29769,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Verb",
       "id": "weigh",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שקילה"
+      ],
+      "label_he": "לשקול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "weigh_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3041": {
       "category_en": "Clothes General",
@@ -29729,26 +29813,26 @@
       "grammar": "Noun",
       "id": "wet",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רטוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wet",
-      "status": "pending"
+      "status": "approved"
     },
     "3044": {
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "wet-1",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רטוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wet_1",
-      "status": "pending"
+      "status": "approved"
     },
     "3045": {
       "category_en": "Question",
@@ -29820,13 +29904,13 @@
       "grammar": "Noun",
       "id": "bumpy",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "משובש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bumpy",
-      "status": "pending"
+      "status": "approved"
     },
     "3050": {
       "category_en": "Building Contents",
@@ -30015,13 +30099,13 @@
       "grammar": "Noun",
       "id": "whole",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שלם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "whole",
-      "status": "pending"
+      "status": "approved"
     },
     "3064": {
       "category_en": "Question",
@@ -36904,13 +36988,13 @@
       "grammar": "Noun",
       "id": "absent",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נעדר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "absent",
-      "status": "pending"
+      "status": "approved"
     },
     "40": {
       "category_en": "Number Activity",
@@ -38429,13 +38513,13 @@
       "grammar": "Noun",
       "id": "circle",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עיגול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "circle",
-      "status": "pending"
+      "status": "approved"
     },
     "505": {
       "category_en": "Work and School Timetable",
@@ -38532,14 +38616,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "clean-dishes",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נקי"
+      ],
+      "label_he": "כלים נקיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clean_dishes",
-      "status": "pending"
+      "status": "approved"
     },
     "512": {
       "category_en": "Healthcare Grooming activities",
@@ -38558,14 +38644,16 @@
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "clean-room",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נקי"
+      ],
+      "label_he": "חדר נקי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clean_room",
-      "status": "pending"
+      "status": "approved"
     },
     "514": {
       "category_en": "Building Household tasks",
@@ -38782,13 +38870,13 @@
       "grammar": "Noun",
       "id": "close-to",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קרוב ל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "close_to",
-      "status": "pending"
+      "status": "approved"
     },
     "53": {
       "category_en": "Building Furniture",
@@ -38808,13 +38896,13 @@
       "grammar": "Noun",
       "id": "closed",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סגור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "closed",
-      "status": "pending"
+      "status": "approved"
     },
     "531": {
       "category_en": "Building Shop",
@@ -38833,14 +38921,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "clothes-extra-large",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מידה"
+      ],
+      "label_he": "מידה גדולה מאוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_extra_large",
-      "status": "pending"
+      "status": "approved"
     },
     "533": {
       "category_en": "Clothes General",
@@ -38887,14 +38977,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "clothes-large",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מידה"
+      ],
+      "label_he": "מידה גדולה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_large",
-      "status": "pending"
+      "status": "approved"
     },
     "537": {
       "category_en": "Clothes General",
@@ -38915,27 +39007,31 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "clothes-medium",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מידה"
+      ],
+      "label_he": "מידה בינונית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_medium",
-      "status": "pending"
+      "status": "approved"
     },
     "539": {
       "category_en": "Descriptive State",
       "grammar": "Noun",
       "id": "clothes-neat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מסודר"
+      ],
+      "label_he": "בגדים מסודרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_neat",
-      "status": "pending"
+      "status": "approved"
     },
     "54": {
       "category_en": "Healthcare Body parts",
@@ -38969,14 +39065,16 @@
       "category_en": "Descriptive Quantity",
       "grammar": "Noun",
       "id": "clothes-small",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מידה"
+      ],
+      "label_he": "מידה קטנה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clothes_small",
-      "status": "pending"
+      "status": "approved"
     },
     "542": {
       "category_en": "Environment Weather",
@@ -41977,13 +42075,13 @@
       "grammar": "Noun",
       "id": "awake",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ער",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "awake",
-      "status": "pending"
+      "status": "approved"
     },
     "750": {
       "category_en": "Country Maps",
@@ -43147,13 +43245,13 @@
       "grammar": "Noun",
       "id": "crooked",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עקום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "crooked",
-      "status": "pending"
+      "status": "approved"
     },
     "831": {
       "category_en": "Religion General",
@@ -43355,13 +43453,13 @@
       "grammar": "Noun",
       "id": "curly",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מתולתל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "curly",
-      "status": "pending"
+      "status": "approved"
     },
     "846": {
       "category_en": "People Descriptive",
@@ -43684,13 +43782,13 @@
       "grammar": "Noun",
       "id": "dead",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dead",
-      "status": "pending"
+      "status": "approved"
     },
     "869": {
       "category_en": "Plants and Trees",
@@ -43749,13 +43847,13 @@
       "grammar": "Noun",
       "id": "deep",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עמוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "deep",
-      "status": "pending"
+      "status": "approved"
     },
     "873": {
       "category_en": "Food Kitchen items",
@@ -43996,13 +44094,13 @@
       "grammar": "Noun",
       "id": "bad",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bad",
-      "status": "pending"
+      "status": "approved"
     },
     "890": {
       "category_en": "People Feelings",
@@ -44061,13 +44159,13 @@
       "grammar": "Noun",
       "id": "diamond",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מעוין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "diamond",
-      "status": "pending"
+      "status": "approved"
     },
     "895": {
       "category_en": "Food Kitchen actions",
@@ -44282,13 +44380,13 @@
       "grammar": "Noun",
       "id": "dirty",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מלוכלך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dirty",
-      "status": "pending"
+      "status": "approved"
     },
     "91": {
       "category_en": "Animal Mammal",
@@ -45240,13 +45338,13 @@
       "grammar": "Noun",
       "id": "dry",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "יבש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dry",
-      "status": "pending"
+      "status": "approved"
     },
     "976": {
       "category_en": "Healthcare Grooming activities",
