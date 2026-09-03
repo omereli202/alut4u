@@ -8098,14 +8098,17 @@
       "category_en": "Verb",
       "grammar": "Noun",
       "id": "gravy-pour",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רוטב",
+        "למזוג"
+      ],
+      "label_he": "למזוג רוטב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "gravy_pour_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "156": {
       "category_en": "Animal Spiders and Insects",
@@ -30727,131 +30730,156 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "arrest",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעצר",
+        "משטרה"
+      ],
+      "label_he": "לעצור (משטרה)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "arrest_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3121": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "ask",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שאלה",
+        "לבקש"
+      ],
+      "label_he": "לשאול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ask_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3122": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "attract",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "למשוך",
+        "תשומת לב"
+      ],
+      "label_he": "למשוך תשומת לב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "attract_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3123": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "bend",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כפיפה"
+      ],
+      "label_he": "להתכופף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bend_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3124": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "bend-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כפיפה"
+      ],
+      "label_he": "להתכופף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bend_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3125": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "bite",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נשיכה"
+      ],
+      "label_he": "לנשוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bite_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3126": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "blink",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מצמוץ",
+        "עיניים"
+      ],
+      "label_he": "למצמץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "blink_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3127": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "blow",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נשיפה"
+      ],
+      "label_he": "לנשוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "blow_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3128": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "blow-kiss",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נשיקה"
+      ],
+      "label_he": "לשלוח נשיקה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "blow_kiss_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3129": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "bounce",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ניתור",
+        "לקפוץ"
+      ],
+      "label_he": "לנתר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bounce_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "313": {
       "category_en": "Plants and Trees",
@@ -30870,131 +30898,155 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "bounce-ball",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כדור",
+        "ניתור"
+      ],
+      "label_he": "לנתר כדור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bounce_ball_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3131": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "box",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אגרוף"
+      ],
+      "label_he": "להתאגרף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "box_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3132": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "bring",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הבאה"
+      ],
+      "label_he": "להביא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bring_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3133": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "build",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בנייה"
+      ],
+      "label_he": "לבנות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "build_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3134": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "burn-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שריפה"
+      ],
+      "label_he": "לשרוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "burn_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3135": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "call-out",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קריאה בקול"
+      ],
+      "label_he": "לקרוא בקול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "call_out_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3136": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "camp",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קמפינג",
+        "אוהל"
+      ],
+      "label_he": "לחנות (קמפינג)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "camp_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3137": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "carry",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נשיאה",
+        "להרים"
+      ],
+      "label_he": "לשאת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "carry_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3138": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "carry-books",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ספרים"
+      ],
+      "label_he": "לשאת ספרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "carry_books_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3139": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "carve-meat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בשר",
+        "לפרוס"
+      ],
+      "label_he": "לחתוך בשר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "carve_meat_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "314": {
       "category_en": "People Descriptive",
@@ -31013,131 +31065,152 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "carve-wood",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גילוף",
+        "עץ"
+      ],
+      "label_he": "לגלף עץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "carve_wood_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3141": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "catch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפיסה"
+      ],
+      "label_he": "לתפוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "catch_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3142": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "catch-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפיסה"
+      ],
+      "label_he": "לתפוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "catch_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3143": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "celebrate-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חגיגה"
+      ],
+      "label_he": "לחגוג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "celebrate_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3144": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "change",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שינוי"
+      ],
+      "label_he": "להחליף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "change_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3145": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "change-clothes",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בגדים"
+      ],
+      "label_he": "להחליף בגדים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "change_clothes_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3146": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "change-mind",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לשנות דעה"
+      ],
+      "label_he": "להתחרט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "change_mind_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3147": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "change-weather",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מזג אוויר"
+      ],
+      "label_he": "מזג האוויר משתנה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "change_weather_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3148": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "chase",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רדיפה"
+      ],
+      "label_he": "לרדוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chase_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3149": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "cheat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רמאות"
+      ],
+      "label_he": "לרמות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cheat_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "315": {
       "category_en": "Food Dairy",
@@ -31156,131 +31229,153 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "chew",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לעיסה"
+      ],
+      "label_he": "ללעוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chew_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3151": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "choke",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חנק"
+      ],
+      "label_he": "להיחנק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "choke_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3152": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "chop-wood",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עצים",
+        "גזירה"
+      ],
+      "label_he": "לקצוץ עצים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chop_wood_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3153": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "clap-hands",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מחיאת כפיים"
+      ],
+      "label_he": "למחוא כפיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "clap_hands_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3154": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "climb-down",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ירידה"
+      ],
+      "label_he": "לרדת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "climb_down_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3155": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "climb-tree",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טיפוס",
+        "עץ"
+      ],
+      "label_he": "לטפס על עץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "climb_tree_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3156": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "climb-up",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טיפוס"
+      ],
+      "label_he": "לטפס למעלה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "climb_up_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3157": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "close",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סגירה"
+      ],
+      "label_he": "לסגור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "close_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3158": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "close-door",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דלת"
+      ],
+      "label_he": "לסגור דלת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "close_door_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3159": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "collect",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "איסוף"
+      ],
+      "label_he": "לאסוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "collect_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "316": {
       "category_en": "Animal Spiders and Insects",
@@ -31299,131 +31394,153 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "come",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בוא"
+      ],
+      "label_he": "לבוא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "come_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3161": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "communicate",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תקשורת"
+      ],
+      "label_he": "לתקשר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "communicate_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3162": {
       "category_en": "Verb",
       "grammar": "Noun",
       "id": "computer-folder",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מחשב",
+        "תיקייה"
+      ],
+      "label_he": "תיקייה במחשב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "computer_folder",
-      "status": "pending"
+      "status": "approved"
     },
     "3163": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "copy-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "העתקה"
+      ],
+      "label_he": "להעתיק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "copy_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3164": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "count",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ספירה"
+      ],
+      "label_he": "לספור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "count_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3165": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "count-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ספירה"
+      ],
+      "label_he": "לספור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "count_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3166": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "crawl",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זחילה"
+      ],
+      "label_he": "לזחול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "crawl_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3167": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "cross-fingers",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בהצלחה"
+      ],
+      "label_he": "להצליב אצבעות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cross_fingers_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3168": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "crouch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כריעה"
+      ],
+      "label_he": "לכרוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "crouch_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3169": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "crumple-paper",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נייר",
+        "קימוט"
+      ],
+      "label_he": "לקמט נייר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "crumple_paper_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "317": {
       "category_en": "Food Vegetables and salads",
@@ -31442,131 +31559,152 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "cut-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיתוך"
+      ],
+      "label_he": "לחתוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cut_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3171": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "cut-with-scissors",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מספריים"
+      ],
+      "label_he": "לחתוך במספריים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cut_with_scissors_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3172": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dance",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריקוד"
+      ],
+      "label_he": "לרקוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dance_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3173": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dance-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריקוד"
+      ],
+      "label_he": "לרקוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dance_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3174": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dance-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריקוד"
+      ],
+      "label_he": "לרקוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dance_3_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3175": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "daydream",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חלום"
+      ],
+      "label_he": "לחלום בהקיץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "daydream_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3176": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "decorate",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קישוט"
+      ],
+      "label_he": "לקשט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "decorate_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3177": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "deliver",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משלוח"
+      ],
+      "label_he": "למסור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "deliver_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3178": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "deliver-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משלוח"
+      ],
+      "label_he": "למסור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "deliver_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3179": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dial",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיוג",
+        "טלפון"
+      ],
+      "label_he": "לחייג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dial_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "318": {
       "category_en": "Clothes Accessories",
@@ -31585,131 +31723,152 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "die",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מוות"
+      ],
+      "label_he": "למות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "die_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3181": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dig",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חפירה"
+      ],
+      "label_he": "לחפור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dig_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3182": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dig-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חפירה"
+      ],
+      "label_he": "לחפור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dig_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3183": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dive",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צלילה"
+      ],
+      "label_he": "לצלול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dive_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3184": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "download-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הורדה",
+        "מחשב"
+      ],
+      "label_he": "להוריד קובץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "download_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3185": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "draw",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ציור"
+      ],
+      "label_he": "לצייר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "draw_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3186": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "dream",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חלום"
+      ],
+      "label_he": "לחלום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dream_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3187": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "drink-2-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שתייה"
+      ],
+      "label_he": "לשתות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "drink_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3188": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "drink-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שתייה"
+      ],
+      "label_he": "לשתות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "drink_3_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3189": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "drip",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טפטוף"
+      ],
+      "label_he": "לטפטף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "drip_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "319": {
       "category_en": "Alphabet",
@@ -31728,27 +31887,31 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "drive",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נהיגה"
+      ],
+      "label_he": "לנהוג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "drive_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3191": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "drown",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טביעה"
+      ],
+      "label_he": "לטבוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "drown_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3192": {
       "category_en": "Verb",
@@ -31772,92 +31935,107 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "eat-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אכילה"
+      ],
+      "label_he": "לאכול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eat_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3194": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "eat-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אכילה"
+      ],
+      "label_he": "לאכול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "eat_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3195": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "escape",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בריחה"
+      ],
+      "label_he": "לברוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "escape_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3196": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "fall-off",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נפילה"
+      ],
+      "label_he": "ליפול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fall_off_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3197": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "fall-over",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נפילה"
+      ],
+      "label_he": "ליפול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fall_over_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3198": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "fasten",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רכיסה",
+        "לחגור"
+      ],
+      "label_he": "לרכוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fasten_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3199": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "feed-someone",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "האכלה"
+      ],
+      "label_he": "להאכיל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "feed_someone_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "32": {
       "category_en": "Number Activity",
@@ -31889,131 +32067,152 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "feed-someone-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "האכלה"
+      ],
+      "label_he": "להאכיל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "feed_someone_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3201": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "fight",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריב"
+      ],
+      "label_he": "להילחם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fight_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3202": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "file-metal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שיוף"
+      ],
+      "label_he": "לשייף מתכת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "file_metal_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3203": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "file-wood",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שיוף",
+        "עץ"
+      ],
+      "label_he": "לשייף עץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "file_wood_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3204": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "fill-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מילוי"
+      ],
+      "label_he": "למלא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fill_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3205": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "find",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מציאה"
+      ],
+      "label_he": "למצוא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "find_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3206": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "flip-coin",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מטבע"
+      ],
+      "label_he": "להטיל מטבע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "flip_coin_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3207": {
       "category_en": "Verb",
       "grammar": "Noun",
       "id": "forward-wind",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הרצה קדימה"
+      ],
+      "label_he": "להריץ קדימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "forward_wind",
-      "status": "pending"
+      "status": "approved"
     },
     "3208": {
       "category_en": "Verb",
       "grammar": "Noun",
       "id": "fried-breakfast",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ארוחת בוקר"
+      ],
+      "label_he": "ארוחת בוקר מטוגנת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fried_breakfast",
-      "status": "pending"
+      "status": "approved"
     },
     "3209": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "get",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קבלה"
+      ],
+      "label_he": "לקבל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "get_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "321": {
       "category_en": "Food Vegetables and salads",
@@ -32032,105 +32231,123 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "get-off-bus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוטובוס"
+      ],
+      "label_he": "לרדת מהאוטובוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "get_off_bus_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3211": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "get-on-bus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוטובוס"
+      ],
+      "label_he": "לעלות על האוטובוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "get_on_bus_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3212": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "get-out-of-chair",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כיסא"
+      ],
+      "label_he": "לקום מהכיסא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "get_out_of_chair_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3213": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "get-up",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קימה"
+      ],
+      "label_he": "לקום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "get_up_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3214": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "get-up-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קימה"
+      ],
+      "label_he": "לקום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "get_up_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3215": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "give",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נתינה"
+      ],
+      "label_he": "לתת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "give_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3216": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "give-up-cake",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ויתור",
+        "עוגה"
+      ],
+      "label_he": "לוותר על עוגה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "give_up_cake_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3217": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "give-up-foods",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ויתור",
+        "אוכל"
+      ],
+      "label_he": "לוותר על אוכל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "give_up_foods_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3218": {
       "category_en": "Verb",
@@ -32153,14 +32370,16 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "go-in",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כניסה"
+      ],
+      "label_he": "להיכנס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "go_in_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "322": {
       "category_en": "Electrical TV",
@@ -32179,131 +32398,151 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "go-outside",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יציאה"
+      ],
+      "label_he": "לצאת החוצה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "go_outside_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3221": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "go-out-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יציאה"
+      ],
+      "label_he": "לצאת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "go_out_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3222": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "grab",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפיסה"
+      ],
+      "label_he": "לתפוס / לחטוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grab_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3223": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "grab-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפיסה"
+      ],
+      "label_he": "לתפוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grab_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3224": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "grow",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גדילה"
+      ],
+      "label_he": "לגדול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grow_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3225": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "grow-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גדילה"
+      ],
+      "label_he": "לגדול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grow_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3226": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "grow-hair",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שיער"
+      ],
+      "label_he": "לגדל שיער",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grow_hair_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3227": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "grow-hair-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שיער"
+      ],
+      "label_he": "לגדל שיער",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grow_hair_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3228": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "guess",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ניחוש"
+      ],
+      "label_he": "לנחש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "guess_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3229": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hang",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תלייה"
+      ],
+      "label_he": "לתלות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hang_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "323": {
       "category_en": "Plants and Trees",
@@ -32322,27 +32561,31 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "hang-coat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעיל"
+      ],
+      "label_he": "לתלות מעיל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hang_coat_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3231": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hatch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ביצה"
+      ],
+      "label_he": "לבקוע (ביצה)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hatch_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3232": {
       "category_en": "Verb",
@@ -32365,92 +32608,107 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hike",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טיול",
+        "הליכה"
+      ],
+      "label_he": "לטייל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hike_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3234": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hike-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טיול"
+      ],
+      "label_he": "לטייל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hike_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3235": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hit",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הכאה"
+      ],
+      "label_he": "להכות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hit_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3236": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "hit-something",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פגיעה"
+      ],
+      "label_he": "לפגוע במשהו",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hit_something_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3237": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hold",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "החזקה"
+      ],
+      "label_he": "להחזיק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hold_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3238": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "hold-hands",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ידיים"
+      ],
+      "label_he": "להחזיק ידיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hold_hands_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3239": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "hold-sledge-hammer",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פטיש"
+      ],
+      "label_he": "להחזיק פטיש כבד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hold_sledge_hammer_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "324": {
       "category_en": "Food Feeding and eating",
@@ -32469,131 +32727,151 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hop",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קפיצה"
+      ],
+      "label_he": "לקפוץ (על רגל)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hop_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3241": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hop-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קפיצה"
+      ],
+      "label_he": "לקפוץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hop_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3242": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hug",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיבוק"
+      ],
+      "label_he": "לחבק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hug_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3243": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "hunt",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ציד"
+      ],
+      "label_he": "לצוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hunt_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3244": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "insert",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הכנסה"
+      ],
+      "label_he": "להכניס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "insert_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3245": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "jog",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריצה"
+      ],
+      "label_he": "לרוץ ריצה קלה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jog_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3246": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "join",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הצטרפות"
+      ],
+      "label_he": "להצטרף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "join_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3247": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "join-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הצטרפות"
+      ],
+      "label_he": "להצטרף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "join_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3248": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "join-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיבור"
+      ],
+      "label_he": "לחבר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "join_3",
-      "status": "pending"
+      "status": "approved"
     },
     "3249": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "jump",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קפיצה"
+      ],
+      "label_he": "לקפוץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jump_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "325": {
       "category_en": "Food Feeding and eating",
@@ -32612,131 +32890,153 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "jump-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קפיצה"
+      ],
+      "label_he": "לקפוץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jump_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3251": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "keep",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שמירה"
+      ],
+      "label_he": "לשמור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "keep_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3252": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "kick-ball",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בעיטה",
+        "כדור"
+      ],
+      "label_he": "לבעוט בכדור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "kick_ball_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3253": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "kick-person",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בעיטה"
+      ],
+      "label_he": "לבעוט במישהו",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "kick_person_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3254": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "kick-swimming",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בעיטה",
+        "שחייה"
+      ],
+      "label_he": "לבעוט בשחייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "kick_swimming_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3255": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "kill",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הריגה"
+      ],
+      "label_he": "להרוג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "kill_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3256": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "knit",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סריגה"
+      ],
+      "label_he": "לסרוג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "knit_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3257": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "knock",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דפיקה"
+      ],
+      "label_he": "לדפוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "knock_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3258": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "knock-down",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הפלה"
+      ],
+      "label_he": "להפיל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "knock_down_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3259": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "lie-on-back",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שכיבה"
+      ],
+      "label_he": "לשכב על הגב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lie_on_back_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "326": {
       "category_en": "Animal Habitat",
@@ -32772,66 +33072,76 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "make",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הכנה"
+      ],
+      "label_he": "להכין / לעשות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "make_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3262": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "meet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פגישה"
+      ],
+      "label_he": "לפגוש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "meet_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3263": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "miss-bus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוטובוס"
+      ],
+      "label_he": "להחמיץ את האוטובוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "miss_bus_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3264": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "move",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תנועה"
+      ],
+      "label_he": "לזוז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "move_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3265": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "nod",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הנהון"
+      ],
+      "label_he": "להנהן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "nod_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3266": {
       "category_en": "Verb",
@@ -32853,40 +33163,46 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "open-2-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פתיחה"
+      ],
+      "label_he": "לפתוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "open_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3268": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "open-door",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דלת"
+      ],
+      "label_he": "לפתוח דלת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "open_door_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3269": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "open-door-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דלת"
+      ],
+      "label_he": "לפתוח דלת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "open_door_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "327": {
       "category_en": "Food Breads and baking",
@@ -32905,131 +33221,154 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "open-door-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דלת"
+      ],
+      "label_he": "לפתוח דלת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "open_door_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3271": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "order-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הזמנה"
+      ],
+      "label_he": "להזמין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "order_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3272": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "order-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הזמנה"
+      ],
+      "label_he": "להזמין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "order_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3273": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "pack-suitcase",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מזוודה",
+        "אריזה"
+      ],
+      "label_he": "לארוז מזוודה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pack_suitcase_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3274": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "paint-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צביעה"
+      ],
+      "label_he": "לצבוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "paint_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3275": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "paint-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צביעה"
+      ],
+      "label_he": "לצבוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "paint_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3276": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "paint-2-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צביעה"
+      ],
+      "label_he": "לצבוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "paint_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3277": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "park",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חנייה"
+      ],
+      "label_he": "לחנות (רכב)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "park_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3278": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "pat-dog",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כלב",
+        "ליטוף"
+      ],
+      "label_he": "ללטף כלב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pat_dog_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3279": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "peel-orange",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קילוף",
+        "תפוז"
+      ],
+      "label_he": "לקלף תפוז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "peel_orange_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "328": {
       "category_en": "Food Breads and baking",
@@ -33048,40 +33387,46 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "pick",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בחירה"
+      ],
+      "label_he": "לבחור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pick_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3281": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "pick-up",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הרמה"
+      ],
+      "label_he": "להרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pick_up_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3282": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "plant-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שתילה"
+      ],
+      "label_he": "לשתול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "plant_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3283": {
       "category_en": "Verb",
@@ -33104,79 +33449,92 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "plough",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חרישה"
+      ],
+      "label_he": "לחרוש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "plough_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3285": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "pluck",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קטיף"
+      ],
+      "label_he": "לקטוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pluck_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3286": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "post-letter",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכתב",
+        "דואר"
+      ],
+      "label_he": "לשלוח מכתב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "post_letter_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3287": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "pour",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מזיגה"
+      ],
+      "label_he": "למזוג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pour_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3288": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "pray-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפילה"
+      ],
+      "label_he": "להתפלל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pray_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3289": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "press-button",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כפתור"
+      ],
+      "label_he": "ללחוץ על כפתור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "press_button_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "329": {
       "category_en": "Food Kitchen items",
@@ -33195,131 +33553,151 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "prop-up",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תמיכה"
+      ],
+      "label_he": "לתמוך / להשעין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "prop_up_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3291": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "protect",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הגנה"
+      ],
+      "label_he": "להגן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "protect_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3292": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "pull",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משיכה"
+      ],
+      "label_he": "למשוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pull_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3293": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "pull-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משיכה"
+      ],
+      "label_he": "למשוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pull_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3294": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "push",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דחיפה"
+      ],
+      "label_he": "לדחוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "push_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3295": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "push-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דחיפה"
+      ],
+      "label_he": "לדחוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "push_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3296": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "push-down",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דחיפה"
+      ],
+      "label_he": "לדחוף למטה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "push_down_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3297": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "put",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הנחה"
+      ],
+      "label_he": "לשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3298": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-away",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סידור"
+      ],
+      "label_he": "להחזיר למקום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_away_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3299": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-in",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הכנסה"
+      ],
+      "label_he": "להכניס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_in_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "33": {
       "category_en": "Number Activity",
@@ -33351,131 +33729,152 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-in-cassette-tape",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קלטת"
+      ],
+      "label_he": "להכניס קלטת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_in_cassette_tape_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3301": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-in-cd-dvd",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דיסק"
+      ],
+      "label_he": "להכניס דיסק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_in_cd_dvd_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3302": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-in-contact-lens",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עדשות מגע"
+      ],
+      "label_he": "להרכיב עדשות מגע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_in_contact_lens_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3303": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-on-helmet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסדה"
+      ],
+      "label_he": "לחבוש קסדה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_on_helmet_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3304": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "put-on-lid",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכסה"
+      ],
+      "label_he": "לשים מכסה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "put_on_lid_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3305": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "queue",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תור"
+      ],
+      "label_he": "לעמוד בתור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "queue_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3306": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "raise-feet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רגליים"
+      ],
+      "label_he": "להרים רגליים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "raise_feet_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3307": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "raise-head",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ראש"
+      ],
+      "label_he": "להרים ראש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "raise_head_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3308": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "rake-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גריפה",
+        "מגרפה"
+      ],
+      "label_he": "לגרוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rake_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3309": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "reach-for",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הושטה"
+      ],
+      "label_he": "להושיט יד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "reach_for_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "331": {
       "category_en": "Food Breads and baking",
@@ -33494,105 +33893,121 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "read",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קריאה"
+      ],
+      "label_he": "לקרוא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "read_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3311": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "read-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קריאה"
+      ],
+      "label_he": "לקרוא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "read_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3312": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "read-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קריאה"
+      ],
+      "label_he": "לקרוא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "read_3_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3313": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "read-book",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ספר"
+      ],
+      "label_he": "לקרוא ספר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "read_book_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3314": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "receive",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קבלה"
+      ],
+      "label_he": "לקבל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "receive_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3315": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "relax",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הרפיה"
+      ],
+      "label_he": "להירגע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "relax_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3316": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "relax-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הרפיה"
+      ],
+      "label_he": "להירגע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "relax_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3317": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "remove",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הסרה"
+      ],
+      "label_he": "להסיר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "remove_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3318": {
       "category_en": "Verb",
@@ -33615,14 +34030,16 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "return",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "החזרה"
+      ],
+      "label_he": "להחזיר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "return_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "332": {
       "category_en": "Food Breads and baking",
@@ -33641,131 +34058,152 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "return-book",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ספר"
+      ],
+      "label_he": "להחזיר ספר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "return_book_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3321": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "rewind",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הרצה אחורה"
+      ],
+      "label_he": "להריץ אחורה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rewind",
-      "status": "pending"
+      "status": "approved"
     },
     "3322": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "ride-car",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רכב"
+      ],
+      "label_he": "לנסוע ברכב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ride_car_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3323": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "ring-bell",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פעמון"
+      ],
+      "label_he": "לצלצל בפעמון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ring_bell_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3324": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "ring-doorbell",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פעמון"
+      ],
+      "label_he": "לצלצל בפעמון הדלת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "ring_doorbell_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3325": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "rinse",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שטיפה"
+      ],
+      "label_he": "לשטוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rinse_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3326": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "rock-chair",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כיסא נדנדה"
+      ],
+      "label_he": "לנדנד כיסא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rock_chair_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3327": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "rollerskate",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גלגיליות"
+      ],
+      "label_he": "להחליק על גלגיליות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rollerskate_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3328": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "roll-dice",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קובייה",
+        "משחק"
+      ],
+      "label_he": "להטיל קובייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "roll_dice_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3329": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "roll-over",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "התהפכות"
+      ],
+      "label_he": "להתהפך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "roll_over_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "333": {
       "category_en": "Food Breads and baking",
@@ -33784,131 +34222,151 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "rub",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שפשוף"
+      ],
+      "label_he": "לשפשף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rub_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3331": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "scrub",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ניקוי"
+      ],
+      "label_he": "לשפשף לניקוי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "scrub_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3332": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "seal-envelope",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעטפה"
+      ],
+      "label_he": "לסגור מעטפה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "seal_envelope_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3333": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "separate",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הפרדה"
+      ],
+      "label_he": "להפריד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "separate_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3334": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "serve-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הגשה"
+      ],
+      "label_he": "להגיש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "serve_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3335": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "set-table",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שולחן"
+      ],
+      "label_he": "לערוך שולחן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "set_table_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3336": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sew",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפירה"
+      ],
+      "label_he": "לתפור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sew_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3337": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "shake",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נעירה"
+      ],
+      "label_he": "לנער",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shake_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3338": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "shake-hands",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לחיצת יד"
+      ],
+      "label_he": "ללחוץ יד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shake_hands_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3339": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "shake-something",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נעירה"
+      ],
+      "label_he": "לנער משהו",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shake_something_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "334": {
       "category_en": "Food Breads and baking",
@@ -33927,53 +34385,61 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "share",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חלוקה"
+      ],
+      "label_he": "לחלוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "share_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3341": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sharpen",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חידוד"
+      ],
+      "label_he": "לחדד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sharpen_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3342": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "shoot",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ירייה"
+      ],
+      "label_he": "לירות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shoot_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3343": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "shout",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צעקה"
+      ],
+      "label_he": "לצעוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shout_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3344": {
       "category_en": "Verb",
@@ -33995,66 +34461,76 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sign",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חתימה"
+      ],
+      "label_he": "לחתום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sign_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3346": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sing",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שירה"
+      ],
+      "label_he": "לשיר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sing_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3347": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sink-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שקיעה"
+      ],
+      "label_he": "לשקוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sink_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3348": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sink-2-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שקיעה"
+      ],
+      "label_he": "לשקוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sink_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3349": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sit",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ישיבה"
+      ],
+      "label_he": "לשבת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sit_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "335": {
       "category_en": "Food Kitchen items",
@@ -34073,92 +34549,106 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sit-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ישיבה"
+      ],
+      "label_he": "לשבת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sit_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3351": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "sit-in-beanbag",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פוף"
+      ],
+      "label_he": "לשבת על פוף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sit_in_beanbag_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3352": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "sit-on-floor",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רצפה"
+      ],
+      "label_he": "לשבת על הרצפה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sit_on_floor_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3353": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "skate",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סקייטבורד"
+      ],
+      "label_he": "להחליק (סקייטבורד)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skate_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3354": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "skid",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "החלקה"
+      ],
+      "label_he": "להחליק (ליפול)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skid_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3355": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "skip",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דילוג"
+      ],
+      "label_he": "לדלג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "skip_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3356": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "sleep-female",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שינה"
+      ],
+      "label_he": "לישון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sleep_female_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3357": {
       "category_en": "Verb",
@@ -34182,27 +34672,31 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "sleep-on-side",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שינה"
+      ],
+      "label_he": "לישון על הצד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sleep_on_side_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3359": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "slide-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מגלשה"
+      ],
+      "label_he": "להחליק במגלשה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "slide_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "336": {
       "category_en": "Work and School Stationery",
@@ -34221,131 +34715,151 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "slide-backwards",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "החלקה"
+      ],
+      "label_he": "להחליק אחורה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "slide_backwards_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3361": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "slide-forwards",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "החלקה"
+      ],
+      "label_he": "להחליק קדימה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "slide_forwards_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3362": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "smear",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מריחה"
+      ],
+      "label_he": "למרוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "smear_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3363": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "smile",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיוך"
+      ],
+      "label_he": "לחייך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "smile_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3364": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sneak",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "התגנבות"
+      ],
+      "label_he": "להתגנב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sneak_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3365": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "sort",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מיון"
+      ],
+      "label_he": "למיין",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sort_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3366": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "spell",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "איות"
+      ],
+      "label_he": "לאיית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spell_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3367": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "spill",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שפיכה"
+      ],
+      "label_he": "לשפוך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spill_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3368": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "spin",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סיבוב"
+      ],
+      "label_he": "להסתובב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spin_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3369": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "spray",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריסוס"
+      ],
+      "label_he": "לרסס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spray_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "337": {
       "category_en": "Work and School Timetable",
@@ -34364,131 +34878,152 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "squeeze",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סחיטה"
+      ],
+      "label_he": "לסחוט / ללחוץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "squeeze_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3371": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "squirt",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "התזה"
+      ],
+      "label_he": "להתיז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "squirt_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3372": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "stamp",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בול",
+        "חותמת"
+      ],
+      "label_he": "להחתים חותמת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stamp_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3373": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "stand",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עמידה"
+      ],
+      "label_he": "לעמוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stand_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3374": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "steal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גניבה"
+      ],
+      "label_he": "לגנוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "steal_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3375": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "stir",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ערבוב"
+      ],
+      "label_he": "לערבב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stir_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3376": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "stretch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מתיחה"
+      ],
+      "label_he": "למתוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stretch_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3377": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "stroke-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ליטוף"
+      ],
+      "label_he": "ללטף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "stroke_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3378": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "study",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לימוד"
+      ],
+      "label_he": "ללמוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "study_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3379": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "swim-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שחייה"
+      ],
+      "label_he": "לשחות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "swim_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "338": {
       "category_en": "Descriptive Time",
@@ -34507,131 +35042,151 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "take",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לקיחה"
+      ],
+      "label_he": "לקחת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "take_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3381": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "take-care-of",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טיפול"
+      ],
+      "label_he": "לטפל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "take_care_of_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3382": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "take-off-lid",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכסה"
+      ],
+      "label_he": "להסיר מכסה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "take_off_lid_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3383": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "take-out",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הוצאה"
+      ],
+      "label_he": "להוציא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "take_out_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3384": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "take-picture",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צילום"
+      ],
+      "label_he": "לצלם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "take_picture_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3385": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "talk-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דיבור"
+      ],
+      "label_he": "לדבר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "talk_1_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3386": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "talk-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דיבור"
+      ],
+      "label_he": "לדבר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "talk_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3387": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "talk-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דיבור"
+      ],
+      "label_he": "לדבר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "talk_3_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3388": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "talk-4",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דיבור"
+      ],
+      "label_he": "לדבר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "talk_4_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3389": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "tear",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קריעה"
+      ],
+      "label_he": "לקרוע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tear_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "339": {
       "category_en": "Healthcare Body parts",
@@ -34650,131 +35205,152 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "telephone-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טלפון"
+      ],
+      "label_he": "לטלפן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "telephone_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3391": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "telephone-mobile",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נייד"
+      ],
+      "label_he": "לטלפן מנייד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "telephone_mobile_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3392": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "telephone-mobile-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נייד"
+      ],
+      "label_he": "לטלפן מנייד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "telephone_mobile_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3393": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "think",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מחשבה"
+      ],
+      "label_he": "לחשוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "think_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3394": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "throw-away",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פח",
+        "זריקה"
+      ],
+      "label_he": "לזרוק לפח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "throw_away_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3395": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "tickle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דגדוג"
+      ],
+      "label_he": "לדגדג",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tickle_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3396": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "tidy-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סידור"
+      ],
+      "label_he": "לסדר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tidy_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3397": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "tie-3",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קשירה"
+      ],
+      "label_he": "לקשור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tie_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3398": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "tighten",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הידוק"
+      ],
+      "label_he": "להדק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tighten_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3399": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "touch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נגיעה"
+      ],
+      "label_he": "לגעת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "touch_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "34": {
       "category_en": "Food Nuts",
@@ -34806,131 +35382,151 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "trace",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שרטוט"
+      ],
+      "label_he": "להעתיק קווים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trace_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3401": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "transport-car",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רכב"
+      ],
+      "label_he": "להסיע ברכב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "transport_car_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3402": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "trim",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גזימה"
+      ],
+      "label_he": "לגזום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trim_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3403": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "trim-hedge",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שיח"
+      ],
+      "label_he": "לגזום שיח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "trim_hedge_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3404": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "turn",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פנייה"
+      ],
+      "label_he": "לפנות / להסתובב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "turn_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3405": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "turn-down-light",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אור"
+      ],
+      "label_he": "להנמיך אור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "turn_down_light_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3406": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "turn-off",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כיבוי"
+      ],
+      "label_he": "לכבות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "turn_off_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3407": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "turn-on",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הדלקה"
+      ],
+      "label_he": "להדליק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "turn_on_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3408": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "turn-up-light",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אור"
+      ],
+      "label_he": "להגביר אור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "turn_up_light_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3409": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "type",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הקלדה"
+      ],
+      "label_he": "להקליד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "type_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "341": {
       "category_en": "Electrical Media",
@@ -34949,79 +35545,91 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "unbutton-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כפתורים"
+      ],
+      "label_he": "לפתוח כפתורים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "unbutton_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3411": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "unlock",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מנעול"
+      ],
+      "label_he": "לפתוח מנעול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "unlock_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3412": {
       "category_en": "Verb",
       "grammar": "Noun",
       "id": "verbs-collective",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פעלים"
+      ],
+      "label_he": "פעלים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "verbs_collective",
-      "status": "pending"
+      "status": "approved"
     },
     "3413": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "visit",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ביקור"
+      ],
+      "label_he": "לבקר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "visit_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3414": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "vomit-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הקאה"
+      ],
+      "label_he": "להקיא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "vomit_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3415": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "vote",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הצבעה"
+      ],
+      "label_he": "להצביע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "vote_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3416": {
       "category_en": "Verb",
@@ -35044,40 +35652,46 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "wait-table",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הגשה"
+      ],
+      "label_he": "להגיש בשולחן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wait_table_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3418": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "wake-up",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "התעוררות"
+      ],
+      "label_he": "להתעורר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wake_up_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3419": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "walk",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "הליכה"
+      ],
+      "label_he": "ללכת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "walk_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "342": {
       "category_en": "Electrical Media",
@@ -35096,40 +35710,46 @@
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "walk-downstairs",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מדרגות"
+      ],
+      "label_he": "לרדת במדרגות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "walk_downstairs_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3421": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "walk-upstairs",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מדרגות"
+      ],
+      "label_he": "לעלות במדרגות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "walk_upstairs_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3422": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "walk-up-to",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "התקרבות"
+      ],
+      "label_he": "להתקרב אל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "walk_up_to_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3423": {
       "category_en": "Verb",
@@ -35152,79 +35772,91 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "watch-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צפייה"
+      ],
+      "label_he": "לצפות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "watch_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3425": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "wear-helmet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסדה"
+      ],
+      "label_he": "לחבוש קסדה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wear_helmet_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3426": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "weigh-food",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שקילה"
+      ],
+      "label_he": "לשקול אוכל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "weigh_food_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3427": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "weigh-person",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שקילה"
+      ],
+      "label_he": "לשקול אדם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "weigh_person_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3428": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "whisper",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לחישה"
+      ],
+      "label_he": "ללחוש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "whisper_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3429": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "wiggle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נענוע"
+      ],
+      "label_he": "לנענע",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wiggle_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "343": {
       "category_en": "Electrical Media",
@@ -35243,92 +35875,106 @@
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "work-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עבודה"
+      ],
+      "label_he": "לעבוד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "work_2_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3431": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "wrestle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "היאבקות"
+      ],
+      "label_he": "להיאבק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wrestle_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3432": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "write",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כתיבה"
+      ],
+      "label_he": "לכתוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "write_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3433": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "write-cheque",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צ'ק"
+      ],
+      "label_he": "לכתוב צ'ק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "write_cheque_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3434": {
       "category_en": "Verb",
       "grammar": "VerbComplex",
       "id": "write-letter",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכתב"
+      ],
+      "label_he": "לכתוב מכתב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "write_letter_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3435": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "yawn",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פיהוק"
+      ],
+      "label_he": "לפהק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "yawn_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3436": {
       "category_en": "Verb",
       "grammar": "Verb",
       "id": "zoom",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זום"
+      ],
+      "label_he": "להתקרב (זום)",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "zoom_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "344": {
       "category_en": "Food Kitchen items",

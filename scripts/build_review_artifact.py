@@ -79,13 +79,23 @@ def _rows_for_locked(manifest: dict, zf: zipfile.ZipFile) -> list[dict]:
 
 
 def _rows_for_pending(
-    manifest: dict, zf: zipfile.ZipFile, *, status: str, limit: int | None
+    manifest: dict,
+    zf: zipfile.ZipFile,
+    *,
+    status: str,
+    limit: int | None,
+    category: str | None = None,
+    labeled_only: bool = False,
 ) -> list[dict]:
     rows = []
     for sid, e in sorted(
         manifest["entries"].items(), key=lambda kv: int(kv[0]) if kv[0].isdigit() else 0
     ):
         if e.get("locked") or e["status"] != status:
+            continue
+        if category is not None and e["category_en"] != category:
+            continue
+        if labeled_only and not e["label_he"]:
             continue
         svg = zf.read(f"EN-symbols/{e['src']}.svg").decode("utf-8")
         rows.append(
@@ -110,7 +120,7 @@ def _rows_for_pending(
     return rows
 
 
-SKELETON = r"""<title>סמלי מולברי</title>
+SKELETON = r"""<title>__PAGE_TITLE__</title>
 <meta name="description" content="בדיקת ההתאמות בין סמלי Mulberry Symbols למילות לוח התקשורת">
 <style>
   :root {
@@ -418,9 +428,14 @@ def render_page(
         "mulberry_version": mulberry_version,
         "rows": rows,
     }
+    # The <title> tag always wins over the Artifact tool's `title` publish
+    # param, so bake the real title into the skeleton itself — and into its
+    # embedded self-copy (window.__SKELETON__), or a reviewer's "sync" would
+    # republish with the placeholder title instead of this batch's.
+    skeleton = SKELETON.replace("__PAGE_TITLE__", title)
     return (
-        SKELETON
-        + f"<script>window.__SKELETON__ = {json.dumps(SKELETON)};</script>\n"
+        skeleton
+        + f"<script>window.__SKELETON__ = {json.dumps(skeleton)};</script>\n"
         + f"<script>window.__DATA__ = {json.dumps(data, ensure_ascii=False)};</script>\n"
         + f"<script>{APP_JS}</script>\n"
     )
@@ -439,6 +454,16 @@ def main() -> int:
     p.add_argument(
         "--limit", type=int, default=None, help="for --batch pending: max rows"
     )
+    p.add_argument(
+        "--category",
+        default=None,
+        help="for --batch pending: filter to one category_en",
+    )
+    p.add_argument(
+        "--labeled-only",
+        action="store_true",
+        help="for --batch pending: skip rows with no label_he yet (not authored)",
+    )
     p.add_argument("--out", default="/tmp/mulberry_review.html")
     args = p.parse_args()
 
@@ -454,10 +479,18 @@ def main() -> int:
             )
             batch_name = "batch-1-locked"
         else:
-            rows = _rows_for_pending(manifest, zf, status=args.status, limit=args.limit)
-            title = f"סמלי מולברי — {len(rows)} מועמדים חדשים"
+            rows = _rows_for_pending(
+                manifest,
+                zf,
+                status=args.status,
+                limit=args.limit,
+                category=args.category,
+                labeled_only=args.labeled_only,
+            )
+            cat_note = f" ({args.category})" if args.category else ""
+            title = f"סמלי מולברי — {len(rows)} מועמדים חדשים{cat_note}"
             desc = "תוויות עבריות מוצעות לסמלים חדשים מתוך Mulberry Symbols. אשרו, ערכו או דחו כל שורה."
-            batch_name = f"pending-{args.limit or 'all'}"
+            batch_name = f"pending-{args.category or 'all'}-{len(rows)}"
 
     html = render_page(
         title=title,
