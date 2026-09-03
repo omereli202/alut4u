@@ -1331,13 +1331,13 @@
       "grammar": "Noun",
       "id": "banana",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בננה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "banana",
-      "status": "pending"
+      "status": "approved"
     },
     "1090": {
       "category_en": "Healthcare Body parts",
@@ -1398,13 +1398,13 @@
       "grammar": "Noun",
       "id": "fennel",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שומר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fennel",
-      "status": "pending"
+      "status": "approved"
     },
     "1095": {
       "category_en": "Animal Mammal",
@@ -1488,14 +1488,16 @@
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "banana-bunch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בננה"
+      ],
+      "label_he": "אשכול בננות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "banana_bunch",
-      "status": "pending"
+      "status": "approved"
     },
     "1100": {
       "category_en": "Number",
@@ -1528,13 +1530,13 @@
       "grammar": "Noun",
       "id": "fig",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תאנה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fig",
-      "status": "pending"
+      "status": "approved"
     },
     "1103": {
       "category_en": "Tools Workshop",
@@ -6687,13 +6689,13 @@
       "grammar": "Noun",
       "id": "beansprouts",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "נבטי שעועית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "beansprouts",
-      "status": "pending"
+      "status": "approved"
     },
     "1460": {
       "category_en": "Clothes Sport",
@@ -7168,13 +7170,13 @@
       "grammar": "Noun",
       "id": "fruit",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פרי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "fruit",
-      "status": "pending"
+      "status": "approved"
     },
     "1494": {
       "category_en": "Plants and Trees",
@@ -7454,13 +7456,13 @@
       "grammar": "Noun",
       "id": "garlic",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שום",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "garlic",
-      "status": "pending"
+      "status": "approved"
     },
     "1513": {
       "category_en": "Food Breads and baking",
@@ -7896,13 +7898,13 @@
       "grammar": "Noun",
       "id": "gooseberry",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אוכמנית חמוצה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "gooseberry",
-      "status": "pending"
+      "status": "approved"
     },
     "1544": {
       "category_en": "Animal Mammal",
@@ -8000,13 +8002,13 @@
       "grammar": "Noun",
       "id": "grapefruit",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אשכולית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grapefruit",
-      "status": "pending"
+      "status": "approved"
     },
     "1551": {
       "category_en": "Drink Type",
@@ -8026,13 +8028,13 @@
       "grammar": "Noun",
       "id": "grapes",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ענבים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grapes",
-      "status": "pending"
+      "status": "approved"
     },
     "1553": {
       "category_en": "Number Activity",
@@ -8172,13 +8174,13 @@
       "grammar": "Noun",
       "id": "green-beans",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שעועית ירוקה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "green_beans",
-      "status": "pending"
+      "status": "approved"
     },
     "1563": {
       "category_en": "Art Colour",
@@ -8276,13 +8278,13 @@
       "grammar": "Noun",
       "id": "beetroot",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סלק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "beetroot",
-      "status": "pending"
+      "status": "approved"
     },
     "1570": {
       "category_en": "Art Colour",
@@ -9746,14 +9748,16 @@
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "berry",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גרגר"
+      ],
+      "label_he": "פרי יער",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "berry",
-      "status": "pending"
+      "status": "approved"
     },
     "1670": {
       "category_en": "Holiday and travel",
@@ -10721,14 +10725,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "jacket-potato-1",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תפוח אדמה"
+      ],
+      "label_he": "תפוח אדמה אפוי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "jacket_potato_1",
-      "status": "pending"
+      "status": "approved"
     },
     "1737": {
       "category_en": "Food Sweets and desserts",
@@ -11270,13 +11276,13 @@
       "grammar": "Noun",
       "id": "kiwi",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קיווי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "kiwi",
-      "status": "pending"
+      "status": "approved"
     },
     "1775": {
       "category_en": "Healthcare Body parts",
@@ -11818,13 +11824,13 @@
       "grammar": "Noun",
       "id": "leek",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כרישה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "leek",
-      "status": "pending"
+      "status": "approved"
     },
     "1812": {
       "category_en": "Descriptive Direction",
@@ -11922,13 +11928,13 @@
       "grammar": "Noun",
       "id": "lemon",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לימון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lemon",
-      "status": "pending"
+      "status": "approved"
     },
     "182": {
       "category_en": "Animal Habitat",
@@ -12013,13 +12019,13 @@
       "grammar": "Noun",
       "id": "lentils",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עדשים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lentils",
-      "status": "pending"
+      "status": "approved"
     },
     "1826": {
       "category_en": "Animal Mammal",
@@ -12052,13 +12058,13 @@
       "grammar": "Noun",
       "id": "lettuce",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חסה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lettuce",
-      "status": "pending"
+      "status": "approved"
     },
     "1829": {
       "category_en": "Food Kitchen items",
@@ -12156,13 +12162,13 @@
       "grammar": "Noun",
       "id": "lime",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ליים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "lime",
-      "status": "pending"
+      "status": "approved"
     },
     "1836": {
       "category_en": "Descriptive Shape",
@@ -12889,14 +12895,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "mange-tout",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אפונה"
+      ],
+      "label_he": "אפונת גינה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mange_tout",
-      "status": "pending"
+      "status": "approved"
     },
     "1887": {
       "category_en": "Religion General",
@@ -12916,13 +12924,13 @@
       "grammar": "Noun",
       "id": "mango",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מנגו",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mango",
-      "status": "pending"
+      "status": "approved"
     },
     "1889": {
       "category_en": "Leisure Toys",
@@ -12942,13 +12950,13 @@
       "grammar": "Noun",
       "id": "blackberry",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פטל שחור",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "blackberry",
-      "status": "pending"
+      "status": "approved"
     },
     "1890": {
       "category_en": "Food Dairy",
@@ -12993,14 +13001,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "marrow",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קישוא"
+      ],
+      "label_he": "דלעת מוסקדה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "marrow",
-      "status": "pending"
+      "status": "approved"
     },
     "1894": {
       "category_en": "Science Astronomy",
@@ -13371,26 +13381,26 @@
       "grammar": "Noun",
       "id": "melon",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מלון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "melon",
-      "status": "pending"
+      "status": "approved"
     },
     "192": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "blackcurrants",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "דומדמניות שחורות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "blackcurrants",
-      "status": "pending"
+      "status": "approved"
     },
     "1920": {
       "category_en": "Food Kitchen actions",
@@ -14478,13 +14488,13 @@
       "grammar": "Noun",
       "id": "mushroom",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פטרייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "mushroom",
-      "status": "pending"
+      "status": "approved"
     },
     "1996": {
       "category_en": "Work and School Subjects",
@@ -15658,13 +15668,13 @@
       "grammar": "Noun",
       "id": "olives",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "זיתים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "olives",
-      "status": "pending"
+      "status": "approved"
     },
     "2076": {
       "category_en": "Sport",
@@ -15814,13 +15824,13 @@
       "grammar": "Noun",
       "id": "onion",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בצל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "onion",
-      "status": "pending"
+      "status": "approved"
     },
     "2087": {
       "category_en": "Food Meals and snacks",
@@ -15959,26 +15969,26 @@
       "grammar": "Noun",
       "id": "orange",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תפוז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "orange",
-      "status": "pending"
+      "status": "approved"
     },
     "2097": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "orange-2",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תפוז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "orange_2",
-      "status": "pending"
+      "status": "approved"
     },
     "2098": {
       "category_en": "Drink Type",
@@ -16663,13 +16673,13 @@
       "grammar": "Noun",
       "id": "parsnip",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גזר לבן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "parsnip",
-      "status": "pending"
+      "status": "approved"
     },
     "2145": {
       "category_en": "Descriptive Quantity",
@@ -16754,13 +16764,13 @@
       "grammar": "Noun",
       "id": "passion-fruit",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פסיפלורה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "passion_fruit",
-      "status": "pending"
+      "status": "approved"
     },
     "2151": {
       "category_en": "Holiday and travel",
@@ -16949,26 +16959,26 @@
       "grammar": "Noun",
       "id": "pea",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אפונה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pea",
-      "status": "pending"
+      "status": "approved"
     },
     "2165": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "peach",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אפרסק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "peach",
-      "status": "pending"
+      "status": "approved"
     },
     "2166": {
       "category_en": "Animal Birds",
@@ -17040,26 +17050,26 @@
       "grammar": "Noun",
       "id": "pear",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אגס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pear",
-      "status": "pending"
+      "status": "approved"
     },
     "2171": {
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "peas",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אפונה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "peas",
-      "status": "pending"
+      "status": "approved"
     },
     "2172": {
       "category_en": "Food Nuts",
@@ -17300,13 +17310,13 @@
       "grammar": "Noun",
       "id": "pepper",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פלפל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pepper",
-      "status": "pending"
+      "status": "approved"
     },
     "219": {
       "category_en": "Building Contents",
@@ -17885,13 +17895,13 @@
       "grammar": "Noun",
       "id": "pineapple",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אננס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pineapple",
-      "status": "pending"
+      "status": "approved"
     },
     "223": {
       "category_en": "Clothes General",
@@ -18422,26 +18432,28 @@
       "grammar": "Noun",
       "id": "plum",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שזיף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "plum",
-      "status": "pending"
+      "status": "approved"
     },
     "2267": {
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "plum-tomato",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עגבנייה"
+      ],
+      "label_he": "עגבנייה שרונית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "plum_tomato",
-      "status": "pending"
+      "status": "approved"
     },
     "2268": {
       "category_en": "Science Astronomy",
@@ -18936,13 +18948,13 @@
       "grammar": "Noun",
       "id": "potato",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תפוח אדמה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "potato",
-      "status": "pending"
+      "status": "approved"
     },
     "2301": {
       "category_en": "Plants and Trees",
@@ -19287,13 +19299,13 @@
       "grammar": "Noun",
       "id": "pumpkin",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "דלעת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pumpkin",
-      "status": "pending"
+      "status": "approved"
     },
     "2326": {
       "category_en": "Celebration Item",
@@ -19703,13 +19715,13 @@
       "grammar": "Noun",
       "id": "radish",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צנון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "radish",
-      "status": "pending"
+      "status": "approved"
     },
     "2355": {
       "category_en": "Environment Weather",
@@ -19755,26 +19767,26 @@
       "grammar": "Noun",
       "id": "raisin",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צימוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "raisin",
-      "status": "pending"
+      "status": "approved"
     },
     "2359": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "raisin-currants",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צימוקים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "raisin_currants",
-      "status": "pending"
+      "status": "approved"
     },
     "236": {
       "category_en": "Sport Accessories",
@@ -20264,13 +20276,13 @@
       "grammar": "Noun",
       "id": "rhubarb",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ריבס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rhubarb",
-      "status": "pending"
+      "status": "approved"
     },
     "2394": {
       "category_en": "Celebration Item",
@@ -21217,13 +21229,13 @@
       "grammar": "Noun",
       "id": "satsuma",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קלמנטינה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "satsuma",
-      "status": "pending"
+      "status": "approved"
     },
     "246": {
       "category_en": "Food Nuts",
@@ -23969,13 +23981,13 @@
       "grammar": "Noun",
       "id": "spinach",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תרד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spinach",
-      "status": "pending"
+      "status": "approved"
     },
     "265": {
       "category_en": "Food Meals and snacks",
@@ -24112,13 +24124,13 @@
       "grammar": "Noun",
       "id": "spring-onions",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בצל ירוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "spring_onions",
-      "status": "pending"
+      "status": "approved"
     },
     "266": {
       "category_en": "Food Meals and snacks",
@@ -24908,14 +24920,16 @@
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "strawberry",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תות"
+      ],
+      "label_he": "תות שדה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "strawberry",
-      "status": "pending"
+      "status": "approved"
     },
     "2714": {
       "category_en": "Food Sweets and desserts",
@@ -25316,13 +25330,13 @@
       "grammar": "Noun",
       "id": "swede",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לפת שוודית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "swede",
-      "status": "pending"
+      "status": "approved"
     },
     "2742": {
       "category_en": "Food Sweets and desserts",
@@ -25355,26 +25369,26 @@
       "grammar": "Noun",
       "id": "sweet-potato",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "בטטה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sweet_potato",
-      "status": "pending"
+      "status": "approved"
     },
     "2745": {
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "sweetcorn",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תירס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sweetcorn",
-      "status": "pending"
+      "status": "approved"
     },
     "2746": {
       "category_en": "Sport",
@@ -25862,13 +25876,13 @@
       "grammar": "Noun",
       "id": "broad-beans",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פול",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "broad_beans",
-      "status": "pending"
+      "status": "approved"
     },
     "2780": {
       "category_en": "Tools Workshop",
@@ -26007,13 +26021,13 @@
       "grammar": "Noun",
       "id": "broccoli",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ברוקולי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "broccoli",
-      "status": "pending"
+      "status": "approved"
     },
     "2790": {
       "category_en": "People Profession",
@@ -26916,27 +26930,31 @@
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-apricots",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "משמשים משומרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_apricots",
-      "status": "pending"
+      "status": "approved"
     },
     "2853": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-cherries",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "דובדבנים משומרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_cherries",
-      "status": "pending"
+      "status": "approved"
     },
     "2854": {
       "category_en": "Food Meals and snacks",
@@ -26955,66 +26973,76 @@
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-peaches",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "אפרסקים משומרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_peaches",
-      "status": "pending"
+      "status": "approved"
     },
     "2856": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-pears",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "אגסים משומרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_pears",
-      "status": "pending"
+      "status": "approved"
     },
     "2857": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-peas",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "אפונה משומרת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_peas",
-      "status": "pending"
+      "status": "approved"
     },
     "2858": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-pineapple",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "אננס משומר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_pineapple",
-      "status": "pending"
+      "status": "approved"
     },
     "2859": {
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "tinned-plums",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "שזיפים משומרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_plums",
-      "status": "pending"
+      "status": "approved"
     },
     "286": {
       "category_en": "Art Colour",
@@ -27033,27 +27061,31 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "tinned-sweetcorn",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "תירס משומר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_sweetcorn",
-      "status": "pending"
+      "status": "approved"
     },
     "2861": {
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "tinned-tomato",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימורים"
+      ],
+      "label_he": "עגבניות משומרות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tinned_tomato",
-      "status": "pending"
+      "status": "approved"
     },
     "2862": {
       "category_en": "Celebration Item",
@@ -27234,13 +27266,13 @@
       "grammar": "Noun",
       "id": "tomato",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "עגבנייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tomato",
-      "status": "pending"
+      "status": "approved"
     },
     "2875": {
       "category_en": "Drink Type",
@@ -27259,14 +27291,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "tomato-slice",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עגבנייה"
+      ],
+      "label_he": "פרוסת עגבנייה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "tomato_slice",
-      "status": "pending"
+      "status": "approved"
     },
     "2877": {
       "category_en": "Building Public",
@@ -27611,13 +27645,13 @@
       "grammar": "Noun",
       "id": "brussel-sprouts",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כרוב ניצנים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "brussel_sprouts",
-      "status": "pending"
+      "status": "approved"
     },
     "2900": {
       "category_en": "Leisure Toys",
@@ -28146,13 +28180,13 @@
       "grammar": "Noun",
       "id": "turnip",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לפת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "turnip",
-      "status": "pending"
+      "status": "approved"
     },
     "2938": {
       "category_en": "Animal Reptiles and Amphibians",
@@ -28692,13 +28726,13 @@
       "grammar": "Noun",
       "id": "vegetables",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ירקות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "vegetables",
-      "status": "pending"
+      "status": "approved"
     },
     "2976": {
       "category_en": "Science Astronomy",
@@ -29485,13 +29519,13 @@
       "grammar": "Noun",
       "id": "watermelon",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אבטיח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "watermelon",
-      "status": "pending"
+      "status": "approved"
     },
     "303": {
       "category_en": "Electrical General",
@@ -31632,14 +31666,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "butternut-squash",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דלעת"
+      ],
+      "label_he": "דלעת בטרנאט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "butternut_squash",
-      "status": "pending"
+      "status": "approved"
     },
     "3170": {
       "category_en": "Verb",
@@ -32305,13 +32341,13 @@
       "grammar": "Noun",
       "id": "cabbage",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כרוב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cabbage",
-      "status": "pending"
+      "status": "approved"
     },
     "3210": {
       "category_en": "Verb",
@@ -36686,13 +36722,13 @@
       "grammar": "Noun",
       "id": "carrot",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גזר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "carrot",
-      "status": "pending"
+      "status": "approved"
     },
     "388": {
       "category_en": "Transport Road",
@@ -36959,13 +36995,13 @@
       "grammar": "Noun",
       "id": "cauliflower",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כרובית",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cauliflower",
-      "status": "pending"
+      "status": "approved"
     },
     "406": {
       "category_en": "Electrical Media",
@@ -37088,27 +37124,29 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "celeriac",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סלרי"
+      ],
+      "label_he": "כרפס שורש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "celeriac",
-      "status": "pending"
+      "status": "approved"
     },
     "415": {
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "celery",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סלרי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "celery",
-      "status": "pending"
+      "status": "approved"
     },
     "416": {
       "category_en": "Tools Workshop",
@@ -37453,13 +37491,13 @@
       "grammar": "Noun",
       "id": "apple",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תפוח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "apple",
-      "status": "pending"
+      "status": "approved"
     },
     "440": {
       "category_en": "Healthcare Body parts",
@@ -37609,13 +37647,13 @@
       "grammar": "Noun",
       "id": "cherry",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "דובדבן",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cherry",
-      "status": "pending"
+      "status": "approved"
     },
     "451": {
       "category_en": "Healthcare Body parts",
@@ -37739,13 +37777,13 @@
       "grammar": "Noun",
       "id": "apricot",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "משמש",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "apricot",
-      "status": "pending"
+      "status": "approved"
     },
     "460": {
       "category_en": "Food Poultry",
@@ -37856,13 +37894,13 @@
       "grammar": "Noun",
       "id": "chilli-pepper",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "פלפל חריף",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chilli_pepper",
-      "status": "pending"
+      "status": "approved"
     },
     "469": {
       "category_en": "Building Structure",
@@ -37921,13 +37959,13 @@
       "grammar": "Noun",
       "id": "chinese-cabbage",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "כרוב סיני",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chinese_cabbage",
-      "status": "pending"
+      "status": "approved"
     },
     "473": {
       "category_en": "Food Meals and snacks",
@@ -37999,26 +38037,28 @@
       "grammar": "Noun",
       "id": "chips",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צ'יפס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chips",
-      "status": "pending"
+      "status": "approved"
     },
     "479": {
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "chips-packet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צ'יפס"
+      ],
+      "label_he": "חבילת צ'יפס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chips_packet",
-      "status": "pending"
+      "status": "approved"
     },
     "48": {
       "category_en": "Animal Habitat",
@@ -40065,13 +40105,13 @@
       "grammar": "Noun",
       "id": "artichoke",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ארטישוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "artichoke",
-      "status": "pending"
+      "status": "approved"
     },
     "620": {
       "category_en": "Country Maps",
@@ -40494,13 +40534,13 @@
       "grammar": "Noun",
       "id": "asparagus",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אספרגוס",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "asparagus",
-      "status": "pending"
+      "status": "approved"
     },
     "650": {
       "category_en": "Country Maps",
@@ -41066,13 +41106,13 @@
       "grammar": "Noun",
       "id": "aubergine",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חציל",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "aubergine",
-      "status": "pending"
+      "status": "approved"
     },
     "690": {
       "category_en": "Country Maps",
@@ -41794,13 +41834,13 @@
       "grammar": "Noun",
       "id": "avocado",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אבוקדו",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "avocado",
-      "status": "pending"
+      "status": "approved"
     },
     "740": {
       "category_en": "Country Maps",
@@ -42730,13 +42770,13 @@
       "grammar": "Noun",
       "id": "courgette",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "קישוא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "courgette",
-      "status": "pending"
+      "status": "approved"
     },
     "805": {
       "category_en": "Food Kitchen actions",
@@ -42834,13 +42874,13 @@
       "grammar": "Noun",
       "id": "cranberries",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חמוציות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cranberries",
-      "status": "pending"
+      "status": "approved"
     },
     "812": {
       "category_en": "Drink Type",
@@ -43276,13 +43316,13 @@
       "grammar": "Noun",
       "id": "cucumber",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מלפפון",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cucumber",
-      "status": "pending"
+      "status": "approved"
     },
     "843": {
       "category_en": "Food Feeding and eating",
@@ -43340,14 +43380,16 @@
       "category_en": "Food Fruit",
       "grammar": "Noun",
       "id": "currants",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דומדמניות"
+      ],
+      "label_he": "צימוקים קטנים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "currants",
-      "status": "pending"
+      "status": "approved"
     },
     "848": {
       "category_en": "Food Meals and snacks",
@@ -43603,13 +43645,13 @@
       "grammar": "Noun",
       "id": "dates",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תמרים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "dates",
-      "status": "pending"
+      "status": "approved"
     },
     "866": {
       "category_en": "People Relationship",
@@ -45117,14 +45159,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "baked-beans",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שעועית"
+      ],
+      "label_he": "שעועית ברוטב עגבניות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "baked_beans",
-      "status": "pending"
+      "status": "approved"
     },
     "970": {
       "category_en": "Drink Containers and measures",
@@ -45260,14 +45304,16 @@
       "category_en": "Food Vegetables and salads",
       "grammar": "Noun",
       "id": "baked-beans-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שעועית"
+      ],
+      "label_he": "שעועית ברוטב עגבניות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (user opted out of manual review for label content)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "baked_beans_2",
-      "status": "pending"
+      "status": "approved"
     },
     "980": {
       "category_en": "Healthcare Grooming activities",
