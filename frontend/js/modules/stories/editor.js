@@ -11,6 +11,7 @@ const SLOT_LABELS = {
   goal: "ההתנהגות הרצויה",
   sensory: "רגישויות חושיות",
   triggers: "טריגרים ידועים",
+  extras: "משהו נוסף לכלול",
 };
 
 export async function renderStoriesEditor({ childId, childName, onExit }) {
@@ -25,6 +26,8 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
   let artNow = null; // page index currently being illustrated
   let artNote = "";
   let artToken = 0;
+  let edits = null; // { title, pages: [text] } while the caregiver is editing
+  let saving = false;
 
   async function load() {
     stories = (await api.get(`/stories?child_id=${childId}`).catch(() => ({ stories: [] }))).stories;
@@ -54,6 +57,7 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
     render();
     try {
       draft = await api.post("/stories/compose", { child_id: childId, messages });
+      seedEdits();
       messages = [];
       slots = {};
       ready = false;
@@ -99,6 +103,7 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
     try {
       draft = await api.get(`/stories/${storyId}`);
       draft.pages.forEach((p) => (p.image_url = p.image_url ?? null));
+      seedEdits();
     } catch (err) {
       toast(errText(err), "error");
       return;
@@ -107,9 +112,40 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
     startArt();
   }
 
+  function seedEdits() {
+    edits = { title: draft.title, pages: draft.pages.map((p) => p.text) };
+  }
+
+  function editsDirty() {
+    if (!edits) return false;
+    return (
+      edits.title !== draft.title || edits.pages.some((t, i) => t !== draft.pages[i].text)
+    );
+  }
+
+  async function saveEdits() {
+    if (!editsDirty() || saving) return;
+    saving = true;
+    render();
+    try {
+      const updated = await api.patch(`/stories/${draft.id}`, {
+        title: edits.title,
+        pages: edits.pages.map((text) => ({ text })),
+      });
+      draft = { ...updated, pages: updated.pages.map((p) => ({ ...p })) };
+      seedEdits();
+      toast("השינויים נשמרו");
+    } catch (err) {
+      toast(errText(err), "error");
+    }
+    saving = false;
+    render();
+  }
+
   function finishDraft() {
-    if (artBusy) return;
+    if (artBusy || saving) return;
     draft = null;
+    edits = null;
     artToken++;
     load();
   }
@@ -136,8 +172,16 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
     return el(
       "div",
       { class: "card story-preview" },
-      el("h3", {}, draft.title),
-      draft.schedule && el("p", { class: "story-when" }, `מתי: ${draft.schedule}`),
+      el("input", {
+        class: "story-title-edit",
+        value: edits.title,
+        maxlength: 200,
+        disabled: artBusy || saving,
+        oninput: (e) => {
+          edits.title = e.target.value;
+          syncSaveButton();
+        },
+      }),
       el(
         "p",
         { class: draft.revised ? "review-chip revised" : "review-chip" },
@@ -170,16 +214,44 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
             p.image_url
               ? el("img", { src: p.image_url, alt: "" })
               : el("div", { class: "ph" }, artNow === i ? "…" : ""),
-            el("p", {}, p.text),
+            el("textarea", {
+              class: "page-text-edit",
+              rows: 3,
+              maxlength: 2000,
+              disabled: artBusy || saving,
+              value: edits.pages[i],
+              oninput: (e) => {
+                edits.pages[i] = e.target.value;
+                syncSaveButton();
+              },
+            }),
           ),
         ),
       ),
       el(
-        "button",
-        { class: "btn-primary", disabled: artBusy, onclick: finishDraft },
-        "סיום",
+        "div",
+        { class: "story-preview-actions" },
+        el(
+          "button",
+          {
+            class: "btn-link save-edits-btn",
+            disabled: !editsDirty() || saving || artBusy,
+            onclick: saveEdits,
+          },
+          saving ? "שומר…" : "שמור שינויים",
+        ),
+        el(
+          "button",
+          { class: "btn-primary", disabled: artBusy || saving, onclick: finishDraft },
+          "סיום",
+        ),
       ),
     );
+  }
+
+  function syncSaveButton() {
+    const btn = document.querySelector(".save-edits-btn");
+    if (btn) btn.disabled = !editsDirty() || saving || artBusy;
   }
 
   function render() {

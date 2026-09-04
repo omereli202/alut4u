@@ -23,4 +23,13 @@ class ComposeRequest(BaseModel):
 
 class IllustrateRequest(BaseModel):
     # None -> the server illustrates the next page that still lacks art.
-    page_index: int | None = Field(default=None, ge=0, le=7)
+    page_index: int | None = Field(default=None, ge=0, le=14)
+
+
+class StoryEditPage(BaseModel):
+    text: str = Field(min_length=1, max_length=2000)
+
+
+class StoryEditRequest(BaseModel):
+    title: str | None = Field(default=None, max_length=200)
+    pages: list[StoryEditPage] = Field(min_length=1, max_length=15)

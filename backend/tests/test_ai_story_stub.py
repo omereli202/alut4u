@@ -17,35 +17,46 @@ def _answers(*vals: str) -> list[dict]:
     return msgs
 
 
-_FULL = ("דני", "מעבר לגן", "מחר בבוקר", "להיפרד ברוגע", "רגיש לרעש", "אין")
+# situation, schedule, goal, sensory, triggers, extras — no name (it's a kwarg)
+_FULL = ("מעבר לגן", "מחר בבוקר", "להיפרד ברוגע", "רגיש לרעש", "אין", "לא")
 
 
-def test_interview_is_slot_driven_and_ready_only_when_full():
+def test_interview_prefills_name_and_asks_the_closing_question():
     ai = StubStoryAI()
-    turn = ai.interview(_answers("דני"))
+    turn = ai.interview([], protagonist="דני")
     assert turn.ready is False
-    assert turn.slots.protagonist == "דני"
+    assert turn.slots.protagonist == "דני"  # never asked
     assert turn.slots.missing() == ["situation", "schedule", "goal", "sensory", "triggers"]
 
-    full = ai.interview(_answers(*_FULL))
+    # all facts in, but the "anything else?" question not answered yet
+    facts = ai.interview(_answers("מעבר לגן", "מחר", "רוגע", "רעש", "אין"), protagonist="דני")
+    assert facts.ready is False
+    assert not facts.slots.missing()
+    assert "נוסף" in facts.reply
+
+    full = ai.interview(_answers(*_FULL), protagonist="דני")
     assert full.ready is True
-    assert not full.slots.missing()
     assert full.slots.schedule == "מחר בבוקר"
 
 
 def test_compose_shape_and_carol_gray_types():
     ai = StubStoryAI()
-    story = ai.compose(_answers("דני", "מעבר לגן", "ביום שלישי", "להיפרד ברוגע", "רעש חזק", "אין"))
+    story = ai.compose(
+        _answers("מעבר לגן", "ביום שלישי", "להיפרד ברוגע", "רעש חזק", "אין", "כלב השמור שלו"),
+        protagonist="דני",
+    )
     assert "דני" in story.title
-    assert 4 <= len(story.pages) <= 8
+    assert 4 <= len(story.pages) <= 15
     assert all(p.sentence_type in SENTENCE_TYPES for p in story.pages)
     assert story.review_notes
     assert story.revised is False
-    # the sensory answer is woven into the text
-    assert any("רעש חזק" in p.text for p in story.pages)
-    # timing + character sheet are populated
+    joined = " ".join(p.text for p in story.pages)
+    assert "רעש חזק" in joined  # sensory woven in
+    assert "כלב השמור שלו" in joined  # the "anything else?" answer woven in
+    # timing is present but not forced into the opening line
+    assert "ביום שלישי" in joined
+    assert "ביום שלישי" not in story.pages[0].text
     assert story.schedule == "ביום שלישי"
-    assert "ביום שלישי" in story.pages[0].text
     assert story.character_sheet
 
 

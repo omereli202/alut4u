@@ -62,5 +62,16 @@ def set_page_image(db: Any, story_id: str, page_index: int, asset_id: str) -> di
     return one_or_none(db.table(_TABLE).update({"pages": pages}).eq("id", story_id).execute())
 
 
+def update_story_text(
+    db: Any, story_id: str, *, title: str | None, pages: list[dict]
+) -> dict | None:
+    """Rewrite the page texts (and TTS ids) and optionally the title. Images and
+    every other field are left untouched."""
+    values: dict = {"pages": pages}
+    if title:
+        values["title"] = title
+    return one_or_none(db.table(_TABLE).update(values).eq("id", story_id).execute())
+
+
 def delete_story(db: Any, story_id: str) -> None:
     db.table(_TABLE).delete().eq("id", story_id).execute()

@@ -14,15 +14,19 @@ SENTENCE_TYPES = ("descriptive", "perspective", "directive", "affirmative")
 class StorySlots:
     """The facts the interviewer agent collects before a story can be composed."""
 
-    protagonist: str | None = None
+    protagonist: str | None = None  # prefilled from the child record
     situation: str | None = None
     schedule: str | None = None  # when the event happens
     goal: str | None = None
     sensory: str | None = None
     triggers: str | None = None
+    extras: str | None = None  # optional — the caregiver's "anything else?" answer
+
+    # `extras` is not required for readiness; everything else is.
+    _REQUIRED = ("protagonist", "situation", "schedule", "goal", "sensory", "triggers")
 
     def missing(self) -> list[str]:
-        return [f.name for f in fields(self) if not getattr(self, f.name)]
+        return [name for name in self._REQUIRED if not getattr(self, name)]
 
     def as_dict(self) -> dict[str, str | None]:
         return {f.name: getattr(self, f.name) for f in fields(self)}
@@ -71,11 +75,12 @@ class ChatTurn:
 class StoryAI(Protocol):
     name: str
 
-    def interview(self, messages: list[Message]) -> ChatTurn:
-        """Given the conversation so far, produce the agent's next message."""
+    def interview(self, messages: list[Message], *, protagonist: str = "") -> ChatTurn:
+        """Given the conversation so far, produce the agent's next message.
+        ``protagonist`` is the child's name — known upfront, never asked."""
         ...
 
-    def compose(self, messages: list[Message]) -> ComposedStory:
+    def compose(self, messages: list[Message], *, protagonist: str = "") -> ComposedStory:
         """Turn the finished interview into a structured, reviewed social story."""
         ...
 

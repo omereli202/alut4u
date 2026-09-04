@@ -75,21 +75,15 @@ _ART = {
 }
 
 
-def test_interview_parses_slots_and_readiness(monkeypatch):
+def test_interview_prefills_name_and_parses_slots(monkeypatch):
     ai = _ai()
     rec = _Recorder(
         [
             _text_response(
                 {
-                    "reply": "מה שם הילד?",
+                    "reply": "באיזה מצב?",
                     "ready": False,
-                    "slots": {
-                        "protagonist": None,
-                        "situation": None,
-                        "goal": None,
-                        "sensory": None,
-                        "triggers": None,
-                    },
+                    "slots": {"situation": None, "goal": None},
                 },
                 tokens=42,
             )
@@ -97,22 +91,15 @@ def test_interview_parses_slots_and_readiness(monkeypatch):
     )
     monkeypatch.setattr(GeminiStoryAI, "_post", rec)
 
-    turn = ai.interview([])
-    assert turn.reply == "מה שם הילד?"
+    turn = ai.interview([], protagonist="דנה")
     assert turn.ready is False
-    assert turn.slots.missing() == [
-        "protagonist",
-        "situation",
-        "schedule",
-        "goal",
-        "sensory",
-        "triggers",
-    ]
+    assert turn.slots.protagonist == "דנה"  # forced from the kwarg, not asked
+    assert turn.slots.missing() == ["situation", "schedule", "goal", "sensory", "triggers"]
     assert turn.llm_tokens == 42
-    # role mapping + structured-output request
     _, method, payload = rec.calls[0]
     assert method == "generateContent"
     assert payload["generationConfig"]["responseMimeType"] == "application/json"
+    assert "דנה" in payload["systemInstruction"]["parts"][0]["text"]
 
 
 def test_assistant_role_maps_to_model():
@@ -140,15 +127,18 @@ def test_compose_makes_three_calls_and_keeps_approved_text(monkeypatch):
     )
     monkeypatch.setattr(GeminiStoryAI, "_post", rec)
 
-    story = ai.compose(_answers("דנה", "מעבר לגן", "מחר", "רוגע", "רעש", "אין"))
+    story = ai.compose(_answers("מעבר לגן", "מחר", "רוגע", "רעש", "אין"), protagonist="דנה")
     assert len(rec.calls) == 3
     assert [p.text for p in story.pages] == ["טקסט 1", "טקסט 2", "טקסט 3", "טקסט 4"]
     assert story.pages[0].image_prompt == "p1"
+    assert story.protagonist == "דנה"
     assert story.revised is False
     assert story.review_notes == ("הערה",)
     assert story.schedule == "מחר בבוקר"
     assert story.character_sheet == "a child, short brown hair, red shirt"
     assert story.llm_tokens == 1250  # summed across the three calls
+    # the known name is prepended to the writer's transcript
+    assert "שם הדמות: דנה" in rec.calls[0][2]["contents"][0]["parts"][0]["text"]
 
 
 def test_compose_revise_branch_replaces_text(monkeypatch):

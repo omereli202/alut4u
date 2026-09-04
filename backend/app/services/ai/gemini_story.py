@@ -19,6 +19,7 @@ and ``tests/test_ai_story_gemini.py`` covers this adapter over a fake transport.
 from __future__ import annotations
 
 import base64
+import dataclasses
 import json
 import time
 
@@ -47,12 +48,15 @@ _MAX_ATTEMPTS = 3
 _INTERVIEW_SYSTEM = (
     "את/ה סוכן/ת מראיין/ת המסייע/ת למטפל/ת לאסוף מידע לסיפור חברתי בעברית. "
     "שאל/י שאלה קצרה, חמה וברורה אחת בכל תור. אם תשובה עמומה — בקש/י הבהרה לפני שתמשיך/י. "
-    "עלייך למלא שישה שדות: שם הדמות (protagonist), המצב או הטריגר (situation), "
+    "שם הדמות (protagonist) כבר ידוע — אל תשאל/י עליו. "
+    "עלייך למלא חמישה שדות: המצב או הטריגר (situation), "
     "מתי האירוע יתרחש (schedule — יום/תאריך/שעה משוערים; אם עדיין לא נקבע, לציין זאת), "
     "ההתנהגות הרצויה (goal), רגישויות חושיות (sensory), וטריגרים ידועים (triggers). "
-    "שאל/י על schedule מיד אחרי המצב. "
-    "החזר/י בכל תור את מצב השדות שמילאת עד כה (ערך null לשדה שעדיין חסר), "
-    "וסמן/י ready=true רק כשכל שישה השדות מלאים. "
+    "התחל/י מהמצב, ושאל/י על schedule מיד אחריו. "
+    "החזר/י בכל תור את מצב השדות שמילאת עד כה (ערך null לשדה שעדיין חסר). "
+    "כשכל חמשת השדות מלאים, שאל/י שאלה פתוחה אחת: "
+    "'האם יש משהו נוסף שתרצה/י שייכלל בסיפור?' ורשום/מי את התשובה בשדה extras. "
+    "סמן/י ready=true רק אחרי שקיבלת תשובה לשאלה הזו. "
     "בשדה reply כתוב/כתבי את השאלה הבאה, או משפט סיום קצר כשסיימת."
 )
 
@@ -86,9 +90,10 @@ _WRITER_SYSTEM = (
     "3. פירוק המצב לצעדים קטנים, ברורים ורצופים, בזמן הווה.\n"
     "4. ללא שיפוטיות וללא הבטחות מוחלטות — 'בדרך כלל', 'לפעמים', ולא 'תמיד'.\n"
     "5. התחשבות ברגישויות החושיות ובטריגרים שנמסרו בשיחה.\n"
-    "6. פתח/י את הסיפור במשפט תיאור שמציין מתי האירוע צפוי לקרות "
-    "(למשל 'מחר בבוקר', 'ביום שלישי הקרוב'); אם המועד לא נקבע — 'בקרוב'.\n"
-    "7. 4 עד 8 עמודים, משפט אחד או שניים בעמוד, ללא אימוג'ים.\n"
+    "6. שלב/י בסיפור, בנקודה טבעית ולא בהכרח במשפט הראשון, מתי האירוע צפוי לקרות "
+    "(schedule). אם המטפל/ת ציין/ה תוכן נוסף שברצונו לכלול (extras) — שלב/י אותו בעדינות.\n"
+    "7. 4 עד 15 עמודים — כמה שנדרש כדי שהמידע יהיה ברור, בלי למתוח ובלי לדחוס. "
+    "משפט אחד או שניים בעמוד, ללא אימוג'ים.\n"
     "לכל עמוד ציין/י sentence_type — סוג המשפט הדומיננטי בעמוד. "
     "בשדה schedule החזר/י את ניסוח הזמן שבו השתמשת."
 )
@@ -110,7 +115,7 @@ _STORY_BODY_SCHEMA = {
         "situation": {"type": "string"},
         "schedule": {"type": "string"},
         "goal": {"type": "string"},
-        "pages": {"type": "array", "minItems": 4, "maxItems": 8, "items": _PAGE_SCHEMA},
+        "pages": {"type": "array", "minItems": 4, "maxItems": 15, "items": _PAGE_SCHEMA},
     },
     "required": ["title", "protagonist", "situation", "schedule", "goal", "pages"],
     "propertyOrdering": ["title", "protagonist", "situation", "schedule", "goal", "pages"],
@@ -139,7 +144,7 @@ _REVIEW_SCHEMA = {
             "nullable": True,
             "properties": {
                 "title": {"type": "string"},
-                "pages": {"type": "array", "minItems": 4, "maxItems": 8, "items": _PAGE_SCHEMA},
+                "pages": {"type": "array", "minItems": 4, "maxItems": 15, "items": _PAGE_SCHEMA},
             },
             "required": ["title", "pages"],
             "propertyOrdering": ["title", "pages"],
@@ -260,10 +265,15 @@ class GeminiStoryAI:
 
     # -- role 1: interview --------------------------------------------
 
-    def interview(self, messages: list[Message]) -> ChatTurn:
-        out = self._structured(_INTERVIEW_SYSTEM, messages, _INTERVIEW_SCHEMA, temperature=0.5)
+    def interview(self, messages: list[Message], *, protagonist: str = "") -> ChatTurn:
+        system = _INTERVIEW_SYSTEM
+        if protagonist:
+            system += f"\nשם הדמות הוא '{protagonist}'."
+        out = self._structured(system, messages, _INTERVIEW_SCHEMA, temperature=0.5)
         p = out["parsed"]
         slots = StorySlots.from_dict(p.get("slots"))
+        if protagonist:
+            slots = dataclasses.replace(slots, protagonist=protagonist)
         ready = bool(p.get("ready")) and not slots.missing()
         return ChatTurn(
             reply=str(p.get("reply", "")).strip(),
@@ -279,11 +289,13 @@ class GeminiStoryAI:
         who = {"user": "מטפל/ת", "assistant": "סוכן"}
         return "\n".join(f"{who.get(m['role'], m['role'])}: {m['content']}" for m in messages)
 
-    def compose(self, messages: list[Message]) -> ComposedStory:
+    def compose(self, messages: list[Message], *, protagonist: str = "") -> ComposedStory:
         # The writer and reviewer get the interview as one text blob rather than
         # replayed chat turns — the transcript ends on the agent's turn, and
         # Gemini rejects a request whose last content is a model turn.
         transcript = self._transcript(messages)
+        if protagonist:
+            transcript = f"שם הדמות: {protagonist}\n{transcript}"
 
         draft = self._structured(
             _WRITER_SYSTEM,
@@ -342,7 +354,7 @@ class GeminiStoryAI:
         ]
         return ComposedStory(
             title=body["title"],
-            protagonist=body["protagonist"],
+            protagonist=protagonist or body["protagonist"],
             situation=body["situation"],
             goal=body["goal"],
             pages=pages,

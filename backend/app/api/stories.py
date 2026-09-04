@@ -20,7 +20,12 @@ from app.repositories import audit as audit_repo
 from app.repositories import children as children_repo
 from app.repositories import media as media_repo
 from app.repositories import stories as repo
-from app.schemas.stories import ChatRequest, ComposeRequest, IllustrateRequest
+from app.schemas.stories import (
+    ChatRequest,
+    ComposeRequest,
+    IllustrateRequest,
+    StoryEditRequest,
+)
 from app.services import storage
 from app.services.ai import get_story_ai
 from app.services.ai.base import AIError
@@ -29,7 +34,7 @@ from app.services.tts import cache as tts_cache
 
 bp = Blueprint("stories", __name__, url_prefix="/api/stories")
 
-_MAX_PAGES = 8
+_MAX_PAGES = 15
 # Three chat calls (writer + reviewer + illustrator); a generous flat estimate
 # used only for the pre-flight check and as a fallback if usage isn't reported.
 _COMPOSE_TOKEN_BUDGET = 9000
@@ -51,9 +56,9 @@ def _messages(models) -> list[dict]:
 @limiter.limit("40 per hour")
 def chat():
     data = parse_body(ChatRequest)
-    _own_child_or_404(data.child_id)
+    child = _own_child_or_404(data.child_id)
     try:
-        turn = get_story_ai().interview(_messages(data.messages))
+        turn = get_story_ai().interview(_messages(data.messages), protagonist=child["name"])
     except AIError as e:
         raise ApiError(502, "ai_unavailable", str(e)) from e
     if turn.llm_tokens:
@@ -66,7 +71,7 @@ def chat():
 @limiter.limit("15 per hour; 40 per day")
 def compose():
     data = parse_body(ComposeRequest)
-    _own_child_or_404(data.child_id)
+    child = _own_child_or_404(data.child_id)
 
     try:
         check(g.caregiver_id, llm_tokens=_COMPOSE_TOKEN_BUDGET)
@@ -74,7 +79,7 @@ def compose():
         raise ApiError(429, "quota_exceeded", e.resource) from e
 
     try:
-        story = get_story_ai().compose(_messages(data.messages))
+        story = get_story_ai().compose(_messages(data.messages), protagonist=child["name"])
     except AIError as e:
         raise ApiError(502, "ai_unavailable", str(e)) from e
 
@@ -194,6 +199,38 @@ def get_story(story_id: str):
     return jsonify(_story_out(row))
 
 
+@bp.patch("/<story_id>")
+@require_caregiver_mode
+def edit_story(story_id: str):
+    data = parse_body(StoryEditRequest)
+    row = repo.get_story(g.db, story_id)
+    if row is None:
+        raise ApiError(404, "not_found")
+
+    old_pages = row["pages"]
+    if len(data.pages) != len(old_pages):
+        raise ApiError(422, "page_count_mismatch")
+
+    pages = []
+    for old, new in zip(old_pages, data.pages, strict=True):
+        text = new.text.strip()
+        page = {**old, "text": text}
+        if text != old["text"]:
+            page["tts_asset_id"] = tts_cache.ensure_tts_asset(text)
+        pages.append(page)
+
+    updated = repo.update_story_text(
+        g.db, story_id, title=data.title.strip() if data.title else None, pages=pages
+    )
+    audit_repo.log(
+        caregiver_id=g.caregiver_id,
+        action="story.edit",
+        target_type="social_story",
+        target_id=story_id,
+    )
+    return jsonify(_story_out(updated or row))
+
+
 @bp.delete("/<story_id>")
 @require_caregiver_mode
 def delete_story(story_id: str):
@@ -235,7 +272,6 @@ def _story_out(row: dict, *, revised: bool = False) -> dict:
         "title": row["title"],
         "protagonist": row.get("protagonist"),
         "situation": row.get("situation"),
-        "schedule": row.get("schedule"),
         "goal": row.get("goal"),
         "pages": [
             {
