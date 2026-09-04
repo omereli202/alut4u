@@ -71,7 +71,7 @@ class Settings(BaseSettings):
 
     # Quotas — per caregiver per calendar month; 0 disables the check
     quota_tts_chars_per_month: int = 200_000
-    quota_image_count_per_month: int = 100
+    quota_image_count_per_month: int = 500
     quota_llm_tokens_per_month: int = 500_000
 
     # Data retention — accounts idle this long are warned, then purged.
