@@ -263,14 +263,36 @@ class GeminiStoryAI:
 
     # -- roles 2-4: compose ------------------------------------------
 
+    @staticmethod
+    def _transcript(messages: list[Message]) -> str:
+        who = {"user": "מטפל/ת", "assistant": "סוכן"}
+        return "\n".join(f"{who.get(m['role'], m['role'])}: {m['content']}" for m in messages)
+
     def compose(self, messages: list[Message]) -> ComposedStory:
-        draft = self._structured(_WRITER_SYSTEM, messages, _STORY_BODY_SCHEMA)
+        # The writer and reviewer get the interview as one text blob rather than
+        # replayed chat turns — the transcript ends on the agent's turn, and
+        # Gemini rejects a request whose last content is a model turn.
+        transcript = self._transcript(messages)
+
+        draft = self._structured(
+            _WRITER_SYSTEM,
+            [{"role": "user", "content": f"תמליל השיחה:\n{transcript}"}],
+            _STORY_BODY_SCHEMA,
+        )
         body = draft["parsed"]
         tokens = draft["tokens"]
 
         review = self._structured(
             _REVIEWER_SYSTEM,
-            [*messages, {"role": "assistant", "content": json.dumps(body, ensure_ascii=False)}],
+            [
+                {
+                    "role": "user",
+                    "content": (
+                        f"תמליל השיחה:\n{transcript}\n\n"
+                        f"טיוטת הסיפור:\n{json.dumps(body, ensure_ascii=False)}"
+                    ),
+                }
+            ],
             _REVIEW_SCHEMA,
         )
         rp = review["parsed"]
