@@ -112,10 +112,11 @@ a request refunds them.
 | GET | `/<id>` | S | full story: `{title, protagonist, situation, goal, review_notes, art, pages:[{text, sentence_type, image_url, audio_url}]}` |
 | DELETE | `/<id>` | C | 204 |
 
-Composing returns fast; the caller then drives `/illustrate` once per page. Without
-an OpenAI key a deterministic stub runs the same shape (five-slot interview →
-5-page templated Hebrew story with sentence-type tags + canned review → SVG
-illustrations).
+Composing returns fast; the caller then drives `/illustrate` once per page. The
+real adapter is Google Gemini (`gemini-2.5-flash` for the crew, `gemini-2.5-flash-image`
+for pages). Without a `GEMINI_API_KEY` a deterministic stub runs the same shape
+(five-slot interview → 5-page templated Hebrew story with sentence-type tags +
+canned review → SVG illustrations).
 
 ## Account (GDPR) — `/api/account`
 

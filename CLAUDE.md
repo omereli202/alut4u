@@ -55,7 +55,8 @@ asking.
 - Data: Supabase (Postgres + Auth + Storage), **EU region**.
 - Voice: Azure Speech `he-IL` neural TTS (`he-IL-HilaNeural` default) +
   caregiver recordings via browser `MediaRecorder`.
-- AI (phase 6 only): OpenAI. Structured output enforced by schema, not prompt.
+- AI (phase 6 only): Google Gemini. Structured output enforced by schema, not
+  prompt.
 - Frontend: vanilla ES modules, no framework, no build step. PWA (service
   worker + IndexedDB outbox).
 - Hosting: Railway. `dev` branch → dev environment, `main` branch → production.
@@ -125,7 +126,7 @@ env-var checklist: `docs/deployment.md`.
 - **Frontend**: no new dependencies without discussion. No bundler. Keep modules
   small and single-purpose. All network calls go through `js/api.js`.
 - **Secrets** never in code, tests, or fixtures. Tests use fakes/mocks for
-  Supabase, Azure and OpenAI — no live calls in the test suite.
+  Supabase, Azure and Gemini — no live calls in the test suite.
 - **Commits**: conventional-commit style (`feat:`, `fix:`, `chore:`, `docs:`).
   Work on a branch, never commit straight to `main`.
 
@@ -172,7 +173,9 @@ user to say so (see the branch-promotion memory).
 - `services/quotas.py` — per-caregiver monthly caps, checked via the service
   role (no request context). TTS degrades silently on over-quota; image gen
   hard-fails 429.
-- `services/ai/` — story agent: OpenAI adapter + deterministic stub (no key).
+- `services/ai/` — story agent: Gemini adapter (`gemini_story.py`, four
+  structured-output calls + `gemini-2.5-flash-image`) + deterministic stub (no
+  key).
 - `services/retention.py` + `scripts/retention_purge.py` — inactivity sweep.
 - `observability.py` — request IDs, JSON logs, Sentry, security headers.
 - `services/hebrew.py` — lenient Hebrew compare for writing practice.
@@ -190,6 +193,6 @@ user to say so (see the branch-promotion memory).
   Calming audio and PWA icons are still placeholders.
 - Google Stitch screen exports (final visual styling). Brief is ready:
   `docs/design.md` (per-screen prompts + design system + post-export pipeline).
-- Cloud Supabase (EU) + Azure Speech + OpenAI keys — everything runs on
+- Cloud Supabase (EU) + Azure Speech + Google Gemini keys — everything runs on
   stubs/local until these exist.
 - Legal review before launch (minors' data, worldwide) — `docs/privacy.md`.

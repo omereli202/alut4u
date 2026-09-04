@@ -62,7 +62,7 @@ environment (`railway variable set --service alut4u-backend --environment <env> 
 | `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` | set ✓ (dev live since 2026-09) | **required** — `require_production_secrets()` now refuses to boot without it, so it must be set *before* promoting to `main` or the deploy healthcheck fails |
 
 Production also: `JSON_LOGS=true`, and (recommended) `SENTRY_DSN`,
-`OPENAI_API_KEY` + model ids.
+`GEMINI_API_KEY` + model ids.
 
 The **`alut4u-web`** service only needs `BACKEND_ORIGIN` (already set).
 Full list with descriptions: `.env.example`.

@@ -62,10 +62,11 @@ class Settings(BaseSettings):
     # rather than eat the whole request budget.
     azure_speech_timeout_seconds: float = 8.0
 
-    # OpenAI (Phase 6). Confirm the current model ids for your account.
-    openai_api_key: str = ""
-    openai_chat_model: str = "gpt-4o"
-    openai_image_model: str = "dall-e-3"
+    # Google Gemini (Phase 6 social stories). Blank falls back to a deterministic
+    # stub. Confirm the current model ids for your account.
+    gemini_api_key: str = ""
+    gemini_chat_model: str = "gemini-2.5-flash"
+    gemini_image_model: str = "gemini-2.5-flash-image"
 
     # Quotas — per caregiver per calendar month; 0 disables the check
     quota_tts_chars_per_month: int = 200_000

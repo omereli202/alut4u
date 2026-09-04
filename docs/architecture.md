@@ -14,7 +14,7 @@ alut4u-backend  — Flask, no public domain
    ▼
 Supabase — Postgres (RLS enforced) + Storage (private buckets)
    │
-   └── Azure Speech (Hebrew TTS)   ·   OpenAI (Phase 6, stories)
+   └── Azure Speech (Hebrew TTS)   ·   Google Gemini (Phase 6, stories)
 ```
 
 Two services per environment. Caddy proxying `/api/*` means the **browser still

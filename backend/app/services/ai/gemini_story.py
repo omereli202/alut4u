@@ -1,6 +1,6 @@
-"""OpenAI adapter for the social-story agent crew.
+"""Google Gemini adapter for the social-story agent crew.
 
-Four Hebrew roles, each a strict-JSON-schema call:
+Four Hebrew roles, each a structured-output ``generateContent`` call:
 
 1. interviewer  — collects five slots, reports readiness as a real field
 2. writer       — Carol Gray social story, one sentence-type tag per page
@@ -8,10 +8,11 @@ Four Hebrew roles, each a strict-JSON-schema call:
 4. illustrator  — one visual prompt per (reviewed) page
 
 ``compose()`` chains writer → reviewer → illustrator so the art prompts are
-built from the final text. Model ids are configurable (``OPENAI_CHAT_MODEL`` /
-``OPENAI_IMAGE_MODEL``) — confirm the current ids for your account rather than
-trusting defaults. Not exercised by the test suite (no key); the stub covers the
-pipeline shape.
+built from the final text. Page images come from ``gemini-2.5-flash-image``
+("Nano Banana"). Model ids are configurable (``GEMINI_CHAT_MODEL`` /
+``GEMINI_IMAGE_MODEL``) — confirm the current ids for your account. Not
+exercised by the integration suite (no key); the stub covers the pipeline shape
+and ``tests/test_ai_story_gemini.py`` covers this adapter over a fake transport.
 """
 
 from __future__ import annotations
@@ -32,9 +33,11 @@ from app.services.ai.base import (
     StorySlots,
 )
 
-_BASE = "https://api.openai.com/v1"
+_GENAI_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
-# --- Role 1: interviewer -------------------------------------------------------
+_BLOCKED_FINISH = {"SAFETY", "RECITATION", "PROHIBITED_CONTENT", "BLOCKLIST"}
+
+# --- Role 1: interviewer -----------------------------------------------------
 
 _INTERVIEW_SYSTEM = (
     "את/ה סוכן/ת מראיין/ת המסייע/ת למטפל/ת לאסוף מידע לסיפור חברתי בעברית. "
@@ -46,24 +49,24 @@ _INTERVIEW_SYSTEM = (
     "בשדה reply כתוב/כתבי את השאלה הבאה, או משפט סיום קצר כשסיימת."
 )
 
-_slot_props = {name: {"type": ["string", "null"]} for name in StorySlots().as_dict()}
+_SLOT_NAMES = list(StorySlots().as_dict())
 _INTERVIEW_SCHEMA = {
     "type": "object",
-    "additionalProperties": False,
     "properties": {
         "reply": {"type": "string"},
         "ready": {"type": "boolean"},
         "slots": {
             "type": "object",
-            "additionalProperties": False,
-            "properties": _slot_props,
-            "required": list(_slot_props),
+            "properties": {n: {"type": "string", "nullable": True} for n in _SLOT_NAMES},
+            "required": _SLOT_NAMES,
+            "propertyOrdering": _SLOT_NAMES,
         },
     },
     "required": ["reply", "ready", "slots"],
+    "propertyOrdering": ["reply", "ready", "slots"],
 }
 
-# --- Role 2: writer (Carol Gray) ---------------------------------------------
+# --- Role 2: writer (Carol Gray) ------------------------------------------
 
 _WRITER_SYSTEM = (
     "את/ה מומחה/ית בכיר/ה לסיפורים חברתיים לפי העקרונות של קרול גריי (Carol Gray), "
@@ -82,16 +85,15 @@ _WRITER_SYSTEM = (
 
 _PAGE_SCHEMA = {
     "type": "object",
-    "additionalProperties": False,
     "properties": {
         "text": {"type": "string"},
         "sentence_type": {"type": "string", "enum": list(SENTENCE_TYPES)},
     },
     "required": ["text", "sentence_type"],
+    "propertyOrdering": ["text", "sentence_type"],
 }
 _STORY_BODY_SCHEMA = {
     "type": "object",
-    "additionalProperties": False,
     "properties": {
         "title": {"type": "string"},
         "protagonist": {"type": "string"},
@@ -100,9 +102,10 @@ _STORY_BODY_SCHEMA = {
         "pages": {"type": "array", "minItems": 4, "maxItems": 8, "items": _PAGE_SCHEMA},
     },
     "required": ["title", "protagonist", "situation", "goal", "pages"],
+    "propertyOrdering": ["title", "protagonist", "situation", "goal", "pages"],
 }
 
-# --- Role 3: reviewer (SLP QA, one bounded round) ---------------------------
+# --- Role 3: reviewer (SLP QA, one bounded round) ------------------------
 
 _REVIEWER_SYSTEM = (
     "את/ה קלינאי/ת תקשורת בכיר/ה עם 20 שנות ניסיון עם ילדים על הרצף האוטיסטי. "
@@ -117,34 +120,25 @@ _REVIEWER_SYSTEM = (
 
 _REVIEW_SCHEMA = {
     "type": "object",
-    "additionalProperties": False,
     "properties": {
         "approved": {"type": "boolean"},
         "notes": {"type": "array", "minItems": 1, "maxItems": 5, "items": {"type": "string"}},
         "revised": {
-            "anyOf": [
-                {"type": "null"},
-                {
-                    "type": "object",
-                    "additionalProperties": False,
-                    "properties": {
-                        "title": {"type": "string"},
-                        "pages": {
-                            "type": "array",
-                            "minItems": 4,
-                            "maxItems": 8,
-                            "items": _PAGE_SCHEMA,
-                        },
-                    },
-                    "required": ["title", "pages"],
-                },
-            ]
+            "type": "object",
+            "nullable": True,
+            "properties": {
+                "title": {"type": "string"},
+                "pages": {"type": "array", "minItems": 4, "maxItems": 8, "items": _PAGE_SCHEMA},
+            },
+            "required": ["title", "pages"],
+            "propertyOrdering": ["title", "pages"],
         },
     },
     "required": ["approved", "notes", "revised"],
+    "propertyOrdering": ["approved", "notes", "revised"],
 }
 
-# --- Role 4: illustrator ----------------------------------------------------
+# --- Role 4: illustrator ------------------------------------------------
 
 _ILLUSTRATOR_SYSTEM = (
     "את/ה מאייר/ת המתמחה בהנגשה חזותית לאנשים עם אוטיזם. קיבלת סיפור חברתי סופי. "
@@ -158,7 +152,6 @@ _ILLUSTRATOR_SYSTEM = (
 def _illustrator_schema(n: int) -> dict:
     return {
         "type": "object",
-        "additionalProperties": False,
         "properties": {
             "prompts": {
                 "type": "array",
@@ -171,69 +164,98 @@ def _illustrator_schema(n: int) -> dict:
     }
 
 
-class OpenAIStoryAI:
-    name = "openai"
+class GeminiStoryAI:
+    name = "gemini"
 
     def __init__(self, settings: Settings) -> None:
-        self._key = settings.openai_api_key
-        self._chat_model = settings.openai_chat_model
-        self._image_model = settings.openai_image_model
+        self._key = settings.gemini_api_key
+        self._chat_model = settings.gemini_chat_model
+        self._image_model = settings.gemini_image_model
 
-    # -- transport ---------------------------------------------------------
+    # -- transport -------------------------------------------------------
 
-    def _post(self, path: str, payload: dict, *, timeout: float = 60.0) -> dict:
+    def _post(self, model: str, method: str, payload: dict, *, timeout: float = 60.0) -> dict:
         try:
             r = httpx.post(
-                _BASE + path,
-                headers={"Authorization": f"Bearer {self._key}"},
+                f"{_GENAI_BASE}/models/{model}:{method}",
+                headers={"x-goog-api-key": self._key},
                 json=payload,
                 timeout=timeout,
             )
         except httpx.HTTPError as e:
-            raise AIError(f"openai request failed: {e}") from e
+            raise AIError(f"gemini request failed: {e}") from e
         if r.status_code >= 400:
-            raise AIError(f"openai {r.status_code}: {r.text[:300]}")
+            raise AIError(f"gemini {r.status_code}: {r.text[:300]}")
         return r.json()
 
-    def _structured(self, system: str, messages: list[Message], name: str, schema: dict) -> dict:
+    @staticmethod
+    def _to_contents(messages: list[Message]) -> list[dict]:
+        out = []
+        for m in messages:
+            role = "model" if m["role"] == "assistant" else "user"
+            out.append({"role": role, "parts": [{"text": m["content"]}]})
+        return out
+
+    def _structured(
+        self,
+        system: str,
+        messages: list[Message],
+        schema: dict,
+        *,
+        temperature: float | None = None,
+    ) -> dict:
+        gen: dict = {"responseMimeType": "application/json", "responseSchema": schema}
+        if temperature is not None:
+            gen["temperature"] = temperature
         body = {
-            "model": self._chat_model,
-            "messages": [{"role": "system", "content": system}, *messages],
-            "response_format": {
-                "type": "json_schema",
-                "json_schema": {"name": name, "schema": schema, "strict": True},
-            },
+            "systemInstruction": {"parts": [{"text": system}]},
+            "contents": self._to_contents(messages),
+            "generationConfig": gen,
         }
-        data = self._post("/chat/completions", body)
-        parsed = json.loads(data["choices"][0]["message"]["content"])
-        tokens = int(data.get("usage", {}).get("total_tokens", 0))
+        data = self._post(self._chat_model, "generateContent", body)
+
+        block = (data.get("promptFeedback") or {}).get("blockReason")
+        if block:
+            raise AIError(f"gemini blocked: {block}")
+        candidates = data.get("candidates") or []
+        if not candidates:
+            raise AIError("gemini: no candidates in response")
+        cand = candidates[0]
+        if cand.get("finishReason") in _BLOCKED_FINISH:
+            raise AIError(f"gemini blocked: {cand['finishReason']}")
+
+        text = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts") or [])
+        try:
+            parsed = json.loads(text)
+        except (TypeError, ValueError) as e:
+            raise AIError(f"gemini: non-JSON response: {text[:200]}") from e
+        tokens = int((data.get("usageMetadata") or {}).get("totalTokenCount", 0))
         return {"parsed": parsed, "tokens": tokens}
 
-    # -- role 1: interview ------------------------------------------------
+    # -- role 1: interview --------------------------------------------
 
     def interview(self, messages: list[Message]) -> ChatTurn:
-        out = self._structured(_INTERVIEW_SYSTEM, messages, "story_interview", _INTERVIEW_SCHEMA)
+        out = self._structured(_INTERVIEW_SYSTEM, messages, _INTERVIEW_SCHEMA, temperature=0.5)
         p = out["parsed"]
         slots = StorySlots.from_dict(p.get("slots"))
         ready = bool(p.get("ready")) and not slots.missing()
         return ChatTurn(
-            reply=p["reply"].strip(),
+            reply=str(p.get("reply", "")).strip(),
             ready=ready,
             slots=slots,
             llm_tokens=out["tokens"],
         )
 
-    # -- roles 2-4: compose --------------------------------------------
+    # -- roles 2-4: compose ------------------------------------------
 
     def compose(self, messages: list[Message]) -> ComposedStory:
-        draft = self._structured(_WRITER_SYSTEM, messages, "social_story", _STORY_BODY_SCHEMA)
+        draft = self._structured(_WRITER_SYSTEM, messages, _STORY_BODY_SCHEMA)
         body = draft["parsed"]
         tokens = draft["tokens"]
 
         review = self._structured(
             _REVIEWER_SYSTEM,
             [*messages, {"role": "assistant", "content": json.dumps(body, ensure_ascii=False)}],
-            "social_story_review",
             _REVIEW_SCHEMA,
         )
         rp = review["parsed"]
@@ -256,10 +278,9 @@ class OpenAIStoryAI:
         art = self._structured(
             _ILLUSTRATOR_SYSTEM,
             [{"role": "user", "content": json.dumps(art_input, ensure_ascii=False)}],
-            "social_story_art",
             _illustrator_schema(len(pages_in)),
         )
-        prompts = art["parsed"]["prompts"]
+        prompts = art["parsed"].get("prompts") or []
         tokens += art["tokens"]
 
         pages = [
@@ -281,29 +302,32 @@ class OpenAIStoryAI:
             llm_tokens=tokens,
         )
 
-    # -- illustration ---------------------------------------------------
+    # -- illustration -----------------------------------------------
 
     def illustrate(self, prompt: str, protagonist: str) -> tuple[bytes, str]:
-        style = (
-            "gentle flat illustration for a children's social story, soft colours, "
-            "no text, calm, friendly"
+        full = (
+            f"{prompt}. The same character in every image: a child named {protagonist}. "
+            "Gentle flat illustration for a children's social story, soft colours, "
+            "simple plain background, no text, calm and friendly."
         )
         data = self._post(
-            "/images/generations",
+            self._image_model,
+            "generateContent",
             {
-                "model": self._image_model,
-                "prompt": f"{prompt}. Consistent character named {protagonist}. {style}",
-                "size": "1024x1024",
-                "n": 1,
+                "contents": [{"parts": [{"text": full}]}],
+                "generationConfig": {"responseModalities": ["TEXT", "IMAGE"]},
             },
             timeout=120.0,
         )
-        item = data["data"][0]
-        if item.get("b64_json"):
-            return base64.b64decode(item["b64_json"]), "image/png"
-        img_url = item["url"]
-        try:
-            img = httpx.get(img_url, timeout=60.0)
-        except httpx.HTTPError as e:
-            raise AIError(f"image download failed: {e}") from e
-        return img.content, img.headers.get("content-type", "image/png")
+        candidates = data.get("candidates") or []
+        if not candidates:
+            raise AIError("gemini image: no candidates in response")
+        cand = candidates[0]
+        if cand.get("finishReason") in _BLOCKED_FINISH:
+            raise AIError(f"gemini image blocked: {cand['finishReason']}")
+        for part in (cand.get("content") or {}).get("parts") or []:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                mime = inline.get("mimeType") or inline.get("mime_type") or "image/png"
+                return base64.b64decode(inline["data"]), mime
+        raise AIError("gemini image: no inline image in response")

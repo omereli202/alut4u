@@ -76,8 +76,8 @@ families. Grouped by owner.
 - [x] Azure Speech account with billing — key live on dev since 2026-09;
       **must be set on prod too before promotion**, `require_production_secrets()`
       now refuses to boot without it
-- [ ] OpenAI account with billing; confirm the current model ids
-      for `OPENAI_CHAT_MODEL` / `OPENAI_IMAGE_MODEL`
+- [ ] Google Gemini API key with billing (https://aistudio.google.com/apikey);
+      confirm the current model ids for `GEMINI_CHAT_MODEL` / `GEMINI_IMAGE_MODEL`
 - [ ] Billing / subscriptions (Stripe or Paddle) — schema is migration-friendly
       for it but nothing is wired yet
 - [ ] Uptime monitoring hitting `/api/health?deep=1` (e.g. a Railway healthcheck

@@ -1,4 +1,4 @@
-"""Deterministic social-story agent for dev / CI (no OpenAI key).
+"""Deterministic social-story agent for dev / CI (no Gemini key).
 
 Runs the real shape of the four-role pipeline: a slot-driven interview
 (protagonist / situation / goal / sensory sensitivities / triggers), a templated
