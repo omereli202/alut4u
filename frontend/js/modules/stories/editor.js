@@ -214,17 +214,20 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
             p.image_url
               ? el("img", { src: p.image_url, alt: "" })
               : el("div", { class: "ph" }, artNow === i ? "…" : ""),
-            el("textarea", {
-              class: "page-text-edit",
-              rows: 3,
-              maxlength: 2000,
-              disabled: artBusy || saving,
-              value: edits.pages[i],
-              oninput: (e) => {
-                edits.pages[i] = e.target.value;
-                syncSaveButton();
+            el(
+              "textarea",
+              {
+                class: "page-text-edit",
+                rows: Math.max(3, Math.ceil((edits.pages[i] || "").length / 45)),
+                maxlength: 2000,
+                disabled: artBusy || saving,
+                oninput: (e) => {
+                  edits.pages[i] = e.target.value;
+                  syncSaveButton();
+                },
               },
-            }),
+              edits.pages[i],
+            ),
           ),
         ),
       ),
