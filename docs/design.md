@@ -712,17 +712,24 @@ Header "הכללים שלי — נועה". Four stacked cards:
 ```
 A calming-sounds screen for a child, Hebrew RTL. Top bar: exit icon (right),
 title "פינת רוגע" (centre). Three tabs: "צלילים" (selected), "נשימה", "זיכרון".
-Below, four large sound buttons in a grid: "גשם", "גלים", "רוח", "זמזום רגוע",
-each with a simple illustration and a small play/pause indicator. Only one plays
-at a time; the active one is clearly marked. Nothing autoplays. Very quiet, muted
-palette, lots of space.
+Below, a 3-column grid of nine compact sound tiles — all visible on one screen
+with no scrolling — each with an emoji and a small play/pause indicator. Only
+one plays at a time; the active one is clearly marked. Nothing autoplays. Very
+quiet, muted palette.
 ```
+
+Five loops (`גשם` `גלים` `רוח` `זמזום` `תדר`) are procedurally synthesized; four
+(`מדורה` `יער בגשם` `פכפוך נחל` `ציפורים`) are real CC0 field recordings from
+chosic.com — see `frontend/assets/calming/LICENSE.md`. `scripts/build_calming.py`
+loudness-matches every loop to one target RMS, so no track is noticeably quieter.
 
 | Hebrew | Meaning |
 |---|---|
 | `פינת רוגע` | Calming corner |
 | `צלילים` / `נשימה` / `זיכרון` | Sounds / Breathing / Memory |
 | `גשם` `גלים` `רוח` `זמזום רגוע` | Rain / Waves / Wind / Gentle hum |
+| `מדורה` `יער בגשם` | Campfire / Forest in rain |
+| `פכפוך נחל` `ציפורים` `תדר מרגיע` | Babbling brook / Birds / Calming tone (432 Hz) |
 
 ---
 
@@ -731,19 +738,28 @@ palette, lots of space.
 - **Mode:** User · **File:** `frontend/js/modules/calming/breathing.js` · **Reached:** the "נשימה" tab.
 
 ```
-A guided-breathing screen for a child, Hebrew RTL. Centre: one large soft circle
-that slowly expands and contracts. A word above it shows the phase: "שאיפה"
-(breathe in), "החזקה" (hold), "נשיפה" (breathe out) — before starting it reads
-"מוכנים?". One button below: "התחלה" (becomes "עצירה"). Extremely calm, slow, no
-colour shifts, no numbers, no sound. Must still make sense with the animation
-turned off (text cue only).
+A guided-breathing screen for a child, Hebrew RTL. Centre: one soft circle that
+rests small and slowly expands on the in-breath, then contracts on the
+out-breath. A word above it shows the phase: "שאיפה" (breathe in), "החזקה"
+(hold), "נשיפה" (breathe out) — before starting it reads "מוכנים?". One button
+below: "התחלה" (becomes "עצירה"). Extremely calm, slow, no colour shifts, no
+numbers. Must still make sense with the animation turned off (text cue only).
 ```
+
+The circle's resting state is the small size — it grows into the in-breath, not
+the other way round.
+
+Phase names are also spoken (browser `speechSynthesis`, `he-IL`) via a "הקראה"
+toggle next to התחלה — default on, silenceable, and shown only when the device
+has a Hebrew voice. (Supersedes the earlier "no sound" spec: an optional spoken
+cue helps a child who isn't reading the word.)
 
 | Hebrew | Meaning |
 |---|---|
 | `מוכנים?` | Ready? |
 | `שאיפה` / `החזקה` / `נשיפה` | In / Hold / Out |
 | `התחלה` / `עצירה` | Start / Stop |
+| `הקראה` | Read aloud (cue toggle) |
 
 ---
 

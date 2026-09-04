@@ -14,5 +14,25 @@
   "hum": {
     "file": "hum.wav",
     "label_he": "זמזום רגוע"
+  },
+  "fire": {
+    "file": "fire.wav",
+    "label_he": "מדורה"
+  },
+  "forest": {
+    "file": "forest.wav",
+    "label_he": "יער בגשם"
+  },
+  "brook": {
+    "file": "brook.wav",
+    "label_he": "פכפוך נחל"
+  },
+  "birds": {
+    "file": "birds.wav",
+    "label_he": "ציפורים"
+  },
+  "tone432": {
+    "file": "tone432.wav",
+    "label_he": "תדר מרגיע"
   }
 }

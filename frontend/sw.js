@@ -7,8 +7,16 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v23"; // v23: social-story editor — caregiver text
-// editing, closing "anything else?" question, no "מתי:" label.
+const SHELL_CACHE = "shell-v28"; // v28: calming — זמזום רגוע louder (matched to
+// the beds' RMS + a 220 Hz octave for small speakers), hum.wav regenerated.
+// v27: calming — fire/forest/brook/birds are now real CC0 field recordings
+// (chosic.com) not synth; drip→birds; .wav regenerated (cache-first here).
+// v26: campfire + dripping-water synth loops.
+// v25: calming — 5 new sounds, louder waves, one-screen sounds grid, breathing
+// circle starts small + grows, spoken phase cues (calming/cues.js).
+// v24: story-edit textareas now show their text.
+// v23: social-story editor — caregiver text editing, closing "anything else?"
+// question, no "מתי:" label.
 // v22: social-story editor/reader + app.css — event-timing line and
 // character-consistent illustrations.
 // v21: ui.js's SYMBOLS_VERSION bumped to 20260914d —
@@ -66,6 +74,7 @@ const SHELL = [
   "/js/modules/calming/index.js",
   "/js/modules/calming/sounds.js",
   "/js/modules/calming/breathing.js",
+  "/js/modules/calming/cues.js",
   "/js/modules/calming/memory.js",
   "/js/modules/stories/index.js",
   "/js/modules/stories/reader.js",

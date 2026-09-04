@@ -39,11 +39,16 @@ families. Grouped by owner.
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
 - [ ] Replace placeholder assets: symbol library — **in progress**, Mulberry
       Symbols (CC BY-SA 4.0) licensed and 34/36 core ids ingested, ~2,955 more
-      concepts staged for review (`docs/symbols.md`) — plus calming audio
-      loops, PWA icons; a real app-logo source is also now needed:
-      `docs/design/stitch-export-2/` has the logo as a PNG mockup only
-      (Google-hosted URL, no SVG), not enough to make crisp icons at multiple
-      sizes.
+      concepts staged for review (`docs/symbols.md`) — plus PWA icons; a real
+      app-logo source is also now needed: `docs/design/stitch-export-2/` has the
+      logo as a PNG mockup only (Google-hosted URL, no SVG), not enough to make
+      crisp icons at multiple sizes.
+- [ ] **Calming audio licence** — 5 of the 9 loops are synthesized (fine); 4
+      (`fire` `forest` `brook` `birds`) are chosic.com downloads the owner has
+      asserted are CC0. Confirm the chosic licence for all four before `main` —
+      the `birds` file's ID3 still carries a `BurghRecords` copyright tag. If any
+      is not usable, swap the source in `scripts/data/calming_sources/` or fall
+      back to a synth track. See `frontend/assets/calming/LICENSE.md`.
 - [ ] **PCS / Boardmaker symbol set** (`scripts/build_pcs_symbols.py`, dev only)
       — proprietary; either license it from Tobii Dynavox or remove it (delete
       `frontend/assets/symbols/pcs/`, `supabase/migrations/*_pcs_symbols.sql`,

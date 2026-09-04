@@ -2,11 +2,25 @@
 
 import { el, icon } from "../../ui.js";
 
+// Bump when scripts/build_calming.py regenerates the .wav files: they change
+// in place, and both the service worker's catch-all cache and Railway's
+// per-node /assets/* edge cache would otherwise keep serving the old audio.
+const ASSET_V = "20260904";
+
+// Order + labels mirror scripts/build_calming.py's ORDER / index.json.
+// rain/waves/wind/hum/tone432 are synthesized; fire/forest/brook/birds are
+// real CC0 recordings (frontend/assets/calming/LICENSE.md). All are
+// loudness-matched at build time, so `gain` is only for the odd manual trim.
 const TRACKS = [
   { slug: "rain", label: "גשם", emoji: "🌧️" },
-  { slug: "waves", label: "גלים", emoji: "🌊" },
+  { slug: "waves", label: "גלים", emoji: "🌊", gain: 1.0 },
   { slug: "wind", label: "רוח", emoji: "🍃" },
-  { slug: "hum", label: "זמזום רגוע", emoji: "🎵" },
+  { slug: "hum", label: "זמזום רגוע", emoji: "🎵", gain: 1.0 },
+  { slug: "fire", label: "מדורה", emoji: "🔥" },
+  { slug: "forest", label: "יער בגשם", emoji: "🌲" },
+  { slug: "brook", label: "פכפוך נחל", emoji: "💧" },
+  { slug: "birds", label: "ציפורים", emoji: "🐦" },
+  { slug: "tone432", label: "תדר מרגיע", emoji: "〰️" },
 ];
 
 export function renderSounds(host) {
@@ -19,9 +33,9 @@ export function renderSounds(host) {
       playing = null;
     } else {
       audio?.pause();
-      audio = new Audio(`/assets/calming/${track.slug}.wav`);
+      audio = new Audio(`/assets/calming/${track.slug}.wav?v=${ASSET_V}`);
       audio.loop = true;
-      audio.volume = 0.7;
+      audio.volume = track.gain ?? 0.7;
       audio.play().catch(() => {});
       playing = track.slug;
     }

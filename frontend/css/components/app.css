@@ -1364,30 +1364,49 @@ hr {
 
 .calming { display: flex; flex-direction: column; gap: var(--space-4); }
 
-.calm-sounds { display: flex; flex-direction: column; gap: var(--space-3); }
-.calm-sound {
-  display: flex; align-items: center; gap: var(--space-4);
-  padding: var(--space-4);
-  border: 2px solid var(--color-border); border-radius: var(--radius-lg);
-  background: var(--color-bg); font-size: var(--text-lg); cursor: pointer;
+/* A grid so all nine loops fit one screen under the nav bar + tab strip. */
+.calm-sounds {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2);
 }
-.calm-sound.active { border-color: var(--color-primary); background: var(--color-surface); }
-.calm-emoji { font-size: 2rem; }
-.calm-state { margin-inline-start: auto; font-size: 1.4rem; }
+.calm-sound {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-1);
+  min-block-size: clamp(80px, 13vh, 116px);
+  padding: var(--space-2);
+  border: 2px solid var(--color-border); border-radius: var(--radius-lg);
+  background: var(--color-surface); font-size: var(--text-base);
+  text-align: center; cursor: pointer;
+}
+.calm-sound.active { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.calm-emoji { font-size: 1.8rem; }
+.calm-sound .icon { font-size: 1.4rem; }
+.calm-state {
+  position: absolute;
+  inset-block-start: var(--space-1); inset-inline-end: var(--space-1);
+}
+@media (max-inline-size: 380px) {
+  .calm-sounds { grid-template-columns: repeat(2, 1fr); }
+}
 
 .breathing {
   display: flex; flex-direction: column; align-items: center;
-  gap: var(--space-6); padding-block: var(--space-8);
+  gap: var(--space-6); padding-block: var(--space-6);
 }
 .breath-circle {
-  inline-size: 120px; block-size: 120px; border-radius: 50%;
+  inline-size: 240px; block-size: 240px; border-radius: 50%;
   background: var(--color-primary); opacity: 0.35;
+  transform: scale(0.35); /* rest = small; grows into the in-breath */
   transition: transform 4s ease, opacity 4s ease;
 }
-.breath-circle[data-phase="in"]  { transform: scale(2.2); opacity: 0.7; transition-duration: 4s; }
-.breath-circle[data-phase="hold"] { transform: scale(2.2); opacity: 0.7; transition-duration: 2s; }
-.breath-circle[data-phase="out"] { transform: scale(1);   opacity: 0.35; transition-duration: 6s; }
+.breath-circle[data-phase="in"]  { transform: scale(1);    opacity: 0.7;  transition-duration: 4s; }
+.breath-circle[data-phase="hold"] { transform: scale(1);    opacity: 0.7;  transition-duration: 2s; }
+.breath-circle[data-phase="out"] { transform: scale(0.35); opacity: 0.35; transition-duration: 6s; }
 .breath-label { font-size: var(--text-xl); }
+.breath-controls {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-3);
+  inline-size: 100%;
+}
 @media (prefers-reduced-motion: reduce) {
   .breath-circle { transition: none; }
 }

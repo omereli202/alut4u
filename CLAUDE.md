@@ -191,7 +191,9 @@ user to say so (see the branch-promotion memory).
     only**. `scripts/release.sh` blocks its migration on production. Still
     blocking `main` promotion — needs a Boardmaker licence or removal. See
     `frontend/assets/symbols/pcs/LICENSE.md`.
-  Calming audio and PWA icons are still placeholders.
+  PWA icons are still placeholders. Calming audio: 5 synth loops + 4 chosic.com
+  recordings the owner asserts are CC0 (`frontend/assets/calming/LICENSE.md`) —
+  licence to be confirmed before `main` (see `docs/launch-checklist.md`).
 - Google Stitch screen exports (final visual styling). Brief is ready:
   `docs/design.md` (per-screen prompts + design system + post-export pipeline).
 - Cloud Supabase (EU) + Azure Speech + Google Gemini keys — everything runs on
