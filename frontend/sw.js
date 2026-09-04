@@ -7,7 +7,9 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v21"; // v21: ui.js's SYMBOLS_VERSION bumped to 20260914d —
+const SHELL_CACHE = "shell-v22"; // v22: social-story editor/reader + app.css —
+// event-timing line and character-consistent illustrations.
+// v21: ui.js's SYMBOLS_VERSION bumped to 20260914d —
 // batches 2-5 landed (720 ids: verbs, body parts, clothes, fruit, vegetables,
 // descriptive words). v20: ui.js changed — SYMBOLS_VERSION bumped to
 // 20260914c and symbolUrl() now resolves bare `pcs-*` ids and subfoldered

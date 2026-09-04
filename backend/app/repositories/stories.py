@@ -9,7 +9,10 @@ from app.repositories._base import one_or_none, rows
 from app.services import storage
 
 _TABLE = "social_stories"
-_FIELDS = "id, child_id, title, protagonist, situation, goal, pages, review_notes, created_at"
+_FIELDS = (
+    "id, child_id, title, protagonist, situation, schedule, goal, pages, "
+    "character_sheet, review_notes, created_at"
+)
 
 
 def store_page_image(child_id: str, data: bytes, mime: str) -> str:

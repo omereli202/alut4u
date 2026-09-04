@@ -60,6 +60,7 @@ _DRAFT = {
     "title": "הסיפור של דנה",
     "protagonist": "דנה",
     "situation": "מעבר לגן",
+    "schedule": "מחר בבוקר",
     "goal": "להיכנס ברוגע",
     "pages": [
         {"text": "טקסט 1", "sentence_type": "descriptive"},
@@ -67,6 +68,10 @@ _DRAFT = {
         {"text": "טקסט 3", "sentence_type": "directive"},
         {"text": "טקסט 4", "sentence_type": "affirmative"},
     ],
+}
+_ART = {
+    "character_sheet": "a child, short brown hair, red shirt",
+    "prompts": ["p1", "p2", "p3", "p4"],
 }
 
 
@@ -95,7 +100,14 @@ def test_interview_parses_slots_and_readiness(monkeypatch):
     turn = ai.interview([])
     assert turn.reply == "מה שם הילד?"
     assert turn.ready is False
-    assert turn.slots.missing() == ["protagonist", "situation", "goal", "sensory", "triggers"]
+    assert turn.slots.missing() == [
+        "protagonist",
+        "situation",
+        "schedule",
+        "goal",
+        "sensory",
+        "triggers",
+    ]
     assert turn.llm_tokens == 42
     # role mapping + structured-output request
     _, method, payload = rec.calls[0]
@@ -123,17 +135,19 @@ def test_compose_makes_three_calls_and_keeps_approved_text(monkeypatch):
         [
             _text_response(_DRAFT, tokens=1000),
             _text_response({"approved": True, "notes": ["הערה"], "revised": None}, tokens=200),
-            _text_response({"prompts": ["p1", "p2", "p3", "p4"]}, tokens=50),
+            _text_response(_ART, tokens=50),
         ]
     )
     monkeypatch.setattr(GeminiStoryAI, "_post", rec)
 
-    story = ai.compose(_answers("דנה", "מעבר לגן", "רוגע", "רעש", "אין"))
+    story = ai.compose(_answers("דנה", "מעבר לגן", "מחר", "רוגע", "רעש", "אין"))
     assert len(rec.calls) == 3
     assert [p.text for p in story.pages] == ["טקסט 1", "טקסט 2", "טקסט 3", "טקסט 4"]
     assert story.pages[0].image_prompt == "p1"
     assert story.revised is False
     assert story.review_notes == ("הערה",)
+    assert story.schedule == "מחר בבוקר"
+    assert story.character_sheet == "a child, short brown hair, red shirt"
     assert story.llm_tokens == 1250  # summed across the three calls
 
 
@@ -152,7 +166,7 @@ def test_compose_revise_branch_replaces_text(monkeypatch):
         [
             _text_response(_DRAFT),
             _text_response({"approved": False, "notes": ["תוקן"], "revised": revised}),
-            _text_response({"prompts": ["a", "b", "c", "d"]}),
+            _text_response(_ART),
         ]
     )
     monkeypatch.setattr(GeminiStoryAI, "_post", rec)
@@ -172,7 +186,7 @@ def test_compose_null_revised_falls_back_without_error(monkeypatch):
         [
             _text_response(_DRAFT),
             _text_response({"approved": False, "notes": ["x"], "revised": None}),
-            _text_response({"prompts": ["a", "b", "c", "d"]}),
+            _text_response(_ART),
         ]
     )
     monkeypatch.setattr(GeminiStoryAI, "_post", rec)
@@ -217,6 +231,56 @@ def test_illustrate_extracts_inline_image(monkeypatch):
     data, mime = ai.illustrate("a child pausing", "דנה")
     assert data == png
     assert mime == "image/png"
+
+
+def _image_response(png: bytes = b"PNG") -> dict:
+    return {
+        "candidates": [
+            {
+                "content": {
+                    "parts": [
+                        {
+                            "inlineData": {
+                                "mimeType": "image/png",
+                                "data": base64.b64encode(png).decode(),
+                            }
+                        }
+                    ]
+                },
+                "finishReason": "STOP",
+            }
+        ]
+    }
+
+
+def test_illustrate_carries_character_sheet_and_reference(monkeypatch):
+    ai = _ai()
+    rec = _Recorder([_image_response()])
+    monkeypatch.setattr(GeminiStoryAI, "_post", rec)
+
+    ref = b"\x89PNG previous page"
+    ai.illustrate(
+        "page 3 scene",
+        "דנה",
+        character_sheet="9 years old, long black hair, yellow raincoat",
+        reference_image=(ref, "image/png"),
+    )
+    parts = rec.calls[0][2]["contents"][0]["parts"]
+    inline = next(p for p in parts if "inlineData" in p)
+    assert base64.b64decode(inline["inlineData"]["data"]) == ref
+    text = next(p["text"] for p in parts if "text" in p)
+    assert "yellow raincoat" in text
+    assert "reference image" in text
+
+
+def test_illustrate_without_reference_is_sheet_only(monkeypatch):
+    ai = _ai()
+    rec = _Recorder([_image_response()])
+    monkeypatch.setattr(GeminiStoryAI, "_post", rec)
+    ai.illustrate("page 0", "דנה", character_sheet="short hair, blue shirt")
+    parts = rec.calls[0][2]["contents"][0]["parts"]
+    assert not any("inlineData" in p for p in parts)
+    assert "short hair, blue shirt" in parts[0]["text"]
 
 
 def test_illustrate_without_image_raises(monkeypatch):

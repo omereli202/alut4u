@@ -47,10 +47,12 @@ _MAX_ATTEMPTS = 3
 _INTERVIEW_SYSTEM = (
     "את/ה סוכן/ת מראיין/ת המסייע/ת למטפל/ת לאסוף מידע לסיפור חברתי בעברית. "
     "שאל/י שאלה קצרה, חמה וברורה אחת בכל תור. אם תשובה עמומה — בקש/י הבהרה לפני שתמשיך/י. "
-    "עלייך למלא חמישה שדות: שם הדמות (protagonist), המצב או הטריגר (situation), "
+    "עלייך למלא שישה שדות: שם הדמות (protagonist), המצב או הטריגר (situation), "
+    "מתי האירוע יתרחש (schedule — יום/תאריך/שעה משוערים; אם עדיין לא נקבע, לציין זאת), "
     "ההתנהגות הרצויה (goal), רגישויות חושיות (sensory), וטריגרים ידועים (triggers). "
+    "שאל/י על schedule מיד אחרי המצב. "
     "החזר/י בכל תור את מצב השדות שמילאת עד כה (ערך null לשדה שעדיין חסר), "
-    "וסמן/י ready=true רק כשכל חמשת השדות מלאים. "
+    "וסמן/י ready=true רק כשכל שישה השדות מלאים. "
     "בשדה reply כתוב/כתבי את השאלה הבאה, או משפט סיום קצר כשסיימת."
 )
 
@@ -84,8 +86,11 @@ _WRITER_SYSTEM = (
     "3. פירוק המצב לצעדים קטנים, ברורים ורצופים, בזמן הווה.\n"
     "4. ללא שיפוטיות וללא הבטחות מוחלטות — 'בדרך כלל', 'לפעמים', ולא 'תמיד'.\n"
     "5. התחשבות ברגישויות החושיות ובטריגרים שנמסרו בשיחה.\n"
-    "6. 4 עד 8 עמודים, משפט אחד או שניים בעמוד, ללא אימוג'ים.\n"
-    "לכל עמוד ציין/י sentence_type — סוג המשפט הדומיננטי בעמוד."
+    "6. פתח/י את הסיפור במשפט תיאור שמציין מתי האירוע צפוי לקרות "
+    "(למשל 'מחר בבוקר', 'ביום שלישי הקרוב'); אם המועד לא נקבע — 'בקרוב'.\n"
+    "7. 4 עד 8 עמודים, משפט אחד או שניים בעמוד, ללא אימוג'ים.\n"
+    "לכל עמוד ציין/י sentence_type — סוג המשפט הדומיננטי בעמוד. "
+    "בשדה schedule החזר/י את ניסוח הזמן שבו השתמשת."
 )
 
 _PAGE_SCHEMA = {
@@ -103,11 +108,12 @@ _STORY_BODY_SCHEMA = {
         "title": {"type": "string"},
         "protagonist": {"type": "string"},
         "situation": {"type": "string"},
+        "schedule": {"type": "string"},
         "goal": {"type": "string"},
         "pages": {"type": "array", "minItems": 4, "maxItems": 8, "items": _PAGE_SCHEMA},
     },
-    "required": ["title", "protagonist", "situation", "goal", "pages"],
-    "propertyOrdering": ["title", "protagonist", "situation", "goal", "pages"],
+    "required": ["title", "protagonist", "situation", "schedule", "goal", "pages"],
+    "propertyOrdering": ["title", "protagonist", "situation", "schedule", "goal", "pages"],
 }
 
 # --- Role 3: reviewer (SLP QA, one bounded round) ------------------------
@@ -146,8 +152,11 @@ _REVIEW_SCHEMA = {
 # --- Role 4: illustrator ------------------------------------------------
 
 _ILLUSTRATOR_SYSTEM = (
-    "את/ה מאייר/ת המתמחה בהנגשה חזותית לאנשים עם אוטיזם. קיבלת סיפור חברתי סופי. "
-    "הפק/י תיאור איור אחד (באנגלית) לכל עמוד, לפי הסדר ובאותו מספר עמודים.\n"
+    "את/ה מאייר/ת המתמחה בהנגשה חזותית לאנשים עם אוטיזם. קיבלת סיפור חברתי סופי.\n"
+    "1. הפק/י character_sheet באנגלית, 25–45 מילים: גיל משוער, שיער (אורך וצבע), "
+    "בגדים (צבע וסוג), גוון עור, ופריט מזהה קבוע אחד. תיאור זה יישלח עם כל עמוד, "
+    "לכן הוא חייב להספיק כדי לצייר שוב בדיוק את אותה דמות.\n"
+    "2. הפק/י תיאור איור אחד (באנגלית) לכל עמוד, לפי הסדר ובאותו מספר עמודים.\n"
     "כל איור: דמות אחת או שתיים, רקע נקי ופשוט, ללא פרטים מיותרים, הבעת פנים אחת ברורה, "
     "ללא טקסט בתמונה, ועקביות מלאה במראה הדמות לאורך הסיפור. "
     "הימנע/י מגירויים חזותיים עמוסים ומצבעים צורמים, ואל תמחיש/י טריגר בצורה מאיימת."
@@ -158,14 +167,16 @@ def _illustrator_schema(n: int) -> dict:
     return {
         "type": "object",
         "properties": {
+            "character_sheet": {"type": "string"},
             "prompts": {
                 "type": "array",
                 "minItems": n,
                 "maxItems": n,
                 "items": {"type": "string"},
-            }
+            },
         },
-        "required": ["prompts"],
+        "required": ["character_sheet", "prompts"],
+        "propertyOrdering": ["character_sheet", "prompts"],
     }
 
 
@@ -318,6 +329,7 @@ class GeminiStoryAI:
             _illustrator_schema(len(pages_in)),
         )
         prompts = art["parsed"].get("prompts") or []
+        character_sheet = str(art["parsed"].get("character_sheet") or "").strip()
         tokens += art["tokens"]
 
         pages = [
@@ -334,6 +346,8 @@ class GeminiStoryAI:
             situation=body["situation"],
             goal=body["goal"],
             pages=pages,
+            schedule=str(body.get("schedule") or "").strip(),
+            character_sheet=character_sheet,
             review_notes=notes,
             revised=was_revised,
             llm_tokens=tokens,
@@ -341,17 +355,34 @@ class GeminiStoryAI:
 
     # -- illustration -----------------------------------------------
 
-    def illustrate(self, prompt: str, protagonist: str) -> tuple[bytes, str]:
-        full = (
-            f"{prompt}. The same character in every image: a child named {protagonist}. "
+    def illustrate(
+        self,
+        prompt: str,
+        protagonist: str,
+        *,
+        character_sheet: str = "",
+        reference_image: tuple[bytes, str] | None = None,
+    ) -> tuple[bytes, str]:
+        who = character_sheet.strip() or f"a child named {protagonist}"
+        text = (
+            f"{prompt}. Keep this character exactly the same across the whole story: {who}. "
             "Gentle flat illustration for a children's social story, soft colours, "
             "simple plain background, no text, calm and friendly."
         )
+        parts: list[dict] = [{"text": text}]
+        if reference_image is not None:
+            ref_bytes, ref_mime = reference_image
+            b64 = base64.b64encode(ref_bytes).decode()
+            parts.insert(0, {"inlineData": {"mimeType": ref_mime, "data": b64}})
+            parts[1]["text"] = (
+                "Use the character in the reference image — identical face, hair and "
+                "clothing — placed in a new simple background for this scene. " + text
+            )
         data = self._post(
             self._image_model,
             "generateContent",
             {
-                "contents": [{"parts": [{"text": full}]}],
+                "contents": [{"parts": parts}],
                 "generationConfig": {"responseModalities": ["TEXT", "IMAGE"]},
             },
             timeout=120.0,

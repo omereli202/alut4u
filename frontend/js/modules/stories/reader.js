@@ -30,6 +30,7 @@ export function renderReader(host, { story, onBack }) {
       p.image_url
         ? el("img", { class: "story-image", src: p.image_url, alt: "" })
         : el("div", { class: "story-image story-image-blank" }, icon("menu_book", { size: 64 })),
+      page === 0 && story.schedule && el("p", { class: "story-when" }, `מתי: ${story.schedule}`),
       el("p", { class: "story-text", onclick: speak }, p.text),
       el(
         "div",

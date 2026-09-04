@@ -7,6 +7,7 @@ import { el, errText, mount, toast } from "../../ui.js";
 const SLOT_LABELS = {
   protagonist: "שם הדמות",
   situation: "המצב / הטריגר",
+  schedule: "מתי האירוע",
   goal: "ההתנהגות הרצויה",
   sensory: "רגישויות חושיות",
   triggers: "טריגרים ידועים",
@@ -136,6 +137,7 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
       "div",
       { class: "card story-preview" },
       el("h3", {}, draft.title),
+      draft.schedule && el("p", { class: "story-when" }, `מתי: ${draft.schedule}`),
       el(
         "p",
         { class: draft.revised ? "review-chip revised" : "review-chip" },

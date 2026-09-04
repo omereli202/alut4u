@@ -1,9 +1,10 @@
 """Deterministic social-story agent for dev / CI (no Gemini key).
 
 Runs the real shape of the four-role pipeline: a slot-driven interview
-(protagonist / situation / goal / sensory sensitivities / triggers), a templated
-Hebrew social story with Carol Gray sentence types, per-page visual prompts, a
-canned clinical review, and a simple SVG illustration per page.
+(protagonist / situation / schedule / goal / sensory sensitivities / triggers), a
+templated Hebrew social story with Carol Gray sentence types, a character sheet,
+per-page visual prompts, a canned clinical review, and a simple SVG illustration
+per page.
 """
 
 from __future__ import annotations
@@ -25,6 +26,10 @@ _QUESTIONS: list[tuple[str, str]] = [
     (
         "situation",
         "באיזה מצב הסיפור אמור לעזור? (למשל: מעבר לגן, ביקור אצל הרופא, פרידה מההורים)",
+    ),
+    (
+        "schedule",
+        "מתי האירוע צפוי לקרות? (למשל: מחר בבוקר, ביום שלישי הקרוב, בשבוע הבא)",
     ),
     ("goal", "מה ההתנהגות הרצויה שנרצה לחזק בסיפור?"),
     (
@@ -70,16 +75,18 @@ class StubStoryAI:
         goal = slots.goal or "להישאר רגוע"
         sensory = (slots.sensory or "").strip()
         triggers = (slots.triggers or "").strip()
+        schedule = (slots.schedule or "").strip()
 
         has_sensory = bool(sensory) and sensory not in {"אין", "לא", "-"}
         has_triggers = bool(triggers) and triggers not in {"אין", "לא", "-"}
+        when = schedule if schedule and schedule not in {"אין", "לא", "-"} else "בקרוב"
 
         page3_text = f"{protagonist} יכול/ה לנשום לאט: שאיפה ארוכה, ואז נשיפה ארוכה."
         if has_sensory:
             page3_text += f" לפעמים {sensory} מרגיש/ה חזק, וגם אז הנשימה עוזרת."
 
         page1_text = (
-            f"לפעמים {protagonist} מגיע/ה למצב חדש: {situation}. "
+            f"{when} {protagonist} מגיע/ה למצב חדש: {situation}. "
             "בדרך כלל זה בסדר להרגיש קצת לא בטוח/ה."
         )
         if has_triggers:
@@ -129,12 +136,27 @@ class StubStoryAI:
             situation=situation,
             goal=goal,
             pages=pages,
+            schedule=when,
+            character_sheet=(
+                f"A young child named {protagonist}, short dark hair, wearing a "
+                "green t-shirt and blue trousers, light-brown skin, always carrying "
+                "a small yellow backpack."
+            ),
             review_notes=tuple(notes),
             revised=False,
             llm_tokens=0,
         )
 
-    def illustrate(self, prompt: str, protagonist: str) -> tuple[bytes, str]:
+    def illustrate(
+        self,
+        prompt: str,
+        protagonist: str,
+        *,
+        character_sheet: str = "",
+        reference_image: tuple[bytes, str] | None = None,
+    ) -> tuple[bytes, str]:
+        # character_sheet / reference_image are ignored on purpose — the stub must
+        # stay byte-for-byte deterministic (no hashing of the reference bytes).
         # blake2b, not hash(): str hashing is salted per process, so hash() would
         # make this "deterministic" stub pick different art on every restart.
         seed = int.from_bytes(hashlib.blake2b(prompt.encode("utf-8"), digest_size=8).digest())

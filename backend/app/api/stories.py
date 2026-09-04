@@ -18,8 +18,10 @@ from app.auth.decorators import require_caregiver_mode, require_session
 from app.extensions import limiter
 from app.repositories import audit as audit_repo
 from app.repositories import children as children_repo
+from app.repositories import media as media_repo
 from app.repositories import stories as repo
 from app.schemas.stories import ChatRequest, ComposeRequest, IllustrateRequest
+from app.services import storage
 from app.services.ai import get_story_ai
 from app.services.ai.base import AIError
 from app.services.quotas import QuotaExceeded, check, record
@@ -94,8 +96,10 @@ def compose():
             "title": story.title,
             "protagonist": story.protagonist,
             "situation": story.situation,
+            "schedule": story.schedule or None,
             "goal": story.goal,
             "pages": pages,
+            "character_sheet": story.character_sheet or None,
             "review_notes": list(story.review_notes),
             "created_by": g.caregiver_id,
         },
@@ -137,7 +141,12 @@ def illustrate(story_id: str):
 
     ai = get_story_ai()
     try:
-        img, mime = ai.illustrate(pages[idx]["image_prompt"], row.get("protagonist") or "")
+        img, mime = ai.illustrate(
+            pages[idx]["image_prompt"],
+            row.get("protagonist") or "",
+            character_sheet=row.get("character_sheet") or "",
+            reference_image=_reference_image(pages),
+        )
     except AIError as e:
         raise ApiError(502, "ai_unavailable", str(e)) from e
 
@@ -194,6 +203,22 @@ def delete_story(story_id: str):
     return "", 204
 
 
+def _reference_image(pages: list[dict]) -> tuple[bytes, str] | None:
+    """The bytes+mime of the first already-drawn page, so the image model keeps
+    the same character. None when no page has art yet (the first illustration)."""
+    done = next((p for p in pages if p.get("image_asset_id")), None)
+    if done is None:
+        return None
+    asset = media_repo.get_for_caller(g.db, done["image_asset_id"])
+    if asset is None:
+        return None
+    bucket, _, object_path = asset["storage_path"].partition("/")
+    try:
+        return storage.download(bucket, object_path), asset["mime"]
+    except Exception:  # missing object / storage hiccup — fall back to sheet-only
+        return None
+
+
 def _art_summary(pages: list[dict]) -> dict:
     pending = [i for i, p in enumerate(pages) if not p.get("image_asset_id")]
     return {
@@ -210,6 +235,7 @@ def _story_out(row: dict, *, revised: bool = False) -> dict:
         "title": row["title"],
         "protagonist": row.get("protagonist"),
         "situation": row.get("situation"),
+        "schedule": row.get("schedule"),
         "goal": row.get("goal"),
         "pages": [
             {

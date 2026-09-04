@@ -1429,6 +1429,7 @@ hr {
   max-inline-size: 480px; cursor: pointer;
 }
 .story-nav { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+.story-when { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0; text-align: center; }
 
 .chat-log {
   display: flex; flex-direction: column; gap: var(--space-2);

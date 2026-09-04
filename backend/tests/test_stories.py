@@ -4,10 +4,11 @@ from tests.conftest import requires_supabase
 
 pytestmark = requires_supabase
 
-# The stub interviewer asks five things, in this order.
+# The stub interviewer asks six things, in this order.
 _ANSWERS = [
     "דני",
     "מעבר לגן בבוקר",
+    "מחר בבוקר",
     "להיפרד מאמא ברוגע",
     "רגיש לרעש חזק",
     "אין",
@@ -40,7 +41,7 @@ def test_chat_kickoff_with_no_messages_opens_the_interview(client, caregiver_mod
     assert all(v is None for v in body["slots"].values())
 
 
-def test_interview_collects_five_slots(client, caregiver_mode):
+def test_interview_collects_all_slots(client, caregiver_mode):
     child_id = _child(client)
     msgs = []
     for i, ans in enumerate(_ANSWERS):
@@ -52,6 +53,7 @@ def test_interview_collects_five_slots(client, caregiver_mode):
         assert body["ready"] is (i == len(_ANSWERS) - 1)
         msgs.append({"role": "assistant", "content": body["reply"]})
     assert body["slots"]["protagonist"] == "דני"
+    assert body["slots"]["schedule"] == "מחר בבוקר"
     assert body["slots"]["sensory"]
 
 
@@ -70,6 +72,8 @@ def test_compose_returns_reviewed_text_without_art(client, caregiver_mode):
     assert body["art"]["pending_pages"] == [0, 1, 2, 3, 4]
     assert body["review_notes"]
     assert body["situation"] and body["goal"]
+    assert body["schedule"] == "מחר בבוקר"
+    assert "מחר בבוקר" in body["pages"][0]["text"]
 
 
 def test_illustrate_fills_pages_one_at_a_time(client, caregiver_mode):

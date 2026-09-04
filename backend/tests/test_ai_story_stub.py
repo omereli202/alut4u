@@ -17,21 +17,25 @@ def _answers(*vals: str) -> list[dict]:
     return msgs
 
 
+_FULL = ("דני", "מעבר לגן", "מחר בבוקר", "להיפרד ברוגע", "רגיש לרעש", "אין")
+
+
 def test_interview_is_slot_driven_and_ready_only_when_full():
     ai = StubStoryAI()
     turn = ai.interview(_answers("דני"))
     assert turn.ready is False
     assert turn.slots.protagonist == "דני"
-    assert turn.slots.missing() == ["situation", "goal", "sensory", "triggers"]
+    assert turn.slots.missing() == ["situation", "schedule", "goal", "sensory", "triggers"]
 
-    full = ai.interview(_answers("דני", "מעבר לגן", "להיפרד ברוגע", "רגיש לרעש", "אין"))
+    full = ai.interview(_answers(*_FULL))
     assert full.ready is True
     assert not full.slots.missing()
+    assert full.slots.schedule == "מחר בבוקר"
 
 
 def test_compose_shape_and_carol_gray_types():
     ai = StubStoryAI()
-    story = ai.compose(_answers("דני", "מעבר לגן", "להיפרד ברוגע", "רעש חזק", "אין"))
+    story = ai.compose(_answers("דני", "מעבר לגן", "ביום שלישי", "להיפרד ברוגע", "רעש חזק", "אין"))
     assert "דני" in story.title
     assert 4 <= len(story.pages) <= 8
     assert all(p.sentence_type in SENTENCE_TYPES for p in story.pages)
@@ -39,11 +43,20 @@ def test_compose_shape_and_carol_gray_types():
     assert story.revised is False
     # the sensory answer is woven into the text
     assert any("רעש חזק" in p.text for p in story.pages)
+    # timing + character sheet are populated
+    assert story.schedule == "ביום שלישי"
+    assert "ביום שלישי" in story.pages[0].text
+    assert story.character_sheet
 
 
-def test_illustrate_is_deterministic_across_instances():
+def test_illustrate_is_deterministic_and_ignores_reference():
     a = StubStoryAI().illustrate("a child pausing", "דני")
-    b = StubStoryAI().illustrate("a child pausing", "דני")
+    b = StubStoryAI().illustrate(
+        "a child pausing",
+        "דני",
+        character_sheet="tall, red hair",
+        reference_image=(b"xyz", "image/png"),
+    )
     assert a == b
     assert a[1] == "image/svg+xml"
 

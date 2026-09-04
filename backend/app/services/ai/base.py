@@ -16,6 +16,7 @@ class StorySlots:
 
     protagonist: str | None = None
     situation: str | None = None
+    schedule: str | None = None  # when the event happens
     goal: str | None = None
     sensory: str | None = None
     triggers: str | None = None
@@ -52,6 +53,8 @@ class ComposedStory:
     situation: str
     goal: str
     pages: list[StoryPage]
+    schedule: str = ""
+    character_sheet: str = ""  # one description of the protagonist, reused per page
     review_notes: tuple[str, ...] = ()
     revised: bool = False
     llm_tokens: int = 0
@@ -76,8 +79,17 @@ class StoryAI(Protocol):
         """Turn the finished interview into a structured, reviewed social story."""
         ...
 
-    def illustrate(self, prompt: str, protagonist: str) -> tuple[bytes, str]:
-        """Return (image_bytes, mime) for one page."""
+    def illustrate(
+        self,
+        prompt: str,
+        protagonist: str,
+        *,
+        character_sheet: str = "",
+        reference_image: tuple[bytes, str] | None = None,
+    ) -> tuple[bytes, str]:
+        """Return (image_bytes, mime) for one page. ``reference_image`` is
+        ``(bytes, mime)`` of an already-drawn page, used to keep the same
+        character across the story."""
         ...
 
 
