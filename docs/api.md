@@ -113,8 +113,8 @@ a request refunds them.
 | DELETE | `/<id>` | C | 204 |
 
 Composing returns fast; the caller then drives `/illustrate` once per page. The
-real adapter is Google Gemini (`gemini-flash-latest` for the crew, a Gemini image
-model for pages — the latter needs a billed account). Without a `GEMINI_API_KEY` a
+real adapter is Google Gemini (`gemini-3.6-flash` for the crew, `gemini-2.5-flash-image`
+for pages — the latter needs a billed account). Without a `GEMINI_API_KEY` a
 deterministic stub runs the same shape
 (five-slot interview → 5-page templated Hebrew story with sentence-type tags +
 canned review → SVG illustrations).

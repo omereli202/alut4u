@@ -64,8 +64,9 @@ class Settings(BaseSettings):
 
     # Google Gemini (Phase 6 social stories). Blank falls back to a deterministic
     # stub. Image generation needs a billed account (free tier is text-only).
+    # gemini-2.5-flash is retired for new API keys — use a 3.x flash for chat.
     gemini_api_key: str = ""
-    gemini_chat_model: str = "gemini-2.5-flash"
+    gemini_chat_model: str = "gemini-3.6-flash"
     gemini_image_model: str = "gemini-2.5-flash-image"
 
     # Quotas — per caregiver per calendar month; 0 disables the check
