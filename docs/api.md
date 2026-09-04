@@ -105,14 +105,17 @@ a request refunds them.
 
 | Method | Path | Guard | Notes |
 |---|---|---|---|
-| POST | `/chat` | C | `{child_id, messages:[{role,content}]}` → `{reply, ready}` — the interview agent |
-| POST | `/compose` | C | `{child_id, messages}` → composes the story, generates a per-page illustration + read-aloud audio, saves. Counts against the monthly AI quota (429 `quota_exceeded`). |
-| GET | `?child_id=` | S | `{stories:[{id,title,created_at}]}` |
-| GET | `/<id>` | S | full story: `{title, protagonist, pages:[{text, image_url, audio_url}]}` |
+| POST | `/chat` | C | `{child_id, messages:[{role,content}]}` → `{reply, ready, slots}` — the interviewer agent; `slots` is the five collected facts (protagonist / situation / goal / sensory / triggers), `ready` flips when all five are set |
+| POST | `/compose` | C | `{child_id, messages}` → runs the writer → SLP-reviewer → illustrator crew and saves the reviewed **text + read-aloud audio immediately** (no images yet). 429 `quota_exceeded` on the monthly LLM cap. |
+| POST | `/<id>/illustrate` | C | `{page_index?}` → generates one page's illustration (next pending page if `page_index` omitted). 409 `already_illustrated`, 429 `quota_exceeded` on the image cap (the text story is unaffected). → `{page_index, image_url, art}` |
+| GET | `?child_id=` | S | `{stories:[{id, title, art:{total,illustrated,pending_pages}, created_at}]}` |
+| GET | `/<id>` | S | full story: `{title, protagonist, situation, goal, review_notes, art, pages:[{text, sentence_type, image_url, audio_url}]}` |
 | DELETE | `/<id>` | C | 204 |
 
-Without an OpenAI key a deterministic stub runs the same flow (3-question
-interview → 5-page templated Hebrew story → SVG illustrations).
+Composing returns fast; the caller then drives `/illustrate` once per page. Without
+an OpenAI key a deterministic stub runs the same shape (five-slot interview →
+5-page templated Hebrew story with sentence-type tags + canned review → SVG
+illustrations).
 
 ## Account (GDPR) — `/api/account`
 

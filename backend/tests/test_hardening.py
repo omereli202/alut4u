@@ -17,22 +17,49 @@ def test_hsts_only_in_production():
     assert "Strict-Transport-Security" not in dev.test_client().get("/api/health").headers
 
 
+_MSGS = [
+    {"role": "user", "content": "a"},
+    {"role": "assistant", "content": "?"},
+    {"role": "user", "content": "b"},
+    {"role": "assistant", "content": "?"},
+    {"role": "user", "content": "c"},
+    {"role": "assistant", "content": "?"},
+    {"role": "user", "content": "d"},
+    {"role": "assistant", "content": "?"},
+    {"role": "user", "content": "e"},
+]
+
+
 @requires_supabase
-def test_compose_preflight_rejects_over_image_cap(client, caregiver_mode, app):
-    app.config["SETTINGS"].quota_image_count_per_month = 2  # < the 5 compose reserves
+def test_compose_rejects_over_llm_cap(client, caregiver_mode, app):
+    app.config["SETTINGS"].quota_llm_tokens_per_month = 100  # < the compose budget
     child_id = client.post(
         "/api/children", json={"name": "x", "consent_basis": "parent"}
     ).get_json()["id"]
-    msgs = [
-        {"role": "user", "content": "a"},
-        {"role": "assistant", "content": "?"},
-        {"role": "user", "content": "b"},
-        {"role": "assistant", "content": "?"},
-        {"role": "user", "content": "c"},
-    ]
-    r = client.post("/api/stories/compose", json={"child_id": child_id, "messages": msgs})
+    r = client.post("/api/stories/compose", json={"child_id": child_id, "messages": _MSGS})
     assert r.status_code == 429
     assert r.get_json()["error"] == "quota_exceeded"
+
+
+@requires_supabase
+def test_illustrate_rejects_over_image_cap_but_keeps_the_text(client, caregiver_mode, app):
+    app.config["SETTINGS"].quota_image_count_per_month = 1
+    child_id = client.post(
+        "/api/children", json={"name": "x", "consent_basis": "parent"}
+    ).get_json()["id"]
+    story = client.post(
+        "/api/stories/compose", json={"child_id": child_id, "messages": _MSGS}
+    ).get_json()
+
+    first = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 0})
+    assert first.status_code == 200
+    over = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 1})
+    assert over.status_code == 429
+    assert over.get_json()["error"] == "quota_exceeded"
+
+    # the story is still fully readable — text + audio survive
+    got = client.get(f"/api/stories/{story['id']}").get_json()
+    assert all(p["text"] for p in got["pages"])
 
 
 @requires_supabase

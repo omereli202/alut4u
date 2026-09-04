@@ -9,9 +9,16 @@ feature is fully usable in dev without a key.
 from __future__ import annotations
 
 from app.config import Settings, current_settings
-from app.services.ai.base import ComposedStory, StoryAI, StoryPage
+from app.services.ai.base import ChatTurn, ComposedStory, StoryAI, StoryPage, StorySlots
 
-__all__ = ["ComposedStory", "StoryAI", "StoryPage", "get_story_ai"]
+__all__ = [
+    "ChatTurn",
+    "ComposedStory",
+    "StoryAI",
+    "StoryPage",
+    "StorySlots",
+    "get_story_ai",
+]
 
 
 def get_story_ai(settings: Settings | None = None) -> StoryAI:

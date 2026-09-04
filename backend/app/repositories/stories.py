@@ -9,7 +9,7 @@ from app.repositories._base import one_or_none, rows
 from app.services import storage
 
 _TABLE = "social_stories"
-_FIELDS = "id, child_id, title, protagonist, situation, goal, pages, created_at"
+_FIELDS = "id, child_id, title, protagonist, situation, goal, pages, review_notes, created_at"
 
 
 def store_page_image(child_id: str, data: bytes, mime: str) -> str:
@@ -35,7 +35,7 @@ def create_story(db: Any, child_id: str, values: dict) -> dict:
 def list_stories(db: Any, child_id: str) -> list[dict]:
     return rows(
         db.table(_TABLE)
-        .select("id, title, created_at")
+        .select("id, title, pages, created_at")
         .eq("child_id", child_id)
         .order("created_at", desc=True)
         .execute()
@@ -44,6 +44,19 @@ def list_stories(db: Any, child_id: str) -> list[dict]:
 
 def get_story(db: Any, story_id: str) -> dict | None:
     return one_or_none(db.table(_TABLE).select(_FIELDS).eq("id", story_id).execute())
+
+
+def set_page_image(db: Any, story_id: str, page_index: int, asset_id: str) -> dict | None:
+    """Attach an illustration to one page. Returns the updated row, or None if
+    the story is gone / not visible or that page already has art (lost race)."""
+    row = get_story(db, story_id)
+    if row is None:
+        return None
+    pages = list(row["pages"])
+    if page_index >= len(pages) or pages[page_index].get("image_asset_id"):
+        return None
+    pages[page_index] = {**pages[page_index], "image_asset_id": asset_id}
+    return one_or_none(db.table(_TABLE).update({"pages": pages}).eq("id", story_id).execute())
 
 
 def delete_story(db: Any, story_id: str) -> None:
