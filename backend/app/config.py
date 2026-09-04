@@ -63,10 +63,11 @@ class Settings(BaseSettings):
     azure_speech_timeout_seconds: float = 8.0
 
     # Google Gemini (Phase 6 social stories). Blank falls back to a deterministic
-    # stub. Confirm the current model ids for your account.
+    # stub. Model ids move fast — `gemini-flash-latest` tracks the current stable
+    # flash; image generation needs a billed account (free tier is text-only).
     gemini_api_key: str = ""
-    gemini_chat_model: str = "gemini-2.5-flash"
-    gemini_image_model: str = "gemini-2.5-flash-image"
+    gemini_chat_model: str = "gemini-flash-latest"
+    gemini_image_model: str = "gemini-3.1-flash-image"
 
     # Quotas — per caregiver per calendar month; 0 disables the check
     quota_tts_chars_per_month: int = 200_000

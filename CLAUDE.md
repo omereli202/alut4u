@@ -174,8 +174,9 @@ user to say so (see the branch-promotion memory).
   role (no request context). TTS degrades silently on over-quota; image gen
   hard-fails 429.
 - `services/ai/` — story agent: Gemini adapter (`gemini_story.py`, four
-  structured-output calls + `gemini-2.5-flash-image`) + deterministic stub (no
-  key).
+  structured-output calls + a Gemini image model for pages) + deterministic stub
+  (no key). Image generation needs a billed Gemini key; the free tier is
+  text-only.
 - `services/retention.py` + `scripts/retention_purge.py` — inactivity sweep.
 - `observability.py` — request IDs, JSON logs, Sentry, security headers.
 - `services/hebrew.py` — lenient Hebrew compare for writing practice.

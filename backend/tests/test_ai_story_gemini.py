@@ -16,8 +16,12 @@ from app.services.ai.stub_story import StubStoryAI
 _KEY = "not-a-real-key-test-only"
 
 
+def _settings(**kw) -> Settings:
+    return Settings(_env_file=None, app_env="test", **kw)
+
+
 def _ai() -> GeminiStoryAI:
-    return GeminiStoryAI(Settings(app_env="test", gemini_api_key=_KEY))
+    return GeminiStoryAI(_settings(gemini_api_key=_KEY))
 
 
 def _text_response(obj: dict, *, tokens: int = 100, finish: str = "STOP") -> dict:
@@ -105,6 +109,12 @@ def test_assistant_role_maps_to_model():
     )
     assert [c["role"] for c in contents] == ["user", "model"]
     assert contents[1]["parts"][0]["text"] == "b"
+
+
+def test_empty_history_gets_a_seed_content():
+    # Gemini 400s on an empty `contents`; the interview's first turn has none.
+    contents = GeminiStoryAI._to_contents([])
+    assert len(contents) == 1 and contents[0]["role"] == "user"
 
 
 def test_compose_makes_three_calls_and_keeps_approved_text(monkeypatch):
@@ -220,5 +230,5 @@ def test_illustrate_without_image_raises(monkeypatch):
 
 
 def test_provider_selection():
-    assert isinstance(get_story_ai(Settings(app_env="test", gemini_api_key=_KEY)), GeminiStoryAI)
-    assert isinstance(get_story_ai(Settings(app_env="test")), StubStoryAI)
+    assert isinstance(get_story_ai(_settings(gemini_api_key=_KEY)), GeminiStoryAI)
+    assert isinstance(get_story_ai(_settings()), StubStoryAI)

@@ -47,6 +47,7 @@ requires_supabase = pytest.mark.skipif(
 @pytest.fixture
 def settings() -> Settings:
     return Settings(
+        _env_file=None,  # never read the repo .env — tests must be hermetic
         app_env="test",
         flask_secret_key="test-secret",
         serve_frontend=False,

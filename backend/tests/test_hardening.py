@@ -13,7 +13,7 @@ def test_request_id_and_security_headers(client):
 
 
 def test_hsts_only_in_production():
-    dev = create_app(Settings(app_env="test", serve_frontend=False))
+    dev = create_app(Settings(_env_file=None, app_env="test", serve_frontend=False))
     assert "Strict-Transport-Security" not in dev.test_client().get("/api/health").headers
 
 

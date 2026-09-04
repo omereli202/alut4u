@@ -8,8 +8,9 @@ Four Hebrew roles, each a structured-output ``generateContent`` call:
 4. illustrator  — one visual prompt per (reviewed) page
 
 ``compose()`` chains writer → reviewer → illustrator so the art prompts are
-built from the final text. Page images come from ``gemini-2.5-flash-image``
-("Nano Banana"). Model ids are configurable (``GEMINI_CHAT_MODEL`` /
+built from the final text. Page images come from a Gemini image model
+("Nano Banana"), which needs a billed account — the free tier is text-only.
+Model ids move fast and are configurable (``GEMINI_CHAT_MODEL`` /
 ``GEMINI_IMAGE_MODEL``) — confirm the current ids for your account. Not
 exercised by the integration suite (no key); the stub covers the pipeline shape
 and ``tests/test_ai_story_gemini.py`` covers this adapter over a fake transport.
@@ -19,6 +20,7 @@ from __future__ import annotations
 
 import base64
 import json
+import time
 
 import httpx
 
@@ -36,6 +38,9 @@ from app.services.ai.base import (
 _GENAI_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 _BLOCKED_FINISH = {"SAFETY", "RECITATION", "PROHIBITED_CONTENT", "BLOCKLIST"}
+# Gemini (especially the free tier) returns transient 429/500/503 under load.
+_RETRY_STATUS = {429, 500, 502, 503}
+_MAX_ATTEMPTS = 3
 
 # --- Role 1: interviewer -----------------------------------------------------
 
@@ -175,18 +180,24 @@ class GeminiStoryAI:
     # -- transport -------------------------------------------------------
 
     def _post(self, model: str, method: str, payload: dict, *, timeout: float = 60.0) -> dict:
-        try:
-            r = httpx.post(
-                f"{_GENAI_BASE}/models/{model}:{method}",
-                headers={"x-goog-api-key": self._key},
-                json=payload,
-                timeout=timeout,
-            )
-        except httpx.HTTPError as e:
-            raise AIError(f"gemini request failed: {e}") from e
-        if r.status_code >= 400:
-            raise AIError(f"gemini {r.status_code}: {r.text[:300]}")
-        return r.json()
+        url = f"{_GENAI_BASE}/models/{model}:{method}"
+        last: AIError | None = None
+        for attempt in range(_MAX_ATTEMPTS):
+            try:
+                r = httpx.post(
+                    url, headers={"x-goog-api-key": self._key}, json=payload, timeout=timeout
+                )
+            except httpx.HTTPError as e:
+                last = AIError(f"gemini request failed: {e}")
+            else:
+                if r.status_code < 400:
+                    return r.json()
+                last = AIError(f"gemini {r.status_code}: {r.text[:300]}")
+                if r.status_code not in _RETRY_STATUS:
+                    raise last
+            if attempt < _MAX_ATTEMPTS - 1:
+                time.sleep(0.6 * 2**attempt)
+        raise last  # type: ignore[misc]
 
     @staticmethod
     def _to_contents(messages: list[Message]) -> list[dict]:
@@ -194,6 +205,10 @@ class GeminiStoryAI:
         for m in messages:
             role = "model" if m["role"] == "assistant" else "user"
             out.append({"role": role, "parts": [{"text": m["content"]}]})
+        if not out:
+            # Gemini rejects an empty `contents`; the interview's first turn has
+            # no history, so hand it a neutral opener.
+            out.append({"role": "user", "parts": [{"text": "בוא/י נתחיל."}]})
         return out
 
     def _structured(
