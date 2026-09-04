@@ -56,10 +56,10 @@ class Settings(BaseSettings):
     azure_speech_key: str = ""
     azure_speech_region: str = "westeurope"
     azure_speech_voice: str = "he-IL-HilaNeural"
-    # Kept below gunicorn's --timeout (60s, see backend/Dockerfile) with room for
-    # several sequential calls — board-template seeding synthesizes one card at
-    # a time. A slow Azure call should fail fast into the silent-degrade path
-    # rather than eat the whole request budget.
+    # Well below gunicorn's --timeout (see backend/Dockerfile) — board-template
+    # seeding and story compose synthesize one card/page at a time. A slow Azure
+    # call should fail fast into the silent-degrade path rather than eat the
+    # whole request budget.
     azure_speech_timeout_seconds: float = 8.0
 
     # Google Gemini (Phase 6 social stories). Blank falls back to a deterministic
