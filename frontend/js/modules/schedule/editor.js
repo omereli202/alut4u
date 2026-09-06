@@ -1,6 +1,7 @@
 // Schedule editor (Caregiver Mode): build a day's tasks + manage calendar events.
 
 import { api } from "../../api.js";
+import { destructiveDialog } from "../../dialog.js";
 import { el, errText, icon, mount, symbolUrl, toast, withBusy } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
 import { todayISO } from "./data.js";
@@ -9,16 +10,21 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
   let dateISO = todayISO();
   let items = [];
   let events = [];
+  let templates = null; // loaded once, reused across date changes
 
   async function load() {
     const monthFirst = dateISO.slice(0, 8) + "01";
     const monthLast = dateISO.slice(0, 8) + "28"; // rough window; fine for the list
-    [items, { events }] = await Promise.all([
+    const [dayItems, cal, tpls] = await Promise.all([
       api.get(`/schedule/day?child_id=${childId}&date=${dateISO}`).then((r) => r.items),
       api
         .get(`/schedule/calendar?child_id=${childId}&from=${monthFirst}&to=${monthLast}`)
         .catch(() => ({ events: [] })),
+      templates ? Promise.resolve({ templates }) : api.get("/schedule/templates").catch(() => ({ templates: [] })),
     ]);
+    items = dayItems;
+    events = cal.events;
+    templates = tpls.templates;
     render();
   }
 
@@ -55,7 +61,7 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
             "div",
             { class: "editor-card-list" },
             ...items.map(itemRow),
-            !items.length && el("p", { class: "muted" }, "אין משימות. הוסיפו למטה או העתיקו מיום אחר."),
+            !items.length && templatePicker(),
           ),
           itemForm(),
           el(
@@ -65,7 +71,9 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
             el("input", { type: "date", name: "from", required: true }),
             el("button", { type: "submit", class: "btn-link" }, "העתק"),
           ),
+          items.length > 0 && saveTemplateForm(),
         ),
+        savedTemplatesCard(),
         el(
           "div",
           { class: "card" },
@@ -172,6 +180,125 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
         e.target.querySelector(".err").textContent = errText(err);
       }
     });
+  }
+
+  // Shown only when the day is empty: seed it from a starter routine.
+  function templatePicker() {
+    if (!templates || !templates.length) {
+      return el("p", { class: "muted" }, "אין משימות. הוסיפו למטה או העתיקו מיום אחר.");
+    }
+    return el(
+      "form",
+      { class: "template-picker", onsubmit: applyTemplate },
+      el("p", { class: "muted" }, "אין משימות. אפשר להתחיל מסדר יום מוכן ולערוך אותו:"),
+      el(
+        "select",
+        { name: "template_id", "aria-label": "סדר יום ברירת מחדל" },
+        ...templates.map((t) => el("option", { value: t.id }, t.name_he)),
+      ),
+      el("button", { type: "submit", class: "btn-primary" }, "צור סדר יום"),
+    );
+  }
+
+  async function applyTemplate(e) {
+    e.preventDefault();
+    const templateId = new FormData(e.target).get("template_id");
+    if (!templateId) return;
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        const { created } = await api.post("/schedule/apply-template", {
+          child_id: childId,
+          template_id: templateId,
+          the_date: dateISO,
+        });
+        toast(`נוצרו ${created} משימות`);
+        load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
+  }
+
+  // Shown when the day has tasks: snapshot it as a reusable template.
+  function saveTemplateForm() {
+    return el(
+      "form",
+      { class: "save-template", onsubmit: saveTemplate },
+      el("label", { for: "sc-tpl-name" }, "שמירת היום כסדר יום ברירת מחדל: "),
+      el("input", {
+        id: "sc-tpl-name",
+        name: "name",
+        type: "text",
+        required: true,
+        maxlength: 60,
+        placeholder: "שם (למשל: יום רגיל)",
+      }),
+      el("button", { type: "submit", class: "btn-link" }, "שמור"),
+    );
+  }
+
+  async function saveTemplate(e) {
+    e.preventDefault();
+    const name = new FormData(e.target).get("name").trim();
+    if (!name) return;
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/schedule/save-template", {
+          child_id: childId,
+          the_date: dateISO,
+          name_he: name,
+        });
+        toast("נשמר כסדר יום ברירת מחדל");
+        templates = null; // invalidate the memo so the picker + list refresh
+        load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
+  }
+
+  // The caregiver's own saved templates, with delete. Bundled ones aren't here.
+  function savedTemplatesCard() {
+    const owned = (templates || []).filter((t) => t.owned);
+    if (!owned.length) return false;
+    return el(
+      "div",
+      { class: "card" },
+      el("h3", {}, "סדרי יום שמורים"),
+      el(
+        "div",
+        { class: "editor-card-list" },
+        ...owned.map((t) =>
+          el(
+            "div",
+            { class: "editor-card-row" },
+            el("span", { class: "editor-card-label" }, t.name_he),
+            el(
+              "button",
+              { class: "btn-link danger", onclick: () => deleteTemplate(t) },
+              "מחק",
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  async function deleteTemplate(t) {
+    const ok = await destructiveDialog({
+      title: "למחוק סדר יום שמור?",
+      body: `"${t.name_he}" יימחק. סדרי יום שכבר נוצרו ממנו לא יושפעו.`,
+    });
+    if (!ok) return;
+    try {
+      await api.del(`/schedule/templates/${t.id}`);
+      templates = null;
+      load();
+    } catch (err) {
+      toast(errText(err), "error");
+    }
   }
 
   async function copyDay(e) {

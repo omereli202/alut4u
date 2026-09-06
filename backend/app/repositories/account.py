@@ -40,6 +40,9 @@ def export_bundle(caregiver_id: str) -> dict[str, Any]:
         .execute()
     )
     usage = rows(db.table("usage_counters").select("*").eq("caregiver_id", caregiver_id).execute())
+    schedule_templates = rows(
+        db.table("schedule_templates").select("*").eq("caregiver_id", caregiver_id).execute()
+    )
 
     return {
         "caregiver": caregiver,
@@ -48,13 +51,15 @@ def export_bundle(caregiver_id: str) -> dict[str, Any]:
         "consent_records": consents,
         "devices": devices,
         "usage_counters": usage,
+        "schedule_templates": schedule_templates,
     }
 
 
 def delete_everything(caregiver_id: str) -> None:
     """Delete the caregivers row; FK ON DELETE CASCADE removes children,
-    module_settings, consent_records, device_sessions, media_assets and
-    usage_counters. audit_log rows survive with caregiver_id nulled."""
+    module_settings, consent_records, device_sessions, media_assets,
+    usage_counters and the caregiver's saved schedule_templates. audit_log rows
+    survive with caregiver_id nulled."""
     service_client("delete_account_cascade").table("caregivers").delete().eq(
         "id", caregiver_id
     ).execute()

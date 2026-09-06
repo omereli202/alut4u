@@ -7,7 +7,15 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v30"; // v30: AAC card = full-bleed image + category-
+const SHELL_CACHE = "shell-v33"; // v33: schedule — caregiver can save the current
+// day as a named default (template) and delete their saved ones.
+// v32: rules — PIN-gated "שמרת על הכללים" claim
+// button on the child's own rules page; once-a-day guard on the daily bonus.
+// v31: schedule — full day list is the landing
+// view, tap a row to focus one task, prev/next browse without completing;
+// caregiver editor offers a starter-routine template on an empty day. Also
+// rules — per-child daily bonus closing line + token history.
+// v30: AAC card = full-bleed image + category-
 // colour border; text-only cards are the word large; category tab = colour dot
 // + name, active one scales up.
 // v28: calming — זמזום רגוע louder (matched to

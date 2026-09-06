@@ -1228,22 +1228,123 @@ hr {
 
 /* Editors */
 .sched-item-form,
-.copy-day {
+.copy-day,
+.save-template {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
   align-items: center;
   margin-block-start: var(--space-3);
 }
-.sched-item-form input {
+.sched-item-form input,
+.save-template input {
   padding: var(--space-2);
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
 }
+.template-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+.template-picker select {
+  padding: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+}
+
+/* Focus view — browse arrows, status chip, current-task marker */
+.focus-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+}
+.focus-nav {
+  inline-size: 64px;
+  block-size: 64px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms ease;
+}
+.focus-nav:active {
+  transform: scale(0.92);
+}
+.focus-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.focus-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-block-size: 2.5rem;
+}
+.focus-chip {
+  font-size: var(--text-base);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+.focus-chip.now {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border-color: var(--color-primary);
+}
+.focus-check.done {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+  cursor: default;
+}
+.dot.viewing {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Day list — current-task row + tap-to-focus target */
+.sched-row-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.sched-row.current {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+.sched-row-now {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border-radius: var(--radius-pill);
+  padding: 0 var(--space-2);
+  flex: none;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .focus-card,
-  .focus-check {
+  .focus-check,
+  .focus-nav {
     transition: none;
   }
 }

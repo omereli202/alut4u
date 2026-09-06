@@ -1,5 +1,6 @@
-// Schedule module entry (User Mode). Focus view by default; toggles to the full
-// day list and the monthly calendar.
+// Schedule module entry (User Mode). The full day list is the landing view;
+// from a row you drop into the focus view for that one task, and the monthly
+// calendar is one tap away.
 
 import { el, icon, mount, navBar, toast } from "../../ui.js";
 import { renderCalendar } from "./calendar.js";
@@ -29,16 +30,18 @@ export async function renderSchedule({ childId, childName, onExit, onHome }) {
     host,
   );
 
-  function showFocus() {
-    renderFocus(host, { items, onList: showList, onChange: () => {} });
+  // startIndex: undefined → focus starts on the current task; a number → on
+  // that specific row the child tapped.
+  function showFocus(startIndex) {
+    renderFocus(host, { items, startIndex, onList: showList, onChange: () => {} });
   }
   function showList() {
     renderDayList(host, { items, onFocus: showFocus, onChange: () => {} });
   }
   async function showCalendar() {
-    await renderCalendar(host, { childId, onExit: showFocus });
+    await renderCalendar(host, { childId, onExit: showList });
   }
 
   mount(screen);
-  showFocus();
+  showList();
 }

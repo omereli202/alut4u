@@ -13,11 +13,14 @@ from app.api._helpers import ApiError, parse_body
 from app.auth.decorators import require_caregiver_mode, require_session
 from app.repositories import children as children_repo
 from app.repositories import schedule as repo
+from app.repositories import schedule_templates as templates_repo
 from app.schemas.schedule import (
+    ApplyTemplateRequest,
     CalendarEventCreate,
     CalendarEventUpdate,
     CopyDayRequest,
     ReorderRequest,
+    SaveTemplateRequest,
     ScheduleItemCreate,
     ScheduleItemUpdate,
     ToggleRequest,
@@ -25,6 +28,8 @@ from app.schemas.schedule import (
 from app.services.tts import cache as tts_cache
 
 bp = Blueprint("schedule", __name__, url_prefix="/api/schedule")
+
+_MAX_SAVED_TEMPLATES = 20  # per caregiver
 
 
 def _own_child_or_404(child_id: str) -> dict:
@@ -118,6 +123,53 @@ def toggle():
     if repo.get_item(g.db, data.item_id) is None:
         raise ApiError(404, "not_found")
     return jsonify(_clean(repo.set_completed(g.db, data.item_id, data.completed)))
+
+
+@bp.get("/templates")
+@require_caregiver_mode
+def list_templates():
+    return jsonify(templates=templates_repo.list_templates(g.db))
+
+
+@bp.post("/apply-template")
+@require_caregiver_mode
+def apply_template():
+    data = parse_body(ApplyTemplateRequest)
+    _own_child_or_404(data.child_id)
+    if templates_repo.get(g.db, data.template_id) is None:
+        raise ApiError(404, "template_not_found")
+    items = templates_repo.apply_to_child(
+        g.db, data.child_id, data.template_id, data.the_date.isoformat()
+    )
+    return jsonify(created=len(items), items=[_clean(i) for i in items]), 201
+
+
+@bp.post("/save-template")
+@require_caregiver_mode
+def save_template():
+    """Snapshot a child's day into a new caregiver-owned template."""
+    data = parse_body(SaveTemplateRequest)
+    _own_child_or_404(data.child_id)
+    if not repo.list_day(g.db, data.child_id, data.the_date.isoformat()):
+        raise ApiError(422, "empty_day")
+    if templates_repo.count_owned(g.db, g.caregiver_id) >= _MAX_SAVED_TEMPLATES:
+        raise ApiError(409, "template_limit")
+    row = templates_repo.create_from_day(
+        g.db, g.caregiver_id, data.name_he, data.child_id, data.the_date.isoformat()
+    )
+    return jsonify(id=row["id"], name_he=row["name_he"]), 201
+
+
+@bp.delete("/templates/<template_id>")
+@require_caregiver_mode
+def delete_template(template_id: str):
+    tpl = templates_repo.get(g.db, template_id)
+    if tpl is None:
+        raise ApiError(404, "not_found")
+    if tpl.get("caregiver_id") is None:
+        raise ApiError(403, "cannot_delete_bundled")
+    templates_repo.delete_template(g.db, template_id)
+    return "", 204
 
 
 @bp.post("/copy-day")

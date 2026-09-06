@@ -47,6 +47,18 @@ class CopyDayRequest(BaseModel):
     to_date: date
 
 
+class ApplyTemplateRequest(BaseModel):
+    child_id: str
+    template_id: str
+    the_date: date
+
+
+class SaveTemplateRequest(BaseModel):
+    child_id: str
+    the_date: date
+    name_he: str = Field(min_length=1, max_length=60)
+
+
 class CalendarEventCreate(_Visual):
     child_id: str
     event_date: date

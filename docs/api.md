@@ -91,6 +91,10 @@ a request refunds them.
 | DELETE | `/items/<id>` | C | 204 |
 | PUT | `/items/order` | C | `{child_id, order:[id,…]}` |
 | POST | `/toggle` | S | `{item_id, completed, idempotency_key?}` — mark done/undone. **Idempotent** (the offline outbox replays it). |
+| GET | `/templates` | C | `{templates:[{id,name_he,description_he,owned}]}` — bundled routines + the caregiver's saved ones (`owned:true`). |
+| POST | `/apply-template` | C | `{child_id, template_id, the_date}` → `{created:N, items:[…]}`. Appends after any tasks already on that date. |
+| POST | `/save-template` | C | `{child_id, the_date, name_he}` → `{id, name_he}` (201). Snapshots that day as a private template; 422 `empty_day`, 409 `template_limit` (20). |
+| DELETE | `/templates/<id>` | C | 204. Own saved templates only; 403 `cannot_delete_bundled`. |
 | POST | `/copy-day` | C | `{child_id, from_date, to_date}` → `{copied:N}` (completion reset). |
 | GET | `/calendar?child_id=&from=&to=` | S | `{events:[…]}` in the date range. |
 | POST | `/events` | C | `{child_id, event_date, title, note?, symbol_id?\|icon_asset_id?}` |

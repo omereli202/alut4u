@@ -37,6 +37,16 @@ Enums: `consent_basis`, `media_kind`.
 
 ## Later phases (designed, not built)
 
+`schedule_templates` (migration 0017; `caregiver_id` added in 0019) — starter
+daily routines (`name_he`, `description_he`, `sort_order`, `spec jsonb` of
+`{tasks:[{title, start_time?, symbol_id?}]}`), applied to a date via `POST
+/api/schedule/apply-template`. RLS is **"global OR mine"**: `caregiver_id` NULL =
+bundled (readable by all, seeded in migrations), a set `caregiver_id` = a
+template the caregiver saved from one of their days (`POST
+/api/schedule/save-template`), private to them and included in their account
+export. A new shape for this repo — elsewhere shared rows are served via the
+service role.
+
 `schedule_items`, `calendar_events`, `behavior_rules`, `token_transactions`
 (source of truth) + `token_balances` (materialized), `rewards`,
 `reward_redemptions` (`status` for the approval queue), `social_stories`,
