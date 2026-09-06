@@ -1811,6 +1811,26 @@ hr {
 }
 .writing-hint { font-size: var(--text-xl); margin-block: var(--space-3); }
 
+/* Level-based tab: 3-level selector, then a progress row, then the task list. */
+.learning-tab { display: flex; flex-direction: column; gap: var(--space-3); }
+.learn-progress {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface); border-radius: var(--radius-lg);
+  font-weight: 600;
+}
+.learn-claim {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--space-1); inline-size: auto; min-block-size: var(--touch-min);
+  margin: 0; padding: var(--space-2) var(--space-4);
+}
+.learn-claim .icon { color: currentColor; }
+.learning-editor { display: flex; flex-direction: column; gap: var(--space-3); }
+.learning-editor textarea {
+  font: inherit; padding: var(--space-2); resize: vertical;
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);
+}
+
 /* pin.inline (T3.11) — docs/design/stitch-export-2/pin/. */
 .pin-gate {
   display: flex;

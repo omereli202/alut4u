@@ -8,6 +8,7 @@ import { renderAacEditor } from "../modules/aac/editor.js";
 import { renderScheduleEditor } from "../modules/schedule/editor.js";
 import { renderRulesEditor } from "../modules/rules/editor.js";
 import { renderStoriesEditor } from "../modules/stories/editor.js";
+import { renderLearningEditor } from "../modules/learning/editor.js";
 
 const MODULES = [
   ["aac_enabled", "בוא נדבר (AAC)"],
@@ -15,7 +16,7 @@ const MODULES = [
   ["rules_enabled", "הכללים שלי"],
   ["calming_enabled", "פינת רוגע"],
   ["social_stories_enabled", "סיפורים חברתיים"],
-  ["reading_writing_enabled", "תרגול קריאה וכתיבה"],
+  ["reading_writing_enabled", "קריאה והקלדה"],
 ];
 
 export async function renderDashboard({ onExit, onLogout }) {
@@ -147,6 +148,16 @@ export async function renderDashboard({ onExit, onLogout }) {
                 renderStoriesEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
             "ערוך סיפורים חברתיים",
+          ),
+        modules.reading_writing_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderLearningEditor({ childId: child.id, childName: child.name, onExit: load }),
+            },
+            "ערוך קריאה והקלדה",
           ),
         el(
           "button",

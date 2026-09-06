@@ -7,7 +7,10 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v35"; // v35: AAC categories nest (אוכל ‹ ארוחת בוקר ‹
+const SHELL_CACHE = "shell-v36"; // v36: "קריאה והקלדה" — level selector per tab,
+// ~10 bundled tasks/level, completed tasks don't repeat, tokens released every
+// 3 tasks by caregiver PIN, and a caregiver task editor.
+// v35: AAC categories nest (אוכל ‹ ארוחת בוקר ‹
 // ביצת עין) and carry a picture — the child's board is a drill-down grid with a
 // breadcrumb (separator chevron points into the trail), no tab strip; the
 // caregiver editor gets a category tree + a category form (picture + parent +
@@ -101,6 +104,8 @@ const SHELL = [
   "/js/modules/learning/index.js",
   "/js/modules/learning/reading.js",
   "/js/modules/learning/writing.js",
+  "/js/modules/learning/editor.js",
+  "/js/modules/learning/pin-gate.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
   // Self-hosted Rubik — offline AAC/schedule must still render Hebrew (+ the

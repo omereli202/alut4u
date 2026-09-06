@@ -1,38 +1,91 @@
-// Reading practice: pick a graded text, read it (with a modelled read-aloud),
-// then a caregiver marks pass/fail — which awards tokens. No speech recognition.
+// Reading practice by level. The child reads a graded text (with a modelled
+// read-aloud) and self-marks it read — completed texts don't come back. Every 3
+// completed texts in a level is a milestone; the caregiver releases the tokens
+// with their PIN.
 
 import { api, ApiError } from "../../api.js";
-import { celebration, el, errText, icon, toast } from "../../ui.js";
+import { el, emptyState, errText, icon, toast } from "../../ui.js";
+import { pinGate } from "./pin-gate.js";
+
+const EMPTY = { tasks: [], progress: { completed: 0, toward_next: 0, unclaimed: 0 } };
 
 export function renderReading(host, { childId, onBalance }) {
-  let texts = [];
+  let level = 1;
+  let data = EMPTY;
   let audio = null;
 
   async function load() {
-    texts = (await api.get(`/learning/reading`).catch(() => ({ texts: [] }))).texts;
+    try {
+      data = await api.get(`/learning/reading?child_id=${childId}&level=${level}`);
+    } catch {
+      data = EMPTY;
+    }
     list();
+  }
+
+  function levelTabs() {
+    return el(
+      "div",
+      { class: "cat-tabs" },
+      ...[1, 2, 3].map((n) =>
+        el(
+          "button",
+          {
+            class: n === level ? "cat-tab active" : "cat-tab",
+            onclick: () => {
+              if (n === level) return;
+              level = n;
+              load();
+            },
+          },
+          `רמה ${n}`,
+        ),
+      ),
+    );
+  }
+
+  function progressRow() {
+    const p = data.progress;
+    return el(
+      "div",
+      { class: "learn-progress" },
+      el("span", {}, `הושלמו ברמה זו: ${p.completed} · לפרס הבא: ${p.toward_next}/3`),
+      p.unclaimed > 0 &&
+        el(
+          "button",
+          { class: "btn-primary learn-claim", onclick: claim },
+          icon("star", { size: 18 }),
+          ` קרא למטפל לקבלת הנקודות (+${p.unclaimed * 3})`,
+        ),
+    );
   }
 
   function list() {
     host.replaceChildren(
       el(
         "div",
-        { class: "lesson-list" },
-        ...texts.map((t) =>
-          el(
-            "button",
-            { class: "lesson-item", onclick: () => open(t) },
-            el("span", { class: "lesson-level" }, `רמה ${t.level}`),
-            el("span", {}, t.title),
-          ),
-        ),
+        { class: "learning-tab" },
+        levelTabs(),
+        progressRow(),
+        data.tasks.length
+          ? el(
+              "div",
+              { class: "lesson-list" },
+              ...data.tasks.map((t) =>
+                el(
+                  "button",
+                  { class: "lesson-item", onclick: () => open(t) },
+                  el("span", { class: "lesson-level" }, `רמה ${t.level}`),
+                  el("span", {}, t.title),
+                ),
+              ),
+            )
+          : emptyState({ iconName: "menu_book", title: "כל הכבוד! סיימת את כל המטלות ברמה הזו." }),
       ),
     );
   }
 
   function open(text) {
-    let pinDigits = "";
-
     function speak() {
       audio?.pause();
       if (text.audio_url) {
@@ -40,122 +93,64 @@ export function renderReading(host, { childId, onBalance }) {
         audio.play().catch(() => {});
       }
     }
-
-    async function verdict(v) {
+    async function done() {
       try {
-        const res = await api.post(`/learning/reading/${text.id}/verdict`, {
-          child_id: childId,
-          verdict: v,
-        });
-        onBalance?.(res.balance);
-        host.replaceChildren(
-          el(
-            "div",
-            { class: "lesson-result" },
-            v === "pass"
-              ? celebration({
-                  iconName: "celebration",
-                  title: "כל הכבוד!",
-                  body: `+${res.tokens_awarded} אסימונים`,
-                })
-              : el(
-                  "div",
-                  { class: "lesson-result-gentle" },
-                  icon("thumb_up", { size: 48 }),
-                  el("p", {}, "עוד נתרגל יחד"),
-                ),
-            el("button", { class: "btn-link", onclick: list }, "לטקסט נוסף"),
-          ),
-        );
+        await api.post(`/learning/reading/${text.id}/done`, { child_id: childId });
+        toast("כל הכבוד! 🎉");
+        load();
       } catch (e) {
-        if (e instanceof ApiError && e.status === 403) return renderPinGate();
         toast(errText(e), "error");
       }
     }
+    host.replaceChildren(
+      el(
+        "div",
+        { class: "reading-view" },
+        el(
+          "div",
+          { class: "lesson-top" },
+          el("button", { class: "btn-link", onclick: list }, icon("arrow_back", { flip: true }), " חזרה"),
+          el("strong", {}, text.title),
+        ),
+        el("p", { class: "reading-body" }, text.body),
+        el(
+          "div",
+          { class: "lesson-actions" },
+          el("button", { class: "sb-btn speak", onclick: speak }, icon("volume_up"), " שמיעה"),
+          el("button", { class: "sb-btn", onclick: done }, icon("check"), " קראתי"),
+        ),
+      ),
+    );
+  }
 
-    // pin.inline (docs/design.md §3 / docs/design/stitch-export-2's `pin/`):
-    // 4 separate digit boxes, auto-advance forward on input, back on
-    // Backspace-when-empty — distinct from the full pin.keypad in
-    // views/pinpad.js, which this screen doesn't use.
-    function renderPinGate() {
-      const err = el("p", { class: "err", role: "alert" });
-      const digits = ["", "", "", ""];
-      const boxes = [0, 1, 2, 3].map((i) =>
-        el("input", {
-          type: "password",
-          inputmode: "numeric",
-          maxlength: 1,
-          class: "pin-box",
-          "aria-label": `ספרה ${i + 1} מתוך 4`,
-          oninput: (e) => {
-            digits[i] = e.target.value.replace(/\D/g, "");
-            e.target.value = digits[i];
-            if (digits[i] && i < 3) boxes[i + 1].focus();
-          },
-          onkeydown: (e) => {
-            if (e.key === "Backspace" && !digits[i] && i > 0) boxes[i - 1].focus();
-          },
-        }),
-      );
-
-      async function submit() {
-        pinDigits = digits.join("");
-        if (pinDigits.length !== 4) return;
+  function claim() {
+    audio?.pause();
+    pinGate(host, {
+      hint: "מטפל, הזינו קוד כדי לקבל את הנקודות:",
+      onCancel: list,
+      onElevated: async () => {
+        let msg = "הנקודות ניתנו ✓";
+        let kind;
         try {
-          await api.post("/auth/pin", { pin: pinDigits });
-          view();
-        } catch {
-          err.textContent = "קוד שגוי";
-          digits.fill("");
-          boxes.forEach((b) => (b.value = ""));
-          boxes[0].focus();
+          const res = await api.post("/learning/claim", {
+            child_id: childId,
+            kind: "reading",
+            level,
+          });
+          onBalance?.(res.balance);
+        } catch (e) {
+          msg =
+            e instanceof ApiError && e.code === "nothing_to_claim"
+              ? "אין פרס לממש"
+              : errText(e);
+          kind = "error";
+        } finally {
+          await api.del("/auth/pin/elevation").catch(() => {});
         }
-      }
-
-      host.replaceChildren(
-        el(
-          "div",
-          { class: "pin-gate" },
-          el("div", { class: "pin-gate-icon" }, icon("lock")),
-          el("h2", {}, "אישור מטפל"),
-          el("p", { class: "muted" }, "מטפל, הזינו קוד כדי לאשר את הקריאה:"),
-          el("div", { class: "pin-boxes", dir: "ltr" }, ...boxes),
-          err,
-          el(
-            "div",
-            { class: "pin-gate-actions" },
-            el("button", { class: "btn-primary", onclick: submit }, "אישור"),
-            el("button", { class: "btn-link", onclick: list }, "ביטול"),
-          ),
-        ),
-      );
-      boxes[0].focus();
-    }
-
-    function view() {
-      host.replaceChildren(
-        el(
-          "div",
-          { class: "reading-view" },
-          el(
-            "div",
-            { class: "lesson-top" },
-            el("button", { class: "btn-link", onclick: list }, icon("arrow_back", { flip: true }), " חזרה"),
-            el("strong", {}, text.title),
-          ),
-          el("p", { class: "reading-body" }, text.body),
-          el(
-            "div",
-            { class: "lesson-actions" },
-            el("button", { class: "sb-btn speak", onclick: speak }, icon("volume_up"), " שמיעה"),
-            el("button", { class: "sb-btn", onclick: () => verdict("pass") }, icon("check"), " קרא/ה יפה"),
-            el("button", { class: "sb-btn", onclick: () => verdict("fail") }, icon("cancel"), " עוד תרגול"),
-          ),
-        ),
-      );
-    }
-
-    view();
+        await load();
+        toast(msg, kind);
+      },
+    });
   }
 
   load();

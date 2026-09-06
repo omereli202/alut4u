@@ -138,12 +138,23 @@ canned review → SVG illustrations).
 `GET /api/health` → `{status, env, version}`. `?deep=1` also pings Supabase
 (503 if unreachable).
 
-## Reading & writing — `/api/learning`
+## Reading & typing ("קריאה והקלדה") — `/api/learning`
+
+Level-based (1–3). Content is bundled (global) + caregiver-authored per child.
+A completed task never reappears. Tokens are **not** per task — every 3 completed
+tasks in the same `(kind, level)` is a milestone worth 3 tokens, released only
+by the caregiver's PIN (`POST /claim`, caregiver mode).
+
+`progress` shape: `{completed, toward_next: completed%3, unclaimed: completed//3 - claimed}`.
 
 | Method | Path | Guard | Notes |
 |---|---|---|---|
-| GET | `/reading[?level=]` | S | bundled graded texts, each with `audio_url` (generated read-aloud) |
-| GET | `/writing[?level=]` | S | bundled prompts (`hint` only; target hidden) |
-| POST | `/reading/<id>/verdict` | C | `{child_id, verdict:"pass"\|"fail"}` — pass awards tokens by level (2/3/4) |
-| POST | `/writing/attempt` | S | `{child_id, prompt_id, submitted}` — lenient Hebrew match; correct → +1 token. Fully self-serve. |
-| GET | `/progress?child_id=` | S | recent attempts |
+| GET | `/reading?child_id=&level=` | S | `{tasks:[…not completed, each w/ `audio_url`], progress}` |
+| GET | `/writing?child_id=&level=` | S | `{tasks:[…not completed, `hint` only], progress}` |
+| POST | `/reading/<id>/done` | S | `{child_id}` — self-mark a text read → `{progress}` |
+| POST | `/writing/attempt` | S | `{child_id, prompt_id, submitted}` — lenient Hebrew match; correct → completes the task → `{correct, target?, progress}` |
+| POST | `/claim` | C | `{child_id, kind, level}` — releases `3 × unclaimed` tokens; 409 `nothing_to_claim` |
+| GET | `/tasks?child_id=&kind=&level=` | C | editor list — every task (incl. bundled + completed), each with `owned` |
+| POST | `/reading` `/writing` | C | `{child_id, level, title/body}` / `{child_id, level, hint, target}` — caregiver-authored (reading pre-generates TTS) |
+| DELETE | `/reading/<id>` `/writing/<id>` | C | own child rows only (RLS); 204 |
+| GET | `/progress?child_id=` | S | `{levels:[{kind, level, completed, toward_next, unclaimed}]}` |

@@ -1,5 +1,6 @@
-// User Mode: "קריאה וכתיבה" — graded reading + writing practice, with a live
-// token counter (correct answers award tokens).
+// User Mode: "קריאה והקלדה" — level-based reading + typing practice. Tokens come
+// from milestones (every 3 completed tasks in a level), released by the
+// caregiver's PIN — handled inside each tab.
 
 import { api } from "../../api.js";
 import { el, icon, mount, navBar } from "../../ui.js";
@@ -11,7 +12,7 @@ export async function renderLearning({ childId, childName, onExit, onHome }) {
   try {
     balance = (await api.get(`/tokens/balance?child_id=${childId}`)).balance;
   } catch {
-    /* tokens module may be off; counter just stays hidden */
+    /* tokens module may be off; counter just stays at 0 */
   }
 
   let tab = "reading";
@@ -52,7 +53,7 @@ export async function renderLearning({ childId, childName, onExit, onHome }) {
       el(
         "button",
         { class: tab === "writing" ? "cat-tab active" : "cat-tab", onclick: () => show("writing") },
-        "כתיבה",
+        "הקלדה",
       ),
     );
   }
@@ -73,7 +74,7 @@ export async function renderLearning({ childId, childName, onExit, onHome }) {
       navBar({
         onBack: leave,
         onHome: goHome,
-        title: `תרגול קריאה וכתיבה — ${childName || ""}`,
+        title: `קריאה והקלדה — ${childName || ""}`,
         extra: badge,
       }),
       tabsHost,

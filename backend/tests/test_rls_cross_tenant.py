@@ -95,3 +95,21 @@ def test_b_cannot_touch_a_rules_settings(two_caregivers):
         b.post("/api/tokens/rules/bonus", json={"child_id": cid, "on": "2026-09-06"}).status_code
         == 404
     )
+
+
+def test_b_cannot_touch_a_learning(two_caregivers):
+    b, cid = two_caregivers["b"], two_caregivers["child_id"]
+    assert b.get(f"/api/learning/reading?child_id={cid}&level=1").status_code == 404
+    assert (
+        b.post(
+            "/api/learning/reading",
+            json={"child_id": cid, "level": 1, "title": "x", "body": "y"},
+        ).status_code
+        == 404
+    )
+    assert (
+        b.post(
+            "/api/learning/claim", json={"child_id": cid, "kind": "reading", "level": 1}
+        ).status_code
+        == 404
+    )

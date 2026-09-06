@@ -17,7 +17,7 @@ const MODULES = {
   rules_enabled: { label: "הכללים שלי", icon: "toll" },
   calming_enabled: { label: "פינת רוגע", icon: "spa" },
   social_stories_enabled: { label: "סיפורים חברתיים", icon: "auto_stories" },
-  reading_writing_enabled: { label: "תרגול קריאה וכתיבה", icon: "menu_book" },
+  reading_writing_enabled: { label: "קריאה והקלדה", icon: "menu_book" },
 };
 
 const ACTIVE_CHILD_KEY = "alut4u.activeChild";

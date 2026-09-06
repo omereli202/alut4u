@@ -53,7 +53,15 @@ rules-module config: `daily_bonus` (0–100, 0 = off), its pre-generated
 `POST /api/tokens/rules/bonus`, keyed on the caller's local date). Drives the
 child-facing closing line under the rules list; no row = the default (off).
 
+`reading_texts` / `writing_prompts` (migration 0009; `child_id`/`created_by`/
+`tts_asset_id` added in 0022) — graded "קריאה והקלדה" content: `child_id` NULL =
+bundled global, a value = caregiver-authored for that child (RLS). `learning_completions`
+(0022, PK `child_id`+`task_id`) is the "done" marker — a completed task never
+reappears. `learning_reward_claims` (0022, PK `child_id`+`kind`+`level`) counts
+how many 3-task milestones have been paid (each worth 3 tokens, released by
+caregiver PIN). `learning_attempts` still logs every try.
+
 `schedule_items`, `calendar_events`, `behavior_rules`, `token_transactions`
 (source of truth) + `token_balances` (materialized), `rewards`,
 `reward_redemptions` (`status` for the approval queue), `social_stories`,
-`reading_exercises`, `reading_attempts`, `calming_media`.
+`calming_media`.
