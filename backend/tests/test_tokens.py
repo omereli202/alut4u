@@ -47,6 +47,93 @@ def test_rules_crud_with_tts(client, caregiver_mode):
     assert client.delete(f"/api/tokens/rules/{rule['id']}").status_code == 204
 
 
+def test_daily_bonus_settings(client, caregiver_mode):
+    child_id = _child(client)
+
+    # default: no row -> off
+    s = client.get(f"/api/tokens/settings?child_id={child_id}").get_json()
+    assert s["daily_bonus"] == 0
+    assert s["bonus_tts_asset_id"] is None
+    assert s["bonus_text"] is None
+
+    # set a bonus -> fixed sentence with the number, TTS pre-generated
+    s = client.put("/api/tokens/settings", json={"child_id": child_id, "daily_bonus": 5}).get_json()
+    assert s["daily_bonus"] == 5
+    assert "5" in s["bonus_text"]
+    assert s["bonus_tts_asset_id"]
+
+    # back to 0 clears the audio and the line
+    s = client.put("/api/tokens/settings", json={"child_id": child_id, "daily_bonus": 0}).get_json()
+    assert s["daily_bonus"] == 0
+    assert s["bonus_tts_asset_id"] is None
+    assert s["bonus_text"] is None
+
+
+def test_daily_bonus_user_mode(client, caregiver_mode):
+    child_id = _child(client)
+    client.put("/api/tokens/settings", json={"child_id": child_id, "daily_bonus": 3})
+    client.delete("/api/auth/pin/elevation")
+    # child reads the line
+    assert client.get(f"/api/tokens/settings?child_id={child_id}").get_json()["daily_bonus"] == 3
+    # child cannot change it
+    assert (
+        client.put(
+            "/api/tokens/settings", json={"child_id": child_id, "daily_bonus": 9}
+        ).status_code
+        == 403
+    )
+
+
+def test_rules_bonus_grant_once_per_day(client, caregiver_mode):
+    child_id = _child(client)
+
+    # bonus not configured -> refused
+    r = client.post("/api/tokens/rules/bonus", json={"child_id": child_id, "on": "2026-09-06"})
+    assert r.status_code == 409 and r.get_json()["error"] == "bonus_disabled"
+
+    client.put("/api/tokens/settings", json={"child_id": child_id, "daily_bonus": 5})
+
+    # first grant of the day
+    r = client.post("/api/tokens/rules/bonus", json={"child_id": child_id, "on": "2026-09-06"})
+    assert r.status_code == 201
+    body = r.get_json()
+    assert body["balance"] == 5 and body["bonus_granted_today"] is True
+
+    bal = client.get(f"/api/tokens/balance?child_id={child_id}").get_json()
+    assert bal["transactions"][0]["kind"] == "rules_bonus"
+    assert bal["transactions"][0]["reason"] == "שמירה על הכללים"
+
+    # settings now reports it granted for that date, but not for another
+    s = client.get(f"/api/tokens/settings?child_id={child_id}&on=2026-09-06").get_json()
+    assert s["bonus_granted_today"] is True
+    s = client.get(f"/api/tokens/settings?child_id={child_id}&on=2026-09-07").get_json()
+    assert s["bonus_granted_today"] is False
+    # no ?on= -> can't tell
+    no_on = client.get(f"/api/tokens/settings?child_id={child_id}").get_json()
+    assert no_on["bonus_granted_today"] is None
+
+    # second grant same day -> refused, balance unchanged
+    r = client.post("/api/tokens/rules/bonus", json={"child_id": child_id, "on": "2026-09-06"})
+    assert r.status_code == 409 and r.get_json()["error"] == "bonus_already_granted"
+    assert client.get(f"/api/tokens/balance?child_id={child_id}").get_json()["balance"] == 5
+
+    # a new day -> allowed again
+    r = client.post("/api/tokens/rules/bonus", json={"child_id": child_id, "on": "2026-09-07"})
+    assert r.status_code == 201 and r.get_json()["balance"] == 10
+
+
+def test_rules_bonus_requires_caregiver_mode(client, caregiver_mode):
+    child_id = _child(client)
+    client.put("/api/tokens/settings", json={"child_id": child_id, "daily_bonus": 5})
+    client.delete("/api/auth/pin/elevation")
+    assert (
+        client.post(
+            "/api/tokens/rules/bonus", json={"child_id": child_id, "on": "2026-09-06"}
+        ).status_code
+        == 403
+    )
+
+
 def test_award_updates_balance_and_ledger(client, caregiver_mode):
     child_id = _child(client)
     assert _award(client, child_id, 5).status_code == 201

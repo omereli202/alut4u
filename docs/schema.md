@@ -47,6 +47,12 @@ template the caregiver saved from one of their days (`POST
 export. A new shape for this repo — elsewhere shared rows are served via the
 service role.
 
+`rules_settings` (migration 0016, `last_bonus_date` added in 0018) — per-child
+rules-module config: `daily_bonus` (0–100, 0 = off), its pre-generated
+`bonus_tts_asset_id`, and `last_bonus_date` (the once-a-day guard for
+`POST /api/tokens/rules/bonus`, keyed on the caller's local date). Drives the
+child-facing closing line under the rules list; no row = the default (off).
+
 `schedule_items`, `calendar_events`, `behavior_rules`, `token_transactions`
 (source of truth) + `token_balances` (materialized), `rewards`,
 `reward_redemptions` (`status` for the approval queue), `social_stories`,

@@ -8,6 +8,7 @@ from typing import Any
 from app.repositories._base import one_or_none, rows
 
 _RULES = "behavior_rules"
+_RULES_SETTINGS = "rules_settings"
 _TX = "token_transactions"
 _BAL = "token_balances"
 _REWARDS = "rewards"
@@ -55,6 +56,39 @@ def delete_rule(db: Any, rule_id: str) -> None:
 def set_rule_orders(db: Any, id_to_order: dict[str, int]) -> None:
     for rid, order in id_to_order.items():
         db.table(_RULES).update({"sort_order": order}).eq("id", rid).execute()
+
+
+# --- rules settings (daily bonus) ------------------------------------
+
+
+def get_settings(db: Any, child_id: str) -> dict:
+    """The child's rules settings, or the default when no row exists yet."""
+    row = one_or_none(
+        db.table(_RULES_SETTINGS)
+        .select("child_id, daily_bonus, bonus_tts_asset_id, last_bonus_date")
+        .eq("child_id", child_id)
+        .execute()
+    )
+    return row or {
+        "child_id": child_id,
+        "daily_bonus": 0,
+        "bonus_tts_asset_id": None,
+        "last_bonus_date": None,
+    }
+
+
+def upsert_settings(db: Any, child_id: str, values: dict) -> dict:
+    return one_or_none(
+        db.table(_RULES_SETTINGS)
+        .upsert(
+            {
+                "child_id": child_id,
+                "updated_at": datetime.now(UTC).isoformat(),
+                **values,
+            }
+        )
+        .execute()
+    )
 
 
 # --- tokens ------------------------------------------------------------

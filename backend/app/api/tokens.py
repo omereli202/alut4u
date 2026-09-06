@@ -21,11 +21,19 @@ from app.schemas.tokens import (
     RewardCreate,
     RewardUpdate,
     RuleCreate,
+    RulesBonusGrant,
+    RulesSettingsUpdate,
     RuleUpdate,
 )
 from app.services.tts import cache as tts_cache
 
 bp = Blueprint("tokens", __name__, url_prefix="/api/tokens")
+
+# The child-facing closing line under the rules list. Fixed wording — only the
+# number is configurable — so the text shown and the text spoken can't drift
+# apart. Kept here (not in the frontend) for exactly that reason.
+BONUS_SENTENCE = "אם שמרת על הכללים, בסוף היום תקבל {n} אסימונים."
+BONUS_REASON = "שמירה על הכללים"  # ledger line for a granted daily bonus
 
 
 def _own_child_or_404(child_id: str) -> dict:
@@ -120,6 +128,87 @@ def reorder_rules():
     _own_child_or_404(data.child_id)
     repo.set_rule_orders(g.db, {r: i for i, r in enumerate(data.order)})
     return "", 204
+
+
+# --- rules settings (daily bonus) ----------------------------------
+
+
+def _settings_out(row: dict, *, on: str | None = None) -> dict:
+    n = row["daily_bonus"]
+    return {
+        "child_id": row["child_id"],
+        "daily_bonus": n,
+        "bonus_tts_asset_id": row.get("bonus_tts_asset_id"),
+        "bonus_text": BONUS_SENTENCE.format(n=n) if n > 0 else None,
+        # None when the caller didn't pass ?on= (it can't tell "today" without it).
+        "bonus_granted_today": (row.get("last_bonus_date") == on) if on else None,
+    }
+
+
+@bp.get("/settings")
+@require_session
+def get_settings():
+    child_id = _arg("child_id")
+    _own_child_or_404(child_id)
+    return jsonify(_settings_out(repo.get_settings(g.db, child_id), on=request.args.get("on")))
+
+
+@bp.post("/rules/bonus")
+@require_caregiver_mode
+def grant_rules_bonus():
+    """Grant the configured daily bonus once per (child, local date). Same
+    endpoint for the caregiver editor and the PIN-gated button on the child's
+    own rules page."""
+    data = parse_body(RulesBonusGrant)
+    _own_child_or_404(data.child_id)
+    on = data.on.isoformat()
+    settings = repo.get_settings(g.db, data.child_id)
+    if settings["daily_bonus"] <= 0:
+        raise ApiError(409, "bonus_disabled")
+    if settings.get("last_bonus_date") == on:
+        raise ApiError(409, "bonus_already_granted")
+    tx = repo.add_transaction(
+        g.db,
+        data.child_id,
+        delta=settings["daily_bonus"],
+        kind="rules_bonus",
+        reason=BONUS_REASON,
+        created_by=g.caregiver_id,
+    )
+    repo.upsert_settings(g.db, data.child_id, {"last_bonus_date": on})
+    audit_repo.log(
+        caregiver_id=g.caregiver_id,
+        action="token.rules_bonus",
+        target_type="child",
+        target_id=data.child_id,
+        detail={"amount": settings["daily_bonus"], "on": on},
+    )
+    return (
+        jsonify(
+            transaction=_clean(tx),
+            balance=repo.balance(g.db, data.child_id),
+            bonus_granted_today=True,
+        ),
+        201,
+    )
+
+
+@bp.put("/settings")
+@require_caregiver_mode
+def update_settings():
+    data = parse_body(RulesSettingsUpdate)
+    _own_child_or_404(data.child_id)
+    tts_asset_id = (
+        tts_cache.ensure_tts_asset(BONUS_SENTENCE.format(n=data.daily_bonus))
+        if data.daily_bonus > 0
+        else None
+    )
+    row = repo.upsert_settings(
+        g.db,
+        data.child_id,
+        {"daily_bonus": data.daily_bonus, "bonus_tts_asset_id": tts_asset_id},
+    )
+    return jsonify(_settings_out(row))
 
 
 # --- tokens ---------------------------------------------------------

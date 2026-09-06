@@ -1,9 +1,11 @@
 // Caregiver Mode: manage behavior rules, award tokens, manage the reward store,
 // and resolve pending redemption requests.
 
-import { api } from "../../api.js";
+import { api, ApiError } from "../../api.js";
+import { confirmDialog } from "../../dialog.js";
 import { el, errText, mount, symbolUrl, toast, withBusy } from "../../ui.js";
 import { createSymbolPicker } from "../aac/symbol-picker.js";
+import { todayISO } from "./data.js";
 
 const QUICK_AWARDS = [1, 2, 5];
 
@@ -12,13 +14,14 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
 
   async function load() {
     const id = encodeURIComponent(childId);
-    const [rules, bal, rewards, queue] = await Promise.all([
+    const [rules, bal, rewards, queue, settings] = await Promise.all([
       api.get(`/tokens/rules?child_id=${id}`).then((r) => r.rules),
       api.get(`/tokens/balance?child_id=${id}`),
       api.get(`/tokens/rewards?child_id=${id}&all=1`).then((r) => r.rewards),
       api.get("/tokens/queue").then((r) => r.pending).catch(() => []),
+      api.get(`/tokens/settings?child_id=${id}&on=${todayISO()}`),
     ]);
-    state = { rules, balance: bal.balance, transactions: bal.transactions, rewards, queue };
+    state = { rules, balance: bal.balance, transactions: bal.transactions, rewards, queue, settings };
     render();
   }
 
@@ -50,21 +53,31 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
             el("input", { name: "reason", type: "text", placeholder: "סיבה (רשות)", maxlength: 120 }),
             el("button", { type: "submit", class: "btn-link" }, "הענקה"),
           ),
+
+          // Daily bonus — the number the child sees at the bottom of the rules
+          // list. Granting it is a normal award behind a confirm dialog.
+          bonusBlock(),
+
           state.transactions.length
             ? el(
-                "ul",
-                { class: "tx-list" },
-                ...state.transactions
-                  .slice(0, 8)
-                  .map((t) =>
-                    el(
-                      "li",
-                      {},
-                      el("span", { class: t.delta >= 0 ? "tx-pos" : "tx-neg" }, `${t.delta >= 0 ? "+" : ""}${t.delta}`),
-                      " ",
-                      t.reason || t.kind,
+                "details",
+                { class: "tx-history" },
+                el("summary", {}, `היסטוריית אסימונים (${state.transactions.length})`),
+                el(
+                  "ul",
+                  { class: "tx-list" },
+                  ...state.transactions
+                    .slice(0, 30)
+                    .map((t) =>
+                      el(
+                        "li",
+                        {},
+                        el("span", { class: t.delta >= 0 ? "tx-pos" : "tx-neg" }, `${t.delta >= 0 ? "+" : ""}${t.delta}`),
+                        " ",
+                        t.reason || t.kind,
+                      ),
                     ),
-                  ),
+                ),
               )
             : null,
         ),
@@ -157,6 +170,69 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
     } catch (err) {
       toast(errText(err), "error");
     }
+  }
+
+  // --- daily bonus ------------------------------------------------
+
+  function bonusBlock() {
+    const n = state.settings.daily_bonus;
+    return el(
+      "div",
+      { class: "bonus-block" },
+      el(
+        "form",
+        { class: "award-form", onsubmit: saveBonus },
+        el("label", {}, "בונוס יומי על שמירה על הכללים:"),
+        el("input", { name: "daily_bonus", type: "number", min: 0, max: 100, value: String(n) }),
+        el("button", { type: "submit", class: "btn-link" }, "שמירה"),
+      ),
+      n > 0
+        ? state.settings.bonus_granted_today
+          ? el("p", { class: "muted" }, "הבונוס ניתן היום ✓")
+          : el(
+              "button",
+              { type: "button", class: "btn-primary", onclick: (e) => grantBonus(n, e.target) },
+              `⭐ הענקת בונוס יומי (+${n})`,
+            )
+        : el("p", { class: "muted" }, "0 — השורה לא מוצגת לילד."),
+    );
+  }
+
+  async function saveBonus(e) {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const daily_bonus = Number(f.get("daily_bonus"));
+    const btn = e.target.querySelector('button[type="submit"]');
+    await withBusy(btn, async () => {
+      try {
+        await api.put("/tokens/settings", { child_id: childId, daily_bonus });
+        load();
+      } catch (err) {
+        toast(errText(err), "error");
+      }
+    });
+  }
+
+  async function grantBonus(n, btn) {
+    const ok = await confirmDialog({
+      title: "בונוס יומי",
+      body: `להעניק ל${childName} ${n} אסימונים על שמירה על הכללים?`,
+      confirmLabel: "הענקה",
+    });
+    if (!ok) return;
+    await withBusy(btn, async () => {
+      try {
+        await api.post("/tokens/rules/bonus", { child_id: childId, on: todayISO() });
+        load();
+      } catch (err) {
+        if (err instanceof ApiError && err.code === "bonus_already_granted") {
+          toast("הבונוס כבר ניתן היום");
+          load();
+        } else {
+          toast(errText(err), "error");
+        }
+      }
+    });
   }
 
   // --- rules -------------------------------------------------------

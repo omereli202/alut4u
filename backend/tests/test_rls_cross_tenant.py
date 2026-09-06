@@ -83,3 +83,15 @@ def test_rls_hides_the_row_from_a_direct_client(two_caregivers):
 def test_a_still_owns_its_child(two_caregivers):
     a, cid = two_caregivers["a"], two_caregivers["child_id"]
     assert a.get(f"/api/children/{cid}").status_code == 200
+
+
+def test_b_cannot_touch_a_rules_settings(two_caregivers):
+    b, cid = two_caregivers["b"], two_caregivers["child_id"]
+    assert b.get(f"/api/tokens/settings?child_id={cid}").status_code == 404
+    assert (
+        b.put("/api/tokens/settings", json={"child_id": cid, "daily_bonus": 5}).status_code == 404
+    )
+    assert (
+        b.post("/api/tokens/rules/bonus", json={"child_id": cid, "on": "2026-09-06"}).status_code
+        == 404
+    )

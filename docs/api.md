@@ -72,6 +72,9 @@ a request refunds them.
 |---|---|---|---|
 | GET | `/rules?child_id=` | S | behavior rule cards |
 | POST/PATCH/DELETE | `/rules[/<id>]` | C | pre-generates TTS from `body` (or `title`); `PUT /rules/order` |
+| GET | `/settings?child_id=[&on=YYYY-MM-DD]` | S | `{daily_bonus, bonus_tts_asset_id, bonus_text, bonus_granted_today}` — the child-facing closing line; `daily_bonus` 0 = off; `bonus_granted_today` is null unless `on` (the caller's local date) is given |
+| PUT | `/settings` | C | `{child_id, daily_bonus}` (0–100) — pre-generates TTS for the fixed sentence when > 0 |
+| POST | `/rules/bonus` | C | `{child_id, on}` (caller's local date) — grants `daily_bonus` once per (child, day); `kind=rules_bonus`. 409 `bonus_disabled` (bonus is 0) / `bonus_already_granted`. Used by the caregiver editor **and** the PIN-gated button on the child's rules page |
 | GET | `/balance?child_id=` | S | `{balance, transactions:[…]}` |
 | POST | `/award` | C | `{child_id, amount, reason?}` — negative amount removes tokens |
 | GET | `/rewards?child_id=[&all=1]` | S | active only in User Mode; `&all=1` in Caregiver Mode includes inactive |

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import date
+
 from pydantic import BaseModel, Field, model_validator
 
 
@@ -26,6 +28,16 @@ class RuleUpdate(_Visual):
     body: str | None = Field(default=None, max_length=300)
     audio_asset_id: str | None = None
     sort_order: int | None = None
+
+
+class RulesSettingsUpdate(BaseModel):
+    child_id: str
+    daily_bonus: int = Field(ge=0, le=100)  # 0 = off (line hidden, not spoken)
+
+
+class RulesBonusGrant(BaseModel):
+    child_id: str
+    on: date  # the caller's local date — the once-a-day key
 
 
 class AwardRequest(BaseModel):
