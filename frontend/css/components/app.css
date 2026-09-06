@@ -667,10 +667,12 @@ hr {
   text-align: center;
 }
 
-/* Sentence bar */
+/* Sentence bar — one horizontal row (docs/design.md §T1.1). The chips scroll
+   sideways rather than wrapping to more lines, so the bar's height is fixed and
+   the board below never gets pushed off-screen as words pile up. */
 .sentence-bar {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2);
@@ -681,16 +683,23 @@ hr {
 }
 .sentence-chips {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-2);
   flex: 1;
+  min-inline-size: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
 }
 .sentence-chip {
+  flex: none;
+  white-space: nowrap;
   background: var(--color-bg);
   font-weight: 600;
 }
 .sentence-actions {
   display: flex;
+  flex: none;
   gap: var(--space-2);
 }
 .sb-btn {

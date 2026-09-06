@@ -77,6 +77,11 @@ export function createSentenceBar() {
     add(card) {
       cards.push(card);
       render();
+      // The chips row scrolls (it never wraps); bring the newest one into view.
+      host.querySelector(".sentence-chips")?.lastElementChild?.scrollIntoView({
+        inline: "end",
+        block: "nearest",
+      });
       speak(card);
     },
   };
