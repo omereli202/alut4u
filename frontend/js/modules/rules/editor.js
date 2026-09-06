@@ -34,7 +34,7 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `הכללים שלי — ${childName}`),
+          el("h1", {}, `עריכת כללים — ${childName}`),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
 

@@ -400,8 +400,8 @@ Main content, a single column of cards:
    child's name as a heading, then a vertical list of six labelled toggle
    switches: "בוא נדבר (AAC)", "סדר יום", "הכללים שלי", "פינת רוגע",
    "סיפורים חברתיים", "תרגול קריאה וכתיבה". Below the toggles, a row of quiet action
-   buttons that appear only for enabled modules: "ערוך לוח תקשורת",
-   "ערוך לוח זמנים", "כללים ואסימונים", "סיפורים חברתיים", and a red text button
+   buttons that appear only for enabled modules: "ערוך בוא נדבר",
+   "ערוך סדר יום", "ערוך כללים", "ערוך סיפורים חברתיים", and a red text button
    "הסתרת פרופיל".
 
 2. A card titled "הוספת חבר/ה" — a small form: a text field "שם", a select
@@ -571,13 +571,13 @@ colour; a cell with an event shows a small label under the date. Cells at least
 
 #### T2.4 — Schedule editor
 
-- **Mode:** Caregiver · **File:** `frontend/js/modules/schedule/editor.js` · **Reached:** "ערוך לוח זמנים" on a child card.
+- **Mode:** Caregiver · **File:** `frontend/js/modules/schedule/editor.js` · **Reached:** "ערוך סדר יום" on a child card.
 
 ```
 An editor for a parent to build a child's daily schedule, Hebrew RTL, adult
 density.
 
-Header "סדר יום — נועה" with a "חזרה" button.
+Header "עריכת סדר יום — נועה" with a "חזרה" button.
 
 A date field "תאריך" at the top.
 
@@ -593,7 +593,7 @@ title, a date, an optional note "הערה (רשות)", and an "הוסף אירו
 
 | Hebrew | Meaning |
 |---|---|
-| `סדר יום — {שם}` | Schedule — {name} |
+| `עריכת סדר יום — {שם}` | Edit schedule — {name} |
 | `תאריך` | Date |
 | `משימות היום` | Today's tasks |
 | `מחק` | Delete |
@@ -666,11 +666,11 @@ not loud.
 
 #### T2.7 — Rules & tokens editor
 
-- **Mode:** Caregiver · **File:** `frontend/js/modules/rules/editor.js` · **Reached:** "כללים ואסימונים" on a child card.
+- **Mode:** Caregiver · **File:** `frontend/js/modules/rules/editor.js` · **Reached:** "ערוך כללים" on a child card.
 
 ```
 A parent's editor for a child's token economy, Hebrew RTL, adult density.
-Header "הכללים שלי — נועה". Four stacked cards:
+Header "עריכת כללים — נועה". Four stacked cards:
 
 1. "אסימונים: 12 ⭐" — quick-award buttons "+1" "+2" "+5", a "כמות" number field,
    a "סיבה (רשות)" text field, an "הענקה" button. Below, a short list of recent
@@ -831,7 +831,7 @@ and on each page turn. Calm, spacious, storybook feel without being babyish.
 
 ```
 A parent's screen for creating a social story with an AI assistant, Hebrew RTL,
-adult density. Header "סיפורים חברתיים — נועה".
+adult density. Header "עריכת סיפורים חברתיים — נועה".
 
 Card "יצירת סיפור חדש": a chat log — the assistant's questions as bubbles on the
 right, the parent's answers as bubbles on the left. A "typing" bubble ("…")
@@ -844,7 +844,7 @@ Card "סיפורים קיימים": a list of already-made stories, each with a 
 
 | Hebrew | Meaning |
 |---|---|
-| `סיפורים חברתיים — {שם}` | Social stories — {name} |
+| `עריכת סיפורים חברתיים — {שם}` | Edit social stories — {name} |
 | `יצירת סיפור חדש` | Create a new story |
 | `התשובה שלך…` | Your answer… |
 | `שליחה` | Send |
@@ -1010,11 +1010,11 @@ Inside the communication-board frame: a centered gentle message "לא ניתן �
 
 #### T3.6 — AAC editor (category & card management)
 
-- **Mode:** Caregiver · **File:** `frontend/js/modules/aac/editor.js` · **Reached:** "ערוך לוח תקשורת" on a child card.
+- **Mode:** Caregiver · **File:** `frontend/js/modules/aac/editor.js` · **Reached:** "ערוך בוא נדבר" on a child card.
 
 ```
 A parent's editor for a child's communication board, Hebrew RTL, adult density.
-Header "בוא נדבר — נועה" with a "חזרה" button.
+Header "עריכת בוא נדבר — נועה" with a "חזרה" button.
 
 One card per category. Each category card: an inline-editable name field on the
 right, a red "מחק קטגוריה" button on the left, then a list of the cards in that
@@ -1028,7 +1028,7 @@ Footer: a small form to add a new category — a "שם קטגוריה חדשה" 
 
 | Hebrew | Meaning |
 |---|---|
-| `בוא נדבר — {שם}` | Communication board — {name} |
+| `עריכת בוא נדבר — {שם}` | Edit communication board — {name} |
 | `מחק קטגוריה` | Delete category |
 | `הזז ימינה` / `הזז שמאלה` | Move right / Move left |
 | `ערוך` / `מחק` | Edit / Delete |

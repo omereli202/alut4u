@@ -36,7 +36,7 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `סדר יום — ${childName}`),
+          el("h1", {}, `עריכת סדר יום — ${childName}`),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
         el(

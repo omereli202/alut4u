@@ -116,7 +116,7 @@ export async function renderDashboard({ onExit, onLogout }) {
               onclick: () =>
                 renderAacEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
-            "ערוך לוח תקשורת",
+            "ערוך בוא נדבר",
           ),
         modules.schedule_enabled &&
           el(
@@ -126,7 +126,7 @@ export async function renderDashboard({ onExit, onLogout }) {
               onclick: () =>
                 renderScheduleEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
-            "ערוך לוח זמנים",
+            "ערוך סדר יום",
           ),
         modules.rules_enabled &&
           el(
@@ -136,7 +136,7 @@ export async function renderDashboard({ onExit, onLogout }) {
               onclick: () =>
                 renderRulesEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
-            "כללים ואסימונים",
+            "ערוך כללים",
           ),
         modules.social_stories_enabled &&
           el(
@@ -146,7 +146,7 @@ export async function renderDashboard({ onExit, onLogout }) {
               onclick: () =>
                 renderStoriesEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
-            "סיפורים חברתיים",
+            "ערוך סיפורים חברתיים",
           ),
         el(
           "button",

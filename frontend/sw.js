@@ -7,7 +7,9 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v33"; // v33: schedule — caregiver can save the current
+const SHELL_CACHE = "shell-v34"; // v34: caregiver dashboard — the per-child edit
+// buttons and each editor's header now read "ערוך <module>" / "עריכת <module> — <name>".
+// v33: schedule — caregiver can save the current
 // day as a named default (template) and delete their saved ones.
 // v32: rules — PIN-gated "שמרת על הכללים" claim
 // button on the child's own rules page; once-a-day guard on the daily bonus.

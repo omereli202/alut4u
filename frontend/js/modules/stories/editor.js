@@ -265,7 +265,7 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `סיפורים חברתיים — ${childName}`),
+          el("h1", {}, `עריכת סיפורים חברתיים — ${childName}`),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
 

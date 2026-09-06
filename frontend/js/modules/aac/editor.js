@@ -38,7 +38,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         el(
           "header",
           { class: "dash-head" },
-          el("h1", {}, `בוא נדבר — ${childName}`),
+          el("h1", {}, `עריכת בוא נדבר — ${childName}`),
           el("button", { class: "btn-link", onclick: openPreview }, "תצוגה מקדימה"),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
