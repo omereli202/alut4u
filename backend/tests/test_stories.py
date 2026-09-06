@@ -141,13 +141,16 @@ def test_illustrate_is_idempotent(client, caregiver_mode, app):
         json={"child_id": child_id, "messages": _interview(client, child_id)},
     ).get_json()
 
-    first = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 0})
-    assert first.status_code == 200
-    before = usage_repo.get_system(cg)["image_count"]
+    # get_system() reads via the service role, so it needs current_settings() to
+    # resolve — i.e. an app context (that's what the `app` fixture is for).
+    with app.app_context():
+        first = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 0})
+        assert first.status_code == 200
+        before = usage_repo.get_system(cg)["image_count"]
 
-    again = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 0})
-    assert again.status_code == 409
-    assert usage_repo.get_system(cg)["image_count"] == before
+        again = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 0})
+        assert again.status_code == 409
+        assert usage_repo.get_system(cg)["image_count"] == before
 
 
 def test_illustrate_without_index_picks_next_pending(client, caregiver_mode):
