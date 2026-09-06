@@ -10,6 +10,8 @@ TTS audio is (re)generated on save so tap-to-speak works offline.
 
 from __future__ import annotations
 
+from collections import defaultdict
+
 from flask import Blueprint, g, jsonify
 
 from app.api._helpers import ApiError, parse_body
@@ -57,14 +59,67 @@ def board():
 # --- categories ----------------------------------------------------------
 
 
+# Categories nest (אוכל ‹ ארוחת בוקר ‹ ביצת עין), capped so the child's
+# drill-down never gets deeper than this. Root categories are level 1.
+_MAX_CATEGORY_DEPTH = 4
+
+
+def _cat_depth(by_id: dict[str, dict], cat_id: str | None) -> int:
+    """1 for a root category, +1 per ancestor. `by_id` is the child's full flat
+    category list keyed by id."""
+    depth = 0
+    seen: set[str] = set()
+    while cat_id and cat_id in by_id and cat_id not in seen:
+        seen.add(cat_id)
+        depth += 1
+        cat_id = by_id[cat_id].get("parent_id")
+    return max(depth, 1)
+
+
+def _subtree_height(children_of: dict[str, list[str]], cat_id: str) -> int:
+    """Levels from `cat_id` down to its deepest descendant, inclusive (1 = leaf)."""
+    kids = children_of.get(cat_id, ())
+    if not kids:
+        return 1
+    return 1 + max(_subtree_height(children_of, k) for k in kids)
+
+
+def _is_ancestor(by_id: dict[str, dict], ancestor_id: str, node_id: str | None) -> bool:
+    seen: set[str] = set()
+    while node_id and node_id not in seen:
+        if node_id == ancestor_id:
+            return True
+        seen.add(node_id)
+        node_id = by_id.get(node_id, {}).get("parent_id")
+    return False
+
+
 @bp.post("/categories")
 @require_caregiver_mode
 def create_category():
     data = parse_body(CategoryCreate)
     _own_child_or_404(data.child_id)
+    _validate_symbol(data.symbol_id)
+
     existing = repo.list_categories(g.db, data.child_id)
+    parent_id = data.parent_id or None
+    if parent_id is not None:
+        by_id = {c["id"]: c for c in existing}
+        if parent_id not in by_id:
+            raise ApiError(422, "bad_parent")
+        if _cat_depth(by_id, parent_id) + 1 > _MAX_CATEGORY_DEPTH:
+            raise ApiError(422, "too_deep")
+
+    siblings = [c for c in existing if (c.get("parent_id") or None) == parent_id]
     row = repo.create_category(
-        g.db, data.child_id, name=data.name, color=data.color, sort_order=len(existing)
+        g.db,
+        data.child_id,
+        name=data.name,
+        color=data.color,
+        sort_order=len(siblings),
+        parent_id=parent_id,
+        symbol_id=data.symbol_id,
+        icon_asset_id=data.icon_asset_id,
     )
     return jsonify(row), 201
 
@@ -72,10 +127,33 @@ def create_category():
 @bp.patch("/categories/<category_id>")
 @require_caregiver_mode
 def update_category(category_id: str):
-    if repo.get_category(g.db, category_id) is None:
+    current = repo.get_category(g.db, category_id)
+    if current is None:
         raise ApiError(404, "not_found")
     data = parse_body(CategoryUpdate)
-    row = repo.update_category(g.db, category_id, data.model_dump(exclude_none=True))
+    _validate_symbol(data.symbol_id)
+
+    patch = data.model_dump(exclude_unset=True)
+    if "parent_id" in patch:
+        new_parent = patch["parent_id"] or None
+        cats = repo.list_categories(g.db, current["child_id"])
+        by_id = {c["id"]: c for c in cats}
+        if new_parent is not None:
+            if new_parent == category_id or new_parent not in by_id:
+                raise ApiError(422, "bad_parent")
+            if _is_ancestor(by_id, category_id, new_parent):
+                raise ApiError(422, "category_cycle")
+            children_of: dict[str, list[str]] = defaultdict(list)
+            for c in cats:
+                if c.get("parent_id"):
+                    children_of[c["parent_id"]].append(c["id"])
+            if _cat_depth(by_id, new_parent) + _subtree_height(children_of, category_id) > (
+                _MAX_CATEGORY_DEPTH
+            ):
+                raise ApiError(422, "too_deep")
+        patch["parent_id"] = new_parent
+
+    row = repo.update_category(g.db, category_id, patch)
     return jsonify(row)
 
 

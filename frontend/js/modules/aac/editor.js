@@ -1,4 +1,5 @@
-// AAC card editor (Caregiver Mode). Manage categories and cards for one child.
+// AAC card editor (Caregiver Mode). Manage categories (which nest) and cards
+// for one child.
 
 import { api } from "../../api.js";
 import { el, errText, icon, mount, symbolUrl, toast, withBusy } from "../../ui.js";
@@ -30,6 +31,31 @@ export async function renderAacEditor({ childId, childName, onExit }) {
       .sort((a, b) => a.grid_order - b.grid_order);
   }
 
+  // Flat list of { cat, depth }, roots first, each category immediately
+  // followed by its own sub-tree (depth-first, siblings by sort_order).
+  function categoryTree() {
+    const byParent = new Map();
+    for (const c of board.categories) {
+      const p = c.parent_id ?? "";
+      if (!byParent.has(p)) byParent.set(p, []);
+      byParent.get(p).push(c);
+    }
+    for (const list of byParent.values()) list.sort((a, b) => a.sort_order - b.sort_order);
+    const out = [];
+    (function walk(parent, depth) {
+      for (const c of byParent.get(parent) ?? []) {
+        out.push({ cat: c, depth });
+        walk(c.id, depth + 1);
+      }
+    })("", 0);
+    return out;
+  }
+
+  function descendantIds(catId) {
+    const kids = board.categories.filter((c) => c.parent_id === catId);
+    return kids.flatMap((k) => [k.id, ...descendantIds(k.id)]);
+  }
+
   function render() {
     mount(
       el(
@@ -42,7 +68,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
           el("button", { class: "btn-link", onclick: openPreview }, "תצוגה מקדימה"),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
-        ...board.categories.map(categoryBlock),
+        ...categoryTree().map(({ cat, depth }) => categoryBlock(cat, depth)),
         el(
           "form",
           { class: "card add-cat", onsubmit: addCategory },
@@ -51,7 +77,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
             type: "text",
             required: true,
             maxlength: 40,
-            placeholder: "שם קטגוריה חדשה",
+            placeholder: "שם קטגוריה חדשה (רמה עליונה)",
           }),
           el("button", { type: "submit", class: "btn-primary" }, "הוסף קטגוריה"),
         ),
@@ -59,40 +85,47 @@ export async function renderAacEditor({ childId, childName, onExit }) {
     );
   }
 
-  function categoryBlock(cat) {
+  function categoryBlock(cat, depth) {
     return el(
       "article",
-      { class: "card cat-block" },
+      {
+        class: "card cat-block",
+        "data-depth": depth || null,
+        style: depth ? `margin-inline-start: calc(${depth} * var(--space-6))` : null,
+      },
       el(
         "div",
         { class: "cat-block-head" },
-        el("input", {
-          class: "cat-name-input",
-          value: cat.name,
-          "aria-label": "שם קטגוריה",
-          onchange: async (e) => {
-            try {
-              await api.patch(`/aac/categories/${cat.id}`, { name: e.target.value.trim() });
-            } catch (err) {
-              toast(errText(err), "error");
-            }
-          },
-        }),
+        catThumb(cat),
+        el("span", { class: "cat-block-name" }, cat.name),
         el(
-          "button",
-          {
-            class: "btn-link danger",
-            onclick: async () => {
-              const ok = await destructiveDialog({
-                title: "מחיקת קטגוריה",
-                body: `למחוק את הקטגוריה "${cat.name}"? הכרטיסים יישארו ללא קטגוריה.`,
-              });
-              if (!ok) return;
-              await api.del(`/aac/categories/${cat.id}`);
-              load();
+          "div",
+          { class: "editor-card-actions" },
+          el("button", { class: "btn-link", onclick: () => openCategoryForm(cat) }, "ערוך קטגוריה"),
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () => openCategoryForm({ parent_id: cat.id }),
             },
-          },
-          "מחק קטגוריה",
+            "+ תת-קטגוריה",
+          ),
+          el(
+            "button",
+            {
+              class: "btn-link danger",
+              onclick: async () => {
+                const ok = await destructiveDialog({
+                  title: "מחיקת קטגוריה",
+                  body: `למחוק את הקטגוריה "${cat.name}"? סעיפי המשנה והכרטיסים שבה יעברו לרמה העליונה.`,
+                });
+                if (!ok) return;
+                await api.del(`/aac/categories/${cat.id}`);
+                load();
+              },
+            },
+            "מחק קטגוריה",
+          ),
         ),
       ),
       el("div", { class: "editor-card-list" }, ...cardsOf(cat.id).map((c) => cardRow(c, cat.id))),
@@ -102,6 +135,16 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         "+ הוסף כרטיס",
       ),
     );
+  }
+
+  function catThumb(cat) {
+    if (cat.symbol_id) {
+      return el("img", { class: "editor-thumb", src: symbolUrl(cat.symbol_id), alt: "" });
+    }
+    if (cat.icon_asset_id) {
+      return el("img", { class: "editor-thumb", src: `/api/media/${cat.icon_asset_id}`, alt: "" });
+    }
+    return el("span", { class: "editor-thumb editor-thumb-text" }, cat.name.slice(0, 2));
   }
 
   function cardRow(card, catId) {
@@ -199,39 +242,29 @@ export async function renderAacEditor({ childId, childName, onExit }) {
     renderAacBoard({ childId, childName, preview: true, host: previewHost, onExit: () => dlg.close() });
   }
 
-  // --- card add/edit form ------------------------------------------------
+  // --- shared picture control (card form + category form) ----------------
 
-  function openCardForm(card) {
-    const editing = !!card.id;
-    const state = {
-      label: card.label || "",
-      tts_text: card.tts_text || "",
-      symbol_id: card.symbol_id || null,
-      icon_asset_id: card.icon_asset_id || null,
-      audio_asset_id: card.audio_asset_id || null,
-      category_id: card.category_id ?? null,
-    };
-
-    const visualPreview = el("div", { class: "visual-preview" });
-    function refreshPreview() {
+  // Mutates `state.symbol_id` / `state.icon_asset_id` in place and calls
+  // `onChange` after every pick/upload/clear. The two are mutually exclusive
+  // (same rule the backend enforces), so setting one clears the other.
+  function visualEditor(state, onChange) {
+    const preview = el("div", { class: "visual-preview" });
+    function refresh() {
       if (state.symbol_id) {
-        visualPreview.replaceChildren(
-          el("img", { src: symbolUrl(state.symbol_id), alt: "" }),
-        );
+        preview.replaceChildren(el("img", { src: symbolUrl(state.symbol_id), alt: "" }));
       } else if (state.icon_asset_id) {
-        visualPreview.replaceChildren(
-          el("img", { src: `/api/media/${state.icon_asset_id}`, alt: "" }),
-        );
+        preview.replaceChildren(el("img", { src: `/api/media/${state.icon_asset_id}`, alt: "" }));
       } else {
-        visualPreview.replaceChildren(el("span", { class: "muted" }, "אין תמונה"));
+        preview.replaceChildren(el("span", { class: "muted" }, "אין תמונה"));
       }
     }
-    refreshPreview();
+    refresh();
 
     const picker = createSymbolPicker((s) => {
       state.symbol_id = s.id;
       state.icon_asset_id = null;
-      refreshPreview();
+      refresh();
+      onChange?.();
     });
 
     const iconInput = el("input", {
@@ -244,25 +277,133 @@ export async function renderAacEditor({ childId, childName, onExit }) {
           const up = await uploadMedia("card_icon", file);
           state.icon_asset_id = up.id;
           state.symbol_id = null;
-          refreshPreview();
+          refresh();
+          onChange?.();
         } catch (err) {
           toast(errText(err), "error");
         }
       },
     });
 
+    const clearBtn = el(
+      "button",
+      {
+        type: "button",
+        class: "btn-link",
+        onclick: () => {
+          state.symbol_id = null;
+          state.icon_asset_id = null;
+          refresh();
+          onChange?.();
+        },
+      },
+      "הסר תמונה",
+    );
+
+    return el(
+      "div",
+      { class: "visual-editor" },
+      preview,
+      picker,
+      el("label", { class: "file-row" }, "או העלאת תמונה משלך: ", iconInput),
+      clearBtn,
+    );
+  }
+
+  // Flattened category <select>, indented by depth. `excludeId` (and its
+  // sub-tree) is omitted — a category can't be its own ancestor.
+  function categorySelect(selectedId, excludeId) {
+    const blocked = excludeId ? new Set([excludeId, ...descendantIds(excludeId)]) : new Set();
+    const sel = el(
+      "select",
+      { name: "category" },
+      el("option", { value: "" }, "— ללא (רמה עליונה) —"),
+      ...categoryTree()
+        .filter(({ cat }) => !blocked.has(cat.id))
+        .map(({ cat, depth }) =>
+          el("option", { value: cat.id }, `${"  ".repeat(depth)}${cat.name}`),
+        ),
+    );
+    sel.value = selectedId ?? "";
+    return sel;
+  }
+
+  // --- category add/edit form ------------------------------------------
+
+  function openCategoryForm(cat) {
+    const editing = !!cat.id;
+    const state = {
+      symbol_id: cat.symbol_id || null,
+      icon_asset_id: cat.icon_asset_id || null,
+    };
+    const parentSelect = categorySelect(cat.parent_id ?? "", cat.id);
+
+    const form = el(
+      "form",
+      { class: "card card-form", onsubmit: submit },
+      el("h3", {}, editing ? "עריכת קטגוריה" : "קטגוריה חדשה"),
+      field("name", "שם הקטגוריה", cat.name || "", { required: true, maxlength: 40 }),
+      el("div", { class: "field" }, el("label", {}, "נמצאת תחת"), parentSelect),
+      el("p", { class: "muted" }, "תמונה:"),
+      visualEditor(state, null),
+      el(
+        "div",
+        { class: "form-actions" },
+        el("button", { type: "submit", class: "btn-primary" }, "שמור"),
+        el("button", { type: "button", class: "btn-link", onclick: render }, "ביטול"),
+      ),
+      el("p", { class: "err", id: "cat-err", role: "alert" }),
+    );
+
+    async function submit(e) {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const body = {
+        name: f.get("name").trim(),
+        parent_id: f.get("category") || null,
+        symbol_id: state.symbol_id,
+        icon_asset_id: state.icon_asset_id,
+      };
+      const btn = e.target.querySelector('button[type="submit"]');
+      await withBusy(btn, async () => {
+        try {
+          if (editing) {
+            await api.patch(`/aac/categories/${cat.id}`, body);
+          } else {
+            await api.post("/aac/categories", { child_id: childId, ...body });
+          }
+          load();
+        } catch (err) {
+          document.getElementById("cat-err").textContent = errText(err);
+        }
+      });
+    }
+
+    mount(form);
+  }
+
+  // --- card add/edit form ------------------------------------------------
+
+  function openCardForm(card) {
+    const editing = !!card.id;
+    const state = {
+      symbol_id: card.symbol_id || null,
+      icon_asset_id: card.icon_asset_id || null,
+      audio_asset_id: card.audio_asset_id || null,
+    };
+
+    const catSelect = categorySelect(card.category_id ?? "", null);
     const audioStatus = el("span", { class: "muted" }, state.audio_asset_id ? "הוקלט" : "TTS");
 
     const dialog = el(
       "form",
       { class: "card card-form", onsubmit: submit },
       el("h3", {}, editing ? "עריכת כרטיס" : "כרטיס חדש"),
-      field("label", "מילה / תווית", state.label, { required: true, maxlength: 40 }),
-      field("tts_text", "טקסט להקראה (רשות)", state.tts_text, { maxlength: 200 }),
+      field("label", "מילה / תווית", card.label || "", { required: true, maxlength: 40 }),
+      field("tts_text", "טקסט להקראה (רשות)", card.tts_text || "", { maxlength: 200 }),
+      el("div", { class: "field" }, el("label", {}, "קטגוריה"), catSelect),
       el("p", { class: "muted" }, "תמונה:"),
-      visualPreview,
-      picker,
-      el("label", { class: "file-row" }, "או העלאת תמונה משלך: ", iconInput),
+      visualEditor(state, null),
       el(
         "div",
         { class: "audio-row" },
@@ -307,7 +448,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         tts_text: f.get("tts_text").trim() || null,
         symbol_id: state.symbol_id,
         icon_asset_id: state.icon_asset_id,
-        category_id: state.category_id,
+        category_id: f.get("category") || null,
       };
       const btn = e.target.querySelector('button[type="submit"]');
       await withBusy(btn, async () => {

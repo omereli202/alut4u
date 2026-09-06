@@ -40,10 +40,10 @@ elevation) required.
 
 | Method | Path | Guard | Notes |
 |---|---|---|---|
-| GET | `/board?child_id=` | S | `{categories:[…], cards:[…]}` — the whole board in one call. |
-| POST | `/categories` | C | `{child_id, name, color?}` |
-| PATCH | `/categories/<id>` | C | `{name?, color?}` |
-| DELETE | `/categories/<id>` | C | cards keep their data, lose the link. |
+| GET | `/board?child_id=` | S | `{categories:[…], cards:[…]}` — the whole board in one call. Categories nest: each has `parent_id` (null = top level) + its own `symbol_id`/`icon_asset_id`. |
+| POST | `/categories` | C | `{child_id, name, color?, parent_id?, symbol_id? \| icon_asset_id?}`. `422 bad_parent` (parent not this child's), `too_deep` (would exceed 4 levels). |
+| PATCH | `/categories/<id>` | C | `{name?, color?, parent_id?, symbol_id? \| icon_asset_id?}`. Re-parenting: `422 bad_parent` / `category_cycle` / `too_deep`. |
+| DELETE | `/categories/<id>` | C | sub-categories float up to the top level; the category's cards keep their data, lose the link. |
 | PUT | `/categories/order` | C | `{child_id, order:[id,…]}` |
 | POST | `/cards` | C | `{child_id, label, tts_text?, category_id?, symbol_id? \| icon_asset_id?}`. Pre-generates TTS. |
 | GET | `/cards/<id>` | S | one card. |

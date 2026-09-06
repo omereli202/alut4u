@@ -775,49 +775,58 @@ hr {
   box-shadow: var(--shadow-1);
 }
 
-/* Category cards — the AAC board's own category selector (board.js only;
-   .cat-tab above is unchanged and still used by rules/calming/reading&writing).
-   A picture + label tile like the card grid below, and the active one scales
-   up so a tap clearly "opens" a category. */
-.cat-cards {
+/* Breadcrumb — the AAC board's drill-down trail (board.js only). Shown only
+   once the child is inside a category: a back button pinned at the start
+   (RTL right) plus the path, each level a button back to it. One row that
+   scrolls sideways for a deep trail rather than wrapping. */
+.aac-breadcrumb {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  /* room for the scaled-up active tab so it isn't clipped by the row / grid */
-  padding-block: var(--space-2);
-}
-.cat-card {
-  display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   min-block-size: var(--touch-min);
-  padding-inline: var(--space-4);
-  border: 2px solid var(--cat, var(--color-border-strong));
-  border-radius: var(--radius-pill);
-  background: var(--color-bg);
+}
+.crumb-back {
+  flex: none;
+  padding-inline: var(--space-2);
+}
+.crumb-trail {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex: 1;
+  min-inline-size: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  white-space: nowrap;
+}
+.crumb {
+  flex: none;
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--color-secondary);
   font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
-  transition: transform 120ms ease;
-  transform-origin: center bottom;
 }
-.cat-dot {
-  inline-size: 16px;
-  block-size: 16px;
-  border-radius: 50%;
-  background: var(--cat, var(--color-border-strong));
-  flex: none;
+.crumb:not(.crumb-current)::after {
+  content: "‹";
+  margin-inline-start: var(--space-2);
+  color: var(--color-text-muted);
 }
-.cat-card.active {
-  background: var(--cat, var(--color-secondary-soft));
-  color: var(--color-secondary);
-  border-color: transparent;
-  transform: scale(1.08);
-  box-shadow: var(--shadow-1);
-  font-weight: 700;
+.crumb-current {
+  color: var(--color-text);
+  cursor: default;
 }
-.cat-card.active .cat-dot {
-  background: var(--color-surface);
+
+/* Sub-category tile in the child's board (board.js only) — the same picture +
+   label shape as a word card, plus a doubled frame in the category colour: a
+   ring set inside the border reads as "a box you open", not a word. */
+.aac-cat-card {
+  border-width: 3px;
+  outline: 2px solid var(--cat, var(--color-border-strong));
+  outline-offset: -7px;
 }
 
 /* Card grid — sized to always fit the viewport with no scrolling: board.js
@@ -931,6 +940,24 @@ hr {
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-sm);
   background: var(--color-bg);
+}
+.cat-block-name {
+  flex: 1;
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+/* Nested category block — a colour edge on the start side marks it as a
+   sub-category of the block above it (the margin-inline-start indent is set
+   inline by editor.js per depth). */
+.cat-block[data-depth] {
+  border-inline-start: 3px solid var(--color-secondary-soft);
+}
+/* Picture control shared by the card form and the category form. */
+.visual-editor {
+  margin-block: var(--space-2);
+}
+.card-form .visual-editor .visual-preview {
+  margin-block-start: 0;
 }
 .editor-card-list {
   display: flex;

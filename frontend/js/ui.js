@@ -134,7 +134,7 @@ export function visual(item, cls) {
   if (item.icon_asset_id) {
     return el("img", { class: cls, src: `/api/media/${item.icon_asset_id}`, alt: "" });
   }
-  const text = (item.label ?? item.title ?? "").slice(0, 2);
+  const text = (item.label ?? item.title ?? item.name ?? "").slice(0, 2);
   return el("div", { class: `${cls} ${cls}-text` }, text);
 }
 

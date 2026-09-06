@@ -25,17 +25,38 @@ def list_categories(db: Any, child_id: str) -> list[dict]:
 
 
 def create_category(
-    db: Any, child_id: str, *, name: str, color: str | None, sort_order: int
+    db: Any,
+    child_id: str,
+    *,
+    name: str,
+    color: str | None,
+    sort_order: int,
+    parent_id: str | None = None,
+    symbol_id: str | None = None,
+    icon_asset_id: str | None = None,
 ) -> dict:
     return one_or_none(
         db.table(_CATS)
-        .insert({"child_id": child_id, "name": name, "color": color, "sort_order": sort_order})
+        .insert(
+            {
+                "child_id": child_id,
+                "name": name,
+                "color": color,
+                "sort_order": sort_order,
+                "parent_id": parent_id,
+                "symbol_id": symbol_id,
+                "icon_asset_id": icon_asset_id,
+            }
+        )
         .execute()
     )
 
 
+_CAT_PATCH_FIELDS = {"name", "color", "sort_order", "parent_id", "symbol_id", "icon_asset_id"}
+
+
 def update_category(db: Any, category_id: str, patch: dict) -> dict | None:
-    allowed = {k: v for k, v in patch.items() if k in {"name", "color", "sort_order"}}
+    allowed = {k: v for k, v in patch.items() if k in _CAT_PATCH_FIELDS}
     if not allowed:
         return one_or_none(db.table(_CATS).select("*").eq("id", category_id).execute())
     return one_or_none(db.table(_CATS).update(allowed).eq("id", category_id).execute())

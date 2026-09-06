@@ -1,5 +1,7 @@
-// AAC board (User Mode): category tabs + a grid of cards. Tapping a card
-// appends it to the sentence bar and speaks it.
+// AAC board (User Mode): a drill-down grid. Each level shows its
+// sub-categories (as framed picture tiles) and its own word-cards together;
+// tapping a category tile descends into it, a breadcrumb walks back up.
+// Tapping a word card appends it to the sentence bar and speaks it.
 
 import { api } from "../../api.js";
 import { el, emptyState, icon, mount, navBar, visual } from "../../ui.js";
@@ -15,29 +17,51 @@ function catColor(card, cats) {
   return cats.find((c) => c.id === card.category_id)?.color || null;
 }
 
-// The picture fills the card's image area edge-to-edge (docs/design.md §T1.1 —
-// "a picture symbol filling the top two-thirds, a word label below"), with a
-// border in the card's category colour. Same --cat custom property the category
-// tab uses, so a card always matches its tab.
-function cardVisual(card, cats) {
+// A word card: the picture fills the card's image area edge-to-edge
+// (docs/design.md §T1.1 — "a picture symbol filling the top two-thirds, a word
+// label below"), with a border in the card's category colour. A text-only card
+// (no symbol/photo) is just its word, large.
+function wordTile(card, cats, onTap) {
+  const hasPicture = card.symbol_id || card.icon_asset_id;
   const color = catColor(card, cats);
   return el(
-    "span",
-    { class: "card-image", style: color ? `--cat:${color}` : null },
-    visual(card, "card-visual"),
+    "button",
+    {
+      class: hasPicture ? "aac-card" : "aac-card aac-card-text",
+      role: "listitem",
+      style: color ? `--cat:${color}` : null,
+      onclick: onTap ? () => onTap(card) : undefined,
+    },
+    ...(hasPicture
+      ? [
+          el("span", { class: "card-image", style: color ? `--cat:${color}` : null }, visual(card, "card-visual")),
+          el("span", { class: "card-label" }, card.label),
+        ]
+      : [el("span", { class: "card-label" }, card.label)]),
   );
 }
 
-// Categories carry a name + colour only (schemas/aac.py), no image of their
-// own yet — so the tab is a colour dot + the name, not a picture medallion.
-function categoryDot(cat) {
-  return el("span", {
-    class: "cat-dot",
-    style: cat.color ? `--cat:${cat.color}` : null,
-  });
+// A sub-category tile: same picture + label shape as a word card, but a
+// doubled frame in the category's own colour so it reads as a container to
+// open, not a word to speak. Works in preview too — lets the caregiver walk
+// the hierarchy.
+function catTile(cat, onOpen) {
+  const color = cat.color || null;
+  const item = { symbol_id: cat.symbol_id, icon_asset_id: cat.icon_asset_id, name: cat.name };
+  return el(
+    "button",
+    {
+      class: "aac-card aac-cat-card",
+      role: "listitem",
+      style: color ? `--cat:${color}` : null,
+      onclick: () => onOpen(cat.id),
+    },
+    el("span", { class: "card-image", style: color ? `--cat:${color}` : null }, visual(item, "card-visual")),
+    el("span", { class: "card-label" }, cat.name),
+  );
 }
 
-// Pick the column/row split that lets all `n` cards fit in `box` (px) at
+// Pick the column/row split that lets all `n` tiles fit in `box` (px) at
 // once — no scrolling, ever, on a locked kiosk tablet a child can't scroll
 // back from. Tries every column count, keeps whichever makes the resulting
 // cell largest (closest to square), since rows always = ceil(n/cols) so
@@ -80,24 +104,35 @@ export async function renderAacBoard({
     prefetchSymbols(board.cards);
   }
 
-  const cats = board.categories;
-  let activeCat = cats[0]?.id ?? null;
+  const cats = board.categories.slice().sort((a, b) => a.sort_order - b.sort_order);
+  const catById = new Map(cats.map((c) => [c.id, c]));
+  // The current position in the hierarchy: category ids from root to here.
+  // Empty = top level. A stale id (category deleted between loads) is dropped.
+  let path = [];
 
   const sentence = createSentenceBar();
   let grid = null;
   let ro = null;
 
-  function cardsForActive() {
-    if (activeCat === "__all__" || !cats.length) return board.cards;
-    return board.cards.filter((c) => c.category_id === activeCat);
+  function here() {
+    return path.at(-1) ?? null;
+  }
+
+  function childCategories() {
+    return cats.filter((c) => (c.parent_id ?? null) === here());
+  }
+  function directCards() {
+    return board.cards
+      .filter((c) => (c.category_id ?? null) === here())
+      .sort((a, b) => a.grid_order - b.grid_order);
   }
 
   // Below --touch-min (60px) even at the best-fitting split, a real screen is
-  // too small/crowded for the card count — fall back to scrolling rather than
+  // too small/crowded for the tile count — fall back to scrolling rather than
   // shipping sub-60px touch targets (docs/accessibility.md's floor).
   function fitToGrid() {
     if (!grid) return;
-    const n = cardsForActive().length;
+    const n = childCategories().length + directCards().length;
     const { width, height } = grid.getBoundingClientRect();
     if (!width || !height) return;
     const { cols, rows, cell } = fitGrid({ width, height }, n);
@@ -106,54 +141,53 @@ export async function renderAacBoard({
     grid.classList.toggle("aac-grid-scroll", cell < 60);
   }
 
+  function openCat(id) {
+    path.push(id);
+    paint();
+  }
+  function goTo(depth) {
+    path = path.slice(0, depth);
+    paint();
+  }
+
+  // Breadcrumb: only inside a category. A back button (pop one level) then the
+  // trail — child name ‹ אוכל ‹ ארוחת בוקר — each crumb but the last a button
+  // that jumps back to that level.
+  function breadcrumb() {
+    if (!path.length) return null;
+    const crumbs = [
+      el("button", { class: "crumb", onclick: () => goTo(0) }, childName || "הלוח"),
+      ...path.map((id, i) => {
+        const name = catById.get(id)?.name ?? "…";
+        const last = i === path.length - 1;
+        return last
+          ? el("span", { class: "crumb crumb-current", "aria-current": "page" }, name)
+          : el("button", { class: "crumb", onclick: () => goTo(i + 1) }, name);
+      }),
+    ];
+    return el(
+      "div",
+      { class: "aac-breadcrumb" },
+      el(
+        "button",
+        { class: "nav-btn crumb-back", "aria-label": "חזרה", onclick: () => goTo(path.length - 1) },
+        icon("arrow_back", { flip: true }),
+      ),
+      el("nav", { class: "crumb-trail", "aria-label": "מיקום" }, ...crumbs),
+    );
+  }
+
   function paint() {
+    // Drop any path segment whose category no longer exists.
+    path = path.filter((id) => catById.has(id));
+
+    const onTap = preview ? null : (card) => sentence.add(card);
     grid = el(
       "div",
       { class: "aac-grid", role: "list" },
-      ...cardsForActive().map((card) => {
-        const hasPicture = card.symbol_id || card.icon_asset_id;
-        return el(
-          "button",
-          {
-            // A text-only card (no symbol/photo) is just its word, large —
-            // no empty image area above a redundant label.
-            class: hasPicture ? "aac-card" : "aac-card aac-card-text",
-            role: "listitem",
-            style: catColor(card, cats) ? `--cat:${catColor(card, cats)}` : null,
-            // Preview is read-only — no sentence-bar writes, no TTS.
-            onclick: preview ? undefined : () => sentence.add(card),
-          },
-          ...(hasPicture
-            ? [cardVisual(card, cats), el("span", { class: "card-label" }, card.label)]
-            : [el("span", { class: "card-label" }, card.label)]),
-        );
-      }),
+      ...childCategories().map((c) => catTile(c, openCat)),
+      ...directCards().map((card) => wordTile(card, cats, onTap)),
     );
-
-    const tabs =
-      cats.length > 1
-        ? el(
-            "div",
-            { class: "cat-cards", role: "tablist" },
-            ...cats.map((c) =>
-              el(
-                "button",
-                {
-                  class: c.id === activeCat ? "cat-card active" : "cat-card",
-                  role: "tab",
-                  "aria-selected": c.id === activeCat,
-                  style: c.color ? `--cat:${c.color}` : null,
-                  onclick: () => {
-                    activeCat = c.id;
-                    paint();
-                  },
-                },
-                categoryDot(c),
-                el("span", {}, c.name),
-              ),
-            ),
-          )
-        : null;
 
     const screen = el(
       "section",
@@ -167,7 +201,7 @@ export async function renderAacBoard({
           )
         : navBar({ onBack: onExit, onHome: onHome ?? onExit, title: childName || "בוא נדבר" }),
       sentence.host,
-      tabs,
+      breadcrumb(),
       grid,
     );
 

@@ -7,11 +7,29 @@ class CategoryCreate(BaseModel):
     child_id: str
     name: str = Field(min_length=1, max_length=40)
     color: str | None = Field(default=None, max_length=16)
+    parent_id: str | None = None
+    symbol_id: str | None = None
+    icon_asset_id: str | None = None
+
+    @model_validator(mode="after")
+    def _one_visual(self) -> CategoryCreate:
+        if self.symbol_id and self.icon_asset_id:
+            raise ValueError("a category has either a symbol or an uploaded icon, not both")
+        return self
 
 
 class CategoryUpdate(BaseModel):
     name: str | None = Field(default=None, min_length=1, max_length=40)
     color: str | None = Field(default=None, max_length=16)
+    parent_id: str | None = None
+    symbol_id: str | None = None
+    icon_asset_id: str | None = None
+
+    @model_validator(mode="after")
+    def _one_visual(self) -> CategoryUpdate:
+        if self.symbol_id and self.icon_asset_id:
+            raise ValueError("a category has either a symbol or an uploaded icon, not both")
+        return self
 
 
 class CardCreate(BaseModel):

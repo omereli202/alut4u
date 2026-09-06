@@ -29,14 +29,29 @@ def get(template_id: str) -> dict | None:
 
 def apply_to_child(db: Any, child_id: str, template_id: str) -> None:
     """Seed the child's board from a template. Uses the caregiver's client so
-    the new rows pass RLS. Best-effort TTS pre-generation."""
+    the new rows pass RLS. Best-effort TTS pre-generation.
+
+    A template category may nest — it can carry its own `symbol_id` and a
+    `categories: [...]` list of sub-categories, walked depth-first here."""
     tpl = get(template_id)
     if not tpl:
         return
     spec = tpl.get("spec") or {}
-    for ci, cat in enumerate(spec.get("categories", [])):
+    _seed_categories(db, child_id, spec.get("categories", []), parent_id=None)
+
+
+def _seed_categories(
+    db: Any, child_id: str, cat_specs: list[dict], *, parent_id: str | None
+) -> None:
+    for ci, cat in enumerate(cat_specs):
         category = aac_repo.create_category(
-            db, child_id, name=cat["name"], color=cat.get("color"), sort_order=ci
+            db,
+            child_id,
+            name=cat["name"],
+            color=cat.get("color"),
+            sort_order=ci,
+            parent_id=parent_id,
+            symbol_id=cat.get("symbol_id"),
         )
         for gi, card in enumerate(cat.get("cards", [])):
             tts_text = card.get("tts_text") or card["label"]
@@ -53,3 +68,4 @@ def apply_to_child(db: Any, child_id: str, template_id: str) -> None:
                     "grid_order": card.get("grid_order", gi),
                 },
             )
+        _seed_categories(db, child_id, cat.get("categories", []), parent_id=category["id"])

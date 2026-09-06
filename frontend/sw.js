@@ -7,7 +7,11 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v34"; // v34: caregiver dashboard — the per-child edit
+const SHELL_CACHE = "shell-v35"; // v35: AAC categories nest (אוכל ‹ ארוחת בוקר ‹
+// ביצת עין) and carry a picture — the child's board is a drill-down grid with a
+// breadcrumb, no tab strip; the caregiver editor gets a category tree + a
+// category form (picture + parent) + a per-card category picker.
+// v34: caregiver dashboard — the per-child edit
 // buttons and each editor's header now read "ערוך <module>" / "עריכת <module> — <name>".
 // v33: schedule — caregiver can save the current
 // day as a named default (template) and delete their saved ones.
