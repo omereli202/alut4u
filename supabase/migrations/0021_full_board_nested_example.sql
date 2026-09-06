@@ -4,6 +4,8 @@
 --        ‹ ירקות ‹ (גזר, בצל, תפוח אדמה)
 -- All symbols here are from the production-cleared Mulberry set (0011/0013).
 -- board_templates.apply_to_child walks `categories` recursively.
+-- Every category gets a distinct palette colour (matches _CATEGORY_PALETTE in
+-- app/api/aac.py, which auto-assigns one to any category created without a colour).
 
 update board_templates set
   description_he = 'חמש קטגוריות — בסיסי, פעולות, רגשות, אנשים ומקומות, ואוכל (עם תת-קטגוריות).',
@@ -39,11 +41,11 @@ update board_templates set
        {"label":"אמא","symbol_id":"mom","grid_order":2},
        {"label":"אבא","symbol_id":"dad","grid_order":3},
        {"label":"בית","symbol_id":"home","grid_order":4}]},
-     {"name":"אוכל","color":"#1a7f37","symbol_id":"fried-breakfast","categories":[
-       {"name":"פירות","color":"#1a7f37","symbol_id":"apple","cards":[
+     {"name":"אוכל","color":"#8250df","symbol_id":"fried-breakfast","categories":[
+       {"name":"פירות","color":"#bf3989","symbol_id":"apple","cards":[
          {"label":"תפוח","symbol_id":"apple","grid_order":0},
          {"label":"בננה","symbol_id":"banana","grid_order":1}]},
-       {"name":"ירקות","color":"#1a7f37","symbol_id":"carrot","cards":[
+       {"name":"ירקות","color":"#4d7c0f","symbol_id":"carrot","cards":[
          {"label":"גזר","symbol_id":"carrot","grid_order":0},
          {"label":"בצל","symbol_id":"onion","grid_order":1},
          {"label":"תפוח אדמה","symbol_id":"potato","grid_order":2}]}]}]}'::jsonb

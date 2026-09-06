@@ -9,8 +9,10 @@
 
 const SHELL_CACHE = "shell-v35"; // v35: AAC categories nest (אוכל ‹ ארוחת בוקר ‹
 // ביצת עין) and carry a picture — the child's board is a drill-down grid with a
-// breadcrumb, no tab strip; the caregiver editor gets a category tree + a
-// category form (picture + parent) + a per-card category picker.
+// breadcrumb (separator chevron points into the trail), no tab strip; the
+// caregiver editor gets a category tree + a category form (picture + parent +
+// colour picker) + a per-card category picker; every category gets a distinct
+// colour (auto-assigned server-side when not chosen).
 // v34: caregiver dashboard — the per-child edit
 // buttons and each editor's header now read "ערוך <module>" / "עריכת <module> — <name>".
 // v33: schedule — caregiver can save the current

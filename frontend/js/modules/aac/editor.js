@@ -8,6 +8,21 @@ import { renderAacBoard } from "./board.js";
 import { recordClip } from "./recorder.js";
 import { createSymbolPicker } from "./symbol-picker.js";
 
+// Keep in sync with _CATEGORY_PALETTE in backend/app/api/aac.py — the same
+// hues the backend auto-assigns to a new category with no colour.
+const CATEGORY_COLORS = [
+  "#1f6feb",
+  "#1a7f37",
+  "#9a6700",
+  "#b42318",
+  "#8250df",
+  "#bf3989",
+  "#0e7490",
+  "#a24e00",
+  "#4d7c0f",
+  "#57606a",
+];
+
 export async function renderAacEditor({ childId, childName, onExit }) {
   let board;
   let voiceConsent = false;
@@ -335,8 +350,45 @@ export async function renderAacEditor({ childId, childName, onExit }) {
     const state = {
       symbol_id: cat.symbol_id || null,
       icon_asset_id: cat.icon_asset_id || null,
+      color: cat.color || null,
     };
     const parentSelect = categorySelect(cat.parent_id ?? "", cat.id);
+
+    // Colour swatches — the picked one gets a ring. For a new category an
+    // "אוטומטי" chip (state.color = null) lets the backend pick the first free
+    // palette hue; once a category exists it always has a colour, so editing
+    // just offers the swatches.
+    const swatchRow = el("div", { class: "swatch-row" });
+    function paintSwatches() {
+      const auto = el(
+        "button",
+        {
+          type: "button",
+          class: state.color ? "swatch swatch-auto" : "swatch swatch-auto swatch-on",
+          onclick: () => {
+            state.color = null;
+            paintSwatches();
+          },
+        },
+        "אוטומטי",
+      );
+      swatchRow.replaceChildren(
+        ...(editing ? [] : [auto]),
+        ...CATEGORY_COLORS.map((hex) =>
+          el("button", {
+            type: "button",
+            class: state.color === hex ? "swatch swatch-on" : "swatch",
+            style: `--sw:${hex}`,
+            "aria-label": `צבע ${hex}`,
+            onclick: () => {
+              state.color = hex;
+              paintSwatches();
+            },
+          }),
+        ),
+      );
+    }
+    paintSwatches();
 
     const form = el(
       "form",
@@ -344,6 +396,8 @@ export async function renderAacEditor({ childId, childName, onExit }) {
       el("h3", {}, editing ? "עריכת קטגוריה" : "קטגוריה חדשה"),
       field("name", "שם הקטגוריה", cat.name || "", { required: true, maxlength: 40 }),
       el("div", { class: "field" }, el("label", {}, "נמצאת תחת"), parentSelect),
+      el("p", { class: "muted" }, "צבע:"),
+      swatchRow,
       el("p", { class: "muted" }, "תמונה:"),
       visualEditor(state, null),
       el(
@@ -364,6 +418,9 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         symbol_id: state.symbol_id,
         icon_asset_id: state.icon_asset_id,
       };
+      // New: send color (null → backend auto-picks). Editing: only when set, so
+      // an untouched form never clears an existing colour.
+      if (!editing || state.color) body.color = state.color;
       const btn = e.target.querySelector('button[type="submit"]');
       await withBusy(btn, async () => {
         try {

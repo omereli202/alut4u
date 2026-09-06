@@ -155,7 +155,7 @@ export async function renderAacBoard({
   // that jumps back to that level.
   function breadcrumb() {
     if (!path.length) return null;
-    const crumbs = [
+    const steps = [
       el("button", { class: "crumb", onclick: () => goTo(0) }, childName || "הלוח"),
       ...path.map((id, i) => {
         const name = catById.get(id)?.name ?? "…";
@@ -165,6 +165,14 @@ export async function renderAacBoard({
           : el("button", { class: "crumb", onclick: () => goTo(i + 1) }, name);
       }),
     ];
+    // Separator points into the trail (left, in RTL) — chevron_left is the
+    // repo's pre-mirrored "next" glyph, so no bidi mirroring surprise the way a
+    // literal ‹ has (see base.css). Interleaved, not a CSS ::after.
+    const crumbs = steps.flatMap((step, i) =>
+      i === 0
+        ? [step]
+        : [el("span", { class: "crumb-sep", "aria-hidden": "true" }, icon("chevron_left", { size: 20 })), step],
+    );
     return el(
       "div",
       { class: "aac-breadcrumb" },

@@ -63,6 +63,31 @@ def board():
 # drill-down never gets deeper than this. Root categories are level 1.
 _MAX_CATEGORY_DEPTH = 4
 
+# Distinct hues for category borders / tile frames — read well as both a border
+# and a ~14% tint background in light and dark mode. A new category with no
+# colour gets the first one not already used on that child's board.
+# Keep in sync with CATEGORY_COLORS in frontend/js/modules/aac/editor.js.
+_CATEGORY_PALETTE = (
+    "#1f6feb",
+    "#1a7f37",
+    "#9a6700",
+    "#b42318",
+    "#8250df",
+    "#bf3989",
+    "#0e7490",
+    "#a24e00",
+    "#4d7c0f",
+    "#57606a",
+)
+
+
+def _auto_category_color(existing: list[dict]) -> str:
+    used = {c.get("color") for c in existing}
+    for color in _CATEGORY_PALETTE:
+        if color not in used:
+            return color
+    return _CATEGORY_PALETTE[len(existing) % len(_CATEGORY_PALETTE)]
+
 
 def _cat_depth(by_id: dict[str, dict], cat_id: str | None) -> int:
     """1 for a root category, +1 per ancestor. `by_id` is the child's full flat
@@ -115,7 +140,7 @@ def create_category():
         g.db,
         data.child_id,
         name=data.name,
-        color=data.color,
+        color=data.color or _auto_category_color(existing),
         sort_order=len(siblings),
         parent_id=parent_id,
         symbol_id=data.symbol_id,

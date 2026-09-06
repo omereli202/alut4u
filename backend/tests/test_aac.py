@@ -233,6 +233,21 @@ def test_full_board_template_seeds_nested_branch(client, caregiver_mode):
     fruit_id = by_name["פירות"]["id"]
     assert {c["label"] for c in board["cards"] if c["category_id"] == fruit_id} == {"תפוח", "בננה"}
 
+    colours = [by_name[n]["color"] for n in ("פעולות", "אוכל", "פירות", "ירקות")]
+    assert all(colours) and len(set(colours)) == len(colours)  # each distinct
+
+
+def test_new_category_gets_a_distinct_colour(client, caregiver_mode):
+    child_id = _child(client)
+    a = _cat(client, child_id, "א")
+    b = _cat(client, child_id, "ב")
+    assert a["color"] and b["color"]
+    assert a["color"] != b["color"]
+
+    # an explicit colour is honoured
+    c = _cat(client, child_id, "ג", color="#123456")
+    assert c["color"] == "#123456"
+
 
 def test_category_writes_are_tenant_scoped(client, caregiver_mode, app):
     child_id = _child(client)
