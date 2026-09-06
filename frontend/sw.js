@@ -7,7 +7,10 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v28"; // v28: calming — זמזום רגוע louder (matched to
+const SHELL_CACHE = "shell-v30"; // v30: AAC card = full-bleed image + category-
+// colour border; text-only cards are the word large; category tab = colour dot
+// + name, active one scales up.
+// v28: calming — זמזום רגוע louder (matched to
 // the beds' RMS + a 220 Hz octave for small speakers), hum.wav regenerated.
 // v27: calming — fire/forest/brook/birds are now real CC0 field recordings
 // (chosic.com) not synth; drip→birds; .wav regenerated (cache-first here).

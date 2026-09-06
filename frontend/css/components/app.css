@@ -510,11 +510,9 @@ hr {
   transform: scale(0.96);
   box-shadow: none;
 }
-/* Matches .card-medallion's language (AAC cards) rather than inventing a
-   second one — a colour-tinted circle housing the icon, sized up for the
-   home screen's bigger, more prominent tiles. Secondary, not primary,
-   keeping --color-primary sparse (docs/design.md §3 "one accent") — the
-   same choice already made for .card-medallion's default wash. */
+/* A colour-tinted circle housing the icon, sized up for the home screen's
+   bigger, more prominent tiles. Secondary, not primary, keeping
+   --color-primary sparse (docs/design.md §3 "one accent"). */
 .tile-medallion {
   display: flex;
   align-items: center;
@@ -562,8 +560,7 @@ hr {
   align-items: center;
   gap: var(--space-3);
 }
-/* Echoes .card-medallion's colour-tinted-circle language rather than
-   inventing a new one. */
+/* A small colour-tinted circle — the same language as .tile-medallion. */
 .child-avatar {
   display: flex;
   align-items: center;
@@ -771,35 +768,47 @@ hr {
 
 /* Category cards — the AAC board's own category selector (board.js only;
    .cat-tab above is unchanged and still used by rules/calming/reading&writing).
-   Same visual/card-medallion language as the card grid below, so a category
-   reads as a tappable tile rather than plain labeled text. */
+   A picture + label tile like the card grid below, and the active one scales
+   up so a tap clearly "opens" a category. */
 .cat-cards {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  /* room for the scaled-up active tab so it isn't clipped by the row / grid */
+  padding-block: var(--space-2);
 }
 .cat-card {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   min-block-size: var(--touch-min);
-  padding: var(--space-1) var(--space-4) var(--space-1) var(--space-1);
+  padding-inline: var(--space-4);
   border: 2px solid var(--cat, var(--color-border-strong));
   border-radius: var(--radius-pill);
   background: var(--color-bg);
   font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
+  transition: transform 120ms ease;
+  transform-origin: center bottom;
 }
-.cat-card .card-medallion {
-  inline-size: 44px;
-  block-size: 44px;
-  max-inline-size: none;
+.cat-dot {
+  inline-size: 16px;
+  block-size: 16px;
+  border-radius: 50%;
+  background: var(--cat, var(--color-border-strong));
+  flex: none;
 }
 .cat-card.active {
   background: var(--cat, var(--color-secondary-soft));
   color: var(--color-secondary);
   border-color: transparent;
+  transform: scale(1.08);
+  box-shadow: var(--shadow-1);
+  font-weight: 700;
+}
+.cat-card.active .cat-dot {
+  background: var(--color-surface);
 }
 
 /* Card grid — sized to always fit the viewport with no scrolling: board.js
@@ -823,16 +832,18 @@ hr {
   overflow-y: auto;
   align-content: start;
 }
+/* The picture *is* the card — it fills the image area edge-to-edge with the
+   Hebrew word on a strip below (docs/design.md §T1.1). A 3px border in the
+   card's own category colour ties it to its category. */
 .aac-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0;
   min-block-size: var(--touch-min);
   min-inline-size: var(--touch-min);
-  padding: var(--space-3);
-  border: none;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid var(--cat, var(--color-border-strong));
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-1);
@@ -843,24 +854,31 @@ hr {
   transform: scale(0.96);
   box-shadow: none;
 }
-/* The picture/photo sits in a colour-tinted medallion, not edge-to-edge —
-   docs/design/stitch-export §T1.1. --cat (set per the card's own category,
-   board.js) tints it to match that category's tab; no category colour falls
-   back to the secondary wash so every card still reads as "tappable". */
-.card-medallion {
+/* Text-only card (no symbol/photo): the word is the whole card, large. */
+.aac-card-text {
+  grid-template-rows: 1fr;
+  place-items: center;
+  padding: var(--space-3);
+}
+.aac-card-text .card-label {
+  font-size: var(--text-xl);
+  border: none;
+}
+.card-image {
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: 60%;
-  max-inline-size: 96px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--cat, var(--color-secondary-soft));
-  flex: none;
+  min-block-size: 0;
+  padding: var(--space-2);
+  background: color-mix(
+    in srgb,
+    var(--cat, var(--color-secondary-soft)) 14%,
+    var(--color-surface)
+  );
 }
 .card-visual {
-  inline-size: 62%;
-  block-size: 62%;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: contain;
 }
 .card-visual-text {
@@ -869,15 +887,18 @@ hr {
   justify-content: center;
   inline-size: 100%;
   block-size: 100%;
-  font-size: var(--text-lg);
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: var(--color-secondary);
 }
 .card-label {
+  padding: var(--space-2);
   font-size: var(--text-base);
   font-weight: 600;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.15;
+  border-block-start: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 
 /* --------------------------------------------------------------- AAC editor */

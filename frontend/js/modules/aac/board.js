@@ -11,30 +11,30 @@ import { prefetch, prefetchSymbols } from "./speech.js";
 // grid has been laid out with a candidate column count.
 const GRID_GAP = 12;
 
-// The card's picture/photo sits in a colour-tinted medallion (docs/design/
-// stitch-export §T1.1) rather than filling the card edge-to-edge. The tint is
-// the card's own category colour when the caregiver set one, else a neutral
-// secondary wash — same --cat custom property the category tab already uses,
-// so a card always matches its tab.
+function catColor(card, cats) {
+  return cats.find((c) => c.id === card.category_id)?.color || null;
+}
+
+// The picture fills the card's image area edge-to-edge (docs/design.md §T1.1 —
+// "a picture symbol filling the top two-thirds, a word label below"), with a
+// border in the card's category colour. Same --cat custom property the category
+// tab uses, so a card always matches its tab.
 function cardVisual(card, cats) {
-  const cat = cats.find((c) => c.id === card.category_id);
+  const color = catColor(card, cats);
   return el(
     "span",
-    { class: "card-medallion", style: cat?.color ? `--cat:${cat.color}` : null },
+    { class: "card-image", style: color ? `--cat:${color}` : null },
     visual(card, "card-visual"),
   );
 }
 
-// Categories have no image of their own (schemas/aac.py: name + color only),
-// so this always falls through to visual()'s two-letter text fallback — same
-// helper the cards use. visual() reads `.label`/`.title`, not a category's
-// `.name`, hence the wrapper.
-function categoryVisual(cat) {
-  return el(
-    "span",
-    { class: "card-medallion", style: cat.color ? `--cat:${cat.color}` : null },
-    visual({ label: cat.name }, "card-visual"),
-  );
+// Categories carry a name + colour only (schemas/aac.py), no image of their
+// own yet — so the tab is a colour dot + the name, not a picture medallion.
+function categoryDot(cat) {
+  return el("span", {
+    class: "cat-dot",
+    style: cat.color ? `--cat:${cat.color}` : null,
+  });
 }
 
 // Pick the column/row split that lets all `n` cards fit in `box` (px) at
@@ -110,19 +110,24 @@ export async function renderAacBoard({
     grid = el(
       "div",
       { class: "aac-grid", role: "list" },
-      ...cardsForActive().map((card) =>
-        el(
+      ...cardsForActive().map((card) => {
+        const hasPicture = card.symbol_id || card.icon_asset_id;
+        return el(
           "button",
           {
-            class: "aac-card",
+            // A text-only card (no symbol/photo) is just its word, large —
+            // no empty image area above a redundant label.
+            class: hasPicture ? "aac-card" : "aac-card aac-card-text",
             role: "listitem",
+            style: catColor(card, cats) ? `--cat:${catColor(card, cats)}` : null,
             // Preview is read-only — no sentence-bar writes, no TTS.
             onclick: preview ? undefined : () => sentence.add(card),
           },
-          cardVisual(card, cats),
-          el("span", { class: "card-label" }, card.label),
-        ),
-      ),
+          ...(hasPicture
+            ? [cardVisual(card, cats), el("span", { class: "card-label" }, card.label)]
+            : [el("span", { class: "card-label" }, card.label)]),
+        );
+      }),
     );
 
     const tabs =
@@ -143,7 +148,7 @@ export async function renderAacBoard({
                     paint();
                   },
                 },
-                categoryVisual(c),
+                categoryDot(c),
                 el("span", {}, c.name),
               ),
             ),
