@@ -17,6 +17,7 @@ MODULE_KEYS = (
     # Playback preference for the story reader, not a module gate — but it
     # rides module_settings and the /modules endpoint, so it belongs here.
     "stories_autoplay",
+    "typing_board_enabled",
 )
 
 
@@ -64,6 +65,7 @@ class ModulesUpdate(BaseModel):
     social_stories_enabled: bool | None = None
     reading_writing_enabled: bool | None = None
     stories_autoplay: bool | None = None
+    typing_board_enabled: bool | None = None
 
 
 class ModulesOut(BaseModel):
@@ -75,3 +77,4 @@ class ModulesOut(BaseModel):
     social_stories_enabled: bool
     reading_writing_enabled: bool
     stories_autoplay: bool
+    typing_board_enabled: bool

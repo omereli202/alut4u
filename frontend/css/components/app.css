@@ -1882,3 +1882,237 @@ hr {
   gap: var(--space-2);
   inline-size: 100%;
 }
+
+/* ------------------------------------------------------------ Typing board
+   "הפתקים שלי" — free-composition notes. The block textareas sit borderless on
+   one .note-sheet so the stack reads as a single writing surface, not a form. */
+.typing-screen,
+.typing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.note-new {
+  align-self: flex-start;
+  min-block-size: var(--touch-min);
+}
+.note-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.note-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  font-size: var(--text-lg);
+  text-align: start;
+  cursor: pointer;
+}
+.note-card-title {
+  font-weight: var(--font-weight-heading);
+}
+.note-card-meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.note-card-unsynced {
+  font-size: var(--text-sm);
+  color: var(--color-warning-ink);
+}
+
+.note-editor-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: var(--space-3);
+}
+.note-top-actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.note-toolbar {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: flex-start;
+  padding-block: var(--space-2);
+  margin-block-end: var(--space-2);
+  background: var(--color-bg);
+  border-block-end: 1px solid var(--color-border);
+}
+.note-style-group {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+.note-size-group {
+  display: flex;
+  gap: var(--space-1);
+  margin-inline-start: auto;
+}
+.note-style-btn {
+  min-block-size: var(--touch-min);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+.note-style-btn[aria-checked="true"] {
+  background: var(--color-secondary-soft);
+  border-color: var(--color-secondary);
+  font-weight: 600;
+}
+.note-font-select {
+  min-block-size: var(--touch-min);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  font: inherit;
+}
+
+.note-sheet {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  min-block-size: 55vh;
+  font-family: var(--note-font, var(--font-sans));
+}
+.note-sheet[data-font="assistant"] {
+  --note-font: "Assistant", "Rubik", system-ui, sans-serif;
+}
+.note-sheet[data-font="heebo"] {
+  --note-font: "Heebo", "Rubik", system-ui, sans-serif;
+}
+.note-title-input {
+  inline-size: 100%;
+  border: 0;
+  border-block-end: 1px solid var(--color-border);
+  background: transparent;
+  font-family: inherit;
+  font-size: calc(var(--text-xl) * var(--note-scale, 1));
+  font-weight: var(--font-weight-heading);
+  padding-block: var(--space-2);
+  margin-block-end: var(--space-3);
+}
+.note-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+.note-blk,
+.note-blk-ro {
+  flex: 1;
+  inline-size: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: start;
+  resize: none;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  padding-block: var(--space-1);
+}
+.note-blk:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+.note-h1 {
+  font-size: calc(var(--text-2xl) * var(--note-scale, 1));
+  font-weight: var(--font-weight-heading);
+  line-height: 1.3;
+}
+.note-h2 {
+  font-size: calc(var(--text-xl) * var(--note-scale, 1));
+  font-weight: var(--font-weight-heading);
+  line-height: 1.4;
+}
+.note-p {
+  font-size: calc(var(--text-lg) * var(--note-scale, 1));
+  line-height: 1.8;
+}
+.note-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--touch-min);
+  min-block-size: var(--touch-min);
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+.note-del {
+  visibility: hidden;
+}
+.note-row:focus-within .note-del {
+  visibility: visible;
+}
+.note-add-row {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-block-size: var(--touch-min);
+  padding-inline: var(--space-4);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.note-status {
+  min-block-size: 1.5em;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-start: var(--space-4);
+}
+
+@media print {
+  /* Print just the open note. `visibility` keeps the layout ancestors so the
+     sheet still positions correctly, unlike `display: none`. */
+  body * {
+    visibility: hidden;
+  }
+  .note-print,
+  .note-print * {
+    visibility: visible;
+  }
+  .note-print {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    box-shadow: none;
+  }
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+}

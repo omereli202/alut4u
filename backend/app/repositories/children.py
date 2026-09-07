@@ -20,6 +20,7 @@ _MODULE_KEYS = (
     "social_stories_enabled",
     "reading_writing_enabled",
     "stories_autoplay",
+    "typing_board_enabled",
 )
 
 

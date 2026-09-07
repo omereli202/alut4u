@@ -158,3 +158,31 @@ by the caregiver's PIN (`POST /claim`, caregiver mode).
 | POST | `/reading` `/writing` | C | `{child_id, level, title/body}` / `{child_id, level, hint, target}` — caregiver-authored (reading pre-generates TTS) |
 | DELETE | `/reading/<id>` `/writing/<id>` | C | own child rows only (RLS); 204 |
 | GET | `/progress?child_id=` | S | `{levels:[{kind, level, completed, toward_next, unclaimed}]}` |
+
+## Typing board ("הפתקים שלי" / לוח הקלדה) — `/api/typing`
+
+Free-composition notes for a child who already types. No target, no scoring, no
+tokens, no PIN. A note is `{title, blocks}` where `blocks` is an array of
+`{t: "h1"|"h2"|"p", s: "<plain text>"}` (never HTML), plus a `font_family`
+(`rubik`|`assistant`|`heebo`) and `font_scale` (`sm`|`md`|`lg`|`xl`) recording
+how it was written.
+
+Saves are an **upsert on a client-generated `note_id`** so the offline outbox
+(POST-only, no response) can replay them; a monotonic `rev` makes a stale replay
+a no-op (the server returns the stored row, still `200`, so the queue drains).
+There is deliberately **no `PUT /notes/<id>`** for that reason. The client PK
+means a note id could collide with another tenant's — the route checks child
+ownership and a raw conflict surfaces as `409 note_id_conflict`.
+
+Limits: `title` ≤ 120, ≤ 200 blocks, ≤ 2000 chars/block, ≤ 20 000 total; `/speak`
+input ≤ 1500 (`422 text_too_long_for_speech`).
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/notes?child_id=` | S | `{notes:[{id, title, preview, rev, font_family, font_scale, updated_at}]}` — no `blocks` |
+| GET | `/notes/<id>` | S | full note + `audio_url` (null unless `/speak` has run) |
+| POST | `/notes` | S | `{child_id, note_id, title, blocks, rev, font_family?, font_scale?}` → `{id, rev, updated_at}` (upsert) |
+| DELETE | `/notes/<id>` | S | child or caregiver (product decision); audit-logged; 204 |
+| POST | `/notes/<id>/speak` | S | `{child_id}` — on-demand TTS, cached on `sha256(text)`; `{audio_url}` or `{audio_url: null}` |
+| GET | `/settings?child_id=` | S | `{font_family, font_scale}` — per-child default for a new note (defaults if no row) |
+| PUT | `/settings` | S | `{child_id, font_family?, font_scale?}` → merged row |

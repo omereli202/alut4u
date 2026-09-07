@@ -154,16 +154,20 @@ supabase db push                       # apply to the linked project
 - PIN: lockout escalation, elevation expiry, `pin_hash` never serialized.
 - Offline (manual, real tablet): load board → airplane mode → tap cards → audio
   plays → build sentence → speaks → reconnect → outbox flushes without dupes.
+- Typing board (manual, real tablet): open a note → type → airplane mode → keep
+  typing → force-kill the app → reopen → the text is still there → reconnect →
+  the outbox flushes → the caregiver sees exactly one note with the final text.
 - Accessibility: axe-core in CI; manual keyboard-only + 200% zoom +
   `prefers-reduced-motion` + 60px touch targets in User Mode.
 
 ## Current phase
 
-**Phases 0–8 all built on `dev`.** All 6 feature modules (AAC, Schedule, Tokens
-& rewards, Calming, AI stories, Reading & writing) are live in the User-Mode
-home tiles and the caregiver dashboard. Hardening done (quotas, logging,
-security headers, retention script, load test). `docs/roadmap.md` has the
-per-phase detail; `docs/launch-checklist.md` has what's left before promotion.
+**Phases 0–9 all built on `dev`.** All 7 feature modules (AAC, Schedule, Tokens
+& rewards, Calming, AI stories, Reading & writing, Typing board) are live in the
+User-Mode home tiles and the caregiver dashboard. Hardening done (quotas,
+logging, security headers, retention script, load test). `docs/roadmap.md` has
+the per-phase detail; `docs/launch-checklist.md` has what's left before
+promotion.
 
 `main` is still at Phase 1 — **nothing is promoted to production**; wait for the
 user to say so (see the branch-promotion memory).

@@ -22,6 +22,22 @@ export async function enqueue(endpoint, body) {
   return entry.id;
 }
 
+// Replace-in-place variant: the caller owns the entry id, so repeated saves of
+// the same resource (e.g. one typing note edited for ten minutes offline)
+// collapse to a single queued POST instead of dozens. `outboxStore.add` is a
+// `put` on keyPath "id", so re-adding the same id overwrites.
+export async function enqueueAs(id, endpoint, body) {
+  await outboxStore.add({ id, endpoint, body, ts: Date.now() });
+  if (navigator.onLine) flush();
+  return id;
+}
+
+// Drop a queued entry by its id — used before deleting a resource so a stale
+// queued save can't resurrect it. Harmless if nothing is queued.
+export async function dropQueued(id) {
+  await outboxStore.del(id);
+}
+
 let flushing = false;
 
 export async function flush() {

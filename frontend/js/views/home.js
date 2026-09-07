@@ -10,6 +10,7 @@ import { renderRules } from "../modules/rules/index.js";
 import { renderCalming } from "../modules/calming/index.js";
 import { renderStories } from "../modules/stories/index.js";
 import { renderLearning } from "../modules/learning/index.js";
+import { renderTyping } from "../modules/typing/index.js";
 
 const MODULES = {
   aac_enabled: { label: "בוא נדבר", icon: "forum" },
@@ -18,6 +19,7 @@ const MODULES = {
   calming_enabled: { label: "פינת רוגע", icon: "spa" },
   social_stories_enabled: { label: "סיפורים חברתיים", icon: "auto_stories" },
   reading_writing_enabled: { label: "קריאה והקלדה", icon: "menu_book" },
+  typing_board_enabled: { label: "הפתקים שלי", icon: "edit" },
 };
 
 const ACTIVE_CHILD_KEY = "alut4u.activeChild";
@@ -118,6 +120,9 @@ export async function renderHome({ onEnterCaregiver }) {
     }
     if (key === "reading_writing_enabled") {
       return renderLearning({ childId: child.id, childName: child.name, onExit: home, onHome: home });
+    }
+    if (key === "typing_board_enabled") {
+      return renderTyping({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     toast("המודול יתווסף בשלב הבא");
   }
