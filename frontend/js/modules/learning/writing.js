@@ -5,7 +5,7 @@
 
 import { api, ApiError } from "../../api.js";
 import { el, emptyState, errText, icon, toast } from "../../ui.js";
-import { pinGate } from "./pin-gate.js";
+import { pinGate } from "../../pin-gate.js";
 
 const EMPTY = { tasks: [], progress: { completed: 0, toward_next: 0, unclaimed: 0 } };
 

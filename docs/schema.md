@@ -70,6 +70,16 @@ note record how it was written; `typing_settings` (per-child, PK `child_id`,
 like `rules_settings`) is only the default for a new note — no row = defaults.
 Both are in the account export; erasure is FK cascade.
 
+`task_items` / `task_settings` (migration 0025) — the "המשימות שלי" checklist
+(8th `module_settings` column `tasks_enabled`). A task has a `title`, optional
+`symbol_id`, and `recurrence` (`daily`|`once`); "done" is the single
+`completed_on` date (= the child's local date of the tick), so a daily task
+resets itself and a one-off task disappears the day after it's finished — no
+sweep. `task_settings` (per-child, PK `child_id`, like `rules_settings`):
+`reward_tokens` (0–20, default 1) and `last_reward_date`, the once-a-day guard
+for `POST /api/tasks/claim` (releases the tokens via a `kind: "tasks"` ledger
+entry, caregiver PIN). No row = defaults. Erasure is FK cascade.
+
 `schedule_items`, `calendar_events`, `behavior_rules`, `token_transactions`
 (source of truth) + `token_balances` (materialized), `rewards`,
 `reward_redemptions` (`status` for the approval queue), `social_stories`,

@@ -63,6 +63,7 @@ def _register_blueprints(app: Flask) -> None:
     from app.api.schedule import bp as schedule_bp
     from app.api.stories import bp as stories_bp
     from app.api.symbols import bp as symbols_bp
+    from app.api.tasks import bp as tasks_bp
     from app.api.tokens import bp as tokens_bp
     from app.api.typing import bp as typing_bp
 
@@ -78,6 +79,7 @@ def _register_blueprints(app: Flask) -> None:
     app.register_blueprint(stories_bp)
     app.register_blueprint(learning_bp)
     app.register_blueprint(typing_bp)
+    app.register_blueprint(tasks_bp)
 
 
 def _register_frontend(app: Flask) -> None:

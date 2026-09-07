@@ -115,6 +115,39 @@ def test_b_cannot_touch_a_learning(two_caregivers):
     )
 
 
+def test_b_cannot_touch_a_tasks(two_caregivers):
+    a, b, cid = two_caregivers["a"], two_caregivers["b"], two_caregivers["child_id"]
+    task = a.post(
+        "/api/tasks/items", json={"child_id": cid, "title": "משימה של A", "recurrence": "daily"}
+    ).get_json()
+
+    assert b.get(f"/api/tasks/day?child_id={cid}&date=2026-09-06").status_code == 404
+    assert b.get(f"/api/tasks/items?child_id={cid}").status_code == 404
+    assert (
+        b.post(
+            "/api/tasks/items", json={"child_id": cid, "title": "hijack", "recurrence": "daily"}
+        ).status_code
+        == 404
+    )
+    assert b.delete(f"/api/tasks/items/{task['id']}").status_code == 404
+    assert (
+        b.post(
+            "/api/tasks/toggle",
+            json={"task_id": task["id"], "the_date": "2026-09-06", "completed": True},
+        ).status_code
+        == 404
+    )
+    assert (
+        b.put("/api/tasks/settings", json={"child_id": cid, "reward_tokens": 5}).status_code == 404
+    )
+    assert (
+        b.post("/api/tasks/claim", json={"child_id": cid, "the_date": "2026-09-06"}).status_code
+        == 404
+    )
+    # A's task is untouched
+    assert a.get(f"/api/tasks/items?child_id={cid}").get_json()["items"][0]["title"] == "משימה של A"
+
+
 def _a_note(a, cid):
     nid = str(uuid.uuid4())
     body = {

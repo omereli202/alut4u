@@ -11,6 +11,7 @@ import { renderRulesEditor } from "../modules/rules/editor.js";
 import { renderStoriesEditor } from "../modules/stories/editor.js";
 import { renderLearningEditor } from "../modules/learning/editor.js";
 import { renderTypingViewer } from "../modules/typing/viewer.js";
+import { renderTasksEditor } from "../modules/tasks/editor.js";
 
 const MODULES = [
   ["aac_enabled", "בוא נדבר (AAC)"],
@@ -20,6 +21,7 @@ const MODULES = [
   ["social_stories_enabled", "סיפורים חברתיים"],
   ["reading_writing_enabled", "קריאה והקלדה"],
   ["typing_board_enabled", "הפתקים שלי (לוח הקלדה)"],
+  ["tasks_enabled", "המשימות שלי"],
 ];
 
 export async function renderDashboard({ onExit, onLogout }) {
@@ -202,6 +204,16 @@ export async function renderDashboard({ onExit, onLogout }) {
                 renderTypingViewer({ childId: child.id, childName: child.name, onExit: load }),
             },
             "ערוך את הפתקים שלי",
+          ),
+        modules.tasks_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderTasksEditor({ childId: child.id, childName: child.name, onExit: load }),
+            },
+            "ערוך את המשימות שלי",
           ),
         el(
           "button",
