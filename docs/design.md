@@ -375,7 +375,7 @@ colours, gentle press feedback. No other navigation, no bottom bar, no clutter.
 | `סיפורים חברתיים` | Social stories |
 | `תרגול קריאה וכתיבה` | Reading & writing practice |
 
-**Must include:** corner lock button; optional child-switch chip row; tile grid
+**Must include:** corner lock button; tile grid
 (2–6 tiles, responsive). **Also generate:** the no-children empty state — same
 frame, headline `ברוכים הבאים`, one muted line `מטפל צריך להוסיף פרופיל חבר/ה
 במצב מטפל.`, no tiles.
@@ -395,6 +395,11 @@ showing a number and a star (pending reward requests), and a quiet text button
 "יציאה ממצב מטפל".
 
 Main content, a single column of cards:
+
+0. When more than one child exists, a small row directly under the header: a
+   muted line "הפרופיל שמוצג במצב משתמש:" and a row of pill chips, one per
+   child, the active one filled. Tapping a chip sets that profile and exits to
+   User Mode.
 
 1. Section heading "חברים". Then one card per child. Each child card has the
    child's name as a heading, then a vertical list of six labelled toggle

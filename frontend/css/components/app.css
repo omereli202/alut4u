@@ -441,9 +441,9 @@ hr {
   padding: var(--space-2);
 }
 /* Home header row: greeting on one side, the caregiver-mode entry clearly
-   separated on the other — previously an unlabeled icon absolutely
-   positioned right next to the child-switcher chips, which read as one
-   cluster. Both live in their own row now, not stacked on the switcher. */
+   separated on the other. The child-switcher chips used to sit here too; they
+   moved to the Caregiver Mode dashboard (.active-child) so the child can't
+   change profiles on the locked tablet. */
 .home-head {
   display: flex;
   align-items: center;
@@ -532,6 +532,16 @@ hr {
 .child-switch {
   margin-block-start: var(--space-4);
   margin-block-end: var(--space-4);
+}
+/* Active-profile switcher at the top of the Caregiver Mode dashboard. */
+.active-child {
+  margin-block: var(--space-4);
+}
+.active-child p {
+  margin-block-end: var(--space-2);
+}
+.active-child .child-switch {
+  margin-block: 0;
 }
 .chip {
   padding: var(--space-2) var(--space-4);

@@ -1,8 +1,10 @@
-// User Mode home — what the child sees. Pick a child, then the enabled modules
-// show as large tiles. Modules themselves are Phase 2+; for now they're
-// placeholders. A small corner control opens the PIN pad for Caregiver Mode.
+// User Mode home — what the child sees. The active child profile is picked by
+// the caregiver in Caregiver Mode; here the enabled modules for that profile
+// show as large tiles. A small corner control opens the PIN pad for Caregiver
+// Mode.
 
 import { api } from "../api.js";
+import { getActiveChildId } from "../active-child.js";
 import { el, emptyState, icon, mount, toast } from "../ui.js";
 import { renderAacBoard } from "../modules/aac/board.js";
 import { renderSchedule } from "../modules/schedule/index.js";
@@ -22,8 +24,6 @@ const MODULES = {
   typing_board_enabled: { label: "הפתקים שלי", icon: "edit" },
 };
 
-const ACTIVE_CHILD_KEY = "alut4u.activeChild";
-
 export async function renderHome({ onEnterCaregiver }) {
   let children = [];
   try {
@@ -32,12 +32,10 @@ export async function renderHome({ onEnterCaregiver }) {
     toast("לא ניתן לטעון נתונים", "error");
   }
 
-  let activeId = null;
-  try {
-    activeId = localStorage.getItem(ACTIVE_CHILD_KEY);
-  } catch {
-    /* private mode */
-  }
+  // The active profile is chosen by the caregiver in Caregiver Mode. User Mode
+  // only reads it — no switcher here. Fall back to the first profile when the
+  // stored id is missing or points at a hidden child.
+  let activeId = getActiveChildId();
   if (!children.some((c) => c.id === activeId)) activeId = children[0]?.id ?? null;
 
   // Last-loaded module settings for the active child. Kept out here so
@@ -77,7 +75,6 @@ export async function renderHome({ onEnterCaregiver }) {
       "section",
       { class: "home", "data-mode": "user" },
       el("div", { class: "home-head" }, el("h1", {}, `שלום, ${child?.name ?? ""}`), caregiverEntry),
-      children.length > 1 && childSwitcher(),
       enabled.length
         ? el(
             "div",
@@ -125,31 +122,6 @@ export async function renderHome({ onEnterCaregiver }) {
       return renderTyping({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     toast("המודול יתווסף בשלב הבא");
-  }
-
-  function childSwitcher() {
-    return el(
-      "div",
-      { class: "child-switch" },
-      ...children.map((c) =>
-        el(
-          "button",
-          {
-            class: c.id === activeId ? "chip active" : "chip",
-            onclick: async () => {
-              activeId = c.id;
-              try {
-                localStorage.setItem(ACTIVE_CHILD_KEY, c.id);
-              } catch {
-                /* ignore */
-              }
-              mount(await view());
-            },
-          },
-          c.name,
-        ),
-      ),
-    );
   }
 
   mount(await view());
