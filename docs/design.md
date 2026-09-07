@@ -405,12 +405,21 @@ Main content, a single column of cards:
    child's name as a heading, then a vertical list of six labelled toggle
    switches: "בוא נדבר (AAC)", "סדר יום", "הכללים שלי", "פינת רוגע",
    "סיפורים חברתיים", "תרגול קריאה וכתיבה". Below the toggles, a row of quiet action
-   buttons that appear only for enabled modules: "ערוך בוא נדבר",
-   "ערוך סדר יום", "ערוך כללים", "ערוך סיפורים חברתיים", and a red text button
-   "הסתרת פרופיל".
+   buttons: an always-present "הגדרת הפרופיל", then per-enabled-module ones
+   ("ערוך בוא נדבר", "ערוך סדר יום", "ערוך כללים", "ערוך סיפורים חברתיים"),
+   and a red text button "הסתרת פרופיל".
 
 2. A card titled "הוספת חבר/ה" — a small form: a text field "שם", a select
-   "בסיס להסכמה", and a primary button "הוספה".
+   "בסיס להסכמה", and a primary button "הוספה". Submitting it opens the guided
+   setup wizard.
+
+**Setup wizard** (`frontend/js/views/child-setup.js`): reached after "הוספה"
+and from each card's "הגדרת הפרופיל". A fixed bar at the bottom of the screen —
+step title "שלב N מתוך 7 — <module>", a thin progress bar, and buttons
+"סיום ההגדרה" / "דלג" / "הבא" (the last becomes "סיום" on the final step). The
+bar stays put while each module editor (בוא נדבר, סדר יום, הכללים שלי, סיפורים
+חברתיים, קריאה והקלדה, הפתקים שלי, המשימות שלי) fills the rest of the screen in
+turn; every step shows regardless of the module toggles.
 
 3. Section heading "החשבון שלי". A card with: a link "הורדת כל הנתונים שלי (JSON)",
    a red text button "מחיקת החשבון וכל הנתונים", a divider, and a quiet button

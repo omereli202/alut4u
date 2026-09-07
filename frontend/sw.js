@@ -7,7 +7,10 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v40"; // v40: "המשימות שלי" — an 8th module: a personal
+const SHELL_CACHE = "shell-v41"; // v41: guided child-setup wizard — walks the
+// caregiver through every module editor after creating a child (new
+// /js/views/child-setup.js).
+// v40: "המשימות שלי" — an 8th module: a personal
 // checklist the child ticks off (offline via the outbox), a caregiver editor
 // (curate tasks + attach a symbol + daily/one-off + reward size), and a
 // PIN-released token reward when every task due today is done. pin-gate.js
@@ -96,6 +99,7 @@ const SHELL = [
   "/js/views/pinpad.js",
   "/js/views/home.js",
   "/js/views/dashboard.js",
+  "/js/views/child-setup.js",
   "/js/modules/aac/board.js",
   "/js/modules/aac/sentence-bar.js",
   "/js/modules/aac/speech.js",
