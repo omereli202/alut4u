@@ -3,8 +3,8 @@
 // POST /auth/pin, then hands control back. The caller does the privileged call
 // and drops elevation — this only gets the session elevated.
 
-import { api } from "../../api.js";
-import { el, errText, icon } from "../../ui.js";
+import { api } from "./api.js";
+import { el, errText, icon } from "./ui.js";
 
 export function pinGate(host, { hint, onElevated, onCancel }) {
   const err = el("p", { class: "err", role: "alert" });

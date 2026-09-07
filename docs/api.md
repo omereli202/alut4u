@@ -186,3 +186,30 @@ input ≤ 1500 (`422 text_too_long_for_speech`).
 | POST | `/notes/<id>/speak` | S | `{child_id}` — on-demand TTS, cached on `sha256(text)`; `{audio_url}` or `{audio_url: null}` |
 | GET | `/settings?child_id=` | S | `{font_family, font_scale}` — per-child default for a new note (defaults if no row) |
 | PUT | `/settings` | S | `{child_id, font_family?, font_scale?}` → merged row |
+
+## המשימות שלי (My Tasks) — `/api/tasks`
+
+A personal checklist the child ticks off. Each task is `{title, symbol_id?,
+recurrence}` where `recurrence` is `daily` (back to not-done each day) or `once`
+(stays visible while unfinished or finished today; gone from tomorrow). "Done"
+is a single `completed_on` date — the daily reset needs no cron.
+
+Finishing every task due today earns `reward_tokens` (0–20, default 1, per-child)
+**once per local date**, released by the caregiver's PIN (`POST /claim` after an
+inline PIN gate) — same shape as the rules daily bonus / learning milestone. The
+token ledger entry has `kind: "tasks"`.
+
+`/toggle` is the User-Mode write and goes through the offline outbox: the caller
+sends `the_date`, the server sets `completed_on` to it (or null), idempotently.
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/day?child_id=&date=` | S | `{items:[{…, is_done}], reward_tokens, reward_claimed, all_done}` — tasks due that date. User Mode uses this. |
+| POST | `/toggle` | S | `{task_id, the_date, completed, idempotency_key?}` → the updated item. **Idempotent** (offline outbox replays it). |
+| GET | `/items?child_id=` | C | `{items:[…], reward_tokens}` — the full list, including one-off tasks finished on an earlier day. |
+| POST | `/items` | C | `{child_id, title, symbol_id?, recurrence?"daily"\|"once", sort_order?}`. Pre-generates TTS. |
+| PATCH | `/items/<id>` | C | any field; regenerates TTS if `title` changes. |
+| DELETE | `/items/<id>` | C | 204 |
+| PUT | `/items/order` | C | `{child_id, order:[id,…]}` |
+| PUT | `/settings` | C | `{child_id, reward_tokens}` → `{reward_tokens}` |
+| POST | `/claim` | C | `{child_id, the_date}` → `{tokens_awarded, balance}` (201). 409 `tasks_incomplete`, 409 `reward_already_granted`. |

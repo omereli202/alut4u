@@ -7,8 +7,13 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v39"; // v39: active-child profile switcher moved from
-// the User Mode home to the Caregiver Mode dashboard (new /js/active-child.js).
+const SHELL_CACHE = "shell-v40"; // v40: "המשימות שלי" — an 8th module: a personal
+// checklist the child ticks off (offline via the outbox), a caregiver editor
+// (curate tasks + attach a symbol + daily/one-off + reward size), and a
+// PIN-released token reward when every task due today is done. pin-gate.js
+// promoted from js/modules/learning/ to js/ (now shared by learning + tasks).
+// v39: active-child profile switcher moved from the User Mode home to the
+// Caregiver Mode dashboard (new /js/active-child.js).
 // v38: "הפתקים שלי" (לוח הקלדה) — a 7th module:
 // free-composition notes with 3 block styles (כותרת ראשית / משנה / טקסט), a
 // per-child typeface (Rubik / Assistant / Heebo) + size default, an offline
@@ -86,6 +91,7 @@ const SHELL = [
   "/js/active-child.js",
   "/js/ui.js",
   "/js/dialog.js",
+  "/js/pin-gate.js",
   "/js/views/auth.js",
   "/js/views/pinpad.js",
   "/js/views/home.js",
@@ -117,13 +123,15 @@ const SHELL = [
   "/js/modules/learning/reading.js",
   "/js/modules/learning/writing.js",
   "/js/modules/learning/editor.js",
-  "/js/modules/learning/pin-gate.js",
   "/js/modules/typing/index.js",
   "/js/modules/typing/editor.js",
   "/js/modules/typing/viewer.js",
   "/js/modules/typing/blocks.js",
   "/js/modules/typing/data.js",
   "/js/modules/typing/export.js",
+  "/js/modules/tasks/index.js",
+  "/js/modules/tasks/data.js",
+  "/js/modules/tasks/editor.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
   // Self-hosted Rubik — offline AAC/schedule must still render Hebrew (+ the
@@ -201,7 +209,7 @@ self.addEventListener("fetch", (event) => {
   // Read-only board/day/calendar: network-first, fall back to the last copy so
   // the child still sees today's schedule and board offline.
   if (
-    /^\/api\/(aac\/board|schedule\/(day|calendar)|typing\/(notes|settings))/.test(url.pathname) &&
+    /^\/api\/(aac\/board|schedule\/(day|calendar)|typing\/(notes|settings)|tasks\/day)/.test(url.pathname) &&
     request.method === "GET"
   ) {
     event.respondWith(

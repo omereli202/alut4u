@@ -21,6 +21,7 @@ _MODULE_KEYS = (
     "reading_writing_enabled",
     "stories_autoplay",
     "typing_board_enabled",
+    "tasks_enabled",
 )
 
 

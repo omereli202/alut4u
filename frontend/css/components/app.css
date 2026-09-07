@@ -2102,6 +2102,77 @@ hr {
   margin-block-start: var(--space-4);
 }
 
+/* ------------------------------------------------------------ My Tasks
+   "המשימות שלי" — a checklist the child ticks off, mirroring the schedule
+   day-list row so the two modules feel the same. */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.task-list-head {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.task-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.task-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+}
+.task-row.done {
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+.task-row input {
+  inline-size: 1.8rem;
+  block-size: 1.8rem;
+  flex: none;
+}
+.task-row-visual {
+  inline-size: 44px;
+  block-size: 44px;
+  object-fit: contain;
+  flex: none;
+}
+.task-row-title {
+  flex: 1;
+}
+.task-reward {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+.task-claim {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  inline-size: auto;
+  min-block-size: var(--touch-min);
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+}
+.task-claim .icon {
+  color: currentColor;
+}
+.tasks-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
 @media print {
   /* Print just the open note. `visibility` keeps the layout ancestors so the
      sheet still positions correctly, unlike `display: none`. */

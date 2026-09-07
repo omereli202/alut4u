@@ -13,6 +13,7 @@ import { renderCalming } from "../modules/calming/index.js";
 import { renderStories } from "../modules/stories/index.js";
 import { renderLearning } from "../modules/learning/index.js";
 import { renderTyping } from "../modules/typing/index.js";
+import { renderMyTasks } from "../modules/tasks/index.js";
 
 const MODULES = {
   aac_enabled: { label: "בוא נדבר", icon: "forum" },
@@ -22,6 +23,7 @@ const MODULES = {
   social_stories_enabled: { label: "סיפורים חברתיים", icon: "auto_stories" },
   reading_writing_enabled: { label: "קריאה והקלדה", icon: "menu_book" },
   typing_board_enabled: { label: "הפתקים שלי", icon: "edit" },
+  tasks_enabled: { label: "המשימות שלי", icon: "check_circle" },
 };
 
 export async function renderHome({ onEnterCaregiver }) {
@@ -120,6 +122,9 @@ export async function renderHome({ onEnterCaregiver }) {
     }
     if (key === "typing_board_enabled") {
       return renderTyping({ childId: child.id, childName: child.name, onExit: home, onHome: home });
+    }
+    if (key === "tasks_enabled") {
+      return renderMyTasks({ childId: child.id, childName: child.name, onExit: home, onHome: home });
     }
     toast("המודול יתווסף בשלב הבא");
   }

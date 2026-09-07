@@ -18,6 +18,7 @@ MODULE_KEYS = (
     # rides module_settings and the /modules endpoint, so it belongs here.
     "stories_autoplay",
     "typing_board_enabled",
+    "tasks_enabled",
 )
 
 
@@ -66,6 +67,7 @@ class ModulesUpdate(BaseModel):
     reading_writing_enabled: bool | None = None
     stories_autoplay: bool | None = None
     typing_board_enabled: bool | None = None
+    tasks_enabled: bool | None = None
 
 
 class ModulesOut(BaseModel):
@@ -78,3 +80,4 @@ class ModulesOut(BaseModel):
     reading_writing_enabled: bool
     stories_autoplay: bool
     typing_board_enabled: bool
+    tasks_enabled: bool
