@@ -937,6 +937,74 @@ hr {
   gap: var(--space-4);
   flex-wrap: wrap;
 }
+
+/* Child-setup wizard bar (frontend/js/views/child-setup.js). Fixed to the
+   bottom, appended to <body> — outside #main — so it survives each module
+   editor's mount() call. #main gets bottom padding while it's up so the bar
+   doesn't cover the editor's last controls. */
+.setup-bar {
+  position: fixed;
+  inset-block-end: 0;
+  inset-inline: 0;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-block-start: 1px solid var(--color-border-strong);
+  box-shadow: var(--shadow-2);
+}
+.setup-bar-info {
+  flex: 1;
+  min-inline-size: 12rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.setup-bar-title {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.setup-bar-track {
+  block-size: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  overflow: hidden;
+}
+.setup-bar-fill {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--color-primary);
+  transition: inline-size 200ms ease;
+}
+.setup-bar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.setup-bar-actions .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  inline-size: auto;
+  margin-block-start: 0;
+  min-block-size: var(--touch-min);
+}
+.setup-bar-actions .btn-link {
+  min-block-size: var(--touch-min);
+}
+body[data-setup="1"] #main {
+  padding-block-end: 7rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .setup-bar-fill {
+    transition: none;
+  }
+}
 .cat-block-head {
   display: flex;
   gap: var(--space-3);

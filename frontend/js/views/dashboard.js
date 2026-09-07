@@ -12,6 +12,7 @@ import { renderStoriesEditor } from "../modules/stories/editor.js";
 import { renderLearningEditor } from "../modules/learning/editor.js";
 import { renderTypingViewer } from "../modules/typing/viewer.js";
 import { renderTasksEditor } from "../modules/tasks/editor.js";
+import { renderChildSetup } from "./child-setup.js";
 
 const MODULES = [
   ["aac_enabled", "בוא נדבר (AAC)"],
@@ -145,6 +146,15 @@ export async function renderDashboard({ onExit, onLogout }) {
       el(
         "div",
         { class: "child-card-actions" },
+        el(
+          "button",
+          {
+            class: "btn-link",
+            onclick: () =>
+              renderChildSetup({ childId: child.id, childName: child.name, onDone: load }),
+          },
+          "הגדרת הפרופיל",
+        ),
         modules.aac_enabled &&
           el(
             "button",
@@ -343,13 +353,15 @@ export async function renderDashboard({ onExit, onLogout }) {
     const btn = e.target.querySelector('button[type="submit"]');
     await withBusy(btn, async () => {
       try {
-        await api.post("/children", {
+        const created = await api.post("/children", {
           name: f.get("name"),
           consent_basis: f.get("consent_basis"),
           parental_consent_attested: f.get("parental_consent_attested") === "on",
           board_template_id: f.get("board_template_id") || null,
         });
-        load();
+        // Straight into the guided setup so the caregiver can prepare every
+        // module's content before handing over the tablet.
+        renderChildSetup({ childId: created.id, childName: created.name, onDone: load });
       } catch (err) {
         errEl.textContent = errText(err);
       }
