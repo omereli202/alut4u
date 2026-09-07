@@ -2,6 +2,7 @@
 // the right screen: auth → onboarding PIN → User Mode home ⇄ Caregiver Mode.
 
 import { api } from "./api.js";
+import { unlockAudio } from "./audio.js";
 import { exitCaregiverMode, logout, refresh, state } from "./session.js";
 import { startOutbox } from "./outbox.js";
 import { el, errText, icon, initOfflineBanner, mount } from "./ui.js";
@@ -17,6 +18,18 @@ if ("serviceWorker" in navigator) {
 }
 
 initOfflineBanner();
+
+// Free the shared audio element from the autoplay policy on the first gesture,
+// so the story reader can speak page 1 on open (that call fires after an await,
+// off the gesture chain).
+{
+  const events = ["pointerdown", "keydown"];
+  const onFirstGesture = () => {
+    unlockAudio();
+    for (const ev of events) window.removeEventListener(ev, onFirstGesture);
+  };
+  for (const ev of events) window.addEventListener(ev, onFirstGesture);
+}
 
 async function route() {
   document.body.dataset.mode = state.mode;

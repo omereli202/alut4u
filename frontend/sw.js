@@ -7,7 +7,11 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v36"; // v36: "קריאה והקלדה" — level selector per tab,
+const SHELL_CACHE = "shell-v37"; // v37: social stories — shared unlocked <audio>
+// so the reader speaks page 1 on open (was blocked by autoplay policy), plus a
+// caregiver "הקראה אוטומטית" toggle (stories_autoplay) and auto-scroll of the
+// story-creation chat to the newest question.
+// v36: "קריאה והקלדה" — level selector per tab,
 // ~10 bundled tasks/level, completed tasks don't repeat, tokens released every
 // 3 tasks by caregiver PIN, and a caregiver task editor.
 // v35: AAC categories nest (אוכל ‹ ארוחת בוקר ‹
@@ -69,6 +73,7 @@ const SHELL = [
   "/css/components/app.css",
   "/js/app.js",
   "/js/api.js",
+  "/js/audio.js",
   "/js/db.js",
   "/js/outbox.js",
   "/js/session.js",

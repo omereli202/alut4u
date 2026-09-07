@@ -38,6 +38,10 @@ export async function renderHome({ onEnterCaregiver }) {
   }
   if (!children.some((c) => c.id === activeId)) activeId = children[0]?.id ?? null;
 
+  // Last-loaded module settings for the active child. Kept out here so
+  // openModule() can pass playback prefs (e.g. stories_autoplay) into a module.
+  let modules = {};
+
   async function view() {
     const child = children.find((c) => c.id === activeId);
     // A clearly separate, labeled control — not an unlabeled icon crowded
@@ -60,11 +64,10 @@ export async function renderHome({ onEnterCaregiver }) {
       );
     }
 
-    let modules = {};
     try {
       modules = await api.get(`/children/${activeId}/modules`);
     } catch {
-      /* leave empty */
+      modules = {};
     }
     const enabled = Object.keys(MODULES).filter((k) => modules[k]);
 
@@ -105,7 +108,13 @@ export async function renderHome({ onEnterCaregiver }) {
       return renderCalming({ childName: child.name, onExit: home, onHome: home });
     }
     if (key === "social_stories_enabled") {
-      return renderStories({ childId: child.id, childName: child.name, onExit: home, onHome: home });
+      return renderStories({
+        childId: child.id,
+        childName: child.name,
+        onExit: home,
+        onHome: home,
+        autoplay: modules.stories_autoplay !== false,
+      });
     }
     if (key === "reading_writing_enabled") {
       return renderLearning({ childId: child.id, childName: child.name, onExit: home, onHome: home });

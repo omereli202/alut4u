@@ -14,6 +14,9 @@ MODULE_KEYS = (
     "calming_enabled",
     "social_stories_enabled",
     "reading_writing_enabled",
+    # Playback preference for the story reader, not a module gate — but it
+    # rides module_settings and the /modules endpoint, so it belongs here.
+    "stories_autoplay",
 )
 
 
@@ -60,6 +63,7 @@ class ModulesUpdate(BaseModel):
     calming_enabled: bool | None = None
     social_stories_enabled: bool | None = None
     reading_writing_enabled: bool | None = None
+    stories_autoplay: bool | None = None
 
 
 class ModulesOut(BaseModel):
@@ -70,3 +74,4 @@ class ModulesOut(BaseModel):
     calming_enabled: bool
     social_stories_enabled: bool
     reading_writing_enabled: bool
+    stories_autoplay: bool
