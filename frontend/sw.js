@@ -7,7 +7,9 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v38"; // v38: "הפתקים שלי" (לוח הקלדה) — a 7th module:
+const SHELL_CACHE = "shell-v39"; // v39: active-child profile switcher moved from
+// the User Mode home to the Caregiver Mode dashboard (new /js/active-child.js).
+// v38: "הפתקים שלי" (לוח הקלדה) — a 7th module:
 // free-composition notes with 3 block styles (כותרת ראשית / משנה / טקסט), a
 // per-child typeface (Rubik / Assistant / Heebo) + size default, an offline
 // draft (kv) + coalesced outbox upsert, and a caregiver viewer with TTS /
@@ -81,6 +83,7 @@ const SHELL = [
   "/js/db.js",
   "/js/outbox.js",
   "/js/session.js",
+  "/js/active-child.js",
   "/js/ui.js",
   "/js/dialog.js",
   "/js/views/auth.js",

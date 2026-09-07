@@ -2,6 +2,7 @@
 // account data controls, and exit back to User Mode.
 
 import { api } from "../api.js";
+import { getActiveChildId, setActiveChildId } from "../active-child.js";
 import { el, emptyState, errText, icon, mount, toast, withBusy } from "../ui.js";
 import { destructiveDialog, typeToConfirmDialog } from "../dialog.js";
 import { renderAacEditor } from "../modules/aac/editor.js";
@@ -58,6 +59,7 @@ export async function renderDashboard({ onExit, onLogout }) {
         ),
         el("button", { class: "btn-link", onclick: exit }, "יציאה ממצב מטפל"),
       ),
+      children.length > 1 ? activeChildSwitcher(children) : null,
       el("h2", {}, "חברים"),
       ...(children.length
         ? await Promise.all(children.map(childCard))
@@ -65,6 +67,36 @@ export async function renderDashboard({ onExit, onLogout }) {
       addChildForm(),
       el("h2", {}, "החשבון שלי"),
       accountSection(),
+    );
+  }
+
+  // Which profile User Mode opens on. Choosing one also leaves Caregiver Mode
+  // straight away — the caregiver hands the tablet back set to that child.
+  function activeChildSwitcher(children) {
+    const activeId = children.some((c) => c.id === getActiveChildId())
+      ? getActiveChildId()
+      : children[0]?.id;
+    return el(
+      "div",
+      { class: "active-child" },
+      el("p", { class: "muted" }, "הפרופיל שמוצג במצב משתמש:"),
+      el(
+        "div",
+        { class: "child-switch" },
+        ...children.map((c) =>
+          el(
+            "button",
+            {
+              class: c.id === activeId ? "chip active" : "chip",
+              onclick: () => {
+                setActiveChildId(c.id);
+                exit();
+              },
+            },
+            c.name,
+          ),
+        ),
+      ),
     );
   }
 
