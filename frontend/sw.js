@@ -7,7 +7,12 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v36"; // v36: "קריאה והקלדה" — level selector per tab,
+const SHELL_CACHE = "shell-v37"; // v37: "הפתקים שלי" (לוח הקלדה) — a 7th module:
+// free-composition notes with 3 block styles (כותרת ראשית / משנה / טקסט), a
+// per-child typeface (Rubik / Assistant / Heebo) + size default, an offline
+// draft (kv) + coalesced outbox upsert, and a caregiver viewer with TTS /
+// share / print / delete.
+// v36: "קריאה והקלדה" — level selector per tab,
 // ~10 bundled tasks/level, completed tasks don't repeat, tokens released every
 // 3 tasks by caregiver PIN, and a caregiver task editor.
 // v35: AAC categories nest (אוכל ‹ ארוחת בוקר ‹
@@ -106,6 +111,12 @@ const SHELL = [
   "/js/modules/learning/writing.js",
   "/js/modules/learning/editor.js",
   "/js/modules/learning/pin-gate.js",
+  "/js/modules/typing/index.js",
+  "/js/modules/typing/editor.js",
+  "/js/modules/typing/viewer.js",
+  "/js/modules/typing/blocks.js",
+  "/js/modules/typing/data.js",
+  "/js/modules/typing/export.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
   // Self-hosted Rubik — offline AAC/schedule must still render Hebrew (+ the
@@ -119,6 +130,10 @@ const SHELL = [
   "/assets/fonts/rubik-latin-ext-400.woff2",
   "/assets/fonts/rubik-latin-ext-500.woff2",
   "/assets/fonts/rubik-latin-ext-700.woff2",
+  // Typing-board alternate faces (Hebrew subset only) — must be precached or an
+  // offline note silently falls back to system-ui when the child picks one.
+  "/assets/fonts/assistant-hebrew.woff2",
+  "/assets/fonts/heebo-hebrew.woff2",
   // Keep this in sync with ui.js's SPRITE_URL — a versioned URL is what
   // actually defeats Railway's CDN edge cache (see ui.js's comment); an
   // unversioned entry here would just precache a *different* URL than the
@@ -179,7 +194,7 @@ self.addEventListener("fetch", (event) => {
   // Read-only board/day/calendar: network-first, fall back to the last copy so
   // the child still sees today's schedule and board offline.
   if (
-    /^\/api\/(aac\/board|schedule\/(day|calendar))/.test(url.pathname) &&
+    /^\/api\/(aac\/board|schedule\/(day|calendar)|typing\/(notes|settings))/.test(url.pathname) &&
     request.method === "GET"
   ) {
     event.respondWith(

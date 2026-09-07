@@ -14,6 +14,7 @@ MODULE_KEYS = (
     "calming_enabled",
     "social_stories_enabled",
     "reading_writing_enabled",
+    "typing_board_enabled",
 )
 
 
@@ -60,6 +61,7 @@ class ModulesUpdate(BaseModel):
     calming_enabled: bool | None = None
     social_stories_enabled: bool | None = None
     reading_writing_enabled: bool | None = None
+    typing_board_enabled: bool | None = None
 
 
 class ModulesOut(BaseModel):
@@ -70,3 +72,4 @@ class ModulesOut(BaseModel):
     calming_enabled: bool
     social_stories_enabled: bool
     reading_writing_enabled: bool
+    typing_board_enabled: bool

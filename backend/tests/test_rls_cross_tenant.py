@@ -113,3 +113,80 @@ def test_b_cannot_touch_a_learning(two_caregivers):
         ).status_code
         == 404
     )
+
+
+def _a_note(a, cid):
+    nid = str(uuid.uuid4())
+    body = {
+        "child_id": cid,
+        "note_id": nid,
+        "title": "שלי",
+        "blocks": [{"t": "p", "s": "טקסט של קרייגיבר A"}],
+        "rev": 1,
+    }
+    assert a.post("/api/typing/notes", json=body).status_code == 200
+    return nid
+
+
+def test_b_cannot_touch_a_typing_notes(two_caregivers):
+    a, b, cid = two_caregivers["a"], two_caregivers["b"], two_caregivers["child_id"]
+    nid = _a_note(a, cid)
+
+    assert b.get(f"/api/typing/notes?child_id={cid}").status_code == 404
+    assert b.get(f"/api/typing/notes/{nid}").status_code == 404
+    assert (
+        b.post(
+            "/api/typing/notes",
+            json={
+                "child_id": cid,
+                "note_id": str(uuid.uuid4()),
+                "blocks": [{"t": "p", "s": "x"}],
+                "rev": 1,
+            },
+        ).status_code
+        == 404
+    )
+    assert b.delete(f"/api/typing/notes/{nid}").status_code == 404
+    assert b.get(f"/api/typing/settings?child_id={cid}").status_code == 404
+    assert (
+        b.put("/api/typing/settings", json={"child_id": cid, "font_family": "heebo"}).status_code
+        == 404
+    )
+    # A's note is untouched
+    assert a.get(f"/api/typing/notes/{nid}").get_json()["blocks"][0]["s"] == "טקסט של קרייגיבר A"
+
+
+def test_b_cannot_hijack_a_note_id_via_upsert(two_caregivers):
+    """B posts A's note id with B's own child_id — must fail, not reparent."""
+    a, b = two_caregivers["a"], two_caregivers["b"]
+    a_cid = two_caregivers["child_id"]
+    nid = _a_note(a, a_cid)
+
+    b_cid = b.post("/api/children", json={"name": "child-B", "consent_basis": "parent"}).get_json()[
+        "id"
+    ]
+    r = b.post(
+        "/api/typing/notes",
+        json={
+            "child_id": b_cid,
+            "note_id": nid,
+            "title": "hijacked",
+            "blocks": [{"t": "p", "s": "לא שלי"}],
+            "rev": 99,
+        },
+    )
+    assert r.status_code in (404, 409)
+    assert a.get(f"/api/typing/notes/{nid}").get_json()["blocks"][0]["s"] == "טקסט של קרייגיבר A"
+
+
+def test_rls_hides_a_note_from_a_direct_client(two_caregivers):
+    app, a, b = two_caregivers["app"], two_caregivers["a"], two_caregivers["b"]
+    nid = _a_note(a, two_caregivers["child_id"])
+    settings = app.config["SETTINGS"]
+
+    with b.session_transaction() as sess:
+        sid = sess["sid"]
+    with app.app_context():
+        resolved = session_svc.resolve(sid, settings)
+        rows = resolved.db.table("typing_notes").select("*").eq("id", nid).execute().data
+    assert rows == []

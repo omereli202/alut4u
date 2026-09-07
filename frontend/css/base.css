@@ -93,6 +93,31 @@
     U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* Assistant + Heebo — alternate Hebrew typefaces the child can pick for a note
+   in "הפתקים שלי" (the typing board). Hebrew subset only: Latin glyphs (digits,
+   punctuation) fall through to Rubik above, so a note stays visually consistent
+   with the rest of the app. Both are variable fonts — one file covers the whole
+   400–700 range, so headings at weight 500 render natively. SIL OFL, see
+   /assets/fonts/OFL-Assistant.txt and OFL-Heebo.txt. */
+@font-face {
+  font-family: "Assistant";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/assistant-hebrew.woff2") format("woff2");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
+    U+FB1D-FB4F;
+}
+@font-face {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/heebo-hebrew.woff2") format("woff2");
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC,
+    U+FB1D-FB4F;
+}
+
 *,
 *::before,
 *::after {

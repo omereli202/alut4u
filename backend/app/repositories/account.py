@@ -43,6 +43,16 @@ def export_bundle(caregiver_id: str) -> dict[str, Any]:
     schedule_templates = rows(
         db.table("schedule_templates").select("*").eq("caregiver_id", caregiver_id).execute()
     )
+    typing_notes = (
+        rows(db.table("typing_notes").select("*").in_("child_id", child_ids).execute())
+        if child_ids
+        else []
+    )
+    typing_settings = (
+        rows(db.table("typing_settings").select("*").in_("child_id", child_ids).execute())
+        if child_ids
+        else []
+    )
 
     return {
         "caregiver": caregiver,
@@ -52,6 +62,8 @@ def export_bundle(caregiver_id: str) -> dict[str, Any]:
         "devices": devices,
         "usage_counters": usage,
         "schedule_templates": schedule_templates,
+        "typing_notes": typing_notes,
+        "typing_settings": typing_settings,
     }
 
 

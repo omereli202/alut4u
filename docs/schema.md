@@ -17,7 +17,7 @@ Source of truth is `supabase/migrations/`. This doc is the map.
 |---|---|---|
 | `caregivers` | The account. 1:1 with `auth.users`. Holds `pin_hash`, consent timestamps. | self only |
 | `children` | Subject of care. `caregiver_id` FK, `consent_basis`. | owner (all) |
-| `module_settings` | Per-child module on/off. Auto-created by trigger. | via child owner |
+| `module_settings` | Per-child module on/off (7 `*_enabled` cols). Auto-created by trigger. | via child owner |
 | `consent_records` | Append-only: what was consented to, version, when, context. | owner (select); insert via backend |
 | `device_sessions` | One per signed-in device. Encrypted refresh token. Revocable. | owner (select/update) |
 | `media_assets` | Pointers to Storage objects. `child_id` null for shared TTS cache. | owner (select) |
@@ -60,6 +60,15 @@ bundled global, a value = caregiver-authored for that child (RLS). `learning_com
 reappears. `learning_reward_claims` (0022, PK `child_id`+`kind`+`level`) counts
 how many 3-task milestones have been paid (each worth 3 tokens, released by
 caregiver PIN). `learning_attempts` still logs every try.
+
+`typing_notes` / `typing_settings` (migration 0023) — the "הפתקים שלי" typing
+board (7th `module_settings` column `typing_board_enabled`). `typing_notes.id`
+is **client-generated** (the offline outbox needs it before the row exists);
+every save is an upsert gated by a monotonic `rev`. `blocks` is a jsonb array of
+`{t, s}` (3 styles, plain text, never HTML). `font_family`/`font_scale` on the
+note record how it was written; `typing_settings` (per-child, PK `child_id`,
+like `rules_settings`) is only the default for a new note — no row = defaults.
+Both are in the account export; erasure is FK cascade.
 
 `schedule_items`, `calendar_events`, `behavior_rules`, `token_transactions`
 (source of truth) + `token_balances` (materialized), `rewards`,

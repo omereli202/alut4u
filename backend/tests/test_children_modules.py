@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from app.schemas.children import MODULE_KEYS
 from tests.conftest import requires_supabase
 
 pytestmark = requires_supabase
@@ -62,13 +63,24 @@ def test_module_toggle_roundtrip(client, caregiver_mode):
 
     mods = client.get(f"/api/children/{cid}/modules").get_json()
     assert mods["aac_enabled"] is True
+    assert mods["typing_board_enabled"] is True
 
     after = client.put(
-        f"/api/children/{cid}/modules", json={"aac_enabled": False, "calming_enabled": False}
+        f"/api/children/{cid}/modules",
+        json={"aac_enabled": False, "calming_enabled": False, "typing_board_enabled": False},
     ).get_json()
     assert after["aac_enabled"] is False
     assert after["calming_enabled"] is False
+    assert after["typing_board_enabled"] is False
     assert after["schedule_enabled"] is True
+
+
+def test_modules_out_has_every_key(client, caregiver_mode):
+    cid = client.post("/api/children", json={"name": "x", "consent_basis": "parent"}).get_json()[
+        "id"
+    ]
+    mods = client.get(f"/api/children/{cid}/modules").get_json()
+    assert set(mods) - {"child_id"} == set(MODULE_KEYS)
 
 
 def test_empty_module_patch_is_422(client, caregiver_mode):
