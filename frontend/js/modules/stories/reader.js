@@ -1,18 +1,22 @@
 // Social-story reader: one page at a time, image + text, read-aloud, page turns.
+//
+// `autoplay` is the caregiver preference (stories_autoplay). When true, a page
+// is spoken automatically on open and on every page turn; when false the child
+// taps "הקראה" (or the text) to hear it. The manual triggers always work.
 
+import { playUrl, stopAudio } from "../../audio.js";
 import { el, icon } from "../../ui.js";
 
-export function renderReader(host, { story, onBack }) {
+export function renderReader(host, { story, autoplay = true, onBack }) {
   let page = 0;
-  let audio = null;
 
   function speak() {
-    const url = story.pages[page].audio_url;
-    audio?.pause();
-    if (url) {
-      audio = new Audio(url);
-      audio.play().catch(() => {});
-    }
+    playUrl(story.pages[page].audio_url);
+  }
+
+  function close() {
+    stopAudio();
+    onBack();
   }
 
   function view() {
@@ -24,7 +28,7 @@ export function renderReader(host, { story, onBack }) {
       el(
         "div",
         { class: "story-topbar" },
-        el("button", { class: "btn-link", onclick: () => { audio?.pause(); onBack(); } }, icon("close"), " סגירה"),
+        el("button", { class: "btn-link", onclick: close }, icon("close"), " סגירה"),
         el("span", { class: "muted" }, `${page + 1} / ${story.pages.length}`),
       ),
       p.image_url
@@ -42,12 +46,7 @@ export function renderReader(host, { story, onBack }) {
         ),
         el("button", { class: "sb-btn speak", onclick: speak }, icon("volume_up"), " הקראה"),
         last
-          ? el(
-              "button",
-              { class: "sb-btn", onclick: () => { audio?.pause(); onBack(); } },
-              icon("check"),
-              " סיום",
-            )
+          ? el("button", { class: "sb-btn", onclick: close }, icon("check"), " סיום")
           : el("button", { class: "sb-btn", onclick: () => go(1) }, "הבא ", icon("chevron_left")),
       ),
     );
@@ -56,7 +55,7 @@ export function renderReader(host, { story, onBack }) {
   function go(delta) {
     page = Math.max(0, Math.min(story.pages.length - 1, page + delta));
     render();
-    speak();
+    if (autoplay) speak();
   }
 
   function render() {
@@ -64,5 +63,5 @@ export function renderReader(host, { story, onBack }) {
   }
 
   render();
-  speak();
+  if (autoplay) speak();
 }

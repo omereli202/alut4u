@@ -28,11 +28,29 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
   let artToken = 0;
   let edits = null; // { title, pages: [text] } while the caregiver is editing
   let saving = false;
+  let autoplay = true; // stories_autoplay — reader speaks each page by itself
 
   async function load() {
-    stories = (await api.get(`/stories?child_id=${childId}`).catch(() => ({ stories: [] }))).stories;
+    const [s, m] = await Promise.all([
+      api.get(`/stories?child_id=${childId}`).catch(() => ({ stories: [] })),
+      api.get(`/children/${childId}/modules`).catch(() => ({})),
+    ]);
+    stories = s.stories;
+    autoplay = m.stories_autoplay !== false;
     if (!draft && !messages.length) await sendTurn(null); // kick off the first question
     else render();
+  }
+
+  async function setAutoplay(on) {
+    const prev = autoplay;
+    autoplay = on;
+    try {
+      await api.put(`/children/${childId}/modules`, { stories_autoplay: on });
+    } catch (err) {
+      autoplay = prev;
+      render();
+      toast(errText(err), "error");
+    }
   }
 
   async function sendTurn(userText) {
@@ -49,6 +67,9 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
     }
     busy = false;
     render();
+    // Keep the conversation moving: show the newest question and put the cursor
+    // back in the field so the caregiver never has to scroll or re-click.
+    if (userText != null) document.querySelector(".chat-form input")?.focus();
   }
 
   async function compose() {
@@ -257,6 +278,18 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
     if (btn) btn.disabled = !editsDirty() || saving || artBusy;
   }
 
+  // After a re-render of the chat screen, mount() has scrolled #main and the
+  // window back to the top and rebuilt .chat-log with scrollTop 0. Pin the log
+  // to its newest message and bring the card back into view, so the caregiver
+  // never has to scroll down to the current question. (Precedent:
+  // modules/aac/sentence-bar.js and modules/schedule/day-list.js.)
+  function scrollChatIntoView() {
+    const log = document.querySelector(".stories-editor .chat-log");
+    if (!log) return;
+    log.scrollTop = log.scrollHeight;
+    log.scrollIntoView({ block: "nearest" });
+  }
+
   function render() {
     mount(
       el(
@@ -352,8 +385,30 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
               )
             : el("p", { class: "muted" }, "אין עדיין סיפורים."),
         ),
+
+        el(
+          "div",
+          { class: "card" },
+          el("h3", {}, "הגדרות"),
+          el(
+            "label",
+            { class: "toggle" },
+            el("input", {
+              type: "checkbox",
+              checked: autoplay,
+              onchange: (e) => setAutoplay(e.target.checked),
+            }),
+            " הקראה אוטומטית של הסיפור במצב משתמש",
+          ),
+          el(
+            "p",
+            { class: "muted" },
+            "כשמכובה, הילד/ה לוחצ/ת על ״הקראה״ כדי לשמוע כל עמוד.",
+          ),
+        ),
       ),
     );
+    if (!draft) scrollChatIntoView();
   }
 
   await load();

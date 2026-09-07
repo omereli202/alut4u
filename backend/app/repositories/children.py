@@ -19,6 +19,7 @@ _MODULE_KEYS = (
     "calming_enabled",
     "social_stories_enabled",
     "reading_writing_enabled",
+    "stories_autoplay",
 )
 
 

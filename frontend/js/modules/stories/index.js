@@ -4,7 +4,7 @@ import { api } from "../../api.js";
 import { el, emptyState, mount, navBar, toast } from "../../ui.js";
 import { renderReader } from "./reader.js";
 
-export async function renderStories({ childId, childName, onExit, onHome }) {
+export async function renderStories({ childId, childName, onExit, onHome, autoplay = true }) {
   let stories = [];
   try {
     stories = (await api.get(`/stories?child_id=${encodeURIComponent(childId)}`)).stories;
@@ -40,7 +40,7 @@ export async function renderStories({ childId, childName, onExit, onHome }) {
   async function open(id) {
     try {
       const story = await api.get(`/stories/${id}`);
-      renderReader(host, { story, onBack: list });
+      renderReader(host, { story, autoplay, onBack: list });
     } catch {
       toast("לא ניתן לפתוח את הסיפור", "error");
     }
