@@ -7,7 +7,9 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v41"; // v41: guided child-setup wizard — walks the
+const SHELL_CACHE = "shell-v42"; // v42: calming memory game — a found pair counts
+// as 1 (was 0.5), and the "מצאת הכל!" win screen actually fires.
+// v41: guided child-setup wizard — walks the
 // caregiver through every module editor after creating a child (new
 // /js/views/child-setup.js).
 // v40: "המשימות שלי" — an 8th module: a personal

@@ -39,7 +39,7 @@ export function renderMemory(host) {
           el(
             "div",
             { class: "memory-head" },
-            el("span", { class: "muted" }, `${matched.size / 2} / ${pairs}`),
+            el("span", { class: "muted" }, `${matched.size} / ${pairs}`),
             el("button", { class: "btn-link", onclick: newGame }, "משחק חדש"),
             el(
               "button",
@@ -53,7 +53,7 @@ export function renderMemory(host) {
               `זוגות: ${pairs}`,
             ),
           ),
-          matched.size === deck.length
+          matched.size === pairs
             ? celebration({ title: "מצאת הכל!" })
             : el(
                 "div",
