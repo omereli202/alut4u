@@ -43,14 +43,18 @@
       "category_en": "Animal Other Invertebrates",
       "grammar": "Noun",
       "id": "earthworm",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שלשול",
+        "תולעת",
+        "חיה"
+      ],
+      "label_he": "שלשול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "earthworm",
-      "status": "pending"
+      "status": "approved"
     },
     "1001": {
       "category_en": "Animal Spiders and Insects",
@@ -355,14 +359,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "elephant",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פיל",
+        "חיה"
+      ],
+      "label_he": "פיל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "elephant",
-      "status": "pending"
+      "status": "approved"
     },
     "1023": {
       "category_en": "Number",
@@ -895,14 +902,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "ball-beach",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כדור ים",
+        "כדור",
+        "צעצוע"
+      ],
+      "label_he": "כדור ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ball_beach",
-      "status": "pending"
+      "status": "approved"
     },
     "1060": {
       "category_en": "Healthcare Body parts",
@@ -1189,14 +1200,18 @@
       "category_en": "Celebration Item",
       "grammar": "Noun",
       "id": "balloon",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בלון",
+        "מסיבה",
+        "צעצוע"
+      ],
+      "label_he": "בלון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "balloon",
-      "status": "pending"
+      "status": "approved"
     },
     "1080": {
       "category_en": "Celebration Item",
@@ -1416,27 +1431,34 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "ferret",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חמוס",
+        "חיה"
+      ],
+      "label_he": "חמוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ferret",
-      "status": "pending"
+      "status": "approved"
     },
     "1096": {
       "category_en": "Transport Water",
       "grammar": "Noun",
       "id": "ferry",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעבורת",
+        "אונייה",
+        "ים"
+      ],
+      "label_he": "מעבורת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ferry",
-      "status": "pending"
+      "status": "approved"
     },
     "1097": {
       "category_en": "Leisure Toys",
@@ -1654,14 +1676,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "finger-puppet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בובת אצבע",
+        "בובה",
+        "צעצוע"
+      ],
+      "label_he": "בובת אצבע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "finger_puppet",
-      "status": "pending"
+      "status": "approved"
     },
     "1111": {
       "category_en": "Healthcare Body parts",
@@ -1724,14 +1750,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "fir-tree",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עץ אשוח",
+        "אשוח",
+        "עץ"
+      ],
+      "label_he": "עץ אשוח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fir_tree",
-      "status": "pending"
+      "status": "approved"
     },
     "1116": {
       "category_en": "Descriptive State",
@@ -1750,14 +1780,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "fire-engine",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כבאית",
+        "מכבי אש",
+        "רכב"
+      ],
+      "label_he": "כבאית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fire_engine",
-      "status": "pending"
+      "status": "approved"
     },
     "1118": {
       "category_en": "Clothes General",
@@ -1895,14 +1929,18 @@
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "fish",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דג",
+        "דגים",
+        "חיה"
+      ],
+      "label_he": "דג",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fish",
-      "status": "pending"
+      "status": "approved"
     },
     "1128": {
       "category_en": "Sport",
@@ -1999,14 +2037,18 @@
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "fish-koi-carp",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דג קוי",
+        "קרפיון",
+        "דג"
+      ],
+      "label_he": "דג קוי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fish_koi_carp",
-      "status": "pending"
+      "status": "approved"
     },
     "1135": {
       "category_en": "Animal Habitat",
@@ -2025,14 +2067,18 @@
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "fish-tropical",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דג טרופי",
+        "דג",
+        "חיה"
+      ],
+      "label_he": "דג טרופי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fish_tropical",
-      "status": "pending"
+      "status": "approved"
     },
     "1137": {
       "category_en": "Healthcare Body parts",
@@ -4094,14 +4140,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "bat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עטלף",
+        "חיה"
+      ],
+      "label_he": "עטלף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bat",
-      "status": "pending"
+      "status": "approved"
     },
     "1280": {
       "category_en": "Country Flags",
@@ -5758,14 +5807,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "flamingo",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פלמינגו",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "פלמינגו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "flamingo",
-      "status": "pending"
+      "status": "approved"
     },
     "1396": {
       "category_en": "Healthcare Grooming items",
@@ -5823,27 +5876,35 @@
       "category_en": "Transport Air",
       "grammar": "Noun",
       "id": "aeroplane",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מטוס",
+        "אווירון",
+        "טיסה"
+      ],
+      "label_he": "מטוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "aeroplane",
-      "status": "pending"
+      "status": "approved"
     },
     "140": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "beads",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חרוזים",
+        "השחלה",
+        "צעצוע"
+      ],
+      "label_he": "חרוזים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "beads",
-      "status": "pending"
+      "status": "approved"
     },
     "1400": {
       "category_en": "Food Kitchen actions",
@@ -5992,14 +6053,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "flower",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פרח",
+        "פרחים",
+        "צמח"
+      ],
+      "label_he": "פרח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "flower",
-      "status": "pending"
+      "status": "approved"
     },
     "1411": {
       "category_en": "Healthcare Grooming activities",
@@ -6018,27 +6083,35 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "flute",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חליל",
+        "כלי נגינה",
+        "מוזיקה"
+      ],
+      "label_he": "חליל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "flute",
-      "status": "pending"
+      "status": "approved"
     },
     "1413": {
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "fly",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זבוב",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "זבוב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fly",
-      "status": "pending"
+      "status": "approved"
     },
     "1414": {
       "category_en": "Building Household tasks",
@@ -6410,14 +6483,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "beanbag",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פוף",
+        "כרית",
+        "ישיבה"
+      ],
+      "label_he": "פוף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "beanbag",
-      "status": "pending"
+      "status": "approved"
     },
     "1440": {
       "category_en": "Clothes Sport",
@@ -6839,14 +6916,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "bear",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דוב",
+        "חיה"
+      ],
+      "label_he": "דוב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bear",
-      "status": "pending"
+      "status": "approved"
     },
     "1470": {
       "category_en": "Food Feeding and eating",
@@ -6865,14 +6945,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "fork-lift-truck",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מלגזה",
+        "רכב",
+        "מטען"
+      ],
+      "label_he": "מלגזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fork_lift_truck",
-      "status": "pending"
+      "status": "approved"
     },
     "1472": {
       "category_en": "Number",
@@ -6956,14 +7040,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "fox",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שועל",
+        "חיה"
+      ],
+      "label_he": "שועל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fox",
-      "status": "pending"
+      "status": "approved"
     },
     "1479": {
       "category_en": "Religion General",
@@ -7060,14 +7147,17 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "frog",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צפרדע",
+        "חיה"
+      ],
+      "label_he": "צפרדע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "frog",
-      "status": "pending"
+      "status": "approved"
     },
     "1486": {
       "category_en": "Food Dairy",
@@ -7190,14 +7280,17 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "fruit-tree",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עץ פרי",
+        "עץ"
+      ],
+      "label_he": "עץ פרי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fruit_tree",
-      "status": "pending"
+      "status": "approved"
     },
     "1495": {
       "category_en": "Food Kitchen actions",
@@ -7281,14 +7374,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "bee-bumble",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דבורת בומבוס",
+        "דבורה",
+        "חרק"
+      ],
+      "label_he": "דבורת בומבוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bee_bumble",
-      "status": "pending"
+      "status": "approved"
     },
     "1500": {
       "category_en": "Building Furniture",
@@ -7424,14 +7521,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "bee-honey",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דבורה",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "דבורה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bee_honey",
-      "status": "pending"
+      "status": "approved"
     },
     "1510": {
       "category_en": "People Profession",
@@ -7554,14 +7655,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "giraffe",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ג'ירפה",
+        "חיה"
+      ],
+      "label_he": "ג'ירפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "giraffe",
-      "status": "pending"
+      "status": "approved"
     },
     "152": {
       "category_en": "Food Meat",
@@ -7749,14 +7853,18 @@
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "goldfish",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דג זהב",
+        "דג",
+        "חיה"
+      ],
+      "label_he": "דג זהב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "goldfish",
-      "status": "pending"
+      "status": "approved"
     },
     "1533": {
       "category_en": "Animal Habitat",
@@ -7879,14 +7987,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "goose",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אווז",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "אווז",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "goose",
-      "status": "pending"
+      "status": "approved"
     },
     "1542": {
       "category_en": "Food Poultry",
@@ -7918,14 +8030,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "gorilla",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גורילה",
+        "קוף",
+        "חיה"
+      ],
+      "label_he": "גורילה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "gorilla",
-      "status": "pending"
+      "status": "approved"
     },
     "1545": {
       "category_en": "Food Breads and baking",
@@ -8061,14 +8177,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "grass",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דשא",
+        "עשב",
+        "צמח"
+      ],
+      "label_he": "דשא",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "grass",
-      "status": "pending"
+      "status": "approved"
     },
     "1555": {
       "category_en": "Food Kitchen actions",
@@ -8142,14 +8262,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "beetle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיפושית",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "חיפושית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "beetle",
-      "status": "pending"
+      "status": "approved"
     },
     "1560": {
       "category_en": "Descriptive State",
@@ -8363,27 +8487,35 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "guinea-pig",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שרקן",
+        "חזיר ים",
+        "חיה"
+      ],
+      "label_he": "שרקן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "guinea_pig",
-      "status": "pending"
+      "status": "approved"
     },
     "1576": {
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "guitar",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גיטרה",
+        "כלי נגינה",
+        "מוזיקה"
+      ],
+      "label_he": "גיטרה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "guitar",
-      "status": "pending"
+      "status": "approved"
     },
     "1577": {
       "category_en": "Healthcare Body parts",
@@ -8783,14 +8915,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "hamster",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוגר",
+        "חיה",
+        "חיית מחמד"
+      ],
+      "label_he": "אוגר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hamster",
-      "status": "pending"
+      "status": "approved"
     },
     "1604": {
       "category_en": "Animal Activity Feeding",
@@ -8926,14 +9062,18 @@
       "category_en": "Transport Air",
       "grammar": "Noun",
       "id": "hangar",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "האנגר",
+        "מטוס",
+        "טיסה"
+      ],
+      "label_he": "האנגר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hangar",
-      "status": "pending"
+      "status": "approved"
     },
     "1614": {
       "category_en": "Clothes Accessories",
@@ -9010,14 +9150,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "hare",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ארנבת בר",
+        "ארנב",
+        "חיה"
+      ],
+      "label_he": "ארנבת בר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hare",
-      "status": "pending"
+      "status": "approved"
     },
     "162": {
       "category_en": "Descriptive Position",
@@ -9438,14 +9582,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "hedge",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גדר חיה",
+        "שיח",
+        "צמח"
+      ],
+      "label_he": "גדר חיה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hedge",
-      "status": "pending"
+      "status": "approved"
     },
     "1649": {
       "category_en": "Tools Garden",
@@ -9477,14 +9625,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "hedgehog",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קיפוד",
+        "חיה"
+      ],
+      "label_he": "קיפוד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hedgehog",
-      "status": "pending"
+      "status": "approved"
     },
     "1651": {
       "category_en": "Healthcare Body parts",
@@ -9516,14 +9667,18 @@
       "category_en": "Transport Air",
       "grammar": "Noun",
       "id": "helicopter",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מסוק",
+        "הליקופטר",
+        "טיסה"
+      ],
+      "label_he": "מסוק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "helicopter",
-      "status": "pending"
+      "status": "approved"
     },
     "1654": {
       "category_en": "Communication Conversation",
@@ -9589,14 +9744,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "heron",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אנפה",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "אנפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "heron",
-      "status": "pending"
+      "status": "approved"
     },
     "1659": {
       "category_en": "Descriptive Shape",
@@ -9682,14 +9841,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "hippopotamus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "היפופוטם",
+        "היפו",
+        "חיה"
+      ],
+      "label_he": "היפופוטם",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hippopotamus",
-      "status": "pending"
+      "status": "approved"
     },
     "1665": {
       "category_en": "Healthcare Body parts",
@@ -9827,14 +9990,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "holly",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אשחר",
+        "עלים",
+        "צמח"
+      ],
+      "label_he": "אשחר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "holly",
-      "status": "pending"
+      "status": "approved"
     },
     "1675": {
       "category_en": "Computer Icon",
@@ -9946,14 +10113,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "horse",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סוס",
+        "סוסה",
+        "חיה"
+      ],
+      "label_he": "סוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "horse",
-      "status": "pending"
+      "status": "approved"
     },
     "1683": {
       "category_en": "Tools Garden",
@@ -9988,14 +10159,18 @@
       "category_en": "Transport Air",
       "grammar": "Noun",
       "id": "hot-air-balloon",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כדור פורח",
+        "בלון פורח",
+        "טיסה"
+      ],
+      "label_he": "כדור פורח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hot_air_balloon",
-      "status": "pending"
+      "status": "approved"
     },
     "1686": {
       "category_en": "Healthcare Grooming items",
@@ -10362,14 +10537,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "bicycle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אופניים",
+        "אופני",
+        "רכב"
+      ],
+      "label_he": "אופניים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bicycle",
-      "status": "pending"
+      "status": "approved"
     },
     "1710": {
       "category_en": "Descriptive Position",
@@ -10626,14 +10805,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "ivy",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קיסוס",
+        "מטפס",
+        "צמח"
+      ],
+      "label_he": "קיסוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ivy",
-      "status": "pending"
+      "status": "approved"
     },
     "1729": {
       "category_en": "Plants and Trees",
@@ -10691,14 +10874,17 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "jack-in-box",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קופסת הפתעה",
+        "צעצוע"
+      ],
+      "label_he": "קופסת הפתעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jack_in_box",
-      "status": "pending"
+      "status": "approved"
     },
     "1733": {
       "category_en": "Clothes General",
@@ -10853,14 +11039,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "jeep",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ג'יפ",
+        "רכב שטח",
+        "רכב"
+      ],
+      "label_he": "ג'יפ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jeep",
-      "status": "pending"
+      "status": "approved"
     },
     "1744": {
       "category_en": "Food Sweets and desserts",
@@ -10892,14 +11082,18 @@
       "category_en": "Animal Other Invertebrates",
       "grammar": "Noun",
       "id": "jellyfish",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מדוזה",
+        "חיה",
+        "ים"
+      ],
+      "label_he": "מדוזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jellyfish",
-      "status": "pending"
+      "status": "approved"
     },
     "1747": {
       "category_en": "Religion Person",
@@ -10918,14 +11112,18 @@
       "category_en": "Transport Air",
       "grammar": "Noun",
       "id": "jet-plane",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מטוס סילון",
+        "מטוס",
+        "טיסה"
+      ],
+      "label_he": "מטוס סילון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jet_plane",
-      "status": "pending"
+      "status": "approved"
     },
     "1749": {
       "category_en": "Clothes Jewellery",
@@ -10957,27 +11155,34 @@
       "category_en": "Leisure Games",
       "grammar": "Noun",
       "id": "jigsaw-puzzle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פאזל",
+        "תצרף",
+        "משחק"
+      ],
+      "label_he": "פאזל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jigsaw_puzzle",
-      "status": "pending"
+      "status": "approved"
     },
     "1751": {
       "category_en": "Leisure Games",
       "grammar": "Noun",
       "id": "jigsaw-puzzle-piece",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חלק פאזל",
+        "פאזל"
+      ],
+      "label_he": "חלק פאזל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jigsaw_puzzle_piece",
-      "status": "pending"
+      "status": "approved"
     },
     "1752": {
       "category_en": "Religion Person",
@@ -11061,27 +11266,35 @@
       "category_en": "Leisure Playground",
       "grammar": "Noun",
       "id": "jungle-gym",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מתקן טיפוס",
+        "גן שעשועים",
+        "משחק"
+      ],
+      "label_he": "מתקן טיפוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jungle_gym",
-      "status": "pending"
+      "status": "approved"
     },
     "1759": {
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "jupiter",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צדק",
+        "יופיטר",
+        "כוכב לכת"
+      ],
+      "label_he": "צדק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Jupiter",
-      "status": "pending"
+      "status": "approved"
     },
     "176": {
       "category_en": "Building Contents",
@@ -11126,14 +11339,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "kangaroo",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קנגורו",
+        "חיה"
+      ],
+      "label_he": "קנגורו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "kangaroo",
-      "status": "pending"
+      "status": "approved"
     },
     "1763": {
       "category_en": "Food Meals and snacks",
@@ -11204,14 +11420,18 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "keyboard-electric",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אורגן",
+        "קלידים",
+        "מוזיקה"
+      ],
+      "label_he": "אורגן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "keyboard_electric",
-      "status": "pending"
+      "status": "approved"
     },
     "1769": {
       "category_en": "Sport",
@@ -11269,27 +11489,35 @@
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "killer-whale",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לווייתן קטלן",
+        "אורקה",
+        "חיה"
+      ],
+      "label_he": "לווייתן קטלן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "killer_whale",
-      "status": "pending"
+      "status": "approved"
     },
     "1773": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "kite",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עפיפון",
+        "משחק",
+        "צעצוע"
+      ],
+      "label_he": "עפיפון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "kite",
-      "status": "pending"
+      "status": "approved"
     },
     "1774": {
       "category_en": "Food Fruit",
@@ -11388,14 +11616,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "koala",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קואלה",
+        "חיה"
+      ],
+      "label_he": "קואלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "koala",
-      "status": "pending"
+      "status": "approved"
     },
     "1781": {
       "category_en": "Leisure Toys",
@@ -11518,27 +11749,35 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "bird",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ציפור",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "ציפור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bird",
-      "status": "pending"
+      "status": "approved"
     },
     "1790": {
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "lamb-2",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טלה",
+        "כבש קטן",
+        "חיה"
+      ],
+      "label_he": "טלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lamb_2",
-      "status": "pending"
+      "status": "approved"
     },
     "1791": {
       "category_en": "Electrical General",
@@ -11804,14 +12043,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "leaf",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עלה",
+        "צמח",
+        "עץ"
+      ],
+      "label_he": "עלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "leaf",
-      "status": "pending"
+      "status": "approved"
     },
     "181": {
       "category_en": "Animal Habitat",
@@ -11830,14 +12073,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "leaves",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עלים",
+        "עלה",
+        "צמח"
+      ],
+      "label_he": "עלים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "leaves",
-      "status": "pending"
+      "status": "approved"
     },
     "1811": {
       "category_en": "Food Vegetables and salads",
@@ -11921,14 +12168,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "lego",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לגו",
+        "קוביות",
+        "צעצוע"
+      ],
+      "label_he": "לגו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lego",
-      "status": "pending"
+      "status": "approved"
     },
     "1818": {
       "category_en": "Healthcare Body parts",
@@ -12051,14 +12302,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "leopard",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נמר מנומר",
+        "חיה"
+      ],
+      "label_he": "נמר מנומר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "leopard",
-      "status": "pending"
+      "status": "approved"
     },
     "1827": {
       "category_en": "Work and School Stationery",
@@ -12168,14 +12422,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "lily",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שושן",
+        "חבצלת",
+        "פרח"
+      ],
+      "label_he": "שושן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lily",
-      "status": "pending"
+      "status": "approved"
     },
     "1835": {
       "category_en": "Food Fruit",
@@ -12267,14 +12525,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "lion",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אריה",
+        "חיה"
+      ],
+      "label_he": "אריה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lion",
-      "status": "pending"
+      "status": "approved"
     },
     "1841": {
       "category_en": "Healthcare Grooming items",
@@ -12390,14 +12651,17 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "lizard",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לטאה",
+        "חיה"
+      ],
+      "label_he": "לטאה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lizard",
-      "status": "pending"
+      "status": "approved"
     },
     "185": {
       "category_en": "Celebration Item",
@@ -12429,14 +12693,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "log",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בול עץ",
+        "גזע",
+        "עץ"
+      ],
+      "label_he": "בול עץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "log",
-      "status": "pending"
+      "status": "approved"
     },
     "1852": {
       "category_en": "Food Sweets and desserts",
@@ -12509,14 +12777,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "lorry",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משאית",
+        "רכב",
+        "מטען"
+      ],
+      "label_he": "משאית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lorry",
-      "status": "pending"
+      "status": "approved"
     },
     "1858": {
       "category_en": "Transport Road",
@@ -12966,14 +13238,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "marbles",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גולות",
+        "משחק",
+        "צעצוע"
+      ],
+      "label_he": "גולות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "marbles",
-      "status": "pending"
+      "status": "approved"
     },
     "189": {
       "category_en": "Food Fruit",
@@ -13046,14 +13322,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "mars",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מאדים",
+        "מארס",
+        "כוכב לכת"
+      ],
+      "label_he": "מאדים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Mars",
-      "status": "pending"
+      "status": "approved"
     },
     "1895": {
       "category_en": "Food Sweets and desserts",
@@ -13516,14 +13796,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "mercury",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כוכב חמה",
+        "מרקורי",
+        "כוכב לכת"
+      ],
+      "label_he": "כוכב חמה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Mercury",
-      "status": "pending"
+      "status": "approved"
     },
     "1927": {
       "category_en": "Food Sweets and desserts",
@@ -13542,14 +13826,18 @@
       "category_en": "Leisure Playground",
       "grammar": "Noun",
       "id": "merry-go-round",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קרוסלה",
+        "גן שעשועים",
+        "משחק"
+      ],
+      "label_he": "קרוסלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "merry_go_round",
-      "status": "pending"
+      "status": "approved"
     },
     "1929": {
       "category_en": "Descriptive State",
@@ -13598,14 +13886,18 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "microphone",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מיקרופון",
+        "לשיר",
+        "מוזיקה"
+      ],
+      "label_he": "מיקרופון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "microphone",
-      "status": "pending"
+      "status": "approved"
     },
     "1932": {
       "category_en": "Science",
@@ -13821,14 +14113,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "milky-way",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שביל החלב",
+        "גלקסיה",
+        "חלל"
+      ],
+      "label_he": "שביל החלב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Milky_Way",
-      "status": "pending"
+      "status": "approved"
     },
     "1948": {
       "category_en": "Food Breads and baking",
@@ -13873,14 +14169,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "mini-bus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מיניבוס",
+        "אוטובוס",
+        "רכב"
+      ],
+      "label_he": "מיניבוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mini_bus",
-      "status": "pending"
+      "status": "approved"
     },
     "1951": {
       "category_en": "Food Sweets and desserts",
@@ -13981,14 +14281,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "mistletoe",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דבקון",
+        "צמח",
+        "חג המולד"
+      ],
+      "label_he": "דבקון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mistletoe",
-      "status": "pending"
+      "status": "approved"
     },
     "1959": {
       "category_en": "Clothes General",
@@ -14217,14 +14521,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "moon",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ירח",
+        "לילה",
+        "שמיים"
+      ],
+      "label_he": "ירח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Moon",
-      "status": "pending"
+      "status": "approved"
     },
     "1975": {
       "category_en": "Building Contents",
@@ -14243,14 +14551,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "moped",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קטנוע",
+        "אופנוע",
+        "רכב"
+      ],
+      "label_he": "קטנוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "moped",
-      "status": "pending"
+      "status": "approved"
     },
     "1977": {
       "category_en": "Descriptive Quantity",
@@ -14312,40 +14624,51 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "moth",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עש",
+        "פרפר לילה",
+        "חרק"
+      ],
+      "label_he": "עש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "moth",
-      "status": "pending"
+      "status": "approved"
     },
     "1981": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "motor-home",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קרוואן ממונע",
+        "בית נייד",
+        "רכב"
+      ],
+      "label_he": "קרוואן ממונע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "motor_home",
-      "status": "pending"
+      "status": "approved"
     },
     "1982": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "motorcycle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אופנוע",
+        "רכב"
+      ],
+      "label_he": "אופנוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "motorcycle",
-      "status": "pending"
+      "status": "approved"
     },
     "1983": {
       "category_en": "Holiday and travel",
@@ -14364,14 +14687,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "mouse",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עכבר",
+        "חיה"
+      ],
+      "label_he": "עכבר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mouse",
-      "status": "pending"
+      "status": "approved"
     },
     "1985": {
       "category_en": "Electrical Computer",
@@ -14683,14 +15009,18 @@
       "category_en": "Animal Crustacean and Molluscs",
       "grammar": "Noun",
       "id": "mussel",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מולית",
+        "צדפה",
+        "ים"
+      ],
+      "label_he": "מולית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mussel",
-      "status": "pending"
+      "status": "approved"
     },
     "2005": {
       "category_en": "Computer Icon",
@@ -14943,14 +15273,17 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "neptune",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נפטון",
+        "כוכב לכת"
+      ],
+      "label_he": "נפטון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Neptune",
-      "status": "pending"
+      "status": "approved"
     },
     "2023": {
       "category_en": "Animal Habitat",
@@ -15523,14 +15856,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "oak-leaf",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עלה אלון",
+        "עלה",
+        "עץ"
+      ],
+      "label_he": "עלה אלון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "oak_leaf",
-      "status": "pending"
+      "status": "approved"
     },
     "2063": {
       "category_en": "People Profession",
@@ -15772,14 +16109,18 @@
       "category_en": "Transport Water",
       "grammar": "Noun",
       "id": "boat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סירה",
+        "שיט",
+        "ים"
+      ],
+      "label_he": "סירה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "boat",
-      "status": "pending"
+      "status": "approved"
     },
     "2080": {
       "category_en": "Food Eggs",
@@ -16103,14 +16444,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "ostrich",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יען",
+        "בת יענה",
+        "עוף"
+      ],
+      "label_he": "יען",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ostrich",
-      "status": "pending"
+      "status": "approved"
     },
     "2102": {
       "category_en": "Descriptive Direction",
@@ -16181,14 +16526,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "owl",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ינשוף",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "ינשוף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "owl",
-      "status": "pending"
+      "status": "approved"
     },
     "2108": {
       "category_en": "Healthcare Medical items",
@@ -16207,14 +16556,17 @@
       "category_en": "Animal Crustacean and Molluscs",
       "grammar": "Noun",
       "id": "oyster",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צדפה",
+        "ים"
+      ],
+      "label_he": "צדפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "oyster",
-      "status": "pending"
+      "status": "approved"
     },
     "211": {
       "category_en": "Sport Accessories",
@@ -16311,14 +16663,18 @@
       "category_en": "Transport Water",
       "grammar": "Noun",
       "id": "paddles",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משוטים",
+        "משוט",
+        "סירה"
+      ],
+      "label_he": "משוטים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "paddles",
-      "status": "pending"
+      "status": "approved"
     },
     "2117": {
       "category_en": "Tools Workshop",
@@ -16404,14 +16760,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "palm",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דקל",
+        "עץ תמר",
+        "עץ"
+      ],
+      "label_he": "דקל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "palm",
-      "status": "pending"
+      "status": "approved"
     },
     "2123": {
       "category_en": "Religion Festival",
@@ -16469,14 +16829,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "panda",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פנדה",
+        "דוב",
+        "חיה"
+      ],
+      "label_he": "פנדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "panda",
-      "status": "pending"
+      "status": "approved"
     },
     "2128": {
       "category_en": "Clothes General",
@@ -16573,14 +16937,18 @@
       "category_en": "Transport Air",
       "grammar": "Noun",
       "id": "parachute",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מצנח",
+        "קפיצה",
+        "טיסה"
+      ],
+      "label_he": "מצנח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "parachute",
-      "status": "pending"
+      "status": "approved"
     },
     "2135": {
       "category_en": "Celebration Event",
@@ -16703,14 +17071,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "parrot",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תוכי",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "תוכי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "parrot",
-      "status": "pending"
+      "status": "approved"
     },
     "2144": {
       "category_en": "Food Vegetables and salads",
@@ -17028,14 +17400,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "peacock",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טווס",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "טווס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "peacock",
-      "status": "pending"
+      "status": "approved"
     },
     "2167": {
       "category_en": "Food Nuts",
@@ -17158,14 +17534,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "pelican",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שקנאי",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "שקנאי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "pelican",
-      "status": "pending"
+      "status": "approved"
     },
     "2176": {
       "category_en": "Work and School Stationery",
@@ -17314,14 +17694,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "penguin",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פינגווין",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "פינגווין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "penguin",
-      "status": "pending"
+      "status": "approved"
     },
     "2187": {
       "category_en": "Healthcare Body parts",
@@ -17563,27 +17947,34 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "petal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עלה כותרת",
+        "פרח"
+      ],
+      "label_he": "עלה כותרת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "petal",
-      "status": "pending"
+      "status": "approved"
     },
     "2203": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "petrol-tanker",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכלית דלק",
+        "משאית",
+        "רכב"
+      ],
+      "label_he": "מכלית דלק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "petrol_tanker",
-      "status": "pending"
+      "status": "approved"
     },
     "2204": {
       "category_en": "Clothes General",
@@ -17706,14 +18097,18 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "piano",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פסנתר",
+        "כלי נגינה",
+        "מוזיקה"
+      ],
+      "label_he": "פסנתר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "piano",
-      "status": "pending"
+      "status": "approved"
     },
     "2213": {
       "category_en": "Food Sweets and desserts",
@@ -17849,14 +18244,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "piglet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חזרזיר",
+        "חזיר קטן",
+        "חיה"
+      ],
+      "label_he": "חזרזיר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "piglet",
-      "status": "pending"
+      "status": "approved"
     },
     "2223": {
       "category_en": "People Profession",
@@ -17914,14 +18313,17 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "pine-cone",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אצטרובל",
+        "עץ אורן"
+      ],
+      "label_he": "אצטרובל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "pine_cone",
-      "status": "pending"
+      "status": "approved"
     },
     "2228": {
       "category_en": "Food Nuts",
@@ -18174,27 +18576,34 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "planets",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כוכבי לכת",
+        "פלנטות",
+        "חלל"
+      ],
+      "label_he": "כוכבי לכת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "planets",
-      "status": "pending"
+      "status": "approved"
     },
     "2246": {
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "plant",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צמח",
+        "עציץ"
+      ],
+      "label_he": "צמח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "plant",
-      "status": "pending"
+      "status": "approved"
     },
     "2247": {
       "category_en": "Healthcare Medical items",
@@ -18308,14 +18717,18 @@
       "category_en": "Leisure Playground",
       "grammar": "Noun",
       "id": "play-area",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גן שעשועים",
+        "מגרש משחקים",
+        "משחק"
+      ],
+      "label_he": "גן שעשועים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "play_area",
-      "status": "pending"
+      "status": "approved"
     },
     "2255": {
       "category_en": "Science",
@@ -18347,14 +18760,18 @@
       "category_en": "Leisure Games",
       "grammar": "Noun",
       "id": "playing-cards",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קלפי משחק",
+        "קלפים",
+        "משחק"
+      ],
+      "label_he": "קלפי משחק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "playing_cards",
-      "status": "pending"
+      "status": "approved"
     },
     "2258": {
       "category_en": "Leisure Games",
@@ -18505,14 +18922,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "pluto",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פלוטו",
+        "כוכב ננסי",
+        "כוכב לכת"
+      ],
+      "label_he": "פלוטו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Pluto",
-      "status": "pending"
+      "status": "approved"
     },
     "2269": {
       "category_en": "Clothes General",
@@ -18573,14 +18994,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "polar-bear",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דוב קוטב",
+        "דוב לבן",
+        "חיה"
+      ],
+      "label_he": "דוב קוטב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "polar_bear",
-      "status": "pending"
+      "status": "approved"
     },
     "2273": {
       "category_en": "People Profession",
@@ -18612,14 +19037,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "police-car",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ניידת משטרה",
+        "משטרה",
+        "רכב"
+      ],
+      "label_he": "ניידת משטרה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "police_car",
-      "status": "pending"
+      "status": "approved"
     },
     "2276": {
       "category_en": "Clothes General",
@@ -18759,14 +19188,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "porcupine",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דורבן",
+        "חיה"
+      ],
+      "label_he": "דורבן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "porcupine",
-      "status": "pending"
+      "status": "approved"
     },
     "2286": {
       "category_en": "Food Meat",
@@ -18915,14 +19347,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "post-van",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רכב דואר",
+        "דואר",
+        "רכב"
+      ],
+      "label_he": "רכב דואר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "post_van",
-      "status": "pending"
+      "status": "approved"
     },
     "2297": {
       "category_en": "Work and School Stationery",
@@ -19006,14 +19442,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "potted-plant",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צמח בעציץ",
+        "עציץ",
+        "צמח"
+      ],
+      "label_he": "צמח בעציץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "potted_plant",
-      "status": "pending"
+      "status": "approved"
     },
     "2302": {
       "category_en": "Science",
@@ -19110,14 +19550,18 @@
       "category_en": "Animal Crustacean and Molluscs",
       "grammar": "Noun",
       "id": "prawn",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שרימפ",
+        "חסילון",
+        "ים"
+      ],
+      "label_he": "שרימפ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "prawn",
-      "status": "pending"
+      "status": "approved"
     },
     "231": {
       "category_en": "Food Kitchen items",
@@ -19309,14 +19753,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "puffin",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פפין",
+        "עוף ים",
+        "עוף"
+      ],
+      "label_he": "פפין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "puffin",
-      "status": "pending"
+      "status": "approved"
     },
     "2323": {
       "category_en": "Leisure Toys",
@@ -19400,14 +19848,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "puppet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בובת יד",
+        "בובה",
+        "צעצוע"
+      ],
+      "label_he": "בובת יד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "puppet",
-      "status": "pending"
+      "status": "approved"
     },
     "233": {
       "category_en": "Sport",
@@ -19638,14 +20090,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "quail",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שליו",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "שליו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "quail",
-      "status": "pending"
+      "status": "approved"
     },
     "2346": {
       "category_en": "Descriptive Quantity",
@@ -19729,14 +20185,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "rabbit",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ארנב",
+        "ארנבת",
+        "חיה"
+      ],
+      "label_he": "ארנב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rabbit",
-      "status": "pending"
+      "status": "approved"
     },
     "2352": {
       "category_en": "Animal Habitat",
@@ -19781,27 +20241,35 @@
       "category_en": "Environment Weather",
       "grammar": "Noun",
       "id": "rain",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גשם",
+        "מזג אוויר",
+        "חורף"
+      ],
+      "label_he": "גשם",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rain",
-      "status": "pending"
+      "status": "approved"
     },
     "2356": {
       "category_en": "Environment Weather",
       "grammar": "Noun",
       "id": "rainbow",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קשת בענן",
+        "קשת",
+        "מזג אוויר"
+      ],
+      "label_he": "קשת בענן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rainbow",
-      "status": "pending"
+      "status": "approved"
     },
     "2357": {
       "category_en": "Clothes General",
@@ -19872,14 +20340,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "ram",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "איל",
+        "כבש",
+        "חיה"
+      ],
+      "label_he": "איל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ram",
-      "status": "pending"
+      "status": "approved"
     },
     "2362": {
       "category_en": "Healthcare Medical items",
@@ -19911,27 +20383,35 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "rat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חולדה",
+        "עכבר גדול",
+        "חיה"
+      ],
+      "label_he": "חולדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rat",
-      "status": "pending"
+      "status": "approved"
     },
     "2365": {
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "rattle-snake",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נחש רעשן",
+        "נחש",
+        "חיה"
+      ],
+      "label_he": "נחש רעשן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rattle_snake",
-      "status": "pending"
+      "status": "approved"
     },
     "2366": {
       "category_en": "Food Pastas and rice",
@@ -20210,27 +20690,35 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "refuse-lorry",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משאית אשפה",
+        "משאית זבל",
+        "רכב"
+      ],
+      "label_he": "משאית אשפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "refuse_lorry",
-      "status": "pending"
+      "status": "approved"
     },
     "2386": {
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "reindeer",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "איל הצפון",
+        "צבי",
+        "חיה"
+      ],
+      "label_he": "איל הצפון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "reindeer",
-      "status": "pending"
+      "status": "approved"
     },
     "2387": {
       "category_en": "People Actions",
@@ -20303,14 +20791,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "rhinoceros",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קרנף",
+        "חיה"
+      ],
+      "label_he": "קרנף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rhinoceros",
-      "status": "pending"
+      "status": "approved"
     },
     "2392": {
       "category_en": "Descriptive Shape",
@@ -20563,14 +21054,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "robin",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אדום החזה",
+        "ציפור",
+        "עוף"
+      ],
+      "label_he": "אדום החזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "robin",
-      "status": "pending"
+      "status": "approved"
     },
     "241": {
       "category_en": "Clothes General",
@@ -20589,14 +21084,18 @@
       "category_en": "Transport Space",
       "grammar": "Noun",
       "id": "rocket",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טיל",
+        "רקטה",
+        "חלל"
+      ],
+      "label_he": "טיל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rocket",
-      "status": "pending"
+      "status": "approved"
     },
     "2411": {
       "category_en": "Celebration Item",
@@ -20732,27 +21231,35 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "roots",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שורשים",
+        "שורש",
+        "צמח"
+      ],
+      "label_he": "שורשים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "roots",
-      "status": "pending"
+      "status": "approved"
     },
     "2421": {
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "rose",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ורד",
+        "פרח",
+        "צמח"
+      ],
+      "label_he": "ורד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rose",
-      "status": "pending"
+      "status": "approved"
     },
     "2422": {
       "category_en": "Sport Accessories",
@@ -20784,14 +21291,18 @@
       "category_en": "Transport Water",
       "grammar": "Noun",
       "id": "rowing-boat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סירת משוטים",
+        "סירה",
+        "ים"
+      ],
+      "label_he": "סירת משוטים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rowing_boat",
-      "status": "pending"
+      "status": "approved"
     },
     "2425": {
       "category_en": "Celebration Item",
@@ -21126,14 +21637,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "sand-pit",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ארגז חול",
+        "חול",
+        "משחק"
+      ],
+      "label_he": "ארגז חול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sand_pit",
-      "status": "pending"
+      "status": "approved"
     },
     "2449": {
       "category_en": "Clothes General",
@@ -21152,14 +21667,17 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "branch",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ענף",
+        "עץ"
+      ],
+      "label_he": "ענף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "branch",
-      "status": "pending"
+      "status": "approved"
     },
     "2450": {
       "category_en": "Tools Workshop",
@@ -21269,14 +21787,17 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "satellite",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לוויין",
+        "חלל"
+      ],
+      "label_he": "לוויין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "satellite",
-      "status": "pending"
+      "status": "approved"
     },
     "2459": {
       "category_en": "Food Fruit",
@@ -21308,14 +21829,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "saturn",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שבתאי",
+        "סטורן",
+        "כוכב לכת"
+      ],
+      "label_he": "שבתאי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Saturn",
-      "status": "pending"
+      "status": "approved"
     },
     "2461": {
       "category_en": "Food Ingredients",
@@ -21815,53 +22340,69 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "seagull",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שחף",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "שחף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seagull",
-      "status": "pending"
+      "status": "approved"
     },
     "2497": {
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "seahorse",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סוסון ים",
+        "חיה",
+        "ים"
+      ],
+      "label_he": "סוסון ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seahorse",
-      "status": "pending"
+      "status": "approved"
     },
     "2498": {
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "seal",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כלב ים",
+        "חיה",
+        "ים"
+      ],
+      "label_he": "כלב ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seal",
-      "status": "pending"
+      "status": "approved"
     },
     "2499": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "seat-belt",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חגורת בטיחות",
+        "חגורה",
+        "רכב"
+      ],
+      "label_he": "חגורת בטיחות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seat_belt",
-      "status": "pending"
+      "status": "approved"
     },
     "25": {
       "category_en": "People Profession",
@@ -21971,40 +22512,52 @@
       "category_en": "Leisure Playground",
       "grammar": "Noun",
       "id": "see-saw",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נדנדת קורה",
+        "נדנדה",
+        "משחק"
+      ],
+      "label_he": "נדנדת קורה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "see_saw",
-      "status": "pending"
+      "status": "approved"
     },
     "2507": {
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "seedling",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שתיל",
+        "נבט",
+        "צמח"
+      ],
+      "label_he": "שתיל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seedling",
-      "status": "pending"
+      "status": "approved"
     },
     "2508": {
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "seeds",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זרעים",
+        "זרע",
+        "צמח"
+      ],
+      "label_he": "זרעים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seeds",
-      "status": "pending"
+      "status": "approved"
     },
     "2509": {
       "category_en": "Healthcare Medical conditions",
@@ -22428,14 +22981,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "sheep",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כבשה",
+        "כבש",
+        "חיה"
+      ],
+      "label_he": "כבשה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sheep",
-      "status": "pending"
+      "status": "approved"
     },
     "2539": {
       "category_en": "Science Eco",
@@ -22757,14 +23314,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "shrew",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חדף",
+        "חיה"
+      ],
+      "label_he": "חדף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "shrew",
-      "status": "pending"
+      "status": "approved"
     },
     "2561": {
       "category_en": "Food Fish and seafood",
@@ -22848,14 +23408,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "signpost",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תמרור",
+        "שלט דרך",
+        "כביש"
+      ],
+      "label_he": "תמרור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "signpost",
-      "status": "pending"
+      "status": "approved"
     },
     "2568": {
       "category_en": "Transport Road",
@@ -23121,14 +23685,17 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "skateboard",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סקייטבורד",
+        "גלגיליות"
+      ],
+      "label_he": "סקייטבורד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "skateboard",
-      "status": "pending"
+      "status": "approved"
     },
     "2587": {
       "category_en": "Healthcare Body parts",
@@ -23227,27 +23794,34 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "skunk",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בואש",
+        "חיה"
+      ],
+      "label_he": "בואש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "skunk",
-      "status": "pending"
+      "status": "approved"
     },
     "2594": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "sledge",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מזחלת",
+        "שלג",
+        "חורף"
+      ],
+      "label_he": "מזחלת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sledge",
-      "status": "pending"
+      "status": "approved"
     },
     "2595": {
       "category_en": "Clothes General",
@@ -23266,14 +23840,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "sleigh",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מזחלת שלג",
+        "מזחלת",
+        "חג המולד"
+      ],
+      "label_he": "מזחלת שלג",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sleigh",
-      "status": "pending"
+      "status": "approved"
     },
     "2597": {
       "category_en": "Descriptive Shape",
@@ -23292,14 +23870,18 @@
       "category_en": "Leisure Playground",
       "grammar": "Noun",
       "id": "slide",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מגלשה",
+        "גן שעשועים",
+        "משחק"
+      ],
+      "label_he": "מגלשה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "slide",
-      "status": "pending"
+      "status": "approved"
     },
     "2599": {
       "category_en": "Healthcare Medical items",
@@ -23372,14 +23954,18 @@
       "category_en": "Animal Crustacean and Molluscs",
       "grammar": "Noun",
       "id": "slug",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שבלול",
+        "חשופית",
+        "חיה"
+      ],
+      "label_he": "שבלול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "slug",
-      "status": "pending"
+      "status": "approved"
     },
     "2603": {
       "category_en": "Healthcare Medical conditions",
@@ -23411,27 +23997,34 @@
       "category_en": "Animal Crustacean and Molluscs",
       "grammar": "Noun",
       "id": "snail",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חילזון",
+        "שבלול",
+        "חיה"
+      ],
+      "label_he": "חילזון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "snail",
-      "status": "pending"
+      "status": "approved"
     },
     "2606": {
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "snake",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נחש",
+        "חיה"
+      ],
+      "label_he": "נחש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "snake",
-      "status": "pending"
+      "status": "approved"
     },
     "2607": {
       "category_en": "People Feelings",
@@ -23845,27 +24438,35 @@
       "category_en": "Transport Space",
       "grammar": "Noun",
       "id": "spaceship",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חללית",
+        "ספינת חלל",
+        "חלל"
+      ],
+      "label_he": "חללית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "spaceship",
-      "status": "pending"
+      "status": "approved"
     },
     "2636": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "spade",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "את חפירה",
+        "יעה",
+        "חול"
+      ],
+      "label_he": "את חפירה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "spade",
-      "status": "pending"
+      "status": "approved"
     },
     "2637": {
       "category_en": "Food Pastas and rice",
@@ -24014,14 +24615,17 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "spider",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עכביש",
+        "חיה"
+      ],
+      "label_he": "עכביש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "spider",
-      "status": "pending"
+      "status": "approved"
     },
     "2648": {
       "category_en": "Animal Habitat",
@@ -24289,14 +24893,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "squirrel-1a",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סנאי",
+        "חיה"
+      ],
+      "label_he": "סנאי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "squirrel_1a",
-      "status": "pending"
+      "status": "approved"
     },
     "2667": {
       "category_en": "Animal Mammal",
@@ -24367,14 +24974,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "stag",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אייל",
+        "צבי",
+        "חיה"
+      ],
+      "label_he": "אייל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stag",
-      "status": "pending"
+      "status": "approved"
     },
     "2672": {
       "category_en": "Building Structure",
@@ -24432,14 +25043,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "star",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כוכב",
+        "כוכבים",
+        "שמיים"
+      ],
+      "label_he": "כוכב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "star",
-      "status": "pending"
+      "status": "approved"
     },
     "2677": {
       "category_en": "Science Astronomy",
@@ -24471,14 +25086,18 @@
       "category_en": "Animal Other Invertebrates",
       "grammar": "Noun",
       "id": "starfish",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כוכב ים",
+        "חיה",
+        "ים"
+      ],
+      "label_he": "כוכב ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "starfish",
-      "status": "pending"
+      "status": "approved"
     },
     "268": {
       "category_en": "Food Meals and snacks",
@@ -24510,14 +25129,18 @@
       "category_en": "Transport Rail",
       "grammar": "Noun",
       "id": "steam-train",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קטר קיטור",
+        "רכבת",
+        "קטר"
+      ],
+      "label_he": "קטר קיטור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "steam_train",
-      "status": "pending"
+      "status": "approved"
     },
     "2682": {
       "category_en": "Food Kitchen items",
@@ -24692,27 +25315,34 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "stick",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מקל",
+        "ענף"
+      ],
+      "label_he": "מקל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stick",
-      "status": "pending"
+      "status": "approved"
     },
     "2695": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "stickers",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מדבקות",
+        "מדבקה",
+        "משחק"
+      ],
+      "label_he": "מדבקות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stickers",
-      "status": "pending"
+      "status": "approved"
     },
     "2696": {
       "category_en": "Descriptive State",
@@ -24822,14 +25452,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "stoat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סמור",
+        "חיה"
+      ],
+      "label_he": "סמור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stoat",
-      "status": "pending"
+      "status": "approved"
     },
     "2703": {
       "category_en": "Food Ingredients",
@@ -24904,14 +25537,17 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "stone",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אבן",
+        "סלע"
+      ],
+      "label_he": "אבן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stone",
-      "status": "pending"
+      "status": "approved"
     },
     "2709": {
       "category_en": "Building Furniture",
@@ -25075,14 +25711,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "bricks",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קוביות",
+        "בנייה",
+        "צעצוע"
+      ],
+      "label_he": "קוביות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bricks",
-      "status": "pending"
+      "status": "approved"
     },
     "2720": {
       "category_en": "Food Breads and baking",
@@ -25261,14 +25901,18 @@
       "category_en": "Descriptive Time",
       "grammar": "Noun",
       "id": "sun",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שמש",
+        "מזג אוויר",
+        "שמיים"
+      ],
+      "label_he": "שמש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sun",
-      "status": "pending"
+      "status": "approved"
     },
     "2733": {
       "category_en": "Holiday and travel",
@@ -25352,14 +25996,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "swan",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ברבור",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "ברבור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "swan",
-      "status": "pending"
+      "status": "approved"
     },
     "274": {
       "category_en": "Clothes Accessories",
@@ -25534,14 +26182,18 @@
       "category_en": "Leisure Playground",
       "grammar": "Noun",
       "id": "swing",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נדנדה",
+        "גן שעשועים",
+        "משחק"
+      ],
+      "label_he": "נדנדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "swing",
-      "status": "pending"
+      "status": "approved"
     },
     "2752": {
       "category_en": "Leisure Playground",
@@ -26032,14 +26684,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "taxi",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מונית",
+        "רכב",
+        "נסיעה"
+      ],
+      "label_he": "מונית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "taxi",
-      "status": "pending"
+      "status": "approved"
     },
     "2787": {
       "category_en": "People Profession",
@@ -26344,14 +27000,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "teddy-bear",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דובי",
+        "בובה",
+        "צעצוע"
+      ],
+      "label_he": "דובי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "teddy_bear",
-      "status": "pending"
+      "status": "approved"
     },
     "2808": {
       "category_en": "Healthcare Body parts",
@@ -26838,14 +27498,18 @@
       "category_en": "Environment Weather",
       "grammar": "Noun",
       "id": "thunder-storm",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סופת רעמים",
+        "ברק",
+        "רעם"
+      ],
+      "label_he": "סופת רעמים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "thunder_storm",
-      "status": "pending"
+      "status": "approved"
     },
     "2842": {
       "category_en": "Building Household tasks",
@@ -26890,14 +27554,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "tiger",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נמר",
+        "טיגריס",
+        "חיה"
+      ],
+      "label_he": "נמר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tiger",
-      "status": "pending"
+      "status": "approved"
     },
     "2846": {
       "category_en": "Clothes General",
@@ -27194,14 +27862,18 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "toad",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קרפדה",
+        "צפרדע",
+        "חיה"
+      ],
+      "label_he": "קרפדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toad",
-      "status": "pending"
+      "status": "approved"
     },
     "2866": {
       "category_en": "Food Kitchen items",
@@ -27604,14 +28276,18 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "tortoise",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צב יבשה",
+        "צב",
+        "חיה"
+      ],
+      "label_he": "צב יבשה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tortoise",
-      "status": "pending"
+      "status": "approved"
     },
     "2894": {
       "category_en": "Food Breads and baking",
@@ -27669,27 +28345,34 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "toy-box",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ארגז צעצועים",
+        "צעצועים"
+      ],
+      "label_he": "ארגז צעצועים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toy_box",
-      "status": "pending"
+      "status": "approved"
     },
     "2899": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "toy-car",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכונית צעצוע",
+        "אוטו",
+        "צעצוע"
+      ],
+      "label_he": "מכונית צעצוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toy_car",
-      "status": "pending"
+      "status": "approved"
     },
     "29": {
       "category_en": "People Profession",
@@ -27721,27 +28404,35 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "toy-soldier",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חייל צעצוע",
+        "חייל",
+        "צעצוע"
+      ],
+      "label_he": "חייל צעצוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toy_soldier",
-      "status": "pending"
+      "status": "approved"
     },
     "2901": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "toys",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צעצועים",
+        "צעצוע",
+        "משחק"
+      ],
+      "label_he": "צעצועים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toys",
-      "status": "pending"
+      "status": "approved"
     },
     "2902": {
       "category_en": "Healthcare Body parts",
@@ -27773,40 +28464,51 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "tractor",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טרקטור",
+        "רכב",
+        "חווה"
+      ],
+      "label_he": "טרקטור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tractor",
-      "status": "pending"
+      "status": "approved"
     },
     "2905": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "traffic-lights",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רמזור",
+        "כביש",
+        "תנועה"
+      ],
+      "label_he": "רמזור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "traffic_lights",
-      "status": "pending"
+      "status": "approved"
     },
     "2906": {
       "category_en": "Transport Rail",
       "grammar": "Noun",
       "id": "train",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רכבת",
+        "נסיעה"
+      ],
+      "label_he": "רכבת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "train",
-      "status": "pending"
+      "status": "approved"
     },
     "2907": {
       "category_en": "Clothes General",
@@ -27929,14 +28631,17 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "tree",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עץ",
+        "צמח"
+      ],
+      "label_he": "עץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tree",
-      "status": "pending"
+      "status": "approved"
     },
     "2916": {
       "category_en": "Celebration Item",
@@ -27955,14 +28660,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "tree-trunk",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גזע עץ",
+        "גזע",
+        "עץ"
+      ],
+      "label_he": "גזע עץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tree_trunk",
-      "status": "pending"
+      "status": "approved"
     },
     "2918": {
       "category_en": "Descriptive Shape",
@@ -28138,14 +28847,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "tulip",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צבעוני",
+        "פרח",
+        "צמח"
+      ],
+      "label_he": "צבעוני",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tulip",
-      "status": "pending"
+      "status": "approved"
     },
     "293": {
       "category_en": "Leisure Toys",
@@ -28177,14 +28890,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "turkey",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תרנגול הודו",
+        "הודו",
+        "עוף"
+      ],
+      "label_he": "תרנגול הודו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "turkey",
-      "status": "pending"
+      "status": "approved"
     },
     "2932": {
       "category_en": "Animal Birds",
@@ -28268,14 +28985,18 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "turtle",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צב ים",
+        "צב",
+        "חיה"
+      ],
+      "label_he": "צב ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "turtle",
-      "status": "pending"
+      "status": "approved"
     },
     "2939": {
       "category_en": "Electrical TV",
@@ -28294,14 +29015,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "bubble-wand",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מקל בועות",
+        "בועות סבון",
+        "משחק"
+      ],
+      "label_he": "מקל בועות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bubble_wand",
-      "status": "pending"
+      "status": "approved"
     },
     "2940": {
       "category_en": "Number",
@@ -28556,14 +29281,18 @@
       "category_en": "Transport Rail",
       "grammar": "Noun",
       "id": "underground-train",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "רכבת תחתית",
+        "מטרו",
+        "רכבת"
+      ],
+      "label_he": "רכבת תחתית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "underground_train",
-      "status": "pending"
+      "status": "approved"
     },
     "2959": {
       "category_en": "Healthcare Grooming activities",
@@ -28582,14 +29311,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "bubbles",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בועות סבון",
+        "בועות",
+        "משחק"
+      ],
+      "label_he": "בועות סבון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bubbles",
-      "status": "pending"
+      "status": "approved"
     },
     "2960": {
       "category_en": "Healthcare Grooming activities",
@@ -28634,14 +29367,17 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "uranus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אורנוס",
+        "כוכב לכת"
+      ],
+      "label_he": "אורנוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Uranus",
-      "status": "pending"
+      "status": "approved"
     },
     "2964": {
       "category_en": "Electrical Computer",
@@ -28764,14 +29500,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "van",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "טנדר",
+        "רכב מסחרי",
+        "רכב"
+      ],
+      "label_he": "טנדר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "van",
-      "status": "pending"
+      "status": "approved"
     },
     "2973": {
       "category_en": "Tools Workshop",
@@ -28816,14 +29556,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "venus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נוגה",
+        "ונוס",
+        "כוכב לכת"
+      ],
+      "label_he": "נוגה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Venus",
-      "status": "pending"
+      "status": "approved"
     },
     "2977": {
       "category_en": "Building Contents",
@@ -28868,14 +29612,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "bucket",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דלי",
+        "חול",
+        "חוף"
+      ],
+      "label_he": "דלי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bucket",
-      "status": "pending"
+      "status": "approved"
     },
     "2980": {
       "category_en": "Electrical Media",
@@ -28920,14 +29668,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "vine",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גפן",
+        "מטפס",
+        "צמח"
+      ],
+      "label_he": "גפן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "vine",
-      "status": "pending"
+      "status": "approved"
     },
     "2984": {
       "category_en": "Food Ingredients",
@@ -29037,14 +29789,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "vulture",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נשר",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "נשר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "vulture",
-      "status": "pending"
+      "status": "approved"
     },
     "2992": {
       "category_en": "Alphabet",
@@ -29180,14 +29936,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "bud",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ניצן",
+        "פרח",
+        "צמח"
+      ],
+      "label_he": "ניצן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bud",
-      "status": "pending"
+      "status": "approved"
     },
     "3000": {
       "category_en": "Healthcare Medical items",
@@ -29258,14 +30018,18 @@
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "walrus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ניבתן",
+        "כלב ים",
+        "חיה"
+      ],
+      "label_he": "ניבתן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "walrus",
-      "status": "pending"
+      "status": "approved"
     },
     "3006": {
       "category_en": "Building Furniture",
@@ -29325,14 +30089,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "budgie",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תוכון",
+        "תוכי",
+        "עוף"
+      ],
+      "label_he": "תוכון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "budgie",
-      "status": "pending"
+      "status": "approved"
     },
     "3010": {
       "category_en": "Building Household tasks",
@@ -29455,27 +30223,34 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "wasp",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צרעה",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "צרעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "wasp",
-      "status": "pending"
+      "status": "approved"
     },
     "302": {
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "buffalo",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תאו",
+        "חיה"
+      ],
+      "label_he": "תאו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "buffalo",
-      "status": "pending"
+      "status": "approved"
     },
     "3020": {
       "category_en": "Building Contents",
@@ -29546,14 +30321,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "water-pistol",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אקדח מים",
+        "מים",
+        "צעצוע"
+      ],
+      "label_he": "אקדח מים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "water_pistol",
-      "status": "pending"
+      "status": "approved"
     },
     "3026": {
       "category_en": "Building Household tasks",
@@ -29704,14 +30483,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "weeds",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עשבים שוטים",
+        "עשב",
+        "צמח"
+      ],
+      "label_he": "עשבים שוטים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "weeds",
-      "status": "pending"
+      "status": "approved"
     },
     "3037": {
       "category_en": "Descriptive Time",
@@ -29864,14 +30647,17 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "wheelchair",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כיסא גלגלים",
+        "כיסא"
+      ],
+      "label_he": "כיסא גלגלים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "wheelchair",
-      "status": "pending"
+      "status": "approved"
     },
     "3048": {
       "category_en": "Communication Aid",
@@ -30358,14 +31144,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "wolf",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זאב",
+        "חיה"
+      ],
+      "label_he": "זאב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "wolf",
-      "status": "pending"
+      "status": "approved"
     },
     "3082": {
       "category_en": "Tools Workshop",
@@ -30488,14 +31277,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "world",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עולם",
+        "כדור הארץ",
+        "גלובוס"
+      ],
+      "label_he": "עולם",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "world",
-      "status": "pending"
+      "status": "approved"
     },
     "3091": {
       "category_en": "People Feelings",
@@ -30635,14 +31428,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "bus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוטובוס",
+        "רכב",
+        "נסיעה"
+      ],
+      "label_he": "אוטובוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bus",
-      "status": "pending"
+      "status": "approved"
     },
     "3100": {
       "category_en": "Alphabet",
@@ -30674,14 +31471,18 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "xylophone",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קסילופון",
+        "כלי נגינה",
+        "מוזיקה"
+      ],
+      "label_he": "קסילופון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "xylophone",
-      "status": "pending"
+      "status": "approved"
     },
     "3103": {
       "category_en": "Alphabet",
@@ -30778,27 +31579,34 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "bus-double-decker",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוטובוס דו-קומתי",
+        "אוטובוס",
+        "רכב"
+      ],
+      "label_he": "אוטובוס דו-קומתי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bus_double_decker",
-      "status": "pending"
+      "status": "approved"
     },
     "3110": {
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "yo-yo",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יו-יו",
+        "צעצוע"
+      ],
+      "label_he": "יו-יו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "yo-yo",
-      "status": "pending"
+      "status": "approved"
     },
     "3111": {
       "category_en": "Food Feeding and eating",
@@ -30869,27 +31677,34 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "zebra",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זברה",
+        "חיה"
+      ],
+      "label_he": "זברה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "zebra",
-      "status": "pending"
+      "status": "approved"
     },
     "3117": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "zebra-crossing",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעבר חצייה",
+        "מעבר חציה",
+        "כביש"
+      ],
+      "label_he": "מעבר חצייה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "zebra_crossing",
-      "status": "pending"
+      "status": "approved"
     },
     "3118": {
       "category_en": "Number",
@@ -31089,14 +31904,17 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "bush",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שיח",
+        "צמח"
+      ],
+      "label_he": "שיח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bush",
-      "status": "pending"
+      "status": "approved"
     },
     "3130": {
       "category_en": "Verb",
@@ -31585,14 +32403,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "butterfly",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פרפר",
+        "חיה",
+        "חרק"
+      ],
+      "label_he": "פרפר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "butterfly",
-      "status": "pending"
+      "status": "approved"
     },
     "3160": {
       "category_en": "Verb",
@@ -32754,14 +33576,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "cactus",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קקטוס",
+        "צבר",
+        "צמח"
+      ],
+      "label_he": "קקטוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cactus",
-      "status": "pending"
+      "status": "approved"
     },
     "3230": {
       "category_en": "Verb",
@@ -35577,14 +36403,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "camel",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גמל",
+        "חיה"
+      ],
+      "label_he": "גמל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "camel",
-      "status": "pending"
+      "status": "approved"
     },
     "3400": {
       "category_en": "Verb",
@@ -36266,27 +37095,35 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "ambulance",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אמבולנס",
+        "רכב חירום",
+        "רכב"
+      ],
+      "label_he": "אמבולנס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ambulance",
-      "status": "pending"
+      "status": "approved"
     },
     "350": {
       "category_en": "Transport Water",
       "grammar": "Noun",
       "id": "canoe",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קאנו",
+        "סירה",
+        "ים"
+      ],
+      "label_he": "קאנו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "canoe",
-      "status": "pending"
+      "status": "approved"
     },
     "351": {
       "category_en": "Clothes General",
@@ -36307,14 +37144,18 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "car",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכונית",
+        "אוטו",
+        "רכב"
+      ],
+      "label_he": "מכונית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "car",
-      "status": "pending"
+      "status": "approved"
     },
     "353": {
       "category_en": "Transport Road",
@@ -36424,40 +37265,52 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "car-toy",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מכונית צעצוע",
+        "אוטו",
+        "צעצוע"
+      ],
+      "label_he": "מכונית צעצוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "car_toy",
-      "status": "pending"
+      "status": "approved"
     },
     "361": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "car-transporter",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מוביל רכבים",
+        "משאית",
+        "רכב"
+      ],
+      "label_he": "מוביל רכבים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "car_transporter",
-      "status": "pending"
+      "status": "approved"
     },
     "362": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "caravan",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קרוואן",
+        "נגרר",
+        "רכב"
+      ],
+      "label_he": "קרוואן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "caravan",
-      "status": "pending"
+      "status": "approved"
     },
     "363": {
       "category_en": "Food Diet",
@@ -36818,14 +37671,17 @@
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "cart",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "עגלה",
+        "כרכרה"
+      ],
+      "label_he": "עגלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cart",
-      "status": "pending"
+      "status": "approved"
     },
     "389": {
       "category_en": "Drink Containers and measures",
@@ -36974,14 +37830,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "cat",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חתול",
+        "חתולה",
+        "חיה"
+      ],
+      "label_he": "חתול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cat",
-      "status": "pending"
+      "status": "approved"
     },
     "4": {
       "category_en": "Descriptive State",
@@ -37052,14 +37912,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "caterpillar",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זחל",
+        "פרפר",
+        "חרק"
+      ],
+      "label_he": "זחל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "caterpillar",
-      "status": "pending"
+      "status": "approved"
     },
     "404": {
       "category_en": "Celebration Item",
@@ -37143,14 +38007,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "ant",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נמלה",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "נמלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ant",
-      "status": "pending"
+      "status": "approved"
     },
     "410": {
       "category_en": "Celebration Event",
@@ -37249,14 +38117,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "centipede",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נדל",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "נדל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "centipede",
-      "status": "pending"
+      "status": "approved"
     },
     "418": {
       "category_en": "Food Breads and baking",
@@ -37288,14 +38160,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "ant-eater",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דוב נמלים",
+        "חיה"
+      ],
+      "label_he": "דוב נמלים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ant_eater",
-      "status": "pending"
+      "status": "approved"
     },
     "420": {
       "category_en": "Food Breads and baking",
@@ -37431,14 +38306,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "antelope",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אנטילופה",
+        "חיה"
+      ],
+      "label_he": "אנטילופה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "antelope",
-      "status": "pending"
+      "status": "approved"
     },
     "430": {
       "category_en": "Work and School Stationery",
@@ -37457,14 +38335,18 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "chameleon",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "זיקית",
+        "לטאה",
+        "חיה"
+      ],
+      "label_he": "זיקית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chameleon",
-      "status": "pending"
+      "status": "approved"
     },
     "432": {
       "category_en": "Drink Type",
@@ -37691,14 +38573,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "cheetah",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ברדלס",
+        "חיה"
+      ],
+      "label_he": "ברדלס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cheetah",
-      "status": "pending"
+      "status": "approved"
     },
     "449": {
       "category_en": "Money",
@@ -37821,14 +38706,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "chick",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אפרוח",
+        "עוף",
+        "תרנגולת"
+      ],
+      "label_he": "אפרוח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chick",
-      "status": "pending"
+      "status": "approved"
     },
     "458": {
       "category_en": "Food Poultry",
@@ -37912,14 +38801,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "chicken-live",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תרנגולת",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "תרנגולת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chicken_live",
-      "status": "pending"
+      "status": "approved"
     },
     "464": {
       "category_en": "Food Poultry",
@@ -38016,14 +38909,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "chimpanzee",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שימפנזה",
+        "קוף",
+        "חיה"
+      ],
+      "label_he": "שימפנזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chimpanzee",
-      "status": "pending"
+      "status": "approved"
     },
     "471": {
       "category_en": "Healthcare Body parts",
@@ -38081,14 +38978,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "chipmunk",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סנאי מפוספס",
+        "סנאי",
+        "חיה"
+      ],
+      "label_he": "סנאי מפוספס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chipmunk",
-      "status": "pending"
+      "status": "approved"
     },
     "476": {
       "category_en": "Animal Mammal",
@@ -39080,40 +39981,52 @@
       "category_en": "Environment Weather",
       "grammar": "Noun",
       "id": "cloudy",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מעונן",
+        "עננים",
+        "מזג אוויר"
+      ],
+      "label_he": "מעונן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cloudy",
-      "status": "pending"
+      "status": "approved"
     },
     "543": {
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "clover",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תלתן",
+        "עשב",
+        "צמח"
+      ],
+      "label_he": "תלתן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "clover",
-      "status": "pending"
+      "status": "approved"
     },
     "544": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "coach",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "אוטובוס תיירים",
+        "אוטובוס",
+        "רכב"
+      ],
+      "label_he": "אוטובוס תיירים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "coach",
-      "status": "pending"
+      "status": "approved"
     },
     "545": {
       "category_en": "Clothes General",
@@ -39145,27 +40058,35 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "cockatiel",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "קוקטייל",
+        "תוכי",
+        "עוף"
+      ],
+      "label_he": "קוקטייל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cockatiel",
-      "status": "pending"
+      "status": "approved"
     },
     "548": {
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "cockerel",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תרנגול",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "תרנגול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cockerel",
-      "status": "pending"
+      "status": "approved"
     },
     "549": {
       "category_en": "Food Nuts",
@@ -39314,14 +40235,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "colouring-book",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חוברת צביעה",
+        "צביעה",
+        "ציור"
+      ],
+      "label_he": "חוברת צביעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "colouring_book",
-      "status": "pending"
+      "status": "approved"
     },
     "56": {
       "category_en": "Military",
@@ -39379,14 +40304,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "comet",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שביט",
+        "כוכב",
+        "חלל"
+      ],
+      "label_he": "שביט",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "comet",
-      "status": "pending"
+      "status": "approved"
     },
     "564": {
       "category_en": "Communication Aid",
@@ -39899,14 +40828,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "acorn",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בלוט",
+        "אלון",
+        "עץ"
+      ],
+      "label_he": "בלוט",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "acorn",
-      "status": "pending"
+      "status": "approved"
     },
     "60": {
       "category_en": "Work and School Timetable",
@@ -42893,14 +43826,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "cow",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "פרה",
+        "פר",
+        "חיה"
+      ],
+      "label_he": "פרה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cow",
-      "status": "pending"
+      "status": "approved"
     },
     "807": {
       "category_en": "Animal Habitat",
@@ -42919,14 +43856,18 @@
       "category_en": "Animal Crustacean and Molluscs",
       "grammar": "Noun",
       "id": "crab",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "סרטן",
+        "חיה",
+        "ים"
+      ],
+      "label_he": "סרטן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "crab",
-      "status": "pending"
+      "status": "approved"
     },
     "809": {
       "category_en": "Celebration Item",
@@ -43192,14 +44133,17 @@
       "category_en": "Animal Reptiles and Amphibians",
       "grammar": "Noun",
       "id": "crocodile",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תנין",
+        "חיה"
+      ],
+      "label_he": "תנין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "crocodile",
-      "status": "pending"
+      "status": "approved"
     },
     "828": {
       "category_en": "Animal Reptiles and Amphibians",
@@ -43322,14 +44266,18 @@
       "category_en": "Transport Water",
       "grammar": "Noun",
       "id": "cruiser",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ספינת שיט",
+        "אונייה",
+        "ים"
+      ],
+      "label_he": "ספינת שיט",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cruiser",
-      "status": "pending"
+      "status": "approved"
     },
     "837": {
       "category_en": "Food Feeding and eating",
@@ -43597,14 +44545,18 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "cymbals-hand",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מצילתיים",
+        "כלי נגינה",
+        "מוזיקה"
+      ],
+      "label_he": "מצילתיים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cymbals_hand",
-      "status": "pending"
+      "status": "approved"
     },
     "856": {
       "category_en": "Alphabet",
@@ -43651,14 +44603,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "daffodil",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "נרקיס",
+        "פרח",
+        "צמח"
+      ],
+      "label_he": "נרקיס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "daffodil",
-      "status": "pending"
+      "status": "approved"
     },
     "86": {
       "category_en": "Sport Accessories",
@@ -43690,14 +44646,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "daisy",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חיננית",
+        "פרח",
+        "צמח"
+      ],
+      "label_he": "חיננית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "daisy",
-      "status": "pending"
+      "status": "approved"
     },
     "862": {
       "category_en": "Food Breads and baking",
@@ -43716,14 +44676,18 @@
       "category_en": "Leisure Games",
       "grammar": "Noun",
       "id": "darts",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חצי קליעה",
+        "דארטס",
+        "משחק"
+      ],
+      "label_he": "חצי קליעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "darts",
-      "status": "pending"
+      "status": "approved"
     },
     "864": {
       "category_en": "Descriptive Time",
@@ -43794,14 +44758,18 @@
       "category_en": "Plants and Trees",
       "grammar": "Noun",
       "id": "dead-plant",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צמח קמל",
+        "צמח יבש",
+        "צמח"
+      ],
+      "label_he": "צמח קמל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dead_plant",
-      "status": "pending"
+      "status": "approved"
     },
     "87": {
       "category_en": "Descriptive Direction",
@@ -43872,14 +44840,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "deer",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "צבי",
+        "איילה",
+        "חיה"
+      ],
+      "label_he": "צבי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "deer",
-      "status": "pending"
+      "status": "approved"
     },
     "875": {
       "category_en": "Food Feeding and eating",
@@ -44249,14 +45221,17 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "badger",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גירית",
+        "חיה"
+      ],
+      "label_he": "גירית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "badger",
-      "status": "pending"
+      "status": "approved"
     },
     "900": {
       "category_en": "Food Feeding and eating",
@@ -44353,14 +45328,18 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "dinosaur",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דינוזאור",
+        "דינו",
+        "צעצוע"
+      ],
+      "label_he": "דינוזאור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dinosaur",
-      "status": "pending"
+      "status": "approved"
     },
     "908": {
       "category_en": "Food Kitchen actions",
@@ -44639,14 +45618,18 @@
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "dog",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כלב",
+        "כלבה",
+        "חיה"
+      ],
+      "label_he": "כלב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dog",
-      "status": "pending"
+      "status": "approved"
     },
     "928": {
       "category_en": "Animal Habitat",
@@ -44769,40 +45752,50 @@
       "category_en": "Leisure Toys",
       "grammar": "Noun",
       "id": "doll",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "בובה",
+        "צעצוע"
+      ],
+      "label_he": "בובה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "doll",
-      "status": "pending"
+      "status": "approved"
     },
     "937": {
       "category_en": "Animal Fish and Marine mammals",
       "grammar": "Noun",
       "id": "dolphin",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "דולפין",
+        "חיה",
+        "ים"
+      ],
+      "label_he": "דולפין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dolphin",
-      "status": "pending"
+      "status": "approved"
     },
     "938": {
       "category_en": "Animal Mammal",
       "grammar": "Noun",
       "id": "donkey",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "חמור",
+        "חיה"
+      ],
+      "label_he": "חמור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "donkey",
-      "status": "pending"
+      "status": "approved"
     },
     "939": {
       "category_en": "Building Structure",
@@ -44873,14 +45866,18 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "dove",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "יונה",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "יונה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dove",
-      "status": "pending"
+      "status": "approved"
     },
     "944": {
       "category_en": "Descriptive Direction",
@@ -44912,14 +45909,18 @@
       "category_en": "Animal Spiders and Insects",
       "grammar": "Noun",
       "id": "dragonfly",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "שפירית",
+        "חרק",
+        "חיה"
+      ],
+      "label_he": "שפירית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dragonfly",
-      "status": "pending"
+      "status": "approved"
     },
     "947": {
       "category_en": "Building Furniture",
@@ -45311,14 +46312,18 @@
       "category_en": "Music Instrument",
       "grammar": "Noun",
       "id": "drum",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "תוף",
+        "כלי נגינה",
+        "מוזיקה"
+      ],
+      "label_he": "תוף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "drum",
-      "status": "pending"
+      "status": "approved"
     },
     "974": {
       "category_en": "Leisure Toys",
@@ -45430,27 +46435,35 @@
       "category_en": "Animal Birds",
       "grammar": "Noun",
       "id": "duck",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ברווז",
+        "עוף",
+        "חיה"
+      ],
+      "label_he": "ברווז",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "duck",
-      "status": "pending"
+      "status": "approved"
     },
     "982": {
       "category_en": "Transport Road",
       "grammar": "Noun",
       "id": "dumper-truck",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "משאית היפוך",
+        "משאית",
+        "רכב"
+      ],
+      "label_he": "משאית היפוך",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dumper_truck",
-      "status": "pending"
+      "status": "approved"
     },
     "983": {
       "category_en": "Building Household tasks",
@@ -45614,14 +46627,18 @@
       "category_en": "Science Astronomy",
       "grammar": "Noun",
       "id": "earth",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כדור הארץ",
+        "עולם",
+        "פלנטה"
+      ],
+      "label_he": "כדור הארץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Earth",
-      "status": "pending"
+      "status": "approved"
     },
     "995": {
       "category_en": "Science",
