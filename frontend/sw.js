@@ -7,7 +7,11 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v44"; // v44: "בוא נצייר" — a 9th module: paint on a
+const SHELL_CACHE = "shell-v45"; // v45: painting — "דף חדש" now opens the page
+// picker for a fresh painting (was an in-place clear that stayed on the same
+// page); a separate "נקה" clears the current page; both disable when there is
+// nothing to act on.
+// v44: "בוא נצייר" — a 9th module: paint on a
 // blank page or colour inside a bundled line-art page. Vector-JSON storage
 // (strokes + region fills, no PNG server-side), offline via the outbox. New
 // js/modules/painting/*, a "brush" sprite glyph (SPRITE_URL v43), and the
