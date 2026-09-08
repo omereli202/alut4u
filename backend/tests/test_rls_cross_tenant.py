@@ -223,3 +223,89 @@ def test_rls_hides_a_note_from_a_direct_client(two_caregivers):
         resolved = session_svc.resolve(sid, settings)
         rows = resolved.db.table("typing_notes").select("*").eq("id", nid).execute().data
     assert rows == []
+
+
+# --- painting ("בוא נצייר") ------------------------------------------------
+
+
+def _a_painting(a, cid):
+    pid = str(uuid.uuid4())
+    body = {
+        "child_id": cid,
+        "painting_id": pid,
+        "title": "ציור של A",
+        "page": {"kind": "blank"},
+        "strokes": [{"c": "#e94f37", "w": 0.02, "e": 0, "p": [0.1, 0.1, 0.2, 0.2]}],
+        "fills": [],
+        "rev": 1,
+    }
+    assert a.post("/api/painting/paintings", json=body).status_code == 200
+    return pid
+
+
+def test_b_cannot_touch_a_paintings(two_caregivers):
+    a, b, cid = two_caregivers["a"], two_caregivers["b"], two_caregivers["child_id"]
+    pid = _a_painting(a, cid)
+
+    assert b.get(f"/api/painting/paintings?child_id={cid}").status_code == 404
+    assert b.get(f"/api/painting/paintings/{pid}").status_code == 404
+    assert (
+        b.post(
+            "/api/painting/paintings",
+            json={
+                "child_id": cid,
+                "painting_id": str(uuid.uuid4()),
+                "page": {"kind": "blank"},
+                "strokes": [{"c": "#000000", "w": 0.02, "e": 0, "p": [0.1, 0.1, 0.3, 0.3]}],
+                "fills": [],
+                "rev": 1,
+            },
+        ).status_code
+        == 404
+    )
+    assert b.delete(f"/api/painting/paintings/{pid}").status_code == 404
+    assert b.get(f"/api/painting/pages?child_id={cid}").status_code == 404
+    assert (
+        b.put("/api/painting/pages", json={"child_id": cid, "symbol_ids": ["cat"]}).status_code
+        == 404
+    )
+    # A's painting is untouched
+    assert a.get(f"/api/painting/paintings/{pid}").get_json()["strokes"][0]["c"] == "#e94f37"
+
+
+def test_b_cannot_hijack_a_painting_id_via_upsert(two_caregivers):
+    """B posts A's painting id with B's own child_id — must fail, not reparent."""
+    a, b = two_caregivers["a"], two_caregivers["b"]
+    a_cid = two_caregivers["child_id"]
+    pid = _a_painting(a, a_cid)
+
+    b_cid = b.post("/api/children", json={"name": "child-B", "consent_basis": "parent"}).get_json()[
+        "id"
+    ]
+    r = b.post(
+        "/api/painting/paintings",
+        json={
+            "child_id": b_cid,
+            "painting_id": pid,
+            "title": "hijacked",
+            "page": {"kind": "blank"},
+            "strokes": [{"c": "#000000", "w": 0.02, "e": 0, "p": [0.5, 0.5, 0.6, 0.6]}],
+            "fills": [],
+            "rev": 99,
+        },
+    )
+    assert r.status_code in (404, 409)
+    assert a.get(f"/api/painting/paintings/{pid}").get_json()["strokes"][0]["c"] == "#e94f37"
+
+
+def test_rls_hides_a_painting_from_a_direct_client(two_caregivers):
+    app, a, b = two_caregivers["app"], two_caregivers["a"], two_caregivers["b"]
+    pid = _a_painting(a, two_caregivers["child_id"])
+    settings = app.config["SETTINGS"]
+
+    with b.session_transaction() as sess:
+        sid = sess["sid"]
+    with app.app_context():
+        resolved = session_svc.resolve(sid, settings)
+        rows = resolved.db.table("paintings").select("*").eq("id", pid).execute().data
+    assert rows == []

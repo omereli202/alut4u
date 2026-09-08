@@ -80,7 +80,14 @@ no-ops (same source, same output). Each run's migration is additive
    (`e62c623`). A new `?v=` is a new URL at every cache layer.
 2. Bump `SHELL_CACHE` in `frontend/sw.js` (since `ui.js` changed).
 3. `supabase db push` (or let CI apply the new migration).
-4. Run `pytest backend/tests/test_symbol_consistency.py`.
+4. Run `pytest backend/tests/test_symbol_consistency.py` and
+   `pytest backend/tests/test_painting_pages.py`.
+5. If the batch re-exports a symbol used as a **colouring page** (see `CURATED`
+   in `frontend/js/modules/painting/pages.js`), expect the geometry-derived
+   region keys to change — an old painting's saved `fills` then no longer match
+   its stored `sig` and are dropped on load (the brush strokes still replay).
+   That is the intended graceful degradation, not a bug; the `SYMBOLS_VERSION`
+   bump in step 1 is what makes it visible instead of silent.
 
 ## Normalization notes
 

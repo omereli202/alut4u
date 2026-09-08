@@ -12,6 +12,7 @@ import { renderStoriesEditor } from "../modules/stories/editor.js";
 import { renderLearningEditor } from "../modules/learning/editor.js";
 import { renderTypingViewer } from "../modules/typing/viewer.js";
 import { renderTasksEditor } from "../modules/tasks/editor.js";
+import { renderPaintingViewer } from "../modules/painting/viewer.js";
 import { renderChildSetup } from "./child-setup.js";
 
 const MODULES = [
@@ -23,6 +24,7 @@ const MODULES = [
   ["reading_writing_enabled", "קריאה והקלדה"],
   ["typing_board_enabled", "הפתקים שלי (לוח הקלדה)"],
   ["tasks_enabled", "המשימות שלי"],
+  ["painting_enabled", "בוא נצייר"],
 ];
 
 export async function renderDashboard({ onExit, onLogout }) {
@@ -224,6 +226,16 @@ export async function renderDashboard({ onExit, onLogout }) {
                 renderTasksEditor({ childId: child.id, childName: child.name, onExit: load }),
             },
             "ערוך את המשימות שלי",
+          ),
+        modules.painting_enabled &&
+          el(
+            "button",
+            {
+              class: "btn-link",
+              onclick: () =>
+                renderPaintingViewer({ childId: child.id, childName: child.name, onExit: load }),
+            },
+            "ערוך את בוא נצייר",
           ),
         el(
           "button",

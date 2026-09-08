@@ -53,6 +53,7 @@ ICONS: dict[str, str] = {
     "delete": "מחיקה",
     "drag_indicator": "גרירה לשינוי סדר",
     "edit": "עריכה",
+    "brush": "מברשת",
     "settings": "הגדרות",
     "celebration": "חגיגה",
     "logout": "יציאה",
