@@ -22,6 +22,7 @@ _MODULE_KEYS = (
     "stories_autoplay",
     "typing_board_enabled",
     "tasks_enabled",
+    "painting_enabled",
 )
 
 

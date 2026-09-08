@@ -160,17 +160,23 @@ supabase db push                       # apply to the linked project
 - My Tasks (manual, real tablet): open the list → airplane mode → tick every
   task → reconnect → outbox flushes with no dupes → caregiver enters PIN → the
   token reward lands once, and a second claim the same day is refused.
+- Painting (manual, real tablet): open a colouring page → bucket-fill two
+  regions → brush over them (the black outline must stay on top) → airplane
+  mode → keep painting → force-kill the app → reopen → the painting is still
+  there → reconnect → outbox flushes → the caregiver sees exactly one painting
+  with the final strokes. Also: rotate the tablet mid-stroke (strokes replay,
+  don't vanish), rest a palm on the screen (only the first pointer draws).
 - Accessibility: axe-core in CI; manual keyboard-only + 200% zoom +
   `prefers-reduced-motion` + 60px touch targets in User Mode.
 
 ## Current phase
 
-**Phases 0–10 all built on `dev`.** All 8 feature modules (AAC, Schedule, Tokens
-& rewards, Calming, AI stories, Reading & writing, Typing board, My Tasks) are
-live in the User-Mode home tiles and the caregiver dashboard. Hardening done (quotas,
-logging, security headers, retention script, load test). `docs/roadmap.md` has
-the per-phase detail; `docs/launch-checklist.md` has what's left before
-promotion.
+**Phases 0–11 all built on `dev`.** All 9 feature modules (AAC, Schedule, Tokens
+& rewards, Calming, AI stories, Reading & writing, Typing board, My Tasks,
+Painting) are live in the User-Mode home tiles and the caregiver dashboard.
+Hardening done (quotas, logging, security headers, retention script, load test).
+`docs/roadmap.md` has the per-phase detail; `docs/launch-checklist.md` has
+what's left before promotion.
 
 `main` is still at Phase 1 — **nothing is promoted to production**; wait for the
 user to say so (see the branch-promotion memory).

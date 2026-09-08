@@ -20,6 +20,7 @@ import { renderStoriesEditor } from "../modules/stories/editor.js";
 import { renderLearningEditor } from "../modules/learning/editor.js";
 import { renderTypingViewer } from "../modules/typing/viewer.js";
 import { renderTasksEditor } from "../modules/tasks/editor.js";
+import { renderPaintingViewer } from "../modules/painting/viewer.js";
 
 const STEPS = [
   { label: "בוא נדבר", render: renderAacEditor },
@@ -29,6 +30,7 @@ const STEPS = [
   { label: "קריאה והקלדה", render: renderLearningEditor },
   { label: "הפתקים שלי", render: renderTypingViewer },
   { label: "המשימות שלי", render: renderTasksEditor },
+  { label: "בוא נצייר", render: renderPaintingViewer },
 ];
 
 export function renderChildSetup({ childId, childName, onDone }) {

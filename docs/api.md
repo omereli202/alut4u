@@ -213,3 +213,29 @@ sends `the_date`, the server sets `completed_on` to it (or null), idempotently.
 | PUT | `/items/order` | C | `{child_id, order:[id,…]}` |
 | PUT | `/settings` | C | `{child_id, reward_tokens}` → `{reward_tokens}` |
 | POST | `/claim` | C | `{child_id, the_date}` → `{tokens_awarded, balance}` (201). 409 `tasks_incomplete`, 409 `reward_already_granted`. |
+
+## בוא נצייר (Painting) — `/api/painting`
+
+Paint on a blank page or colour inside a bundled Mulberry symbol. A painting is
+**vector JSON**, never a raster: `page` (`{"kind":"blank"}` or
+`{"kind":"symbol","symbol_id","sig?","sv?"}`), `strokes`
+(`[{c:"#rrggbb", w:<0..0.2>, e:0|1, p:[x,y,…]}]` — normalised 0..1, `e:1` =
+eraser), `fills` (`[{r:"<region key>", c:"#rrggbb"}]`). Caps: ≤400 strokes,
+≤2000 numbers/stroke, ≤60,000 total points, ≤300 fills, title ≤80. Colours are
+validated `^#[0-9a-f]{6}$` server-side (a fill key reaches `style.fill`).
+
+`paintings.id` is client-generated; every `POST /paintings` is an upsert gated
+by a monotonic `rev` (a stale outbox replay is a no-op). Nothing is PIN-gated
+except editing the caregiver's curated colouring-page list. The list route
+returns summaries only — a gallery must not pull every stroke. No Storage
+object, no `media_assets`, no quota; a PNG is produced client-side for
+share / print and is never uploaded.
+
+| Method | Path | Guard | Notes |
+|---|---|---|---|
+| GET | `/paintings?child_id=` | S | `{paintings:[{id, title, page, rev, updated_at}]}` — summary, no strokes. |
+| GET | `/paintings/<id>` | S | the full model (`strokes`, `fills`). |
+| POST | `/paintings` | S | `{child_id, painting_id, title?, page, strokes, fills, rev, idempotency_key?}` → `{id, rev, updated_at}`. 409 `painting_id_conflict` (cross-tenant id). |
+| DELETE | `/paintings/<id>` | S | 204, audit-logged. |
+| GET | `/pages?child_id=` | S | `{symbol_ids:[…]}` — the caregiver's **extra** pages (the curated shortlist is a client constant). |
+| PUT | `/pages` | C | `{child_id, symbol_ids:[…]}` → `{symbol_ids}` — replaces the list. |

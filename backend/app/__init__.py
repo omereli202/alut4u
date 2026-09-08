@@ -60,6 +60,7 @@ def _register_blueprints(app: Flask) -> None:
     from app.api.health import bp as health_bp
     from app.api.learning import bp as learning_bp
     from app.api.media import bp as media_bp
+    from app.api.painting import bp as painting_bp
     from app.api.schedule import bp as schedule_bp
     from app.api.stories import bp as stories_bp
     from app.api.symbols import bp as symbols_bp
@@ -80,6 +81,7 @@ def _register_blueprints(app: Flask) -> None:
     app.register_blueprint(learning_bp)
     app.register_blueprint(typing_bp)
     app.register_blueprint(tasks_bp)
+    app.register_blueprint(painting_bp)
 
 
 def _register_frontend(app: Flask) -> None:

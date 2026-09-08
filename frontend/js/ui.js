@@ -30,7 +30,7 @@ const XLINK_NS = "http://www.w3.org/1999/xlink";
 // service worker or browser manage. A version query string is a new URL,
 // so every cache layer treats it as a fresh resource instead of revalidating
 // a stale one.
-const SPRITE_URL = "/assets/icons/sprite.svg?v=42";
+const SPRITE_URL = "/assets/icons/sprite.svg?v=43";
 
 // Same reasoning as SPRITE_URL above, for the AAC symbol library
 // (frontend/assets/symbols/, scripts/build_symbols.py): bump whenever the

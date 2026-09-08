@@ -17,7 +17,7 @@ Source of truth is `supabase/migrations/`. This doc is the map.
 |---|---|---|
 | `caregivers` | The account. 1:1 with `auth.users`. Holds `pin_hash`, consent timestamps. | self only |
 | `children` | Subject of care. `caregiver_id` FK, `consent_basis`. | owner (all) |
-| `module_settings` | Per-child module on/off (7 `*_enabled` cols). Auto-created by trigger. | via child owner |
+| `module_settings` | Per-child module on/off (9 `*_enabled` cols + `stories_autoplay`). Auto-created by trigger. | via child owner |
 | `consent_records` | Append-only: what was consented to, version, when, context. | owner (select); insert via backend |
 | `device_sessions` | One per signed-in device. Encrypted refresh token. Revocable. | owner (select/update) |
 | `media_assets` | Pointers to Storage objects. `child_id` null for shared TTS cache. | owner (select) |
@@ -79,6 +79,21 @@ sweep. `task_settings` (per-child, PK `child_id`, like `rules_settings`):
 `reward_tokens` (0–20, default 1) and `last_reward_date`, the once-a-day guard
 for `POST /api/tasks/claim` (releases the tokens via a `kind: "tasks"` ledger
 entry, caregiver PIN). No row = defaults. Erasure is FK cascade.
+
+`paintings` / `painting_pages` (migration 0027) — the "בוא נצייר" module (9th
+`module_settings` column `painting_enabled`). `paintings.id` is
+**client-generated** (offline outbox), every save an upsert gated by a monotonic
+`rev` — same contract as `typing_notes`. A painting is **vector JSON**, never a
+raster: `page` is `{"kind":"blank"}` or `{"kind":"symbol","symbol_id",…,"sig"}`
+(sig hashes the colouring page's region keys at save so a regenerated symbol
+degrades gracefully); `strokes` is a jsonb array of `{c,w,e,p}` where `p` is a
+flat normalised `[x,y,…]` array (`e:1` = eraser); `fills` is `[{r,c}]` region
+fills. SQL `check`s bound the arrays (≤400 strokes, ≤300 fills); the pydantic
+model adds a 60,000-total-point ceiling. `painting_pages` (unique per
+`child_id`+`symbol_id`, `symbol_id` FK to `symbols` like `task_items`) is the
+caregiver's extra colouring pages on top of the client-side curated shortlist.
+No Storage object, no `media_assets` row, no quota. Both are in the account
+export; erasure is FK cascade.
 
 `schedule_items`, `calendar_events`, `behavior_rules`, `token_transactions`
 (source of truth) + `token_balances` (materialized), `rewards`,

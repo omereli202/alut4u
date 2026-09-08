@@ -2241,6 +2241,238 @@ body[data-setup="1"] #main {
   gap: var(--space-3);
 }
 
+/* ------------------------------------------------------------ בוא נצייר
+   The painting surface is ALWAYS square, letterboxed, with a hard #fff paper
+   in both themes — never --color-surface, which would invert the whole module.
+   Three stacked layers: white regions (hit-testable) / transparent ink canvas
+   (pointer-events:none — the eraser's destination-out would punch through a
+   painted paper) / black outline on top. */
+.paint-screen,
+.paint-host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-block-size: 0;
+}
+.paint-editor,
+.paint-gallery,
+.paint-chooser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.paint-surface {
+  position: relative;
+  aspect-ratio: 1;
+  inline-size: min(100%, 90vmin);
+  margin-inline: auto;
+  background: #fff; /* paper — hard-coded, both themes */
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  touch-action: none; /* or the browser claims the drag as a pan */
+  overscroll-behavior: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.paint-regions,
+.paint-ink,
+.paint-lines {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+.paint-ink,
+.paint-lines {
+  pointer-events: none;
+}
+.paint-regions [data-region] {
+  pointer-events: all;
+  cursor: pointer;
+}
+.paint-regions [data-region]:focus-visible {
+  outline: 3px solid var(--color-focus);
+}
+
+.paint-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+.paint-tools,
+.paint-sizes,
+.paint-acts {
+  display: flex;
+  gap: var(--space-2);
+}
+.paint-tool,
+.paint-size,
+.paint-act {
+  min-block-size: var(--touch-min);
+  min-inline-size: var(--touch-min);
+  padding-inline: var(--space-3);
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+.paint-tool[aria-pressed="true"],
+.paint-size[aria-pressed="true"] {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  border-color: var(--color-primary);
+}
+.paint-size-dot {
+  display: block;
+  inline-size: var(--d, 10px);
+  block-size: var(--d, 10px);
+  border-radius: var(--radius-pill);
+  background: currentColor;
+}
+.paint-act:disabled {
+  opacity: 0.4;
+}
+
+.paint-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.paint-swatch {
+  inline-size: var(--touch-min);
+  block-size: var(--touch-min);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border-strong); /* visible even for white in dark mode */
+  background: var(--sw, #000);
+  padding: 0;
+}
+.paint-swatch[aria-pressed="true"] {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.paint-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.paint-status {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+.paint-done {
+  min-block-size: var(--touch-min);
+  padding-inline: var(--space-6);
+}
+
+/* gallery + chooser */
+.paint-new {
+  min-block-size: var(--touch-min);
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.paint-grid,
+.paint-page-grid,
+.paint-viewer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-3);
+}
+.paint-thumb-card,
+.paint-page-card,
+.paint-viewer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  min-block-size: var(--touch-min);
+}
+.paint-thumb-img,
+.paint-page-img,
+.paint-thumb-blank,
+.paint-viewer-thumb {
+  inline-size: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+.paint-thumb-title,
+.paint-thumb-badge {
+  font-size: var(--text-sm);
+  text-align: center;
+}
+.paint-thumb-badge {
+  color: var(--color-warning-ink);
+}
+.paint-chooser-head,
+.paint-detail-acts {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+.paint-detail-acts {
+  flex-wrap: wrap;
+}
+.paint-detail-img,
+.paint-page-chips {
+  inline-size: 100%;
+}
+.paint-page-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.paint-page-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+}
+.paint-page-chip img {
+  inline-size: 44px;
+  block-size: 44px;
+  background: #fff;
+  border-radius: var(--radius-sm);
+}
+.paint-detail-img {
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .paint-tool,
+  .paint-swatch {
+    transition: background 0.12s ease;
+  }
+}
+
 @media print {
   /* Print just the open note. `visibility` keeps the layout ancestors so the
      sheet still positions correctly, unlike `display: none`. */

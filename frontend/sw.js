@@ -7,7 +7,12 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v43"; // v43: ui.js — SYMBOLS_VERSION bumped to
+const SHELL_CACHE = "shell-v44"; // v44: "בוא נצייר" — a 9th module: paint on a
+// blank page or colour inside a bundled line-art page. Vector-JSON storage
+// (strokes + region fills, no PNG server-side), offline via the outbox. New
+// js/modules/painting/*, a "brush" sprite glyph (SPRITE_URL v43), and the
+// curated colouring pages warmed into SYMBOL_CACHE on install.
+// v43: ui.js — SYMBOLS_VERSION bumped to
 // 20260914e; 268 new Mulberry symbols ingested (animals, transport, plants,
 // planets, toys) — the symbol *files* changed, so the shell that references
 // them must re-fetch (defeats Railway's per-node edge cache).
@@ -85,6 +90,20 @@ const SYMBOL_CACHE = "symbols-v1"; // AAC symbol images — deliberately separat
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 
+// "בוא נצייר" curated colouring pages — warmed into SYMBOL_CACHE on install
+// (non-fatally) so a first-run offline open still has pages to paint. The
+// runtime path for /assets/symbols/* is cache-first against SYMBOL_CACHE only,
+// so precaching these in SHELL would never be looked up. Kept in sync with
+// CURATED in js/modules/painting/pages.js and with ui.js's SYMBOLS_VERSION by
+// test_painting_pages.py.
+const SYMBOLS_ASSET_V = "20260914e";
+const PAINT_PAGES = [
+  "cat", "dog", "rabbit", "horse", "cow", "duck", "owl", "bear", "elephant",
+  "fish", "frog", "butterfly", "snail", "turtle", "car", "bus", "train", "boat",
+  "rocket", "tree", "flower", "mushroom", "rainbow", "star", "teddy-bear",
+  "balloon", "heart", "crown", "kite", "drum",
+].map((id) => `/assets/symbols/${id}.svg?v=${SYMBOLS_ASSET_V}`);
+
 const SHELL = [
   "/",
   "/index.html",
@@ -142,6 +161,17 @@ const SHELL = [
   "/js/modules/tasks/index.js",
   "/js/modules/tasks/data.js",
   "/js/modules/tasks/editor.js",
+  "/js/modules/painting/index.js",
+  "/js/modules/painting/palette.js",
+  "/js/modules/painting/model.js",
+  "/js/modules/painting/pages.js",
+  "/js/modules/painting/render.js",
+  "/js/modules/painting/surface.js",
+  "/js/modules/painting/data.js",
+  "/js/modules/painting/editor.js",
+  "/js/modules/painting/gallery.js",
+  "/js/modules/painting/viewer.js",
+  "/js/modules/painting/export.js",
   "/manifest.webmanifest",
   "/assets/icon-192.png",
   // Self-hosted Rubik — offline AAC/schedule must still render Hebrew (+ the
@@ -163,7 +193,7 @@ const SHELL = [
   // actually defeats Railway's CDN edge cache (see ui.js's comment); an
   // unversioned entry here would just precache a *different* URL than the
   // one icon() ever requests.
-  "/assets/icons/sprite.svg?v=42",
+  "/assets/icons/sprite.svg?v=43",
 ];
 
 self.addEventListener("install", (event) => {
@@ -171,6 +201,15 @@ self.addEventListener("install", (event) => {
     caches
       .open(SHELL_CACHE)
       .then((cache) => cache.addAll(SHELL))
+      // Non-fatal: warm the curated colouring pages into SYMBOL_CACHE so a
+      // first-run offline open has something to paint. A failure here must not
+      // abort the shell install.
+      .then(() =>
+        caches
+          .open(SYMBOL_CACHE)
+          .then((c) => Promise.allSettled(PAINT_PAGES.map((u) => c.add(u))))
+          .catch(() => {}),
+      )
       .then(() => self.skipWaiting())
       // A transient failure here (one bad fetch during a rolling deploy)
       // used to fail silently — the install would abort with no trace, and
@@ -219,7 +258,9 @@ self.addEventListener("fetch", (event) => {
   // Read-only board/day/calendar: network-first, fall back to the last copy so
   // the child still sees today's schedule and board offline.
   if (
-    /^\/api\/(aac\/board|schedule\/(day|calendar)|typing\/(notes|settings)|tasks\/day)/.test(url.pathname) &&
+    /^\/api\/(aac\/board|schedule\/(day|calendar)|typing\/(notes|settings)|tasks\/day|painting\/(paintings|pages))/.test(
+      url.pathname,
+    ) &&
     request.method === "GET"
   ) {
     event.respondWith(

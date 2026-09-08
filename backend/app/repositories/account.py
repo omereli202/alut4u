@@ -54,6 +54,11 @@ def export_bundle(caregiver_id: str) -> dict[str, Any]:
         else []
     )
 
+    def _child_scoped(table: str) -> list[dict]:
+        if not child_ids:
+            return []
+        return rows(db.table(table).select("*").in_("child_id", child_ids).execute())
+
     return {
         "caregiver": caregiver,
         "children": children,
@@ -64,14 +69,20 @@ def export_bundle(caregiver_id: str) -> dict[str, Any]:
         "schedule_templates": schedule_templates,
         "typing_notes": typing_notes,
         "typing_settings": typing_settings,
+        "task_items": _child_scoped("task_items"),
+        "task_settings": _child_scoped("task_settings"),
+        "paintings": _child_scoped("paintings"),
+        "painting_pages": _child_scoped("painting_pages"),
     }
 
 
 def delete_everything(caregiver_id: str) -> None:
     """Delete the caregivers row; FK ON DELETE CASCADE removes children,
     module_settings, consent_records, device_sessions, media_assets,
-    usage_counters and the caregiver's saved schedule_templates. audit_log rows
-    survive with caregiver_id nulled."""
+    usage_counters and the caregiver's saved schedule_templates — and,
+    through children, every child-scoped table (typing_notes, task_items,
+    paintings, painting_pages, ...). audit_log rows survive with caregiver_id
+    nulled."""
     service_client("delete_account_cascade").table("caregivers").delete().eq(
         "id", caregiver_id
     ).execute()
