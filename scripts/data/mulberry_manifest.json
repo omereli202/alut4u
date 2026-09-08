@@ -51,10 +51,10 @@
       "label_he": "שלשול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "earthworm",
-      "status": "pending"
+      "status": "approved"
     },
     "1001": {
       "category_en": "Animal Spiders and Insects",
@@ -366,10 +366,10 @@
       "label_he": "פיל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "elephant",
-      "status": "pending"
+      "status": "approved"
     },
     "1023": {
       "category_en": "Number",
@@ -910,10 +910,10 @@
       "label_he": "כדור ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ball_beach",
-      "status": "pending"
+      "status": "approved"
     },
     "1060": {
       "category_en": "Healthcare Body parts",
@@ -1208,10 +1208,10 @@
       "label_he": "בלון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "balloon",
-      "status": "pending"
+      "status": "approved"
     },
     "1080": {
       "category_en": "Celebration Item",
@@ -1438,10 +1438,10 @@
       "label_he": "חמוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ferret",
-      "status": "pending"
+      "status": "approved"
     },
     "1096": {
       "category_en": "Transport Water",
@@ -1455,10 +1455,10 @@
       "label_he": "מעבורת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ferry",
-      "status": "pending"
+      "status": "approved"
     },
     "1097": {
       "category_en": "Leisure Toys",
@@ -1684,10 +1684,10 @@
       "label_he": "בובת אצבע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "finger_puppet",
-      "status": "pending"
+      "status": "approved"
     },
     "1111": {
       "category_en": "Healthcare Body parts",
@@ -1758,10 +1758,10 @@
       "label_he": "עץ אשוח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fir_tree",
-      "status": "pending"
+      "status": "approved"
     },
     "1116": {
       "category_en": "Descriptive State",
@@ -1788,10 +1788,10 @@
       "label_he": "כבאית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fire_engine",
-      "status": "pending"
+      "status": "approved"
     },
     "1118": {
       "category_en": "Clothes General",
@@ -1937,10 +1937,10 @@
       "label_he": "דג",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fish",
-      "status": "pending"
+      "status": "approved"
     },
     "1128": {
       "category_en": "Sport",
@@ -2045,10 +2045,10 @@
       "label_he": "דג קוי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fish_koi_carp",
-      "status": "pending"
+      "status": "approved"
     },
     "1135": {
       "category_en": "Animal Habitat",
@@ -2075,10 +2075,10 @@
       "label_he": "דג טרופי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fish_tropical",
-      "status": "pending"
+      "status": "approved"
     },
     "1137": {
       "category_en": "Healthcare Body parts",
@@ -4147,10 +4147,10 @@
       "label_he": "עטלף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bat",
-      "status": "pending"
+      "status": "approved"
     },
     "1280": {
       "category_en": "Country Flags",
@@ -5815,10 +5815,10 @@
       "label_he": "פלמינגו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "flamingo",
-      "status": "pending"
+      "status": "approved"
     },
     "1396": {
       "category_en": "Healthcare Grooming items",
@@ -5884,10 +5884,10 @@
       "label_he": "מטוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "aeroplane",
-      "status": "pending"
+      "status": "approved"
     },
     "140": {
       "category_en": "Leisure Toys",
@@ -5901,10 +5901,10 @@
       "label_he": "חרוזים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "beads",
-      "status": "pending"
+      "status": "approved"
     },
     "1400": {
       "category_en": "Food Kitchen actions",
@@ -6061,10 +6061,10 @@
       "label_he": "פרח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "flower",
-      "status": "pending"
+      "status": "approved"
     },
     "1411": {
       "category_en": "Healthcare Grooming activities",
@@ -6091,10 +6091,10 @@
       "label_he": "חליל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "flute",
-      "status": "pending"
+      "status": "approved"
     },
     "1413": {
       "category_en": "Animal Spiders and Insects",
@@ -6108,10 +6108,10 @@
       "label_he": "זבוב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fly",
-      "status": "pending"
+      "status": "approved"
     },
     "1414": {
       "category_en": "Building Household tasks",
@@ -6491,10 +6491,10 @@
       "label_he": "פוף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "beanbag",
-      "status": "pending"
+      "status": "approved"
     },
     "1440": {
       "category_en": "Clothes Sport",
@@ -6923,10 +6923,10 @@
       "label_he": "דוב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bear",
-      "status": "pending"
+      "status": "approved"
     },
     "1470": {
       "category_en": "Food Feeding and eating",
@@ -6953,10 +6953,10 @@
       "label_he": "מלגזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fork_lift_truck",
-      "status": "pending"
+      "status": "approved"
     },
     "1472": {
       "category_en": "Number",
@@ -7047,10 +7047,10 @@
       "label_he": "שועל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fox",
-      "status": "pending"
+      "status": "approved"
     },
     "1479": {
       "category_en": "Religion General",
@@ -7154,10 +7154,10 @@
       "label_he": "צפרדע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "frog",
-      "status": "pending"
+      "status": "approved"
     },
     "1486": {
       "category_en": "Food Dairy",
@@ -7287,10 +7287,10 @@
       "label_he": "עץ פרי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "fruit_tree",
-      "status": "pending"
+      "status": "approved"
     },
     "1495": {
       "category_en": "Food Kitchen actions",
@@ -7382,10 +7382,10 @@
       "label_he": "דבורת בומבוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bee_bumble",
-      "status": "pending"
+      "status": "approved"
     },
     "1500": {
       "category_en": "Building Furniture",
@@ -7529,10 +7529,10 @@
       "label_he": "דבורה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bee_honey",
-      "status": "pending"
+      "status": "approved"
     },
     "1510": {
       "category_en": "People Profession",
@@ -7662,10 +7662,10 @@
       "label_he": "ג'ירפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "giraffe",
-      "status": "pending"
+      "status": "approved"
     },
     "152": {
       "category_en": "Food Meat",
@@ -7861,10 +7861,10 @@
       "label_he": "דג זהב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "goldfish",
-      "status": "pending"
+      "status": "approved"
     },
     "1533": {
       "category_en": "Animal Habitat",
@@ -7995,10 +7995,10 @@
       "label_he": "אווז",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "goose",
-      "status": "pending"
+      "status": "approved"
     },
     "1542": {
       "category_en": "Food Poultry",
@@ -8038,10 +8038,10 @@
       "label_he": "גורילה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "gorilla",
-      "status": "pending"
+      "status": "approved"
     },
     "1545": {
       "category_en": "Food Breads and baking",
@@ -8185,10 +8185,10 @@
       "label_he": "דשא",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "grass",
-      "status": "pending"
+      "status": "approved"
     },
     "1555": {
       "category_en": "Food Kitchen actions",
@@ -8270,10 +8270,10 @@
       "label_he": "חיפושית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "beetle",
-      "status": "pending"
+      "status": "approved"
     },
     "1560": {
       "category_en": "Descriptive State",
@@ -8495,10 +8495,10 @@
       "label_he": "שרקן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "guinea_pig",
-      "status": "pending"
+      "status": "approved"
     },
     "1576": {
       "category_en": "Music Instrument",
@@ -8512,10 +8512,10 @@
       "label_he": "גיטרה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "guitar",
-      "status": "pending"
+      "status": "approved"
     },
     "1577": {
       "category_en": "Healthcare Body parts",
@@ -8923,10 +8923,10 @@
       "label_he": "אוגר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hamster",
-      "status": "pending"
+      "status": "approved"
     },
     "1604": {
       "category_en": "Animal Activity Feeding",
@@ -9070,10 +9070,10 @@
       "label_he": "האנגר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hangar",
-      "status": "pending"
+      "status": "approved"
     },
     "1614": {
       "category_en": "Clothes Accessories",
@@ -9158,10 +9158,10 @@
       "label_he": "ארנבת בר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hare",
-      "status": "pending"
+      "status": "approved"
     },
     "162": {
       "category_en": "Descriptive Position",
@@ -9590,10 +9590,10 @@
       "label_he": "גדר חיה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hedge",
-      "status": "pending"
+      "status": "approved"
     },
     "1649": {
       "category_en": "Tools Garden",
@@ -9632,10 +9632,10 @@
       "label_he": "קיפוד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hedgehog",
-      "status": "pending"
+      "status": "approved"
     },
     "1651": {
       "category_en": "Healthcare Body parts",
@@ -9675,10 +9675,10 @@
       "label_he": "מסוק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "helicopter",
-      "status": "pending"
+      "status": "approved"
     },
     "1654": {
       "category_en": "Communication Conversation",
@@ -9752,10 +9752,10 @@
       "label_he": "אנפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "heron",
-      "status": "pending"
+      "status": "approved"
     },
     "1659": {
       "category_en": "Descriptive Shape",
@@ -9849,10 +9849,10 @@
       "label_he": "היפופוטם",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hippopotamus",
-      "status": "pending"
+      "status": "approved"
     },
     "1665": {
       "category_en": "Healthcare Body parts",
@@ -9998,10 +9998,10 @@
       "label_he": "אשחר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "holly",
-      "status": "pending"
+      "status": "approved"
     },
     "1675": {
       "category_en": "Computer Icon",
@@ -10121,10 +10121,10 @@
       "label_he": "סוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "horse",
-      "status": "pending"
+      "status": "approved"
     },
     "1683": {
       "category_en": "Tools Garden",
@@ -10167,10 +10167,10 @@
       "label_he": "כדור פורח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "hot_air_balloon",
-      "status": "pending"
+      "status": "approved"
     },
     "1686": {
       "category_en": "Healthcare Grooming items",
@@ -10545,10 +10545,10 @@
       "label_he": "אופניים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bicycle",
-      "status": "pending"
+      "status": "approved"
     },
     "1710": {
       "category_en": "Descriptive Position",
@@ -10813,10 +10813,10 @@
       "label_he": "קיסוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ivy",
-      "status": "pending"
+      "status": "approved"
     },
     "1729": {
       "category_en": "Plants and Trees",
@@ -10881,10 +10881,10 @@
       "label_he": "קופסת הפתעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jack_in_box",
-      "status": "pending"
+      "status": "approved"
     },
     "1733": {
       "category_en": "Clothes General",
@@ -11047,10 +11047,10 @@
       "label_he": "ג'יפ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jeep",
-      "status": "pending"
+      "status": "approved"
     },
     "1744": {
       "category_en": "Food Sweets and desserts",
@@ -11090,10 +11090,10 @@
       "label_he": "מדוזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jellyfish",
-      "status": "pending"
+      "status": "approved"
     },
     "1747": {
       "category_en": "Religion Person",
@@ -11120,10 +11120,10 @@
       "label_he": "מטוס סילון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jet_plane",
-      "status": "pending"
+      "status": "approved"
     },
     "1749": {
       "category_en": "Clothes Jewellery",
@@ -11163,10 +11163,10 @@
       "label_he": "פאזל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jigsaw_puzzle",
-      "status": "pending"
+      "status": "approved"
     },
     "1751": {
       "category_en": "Leisure Games",
@@ -11179,10 +11179,10 @@
       "label_he": "חלק פאזל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jigsaw_puzzle_piece",
-      "status": "pending"
+      "status": "approved"
     },
     "1752": {
       "category_en": "Religion Person",
@@ -11274,10 +11274,10 @@
       "label_he": "מתקן טיפוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "jungle_gym",
-      "status": "pending"
+      "status": "approved"
     },
     "1759": {
       "category_en": "Science Astronomy",
@@ -11291,10 +11291,10 @@
       "label_he": "צדק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Jupiter",
-      "status": "pending"
+      "status": "approved"
     },
     "176": {
       "category_en": "Building Contents",
@@ -11346,10 +11346,10 @@
       "label_he": "קנגורו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "kangaroo",
-      "status": "pending"
+      "status": "approved"
     },
     "1763": {
       "category_en": "Food Meals and snacks",
@@ -11428,10 +11428,10 @@
       "label_he": "אורגן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "keyboard_electric",
-      "status": "pending"
+      "status": "approved"
     },
     "1769": {
       "category_en": "Sport",
@@ -11497,10 +11497,10 @@
       "label_he": "לווייתן קטלן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "killer_whale",
-      "status": "pending"
+      "status": "approved"
     },
     "1773": {
       "category_en": "Leisure Toys",
@@ -11514,10 +11514,10 @@
       "label_he": "עפיפון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "kite",
-      "status": "pending"
+      "status": "approved"
     },
     "1774": {
       "category_en": "Food Fruit",
@@ -11623,10 +11623,10 @@
       "label_he": "קואלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "koala",
-      "status": "pending"
+      "status": "approved"
     },
     "1781": {
       "category_en": "Leisure Toys",
@@ -11757,10 +11757,10 @@
       "label_he": "ציפור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bird",
-      "status": "pending"
+      "status": "approved"
     },
     "1790": {
       "category_en": "Animal Mammal",
@@ -11774,10 +11774,10 @@
       "label_he": "טלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lamb_2",
-      "status": "pending"
+      "status": "approved"
     },
     "1791": {
       "category_en": "Electrical General",
@@ -12051,10 +12051,10 @@
       "label_he": "עלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "leaf",
-      "status": "pending"
+      "status": "approved"
     },
     "181": {
       "category_en": "Animal Habitat",
@@ -12081,10 +12081,10 @@
       "label_he": "עלים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "leaves",
-      "status": "pending"
+      "status": "approved"
     },
     "1811": {
       "category_en": "Food Vegetables and salads",
@@ -12176,10 +12176,10 @@
       "label_he": "לגו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lego",
-      "status": "pending"
+      "status": "approved"
     },
     "1818": {
       "category_en": "Healthcare Body parts",
@@ -12309,10 +12309,10 @@
       "label_he": "נמר מנומר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "leopard",
-      "status": "pending"
+      "status": "approved"
     },
     "1827": {
       "category_en": "Work and School Stationery",
@@ -12430,10 +12430,10 @@
       "label_he": "שושן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lily",
-      "status": "pending"
+      "status": "approved"
     },
     "1835": {
       "category_en": "Food Fruit",
@@ -12532,10 +12532,10 @@
       "label_he": "אריה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lion",
-      "status": "pending"
+      "status": "approved"
     },
     "1841": {
       "category_en": "Healthcare Grooming items",
@@ -12658,10 +12658,10 @@
       "label_he": "לטאה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lizard",
-      "status": "pending"
+      "status": "approved"
     },
     "185": {
       "category_en": "Celebration Item",
@@ -12701,10 +12701,10 @@
       "label_he": "בול עץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "log",
-      "status": "pending"
+      "status": "approved"
     },
     "1852": {
       "category_en": "Food Sweets and desserts",
@@ -12785,10 +12785,10 @@
       "label_he": "משאית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "lorry",
-      "status": "pending"
+      "status": "approved"
     },
     "1858": {
       "category_en": "Transport Road",
@@ -13246,10 +13246,10 @@
       "label_he": "גולות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "marbles",
-      "status": "pending"
+      "status": "approved"
     },
     "189": {
       "category_en": "Food Fruit",
@@ -13330,10 +13330,10 @@
       "label_he": "מאדים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Mars",
-      "status": "pending"
+      "status": "approved"
     },
     "1895": {
       "category_en": "Food Sweets and desserts",
@@ -13804,10 +13804,10 @@
       "label_he": "כוכב חמה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Mercury",
-      "status": "pending"
+      "status": "approved"
     },
     "1927": {
       "category_en": "Food Sweets and desserts",
@@ -13834,10 +13834,10 @@
       "label_he": "קרוסלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "merry_go_round",
-      "status": "pending"
+      "status": "approved"
     },
     "1929": {
       "category_en": "Descriptive State",
@@ -13894,10 +13894,10 @@
       "label_he": "מיקרופון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "microphone",
-      "status": "pending"
+      "status": "approved"
     },
     "1932": {
       "category_en": "Science",
@@ -14121,10 +14121,10 @@
       "label_he": "שביל החלב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Milky_Way",
-      "status": "pending"
+      "status": "approved"
     },
     "1948": {
       "category_en": "Food Breads and baking",
@@ -14177,10 +14177,10 @@
       "label_he": "מיניבוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mini_bus",
-      "status": "pending"
+      "status": "approved"
     },
     "1951": {
       "category_en": "Food Sweets and desserts",
@@ -14289,10 +14289,10 @@
       "label_he": "דבקון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mistletoe",
-      "status": "pending"
+      "status": "approved"
     },
     "1959": {
       "category_en": "Clothes General",
@@ -14529,10 +14529,10 @@
       "label_he": "ירח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Moon",
-      "status": "pending"
+      "status": "approved"
     },
     "1975": {
       "category_en": "Building Contents",
@@ -14559,10 +14559,10 @@
       "label_he": "קטנוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "moped",
-      "status": "pending"
+      "status": "approved"
     },
     "1977": {
       "category_en": "Descriptive Quantity",
@@ -14632,10 +14632,10 @@
       "label_he": "עש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "moth",
-      "status": "pending"
+      "status": "approved"
     },
     "1981": {
       "category_en": "Transport Road",
@@ -14649,10 +14649,10 @@
       "label_he": "קרוואן ממונע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "motor_home",
-      "status": "pending"
+      "status": "approved"
     },
     "1982": {
       "category_en": "Transport Road",
@@ -14665,10 +14665,10 @@
       "label_he": "אופנוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "motorcycle",
-      "status": "pending"
+      "status": "approved"
     },
     "1983": {
       "category_en": "Holiday and travel",
@@ -14694,10 +14694,10 @@
       "label_he": "עכבר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mouse",
-      "status": "pending"
+      "status": "approved"
     },
     "1985": {
       "category_en": "Electrical Computer",
@@ -15017,10 +15017,10 @@
       "label_he": "מולית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "mussel",
-      "status": "pending"
+      "status": "approved"
     },
     "2005": {
       "category_en": "Computer Icon",
@@ -15280,10 +15280,10 @@
       "label_he": "נפטון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Neptune",
-      "status": "pending"
+      "status": "approved"
     },
     "2023": {
       "category_en": "Animal Habitat",
@@ -15864,10 +15864,10 @@
       "label_he": "עלה אלון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "oak_leaf",
-      "status": "pending"
+      "status": "approved"
     },
     "2063": {
       "category_en": "People Profession",
@@ -16117,10 +16117,10 @@
       "label_he": "סירה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "boat",
-      "status": "pending"
+      "status": "approved"
     },
     "2080": {
       "category_en": "Food Eggs",
@@ -16452,10 +16452,10 @@
       "label_he": "יען",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ostrich",
-      "status": "pending"
+      "status": "approved"
     },
     "2102": {
       "category_en": "Descriptive Direction",
@@ -16534,10 +16534,10 @@
       "label_he": "ינשוף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "owl",
-      "status": "pending"
+      "status": "approved"
     },
     "2108": {
       "category_en": "Healthcare Medical items",
@@ -16563,10 +16563,10 @@
       "label_he": "צדפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "oyster",
-      "status": "pending"
+      "status": "approved"
     },
     "211": {
       "category_en": "Sport Accessories",
@@ -16671,10 +16671,10 @@
       "label_he": "משוטים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "paddles",
-      "status": "pending"
+      "status": "approved"
     },
     "2117": {
       "category_en": "Tools Workshop",
@@ -16768,10 +16768,10 @@
       "label_he": "דקל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "palm",
-      "status": "pending"
+      "status": "approved"
     },
     "2123": {
       "category_en": "Religion Festival",
@@ -16837,10 +16837,10 @@
       "label_he": "פנדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "panda",
-      "status": "pending"
+      "status": "approved"
     },
     "2128": {
       "category_en": "Clothes General",
@@ -16945,10 +16945,10 @@
       "label_he": "מצנח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "parachute",
-      "status": "pending"
+      "status": "approved"
     },
     "2135": {
       "category_en": "Celebration Event",
@@ -17079,10 +17079,10 @@
       "label_he": "תוכי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "parrot",
-      "status": "pending"
+      "status": "approved"
     },
     "2144": {
       "category_en": "Food Vegetables and salads",
@@ -17408,10 +17408,10 @@
       "label_he": "טווס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "peacock",
-      "status": "pending"
+      "status": "approved"
     },
     "2167": {
       "category_en": "Food Nuts",
@@ -17542,10 +17542,10 @@
       "label_he": "שקנאי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "pelican",
-      "status": "pending"
+      "status": "approved"
     },
     "2176": {
       "category_en": "Work and School Stationery",
@@ -17702,10 +17702,10 @@
       "label_he": "פינגווין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "penguin",
-      "status": "pending"
+      "status": "approved"
     },
     "2187": {
       "category_en": "Healthcare Body parts",
@@ -17954,10 +17954,10 @@
       "label_he": "עלה כותרת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "petal",
-      "status": "pending"
+      "status": "approved"
     },
     "2203": {
       "category_en": "Transport Road",
@@ -17971,10 +17971,10 @@
       "label_he": "מכלית דלק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "petrol_tanker",
-      "status": "pending"
+      "status": "approved"
     },
     "2204": {
       "category_en": "Clothes General",
@@ -18105,10 +18105,10 @@
       "label_he": "פסנתר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "piano",
-      "status": "pending"
+      "status": "approved"
     },
     "2213": {
       "category_en": "Food Sweets and desserts",
@@ -18252,10 +18252,10 @@
       "label_he": "חזרזיר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "piglet",
-      "status": "pending"
+      "status": "approved"
     },
     "2223": {
       "category_en": "People Profession",
@@ -18320,10 +18320,10 @@
       "label_he": "אצטרובל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "pine_cone",
-      "status": "pending"
+      "status": "approved"
     },
     "2228": {
       "category_en": "Food Nuts",
@@ -18584,10 +18584,10 @@
       "label_he": "כוכבי לכת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "planets",
-      "status": "pending"
+      "status": "approved"
     },
     "2246": {
       "category_en": "Plants and Trees",
@@ -18600,10 +18600,10 @@
       "label_he": "צמח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "plant",
-      "status": "pending"
+      "status": "approved"
     },
     "2247": {
       "category_en": "Healthcare Medical items",
@@ -18725,10 +18725,10 @@
       "label_he": "גן שעשועים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "play_area",
-      "status": "pending"
+      "status": "approved"
     },
     "2255": {
       "category_en": "Science",
@@ -18768,10 +18768,10 @@
       "label_he": "קלפי משחק",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "playing_cards",
-      "status": "pending"
+      "status": "approved"
     },
     "2258": {
       "category_en": "Leisure Games",
@@ -18930,10 +18930,10 @@
       "label_he": "פלוטו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Pluto",
-      "status": "pending"
+      "status": "approved"
     },
     "2269": {
       "category_en": "Clothes General",
@@ -19002,10 +19002,10 @@
       "label_he": "דוב קוטב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "polar_bear",
-      "status": "pending"
+      "status": "approved"
     },
     "2273": {
       "category_en": "People Profession",
@@ -19045,10 +19045,10 @@
       "label_he": "ניידת משטרה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "police_car",
-      "status": "pending"
+      "status": "approved"
     },
     "2276": {
       "category_en": "Clothes General",
@@ -19195,10 +19195,10 @@
       "label_he": "דורבן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "porcupine",
-      "status": "pending"
+      "status": "approved"
     },
     "2286": {
       "category_en": "Food Meat",
@@ -19355,10 +19355,10 @@
       "label_he": "רכב דואר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "post_van",
-      "status": "pending"
+      "status": "approved"
     },
     "2297": {
       "category_en": "Work and School Stationery",
@@ -19450,10 +19450,10 @@
       "label_he": "צמח בעציץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "potted_plant",
-      "status": "pending"
+      "status": "approved"
     },
     "2302": {
       "category_en": "Science",
@@ -19558,10 +19558,10 @@
       "label_he": "שרימפ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "prawn",
-      "status": "pending"
+      "status": "approved"
     },
     "231": {
       "category_en": "Food Kitchen items",
@@ -19761,10 +19761,10 @@
       "label_he": "פפין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "puffin",
-      "status": "pending"
+      "status": "approved"
     },
     "2323": {
       "category_en": "Leisure Toys",
@@ -19856,10 +19856,10 @@
       "label_he": "בובת יד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "puppet",
-      "status": "pending"
+      "status": "approved"
     },
     "233": {
       "category_en": "Sport",
@@ -20098,10 +20098,10 @@
       "label_he": "שליו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "quail",
-      "status": "pending"
+      "status": "approved"
     },
     "2346": {
       "category_en": "Descriptive Quantity",
@@ -20193,10 +20193,10 @@
       "label_he": "ארנב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rabbit",
-      "status": "pending"
+      "status": "approved"
     },
     "2352": {
       "category_en": "Animal Habitat",
@@ -20249,10 +20249,10 @@
       "label_he": "גשם",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rain",
-      "status": "pending"
+      "status": "approved"
     },
     "2356": {
       "category_en": "Environment Weather",
@@ -20266,10 +20266,10 @@
       "label_he": "קשת בענן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rainbow",
-      "status": "pending"
+      "status": "approved"
     },
     "2357": {
       "category_en": "Clothes General",
@@ -20348,10 +20348,10 @@
       "label_he": "איל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ram",
-      "status": "pending"
+      "status": "approved"
     },
     "2362": {
       "category_en": "Healthcare Medical items",
@@ -20391,10 +20391,10 @@
       "label_he": "חולדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rat",
-      "status": "pending"
+      "status": "approved"
     },
     "2365": {
       "category_en": "Animal Reptiles and Amphibians",
@@ -20408,10 +20408,10 @@
       "label_he": "נחש רעשן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rattle_snake",
-      "status": "pending"
+      "status": "approved"
     },
     "2366": {
       "category_en": "Food Pastas and rice",
@@ -20698,10 +20698,10 @@
       "label_he": "משאית אשפה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "refuse_lorry",
-      "status": "pending"
+      "status": "approved"
     },
     "2386": {
       "category_en": "Animal Mammal",
@@ -20715,10 +20715,10 @@
       "label_he": "איל הצפון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "reindeer",
-      "status": "pending"
+      "status": "approved"
     },
     "2387": {
       "category_en": "People Actions",
@@ -20798,10 +20798,10 @@
       "label_he": "קרנף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rhinoceros",
-      "status": "pending"
+      "status": "approved"
     },
     "2392": {
       "category_en": "Descriptive Shape",
@@ -21062,10 +21062,10 @@
       "label_he": "אדום החזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "robin",
-      "status": "pending"
+      "status": "approved"
     },
     "241": {
       "category_en": "Clothes General",
@@ -21092,10 +21092,10 @@
       "label_he": "טיל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rocket",
-      "status": "pending"
+      "status": "approved"
     },
     "2411": {
       "category_en": "Celebration Item",
@@ -21239,10 +21239,10 @@
       "label_he": "שורשים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "roots",
-      "status": "pending"
+      "status": "approved"
     },
     "2421": {
       "category_en": "Plants and Trees",
@@ -21256,10 +21256,10 @@
       "label_he": "ורד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rose",
-      "status": "pending"
+      "status": "approved"
     },
     "2422": {
       "category_en": "Sport Accessories",
@@ -21299,10 +21299,10 @@
       "label_he": "סירת משוטים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "rowing_boat",
-      "status": "pending"
+      "status": "approved"
     },
     "2425": {
       "category_en": "Celebration Item",
@@ -21645,10 +21645,10 @@
       "label_he": "ארגז חול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sand_pit",
-      "status": "pending"
+      "status": "approved"
     },
     "2449": {
       "category_en": "Clothes General",
@@ -21674,10 +21674,10 @@
       "label_he": "ענף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "branch",
-      "status": "pending"
+      "status": "approved"
     },
     "2450": {
       "category_en": "Tools Workshop",
@@ -21794,10 +21794,10 @@
       "label_he": "לוויין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "satellite",
-      "status": "pending"
+      "status": "approved"
     },
     "2459": {
       "category_en": "Food Fruit",
@@ -21837,10 +21837,10 @@
       "label_he": "שבתאי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Saturn",
-      "status": "pending"
+      "status": "approved"
     },
     "2461": {
       "category_en": "Food Ingredients",
@@ -22348,10 +22348,10 @@
       "label_he": "שחף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seagull",
-      "status": "pending"
+      "status": "approved"
     },
     "2497": {
       "category_en": "Animal Fish and Marine mammals",
@@ -22365,10 +22365,10 @@
       "label_he": "סוסון ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seahorse",
-      "status": "pending"
+      "status": "approved"
     },
     "2498": {
       "category_en": "Animal Fish and Marine mammals",
@@ -22382,10 +22382,10 @@
       "label_he": "כלב ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seal",
-      "status": "pending"
+      "status": "approved"
     },
     "2499": {
       "category_en": "Transport Road",
@@ -22399,10 +22399,10 @@
       "label_he": "חגורת בטיחות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seat_belt",
-      "status": "pending"
+      "status": "approved"
     },
     "25": {
       "category_en": "People Profession",
@@ -22520,10 +22520,10 @@
       "label_he": "נדנדת קורה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "see_saw",
-      "status": "pending"
+      "status": "approved"
     },
     "2507": {
       "category_en": "Plants and Trees",
@@ -22537,10 +22537,10 @@
       "label_he": "שתיל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seedling",
-      "status": "pending"
+      "status": "approved"
     },
     "2508": {
       "category_en": "Plants and Trees",
@@ -22554,10 +22554,10 @@
       "label_he": "זרעים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "seeds",
-      "status": "pending"
+      "status": "approved"
     },
     "2509": {
       "category_en": "Healthcare Medical conditions",
@@ -22989,10 +22989,10 @@
       "label_he": "כבשה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sheep",
-      "status": "pending"
+      "status": "approved"
     },
     "2539": {
       "category_en": "Science Eco",
@@ -23321,10 +23321,10 @@
       "label_he": "חדף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "shrew",
-      "status": "pending"
+      "status": "approved"
     },
     "2561": {
       "category_en": "Food Fish and seafood",
@@ -23416,10 +23416,10 @@
       "label_he": "תמרור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "signpost",
-      "status": "pending"
+      "status": "approved"
     },
     "2568": {
       "category_en": "Transport Road",
@@ -23692,10 +23692,10 @@
       "label_he": "סקייטבורד",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "skateboard",
-      "status": "pending"
+      "status": "approved"
     },
     "2587": {
       "category_en": "Healthcare Body parts",
@@ -23801,10 +23801,10 @@
       "label_he": "בואש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "skunk",
-      "status": "pending"
+      "status": "approved"
     },
     "2594": {
       "category_en": "Transport Road",
@@ -23818,10 +23818,10 @@
       "label_he": "מזחלת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sledge",
-      "status": "pending"
+      "status": "approved"
     },
     "2595": {
       "category_en": "Clothes General",
@@ -23848,10 +23848,10 @@
       "label_he": "מזחלת שלג",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sleigh",
-      "status": "pending"
+      "status": "approved"
     },
     "2597": {
       "category_en": "Descriptive Shape",
@@ -23878,10 +23878,10 @@
       "label_he": "מגלשה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "slide",
-      "status": "pending"
+      "status": "approved"
     },
     "2599": {
       "category_en": "Healthcare Medical items",
@@ -23962,10 +23962,10 @@
       "label_he": "שבלול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "slug",
-      "status": "pending"
+      "status": "approved"
     },
     "2603": {
       "category_en": "Healthcare Medical conditions",
@@ -24005,10 +24005,10 @@
       "label_he": "חילזון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "snail",
-      "status": "pending"
+      "status": "approved"
     },
     "2606": {
       "category_en": "Animal Reptiles and Amphibians",
@@ -24021,10 +24021,10 @@
       "label_he": "נחש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "snake",
-      "status": "pending"
+      "status": "approved"
     },
     "2607": {
       "category_en": "People Feelings",
@@ -24446,10 +24446,10 @@
       "label_he": "חללית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "spaceship",
-      "status": "pending"
+      "status": "approved"
     },
     "2636": {
       "category_en": "Leisure Toys",
@@ -24463,10 +24463,10 @@
       "label_he": "את חפירה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "spade",
-      "status": "pending"
+      "status": "approved"
     },
     "2637": {
       "category_en": "Food Pastas and rice",
@@ -24622,10 +24622,10 @@
       "label_he": "עכביש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "spider",
-      "status": "pending"
+      "status": "approved"
     },
     "2648": {
       "category_en": "Animal Habitat",
@@ -24900,10 +24900,10 @@
       "label_he": "סנאי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "squirrel_1a",
-      "status": "pending"
+      "status": "approved"
     },
     "2667": {
       "category_en": "Animal Mammal",
@@ -24982,10 +24982,10 @@
       "label_he": "אייל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stag",
-      "status": "pending"
+      "status": "approved"
     },
     "2672": {
       "category_en": "Building Structure",
@@ -25051,10 +25051,10 @@
       "label_he": "כוכב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "star",
-      "status": "pending"
+      "status": "approved"
     },
     "2677": {
       "category_en": "Science Astronomy",
@@ -25094,10 +25094,10 @@
       "label_he": "כוכב ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "starfish",
-      "status": "pending"
+      "status": "approved"
     },
     "268": {
       "category_en": "Food Meals and snacks",
@@ -25137,10 +25137,10 @@
       "label_he": "קטר קיטור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "steam_train",
-      "status": "pending"
+      "status": "approved"
     },
     "2682": {
       "category_en": "Food Kitchen items",
@@ -25322,10 +25322,10 @@
       "label_he": "מקל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stick",
-      "status": "pending"
+      "status": "approved"
     },
     "2695": {
       "category_en": "Leisure Toys",
@@ -25339,10 +25339,10 @@
       "label_he": "מדבקות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stickers",
-      "status": "pending"
+      "status": "approved"
     },
     "2696": {
       "category_en": "Descriptive State",
@@ -25459,10 +25459,10 @@
       "label_he": "סמור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stoat",
-      "status": "pending"
+      "status": "approved"
     },
     "2703": {
       "category_en": "Food Ingredients",
@@ -25544,10 +25544,10 @@
       "label_he": "אבן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "stone",
-      "status": "pending"
+      "status": "approved"
     },
     "2709": {
       "category_en": "Building Furniture",
@@ -25719,10 +25719,10 @@
       "label_he": "קוביות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bricks",
-      "status": "pending"
+      "status": "approved"
     },
     "2720": {
       "category_en": "Food Breads and baking",
@@ -25909,10 +25909,10 @@
       "label_he": "שמש",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "sun",
-      "status": "pending"
+      "status": "approved"
     },
     "2733": {
       "category_en": "Holiday and travel",
@@ -26004,10 +26004,10 @@
       "label_he": "ברבור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "swan",
-      "status": "pending"
+      "status": "approved"
     },
     "274": {
       "category_en": "Clothes Accessories",
@@ -26190,10 +26190,10 @@
       "label_he": "נדנדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "swing",
-      "status": "pending"
+      "status": "approved"
     },
     "2752": {
       "category_en": "Leisure Playground",
@@ -26692,10 +26692,10 @@
       "label_he": "מונית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "taxi",
-      "status": "pending"
+      "status": "approved"
     },
     "2787": {
       "category_en": "People Profession",
@@ -27008,10 +27008,10 @@
       "label_he": "דובי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "teddy_bear",
-      "status": "pending"
+      "status": "approved"
     },
     "2808": {
       "category_en": "Healthcare Body parts",
@@ -27506,10 +27506,10 @@
       "label_he": "סופת רעמים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "thunder_storm",
-      "status": "pending"
+      "status": "approved"
     },
     "2842": {
       "category_en": "Building Household tasks",
@@ -27562,10 +27562,10 @@
       "label_he": "נמר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tiger",
-      "status": "pending"
+      "status": "approved"
     },
     "2846": {
       "category_en": "Clothes General",
@@ -27870,10 +27870,10 @@
       "label_he": "קרפדה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toad",
-      "status": "pending"
+      "status": "approved"
     },
     "2866": {
       "category_en": "Food Kitchen items",
@@ -28284,10 +28284,10 @@
       "label_he": "צב יבשה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tortoise",
-      "status": "pending"
+      "status": "approved"
     },
     "2894": {
       "category_en": "Food Breads and baking",
@@ -28352,10 +28352,10 @@
       "label_he": "ארגז צעצועים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toy_box",
-      "status": "pending"
+      "status": "approved"
     },
     "2899": {
       "category_en": "Leisure Toys",
@@ -28369,10 +28369,10 @@
       "label_he": "מכונית צעצוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toy_car",
-      "status": "pending"
+      "status": "approved"
     },
     "29": {
       "category_en": "People Profession",
@@ -28412,10 +28412,10 @@
       "label_he": "חייל צעצוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toy_soldier",
-      "status": "pending"
+      "status": "approved"
     },
     "2901": {
       "category_en": "Leisure Toys",
@@ -28429,10 +28429,10 @@
       "label_he": "צעצועים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "toys",
-      "status": "pending"
+      "status": "approved"
     },
     "2902": {
       "category_en": "Healthcare Body parts",
@@ -28472,10 +28472,10 @@
       "label_he": "טרקטור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tractor",
-      "status": "pending"
+      "status": "approved"
     },
     "2905": {
       "category_en": "Transport Road",
@@ -28489,10 +28489,10 @@
       "label_he": "רמזור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "traffic_lights",
-      "status": "pending"
+      "status": "approved"
     },
     "2906": {
       "category_en": "Transport Rail",
@@ -28505,10 +28505,10 @@
       "label_he": "רכבת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "train",
-      "status": "pending"
+      "status": "approved"
     },
     "2907": {
       "category_en": "Clothes General",
@@ -28638,10 +28638,10 @@
       "label_he": "עץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tree",
-      "status": "pending"
+      "status": "approved"
     },
     "2916": {
       "category_en": "Celebration Item",
@@ -28668,10 +28668,10 @@
       "label_he": "גזע עץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tree_trunk",
-      "status": "pending"
+      "status": "approved"
     },
     "2918": {
       "category_en": "Descriptive Shape",
@@ -28855,10 +28855,10 @@
       "label_he": "צבעוני",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "tulip",
-      "status": "pending"
+      "status": "approved"
     },
     "293": {
       "category_en": "Leisure Toys",
@@ -28898,10 +28898,10 @@
       "label_he": "תרנגול הודו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "turkey",
-      "status": "pending"
+      "status": "approved"
     },
     "2932": {
       "category_en": "Animal Birds",
@@ -28993,10 +28993,10 @@
       "label_he": "צב ים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "turtle",
-      "status": "pending"
+      "status": "approved"
     },
     "2939": {
       "category_en": "Electrical TV",
@@ -29023,10 +29023,10 @@
       "label_he": "מקל בועות",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bubble_wand",
-      "status": "pending"
+      "status": "approved"
     },
     "2940": {
       "category_en": "Number",
@@ -29289,10 +29289,10 @@
       "label_he": "רכבת תחתית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "underground_train",
-      "status": "pending"
+      "status": "approved"
     },
     "2959": {
       "category_en": "Healthcare Grooming activities",
@@ -29319,10 +29319,10 @@
       "label_he": "בועות סבון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bubbles",
-      "status": "pending"
+      "status": "approved"
     },
     "2960": {
       "category_en": "Healthcare Grooming activities",
@@ -29374,10 +29374,10 @@
       "label_he": "אורנוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Uranus",
-      "status": "pending"
+      "status": "approved"
     },
     "2964": {
       "category_en": "Electrical Computer",
@@ -29508,10 +29508,10 @@
       "label_he": "טנדר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "van",
-      "status": "pending"
+      "status": "approved"
     },
     "2973": {
       "category_en": "Tools Workshop",
@@ -29564,10 +29564,10 @@
       "label_he": "נוגה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Venus",
-      "status": "pending"
+      "status": "approved"
     },
     "2977": {
       "category_en": "Building Contents",
@@ -29620,10 +29620,10 @@
       "label_he": "דלי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bucket",
-      "status": "pending"
+      "status": "approved"
     },
     "2980": {
       "category_en": "Electrical Media",
@@ -29676,10 +29676,10 @@
       "label_he": "גפן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "vine",
-      "status": "pending"
+      "status": "approved"
     },
     "2984": {
       "category_en": "Food Ingredients",
@@ -29797,10 +29797,10 @@
       "label_he": "נשר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "vulture",
-      "status": "pending"
+      "status": "approved"
     },
     "2992": {
       "category_en": "Alphabet",
@@ -29944,10 +29944,10 @@
       "label_he": "ניצן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bud",
-      "status": "pending"
+      "status": "approved"
     },
     "3000": {
       "category_en": "Healthcare Medical items",
@@ -30026,10 +30026,10 @@
       "label_he": "ניבתן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "walrus",
-      "status": "pending"
+      "status": "approved"
     },
     "3006": {
       "category_en": "Building Furniture",
@@ -30097,10 +30097,10 @@
       "label_he": "תוכון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "budgie",
-      "status": "pending"
+      "status": "approved"
     },
     "3010": {
       "category_en": "Building Household tasks",
@@ -30231,10 +30231,10 @@
       "label_he": "צרעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "wasp",
-      "status": "pending"
+      "status": "approved"
     },
     "302": {
       "category_en": "Animal Mammal",
@@ -30247,10 +30247,10 @@
       "label_he": "תאו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "buffalo",
-      "status": "pending"
+      "status": "approved"
     },
     "3020": {
       "category_en": "Building Contents",
@@ -30329,10 +30329,10 @@
       "label_he": "אקדח מים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "water_pistol",
-      "status": "pending"
+      "status": "approved"
     },
     "3026": {
       "category_en": "Building Household tasks",
@@ -30491,10 +30491,10 @@
       "label_he": "עשבים שוטים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "weeds",
-      "status": "pending"
+      "status": "approved"
     },
     "3037": {
       "category_en": "Descriptive Time",
@@ -30654,10 +30654,10 @@
       "label_he": "כיסא גלגלים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "wheelchair",
-      "status": "pending"
+      "status": "approved"
     },
     "3048": {
       "category_en": "Communication Aid",
@@ -31151,10 +31151,10 @@
       "label_he": "זאב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "wolf",
-      "status": "pending"
+      "status": "approved"
     },
     "3082": {
       "category_en": "Tools Workshop",
@@ -31285,10 +31285,10 @@
       "label_he": "עולם",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "world",
-      "status": "pending"
+      "status": "approved"
     },
     "3091": {
       "category_en": "People Feelings",
@@ -31436,10 +31436,10 @@
       "label_he": "אוטובוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bus",
-      "status": "pending"
+      "status": "approved"
     },
     "3100": {
       "category_en": "Alphabet",
@@ -31479,10 +31479,10 @@
       "label_he": "קסילופון",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "xylophone",
-      "status": "pending"
+      "status": "approved"
     },
     "3103": {
       "category_en": "Alphabet",
@@ -31587,10 +31587,10 @@
       "label_he": "אוטובוס דו-קומתי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bus_double_decker",
-      "status": "pending"
+      "status": "approved"
     },
     "3110": {
       "category_en": "Leisure Toys",
@@ -31603,10 +31603,10 @@
       "label_he": "יו-יו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "yo-yo",
-      "status": "pending"
+      "status": "approved"
     },
     "3111": {
       "category_en": "Food Feeding and eating",
@@ -31684,10 +31684,10 @@
       "label_he": "זברה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "zebra",
-      "status": "pending"
+      "status": "approved"
     },
     "3117": {
       "category_en": "Transport Road",
@@ -31701,10 +31701,10 @@
       "label_he": "מעבר חצייה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "zebra_crossing",
-      "status": "pending"
+      "status": "approved"
     },
     "3118": {
       "category_en": "Number",
@@ -31911,10 +31911,10 @@
       "label_he": "שיח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "bush",
-      "status": "pending"
+      "status": "approved"
     },
     "3130": {
       "category_en": "Verb",
@@ -32411,10 +32411,10 @@
       "label_he": "פרפר",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "butterfly",
-      "status": "pending"
+      "status": "approved"
     },
     "3160": {
       "category_en": "Verb",
@@ -33584,10 +33584,10 @@
       "label_he": "קקטוס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cactus",
-      "status": "pending"
+      "status": "approved"
     },
     "3230": {
       "category_en": "Verb",
@@ -36410,10 +36410,10 @@
       "label_he": "גמל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "camel",
-      "status": "pending"
+      "status": "approved"
     },
     "3400": {
       "category_en": "Verb",
@@ -37103,10 +37103,10 @@
       "label_he": "אמבולנס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ambulance",
-      "status": "pending"
+      "status": "approved"
     },
     "350": {
       "category_en": "Transport Water",
@@ -37120,10 +37120,10 @@
       "label_he": "קאנו",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "canoe",
-      "status": "pending"
+      "status": "approved"
     },
     "351": {
       "category_en": "Clothes General",
@@ -37152,10 +37152,10 @@
       "label_he": "מכונית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "car",
-      "status": "pending"
+      "status": "approved"
     },
     "353": {
       "category_en": "Transport Road",
@@ -37273,10 +37273,10 @@
       "label_he": "מכונית צעצוע",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "car_toy",
-      "status": "pending"
+      "status": "approved"
     },
     "361": {
       "category_en": "Transport Road",
@@ -37290,10 +37290,10 @@
       "label_he": "מוביל רכבים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "car_transporter",
-      "status": "pending"
+      "status": "approved"
     },
     "362": {
       "category_en": "Transport Road",
@@ -37307,10 +37307,10 @@
       "label_he": "קרוואן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "caravan",
-      "status": "pending"
+      "status": "approved"
     },
     "363": {
       "category_en": "Food Diet",
@@ -37678,10 +37678,10 @@
       "label_he": "עגלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cart",
-      "status": "pending"
+      "status": "approved"
     },
     "389": {
       "category_en": "Drink Containers and measures",
@@ -37838,10 +37838,10 @@
       "label_he": "חתול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cat",
-      "status": "pending"
+      "status": "approved"
     },
     "4": {
       "category_en": "Descriptive State",
@@ -37920,10 +37920,10 @@
       "label_he": "זחל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "caterpillar",
-      "status": "pending"
+      "status": "approved"
     },
     "404": {
       "category_en": "Celebration Item",
@@ -38015,10 +38015,10 @@
       "label_he": "נמלה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ant",
-      "status": "pending"
+      "status": "approved"
     },
     "410": {
       "category_en": "Celebration Event",
@@ -38125,10 +38125,10 @@
       "label_he": "נדל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "centipede",
-      "status": "pending"
+      "status": "approved"
     },
     "418": {
       "category_en": "Food Breads and baking",
@@ -38167,10 +38167,10 @@
       "label_he": "דוב נמלים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "ant_eater",
-      "status": "pending"
+      "status": "approved"
     },
     "420": {
       "category_en": "Food Breads and baking",
@@ -38313,10 +38313,10 @@
       "label_he": "אנטילופה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "antelope",
-      "status": "pending"
+      "status": "approved"
     },
     "430": {
       "category_en": "Work and School Stationery",
@@ -38343,10 +38343,10 @@
       "label_he": "זיקית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chameleon",
-      "status": "pending"
+      "status": "approved"
     },
     "432": {
       "category_en": "Drink Type",
@@ -38580,10 +38580,10 @@
       "label_he": "ברדלס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cheetah",
-      "status": "pending"
+      "status": "approved"
     },
     "449": {
       "category_en": "Money",
@@ -38714,10 +38714,10 @@
       "label_he": "אפרוח",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chick",
-      "status": "pending"
+      "status": "approved"
     },
     "458": {
       "category_en": "Food Poultry",
@@ -38809,10 +38809,10 @@
       "label_he": "תרנגולת",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chicken_live",
-      "status": "pending"
+      "status": "approved"
     },
     "464": {
       "category_en": "Food Poultry",
@@ -38917,10 +38917,10 @@
       "label_he": "שימפנזה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chimpanzee",
-      "status": "pending"
+      "status": "approved"
     },
     "471": {
       "category_en": "Healthcare Body parts",
@@ -38986,10 +38986,10 @@
       "label_he": "סנאי מפוספס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "chipmunk",
-      "status": "pending"
+      "status": "approved"
     },
     "476": {
       "category_en": "Animal Mammal",
@@ -39989,10 +39989,10 @@
       "label_he": "מעונן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cloudy",
-      "status": "pending"
+      "status": "approved"
     },
     "543": {
       "category_en": "Plants and Trees",
@@ -40006,10 +40006,10 @@
       "label_he": "תלתן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "clover",
-      "status": "pending"
+      "status": "approved"
     },
     "544": {
       "category_en": "Transport Road",
@@ -40023,10 +40023,10 @@
       "label_he": "אוטובוס תיירים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "coach",
-      "status": "pending"
+      "status": "approved"
     },
     "545": {
       "category_en": "Clothes General",
@@ -40066,10 +40066,10 @@
       "label_he": "קוקטייל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cockatiel",
-      "status": "pending"
+      "status": "approved"
     },
     "548": {
       "category_en": "Animal Birds",
@@ -40083,10 +40083,10 @@
       "label_he": "תרנגול",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cockerel",
-      "status": "pending"
+      "status": "approved"
     },
     "549": {
       "category_en": "Food Nuts",
@@ -40243,10 +40243,10 @@
       "label_he": "חוברת צביעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "colouring_book",
-      "status": "pending"
+      "status": "approved"
     },
     "56": {
       "category_en": "Military",
@@ -40312,10 +40312,10 @@
       "label_he": "שביט",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "comet",
-      "status": "pending"
+      "status": "approved"
     },
     "564": {
       "category_en": "Communication Aid",
@@ -40836,10 +40836,10 @@
       "label_he": "בלוט",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "acorn",
-      "status": "pending"
+      "status": "approved"
     },
     "60": {
       "category_en": "Work and School Timetable",
@@ -43834,10 +43834,10 @@
       "label_he": "פרה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cow",
-      "status": "pending"
+      "status": "approved"
     },
     "807": {
       "category_en": "Animal Habitat",
@@ -43864,10 +43864,10 @@
       "label_he": "סרטן",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "crab",
-      "status": "pending"
+      "status": "approved"
     },
     "809": {
       "category_en": "Celebration Item",
@@ -44140,10 +44140,10 @@
       "label_he": "תנין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "crocodile",
-      "status": "pending"
+      "status": "approved"
     },
     "828": {
       "category_en": "Animal Reptiles and Amphibians",
@@ -44274,10 +44274,10 @@
       "label_he": "ספינת שיט",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cruiser",
-      "status": "pending"
+      "status": "approved"
     },
     "837": {
       "category_en": "Food Feeding and eating",
@@ -44553,10 +44553,10 @@
       "label_he": "מצילתיים",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "cymbals_hand",
-      "status": "pending"
+      "status": "approved"
     },
     "856": {
       "category_en": "Alphabet",
@@ -44611,10 +44611,10 @@
       "label_he": "נרקיס",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "daffodil",
-      "status": "pending"
+      "status": "approved"
     },
     "86": {
       "category_en": "Sport Accessories",
@@ -44654,10 +44654,10 @@
       "label_he": "חיננית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "daisy",
-      "status": "pending"
+      "status": "approved"
     },
     "862": {
       "category_en": "Food Breads and baking",
@@ -44684,10 +44684,10 @@
       "label_he": "חצי קליעה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "darts",
-      "status": "pending"
+      "status": "approved"
     },
     "864": {
       "category_en": "Descriptive Time",
@@ -44766,10 +44766,10 @@
       "label_he": "צמח קמל",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dead_plant",
-      "status": "pending"
+      "status": "approved"
     },
     "87": {
       "category_en": "Descriptive Direction",
@@ -44848,10 +44848,10 @@
       "label_he": "צבי",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "deer",
-      "status": "pending"
+      "status": "approved"
     },
     "875": {
       "category_en": "Food Feeding and eating",
@@ -45228,10 +45228,10 @@
       "label_he": "גירית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "badger",
-      "status": "pending"
+      "status": "approved"
     },
     "900": {
       "category_en": "Food Feeding and eating",
@@ -45336,10 +45336,10 @@
       "label_he": "דינוזאור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dinosaur",
-      "status": "pending"
+      "status": "approved"
     },
     "908": {
       "category_en": "Food Kitchen actions",
@@ -45626,10 +45626,10 @@
       "label_he": "כלב",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dog",
-      "status": "pending"
+      "status": "approved"
     },
     "928": {
       "category_en": "Animal Habitat",
@@ -45759,10 +45759,10 @@
       "label_he": "בובה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "doll",
-      "status": "pending"
+      "status": "approved"
     },
     "937": {
       "category_en": "Animal Fish and Marine mammals",
@@ -45776,10 +45776,10 @@
       "label_he": "דולפין",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dolphin",
-      "status": "pending"
+      "status": "approved"
     },
     "938": {
       "category_en": "Animal Mammal",
@@ -45792,10 +45792,10 @@
       "label_he": "חמור",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "donkey",
-      "status": "pending"
+      "status": "approved"
     },
     "939": {
       "category_en": "Building Structure",
@@ -45874,10 +45874,10 @@
       "label_he": "יונה",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dove",
-      "status": "pending"
+      "status": "approved"
     },
     "944": {
       "category_en": "Descriptive Direction",
@@ -45917,10 +45917,10 @@
       "label_he": "שפירית",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dragonfly",
-      "status": "pending"
+      "status": "approved"
     },
     "947": {
       "category_en": "Building Furniture",
@@ -46320,10 +46320,10 @@
       "label_he": "תוף",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "drum",
-      "status": "pending"
+      "status": "approved"
     },
     "974": {
       "category_en": "Leisure Toys",
@@ -46443,10 +46443,10 @@
       "label_he": "ברווז",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "duck",
-      "status": "pending"
+      "status": "approved"
     },
     "982": {
       "category_en": "Transport Road",
@@ -46460,10 +46460,10 @@
       "label_he": "משאית היפוך",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "dumper_truck",
-      "status": "pending"
+      "status": "approved"
     },
     "983": {
       "category_en": "Building Household tasks",
@@ -46635,10 +46635,10 @@
       "label_he": "כדור הארץ",
       "locked": false,
       "note": null,
-      "reviewed_at": null,
+      "reviewed_at": "2026-09-08",
       "scrutiny": null,
       "src": "Earth",
-      "status": "pending"
+      "status": "approved"
     },
     "995": {
       "category_en": "Science",

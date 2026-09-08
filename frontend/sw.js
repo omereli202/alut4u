@@ -7,7 +7,11 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v42"; // v42: calming memory game — a found pair counts
+const SHELL_CACHE = "shell-v43"; // v43: ui.js — SYMBOLS_VERSION bumped to
+// 20260914e; 268 new Mulberry symbols ingested (animals, transport, plants,
+// planets, toys) — the symbol *files* changed, so the shell that references
+// them must re-fetch (defeats Railway's per-node edge cache).
+// v42: calming memory game — a found pair counts
 // as 1 (was 0.5), and the "מצאת הכל!" win screen actually fires.
 // v41: guided child-setup wizard — walks the
 // caregiver through every module editor after creating a child (new
