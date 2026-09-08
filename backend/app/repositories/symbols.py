@@ -6,6 +6,10 @@ small enough in absolute terms (thousands, not millions) for this to stay
 cheap. It does mean _all() must page past PostgREST's default max_rows (1000,
 see supabase/config.toml) — an unranged select silently truncates past that,
 which would 422 `unknown_symbol` for every card using a later-sorting id.
+
+Ranking (lexical tiers + a fastText semantic backfill) lives in
+``services.symbol_search``; this module just owns the cached table snapshot and
+the derived search index.
 """
 
 from __future__ import annotations
@@ -13,6 +17,7 @@ from __future__ import annotations
 from functools import lru_cache
 
 from app.repositories._base import one_or_none, rows
+from app.services import symbol_search as ss
 from app.services.supabase_client import service_client
 
 _TABLE = "symbols"
@@ -42,38 +47,24 @@ def _all() -> tuple[dict, ...]:
         start += _PAGE_SIZE
 
 
+@lru_cache(maxsize=1)
+def _index() -> ss.Index:
+    """The searchable index over the table snapshot — the per-row Hebrew
+    normalisation (~1,000 rows × normalize/declitic/haser) done once per worker
+    instead of per keystroke across six pickers."""
+    return ss.build_index(_all())
+
+
 def refresh_cache() -> None:
     _all.cache_clear()
+    _index.cache_clear()
+    ss.reset_cache()
 
 
 def search(query: str, *, limit: int = 60) -> tuple[list[dict], int]:
-    """Return (page, total_matches). Ranked, because the library is now a few
-    thousand rows (Mulberry + the bundled PCS set) and a flat substring scan
-    would surface 60 arbitrary rows for a common word like "לא".
-
-    Rank order: exact label > label prefix > exact keyword > label substring
-    > keyword substring > id substring. Ties keep id order (deck grouping)."""
-    q = (query or "").strip()
-    items = _all()
-    if not q:
-        return list(items[:limit]), len(items)
-
-    def rank(s: dict) -> int | None:
-        label = s.get("label_he") or ""
-        kws = s.get("keywords_he") or []
-        tiers = (
-            label == q,
-            label.startswith(q),
-            q in kws,
-            q in label,
-            any(q in kw for kw in kws),
-            q in s["id"],
-        )
-        return next((i for i, hit in enumerate(tiers) if hit), None)
-
-    scored = [(r, i, s) for i, s in enumerate(items) if (r := rank(s)) is not None]
-    scored.sort(key=lambda t: (t[0], t[1]))
-    return [s for _r, _i, s in scored[:limit]], len(scored)
+    """Return (page, total_matches). See ``services.symbol_search`` for the
+    tiering."""
+    return ss.search(_index(), query, limit=limit)
 
 
 def get(symbol_id: str) -> dict | None:

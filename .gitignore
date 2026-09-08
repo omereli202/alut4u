@@ -30,3 +30,10 @@ build/
 # Supabase CLI
 supabase/.branches/
 supabase/.temp/
+
+# fastText model — a local-only input to scripts/build_symbol_vectors.py
+# (~7 GB, download to ~/Downloads — see docs/symbols.md § Symbol vectors).
+# Never tracked: the built vectors under backend/app/data/symbol_vectors/ are
+# the artefact, not the model.
+cc.he.300.bin
+*.bin
