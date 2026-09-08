@@ -25,10 +25,10 @@ export async function renderPainting({ childId, childName, onExit, onHome }) {
     fn();
   }
 
-  function showGallery() {
+  function showGallery(start) {
     rememberOpen(childId, "").catch(() => {});
     swap(() => {
-      cleanup = renderGallery(host, { childId, onOpen: openExisting, onNew: openNew });
+      cleanup = renderGallery(host, { childId, onOpen: openExisting, onNew: openNew, start });
     });
   }
 
@@ -42,6 +42,7 @@ export async function renderPainting({ childId, childName, onExit, onHome }) {
         painting,
         surface,
         onBack: showGallery,
+        onNewPage: () => showGallery("chooser"),
         onSaved: () => {},
       });
     });

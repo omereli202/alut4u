@@ -5,7 +5,7 @@ import { el, emptyState, icon, symbolUrl } from "../../ui.js";
 import { CURATED } from "./pages.js";
 import { listPaintings, loadExtraPages } from "./data.js";
 
-export function renderGallery(host, { childId, onOpen, onNew }) {
+export function renderGallery(host, { childId, onOpen, onNew, start }) {
   let alive = true;
 
   async function showList() {
@@ -97,7 +97,8 @@ export function renderGallery(host, { childId, onOpen, onNew }) {
     );
   }
 
-  showList();
+  if (start === "chooser") showChooser();
+  else showList();
 
   return () => {
     alive = false;

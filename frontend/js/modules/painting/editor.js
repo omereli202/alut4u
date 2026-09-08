@@ -12,7 +12,7 @@ const COMMIT_MS = 3000; // coalesced outbox POST + rev bump
 
 const TOOL_LABEL = { brush: "מברשת", bucket: "צבע", eraser: "מחק" };
 
-export function renderPaintEditor(host, { childId, painting, surface, onBack, onSaved }) {
+export function renderPaintEditor(host, { childId, painting, surface, onBack, onNewPage, onSaved }) {
   let rev = painting.rev || 1;
   let colour = DEFAULT_COLOUR;
   let tool = "brush";
@@ -62,7 +62,12 @@ export function renderPaintEditor(host, { childId, painting, surface, onBack, on
     clearTimeout(commitT);
     draftT = setTimeout(persistDraft, DRAFT_MS);
     commitT = setTimeout(() => commit(), COMMIT_MS);
-    undoBtn.disabled = !surface.canUndo();
+    syncActs();
+  }
+  function syncActs() {
+    const can = surface.canUndo();
+    undoBtn.disabled = !can;
+    clearBtn.disabled = !can;
   }
   surface.setOnChange(markDirty);
 
@@ -131,23 +136,44 @@ export function renderPaintEditor(host, { childId, painting, surface, onBack, on
     el("span", {}, "בטל"),
   );
 
+  // "נקה" clears the current page in place (keeps the same painting + page).
   const clearBtn = el(
     "button",
     {
       class: "paint-act",
       onclick: async () => {
-        if (await destructiveDialog({
-          title: "לנקות את הדף?",
-          body: "כל הציור יימחק.",
-          confirmLabel: "נקה",
-          mode: "user",
-        })) {
+        if (!surface.canUndo()) return;
+        if (
+          await destructiveDialog({
+            title: "לנקות את הדף?",
+            body: "כל מה שציירת בדף הזה יימחק.",
+            confirmLabel: "נקה",
+            mode: "user",
+          })
+        ) {
           surface.clear();
           markDirty();
+          syncActs();
         }
       },
     },
     icon("delete"),
+    el("span", {}, "נקה"),
+  );
+
+  // "דף חדש" keeps this painting (if it has anything on it) and goes back to
+  // the page picker for a fresh one.
+  const newPageBtn = el(
+    "button",
+    {
+      class: "paint-act",
+      onclick: async () => {
+        if (surface.canUndo()) await commit({ final: false });
+        teardown();
+        onNewPage?.();
+      },
+    },
+    icon("add"),
     el("span", {}, "דף חדש"),
   );
 
@@ -173,14 +199,14 @@ export function renderPaintEditor(host, { childId, painting, surface, onBack, on
         { class: "paint-toolbar" },
         el("div", { class: "paint-tools" }, ...toolBtns),
         el("div", { class: "paint-sizes" }, ...sizeBtns),
-        el("div", { class: "paint-acts" }, undoBtn, clearBtn),
+        el("div", { class: "paint-acts" }, undoBtn, clearBtn, newPageBtn),
       ),
       el("div", { class: "paint-swatches" }, ...swatches),
       surface.node,
       el("div", { class: "paint-footer" }, status, backBtn),
     ),
   );
-  undoBtn.disabled = !surface.canUndo(); // a resumed painting starts with ops
+  syncActs(); // a resumed painting starts with ops
 
   function teardown() {
     if (!alive) return;
