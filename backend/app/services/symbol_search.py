@@ -207,7 +207,7 @@ def embed(query: str) -> np.ndarray | None:
         return None
     picked: list[np.ndarray] = []
     for tok in heb.tokens(heb.search_key(query)):
-        for form in heb.declitic(tok):  # surface form first
+        for form in heb.stem_candidates(tok):  # surface form first
             j = vecs.word_index.get(form)
             if j is not None:
                 picked.append(np.asarray(vecs.words[j], dtype=np.float32))

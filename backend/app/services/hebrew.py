@@ -87,6 +87,15 @@ def stem_forms(word: str) -> set[str]:
     return {f for f in forms if len(f) >= 2}
 
 
+def stem_candidates(word: str) -> list[str]:
+    """:func:`stem_forms` as an ordered list — the surface form first, then the
+    rest longest-first (most specific). For a word-vector lookup where the first
+    hit wins."""
+    forms = stem_forms(word)
+    forms.discard(word)
+    return [word, *sorted(forms, key=len, reverse=True)]
+
+
 def haser(word: str) -> str:
     """Fold a ktiv-male spelling onto its ktiv-haser skeleton by dropping every
     non-initial vav/yod: ``מכונית`` and ``מכנית`` both -> ``מכנת``. Lossy on

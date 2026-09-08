@@ -34,6 +34,8 @@ PCS_MANIFEST = ROOT / "scripts" / "data" / "pcs_manifest.json"
 MIGRATIONS_DIR = ROOT / "supabase" / "migrations"
 MEMORY_JS = ROOT / "frontend" / "js" / "modules" / "calming" / "memory.js"
 BOARD_TEMPLATES_SQL = ROOT / "supabase" / "migrations" / "0005_reference_data.sql"
+VECTOR_DIR = ROOT / "backend" / "app" / "data" / "symbol_vectors"
+VECTOR_META = VECTOR_DIR / "meta.json"
 
 # Explicit-content Mulberry filenames (rated=1) — must never appear as a
 # shipped symbol id under any circumstances, regardless of how the manifest
@@ -73,6 +75,91 @@ def test_every_approved_manifest_row_has_an_svg():
         if e["status"] not in ("approved", "edited"):
             continue
         assert e["id"] in shipped, f"{sid} ({e['id']}) is {e['status']} but has no on-disk SVG"
+
+
+_vectors_skip = pytest.mark.skipif(
+    not VECTOR_META.exists(),
+    reason="symbol vectors not generated — run scripts/build_symbol_vectors.py --apply",
+)
+
+
+@_vectors_skip
+def test_every_approved_manifest_row_has_a_vector():
+    """After every `build_symbols.py --apply`, re-run
+    `scripts/build_symbol_vectors.py --apply` — same drift class as the SVG
+    guard above. A missing vector only degrades that symbol to lexical-only
+    search, but a red build makes the omission visible."""
+    ids = set(json.loads(VECTOR_META.read_text("utf-8"))["ids"])
+    manifest = _manifest()
+    missing = {
+        e["id"]
+        for e in manifest["entries"].values()
+        if e["status"] in ("approved", "edited") and e["id"] not in ids
+    }
+    assert not missing, (
+        f"{len(missing)} approved symbols have no vector — re-run "
+        f"scripts/build_symbol_vectors.py --apply: {sorted(missing)[:10]}"
+    )
+
+
+@_vectors_skip
+def test_no_orphan_vectors():
+    ids = set(json.loads(VECTOR_META.read_text("utf-8"))["ids"])
+    approved = {
+        e["id"] for e in _manifest()["entries"].values() if e["status"] in ("approved", "edited")
+    }
+    assert not (ids - approved), f"vectors for non-approved ids: {sorted(ids - approved)[:10]}"
+
+
+@_vectors_skip
+def test_vector_files_are_internally_consistent():
+    """meta ids == symbols rows == meta dim cols; words.txt lines == words rows.
+    Catches a half-finished build_symbol_vectors.py run."""
+    import numpy as np
+
+    meta = json.loads(VECTOR_META.read_text("utf-8"))
+    n, d = len(meta["ids"]), meta["dim"]
+    assert len(meta["mean"]) == d and len(meta["pc"]) == d
+    syms = np.load(VECTOR_DIR / "symbols.f16.npy", allow_pickle=False)
+    assert syms.shape == (n, d), syms.shape
+    words = np.load(VECTOR_DIR / "words.f16.npy", allow_pickle=False)
+    keys = (VECTOR_DIR / "words.txt").read_text("utf-8").split("\n")
+    assert words.shape == (len(keys), d), (words.shape, len(keys))
+
+
+@_vectors_skip
+def test_label_roundtrip_accuracy():
+    """Each symbol's own label, embedded and cosine-ranked against the semantic
+    band alone, should retrieve that symbol — a free ~1,000-example eval. A
+    regression here means the build/runtime pooling or post() drifted apart.
+    Floors are the first real run's numbers minus a safety margin."""
+    import numpy as np
+
+    from app.services import symbol_search as ss
+
+    ss.reset_cache()
+    vecs = ss._vectors()
+    assert vecs is not None
+    S = vecs.symbols.astype(np.float32)
+    meta = json.loads(VECTOR_META.read_text("utf-8"))
+    manifest = _manifest()
+    label_by_id = {
+        e["id"]: e["label_he"]
+        for e in manifest["entries"].values()
+        if e["status"] in ("approved", "edited")
+    }
+    top1 = top5 = n = 0
+    for i, sid in enumerate(meta["ids"]):
+        qv = ss.embed(label_by_id[sid])
+        if qv is None:
+            continue
+        n += 1
+        order = np.argsort(-(S @ qv))
+        top1 += int(order[0] == i)
+        top5 += int(i in order[:5])
+    assert n > 900
+    assert top1 / n >= 0.85, f"label round-trip top-1 {top1}/{n}"
+    assert top5 / n >= 0.95, f"label round-trip top-5 {top5}/{n}"
 
 
 def test_migration_rows_match_manifest_locked_state():

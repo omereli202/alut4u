@@ -51,7 +51,10 @@ asking.
 ## Tech stack
 
 - Backend: Python 3.12, Flask 3, gunicorn. REST under `/api`. `pydantic` for
-  request/response schemas, `pydantic-settings` for config.
+  request/response schemas, `pydantic-settings` for config. `numpy` for symbol
+  search cosine ranking (the fastText model that builds the vectors is a
+  local-only tool — `scripts/build_symbol_vectors.py`, see `docs/symbols.md`;
+  re-run it after every `build_symbols.py --apply`).
 - Data: Supabase (Postgres + Auth + Storage), **EU region**.
 - Voice: Azure Speech `he-IL` neural TTS (`he-IL-HilaNeural` default) +
   caregiver recordings via browser `MediaRecorder`.

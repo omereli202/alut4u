@@ -7,7 +7,10 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v45"; // v45: painting — "דף חדש" now opens the page
+const SHELL_CACHE = "shell-v46"; // v46: symbol picker — fuzzy + semantic search
+// (the request now cancels an in-flight older query; ranking changes are
+// server-side).
+// v45: painting — "דף חדש" now opens the page
 // picker for a fresh painting (was an in-place clear that stayed on the same
 // page); a separate "נקה" clears the current page; both disable when there is
 // nothing to act on.

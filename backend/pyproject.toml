@@ -17,6 +17,10 @@ dependencies = [
     "flask-limiter>=3.7",
     "pillow>=10.3",
     "sentry-sdk[flask]>=2.0",
+    # Cosine ranking for symbol search over the in-memory library snapshot.
+    # The fastText model that produces the vectors is a LOCAL build tool only
+    # (see scripts/build_symbol_vectors.py) — it is deliberately NOT here.
+    "numpy>=2.0",
 ]
 
 [project.optional-dependencies]
@@ -33,6 +37,10 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = ["app"]
+
+[tool.setuptools.package-data]
+# `packages = ["app"]` alone ships only *.py — the search vectors are data.
+app = ["data/symbol_vectors/*"]
 
 [tool.ruff]
 line-length = 100

@@ -7,11 +7,17 @@ export function createSymbolPicker(onPick) {
   const results = el("div", { class: "symbol-results" });
   const count = el("p", { class: "symbol-count muted" });
   let timer = null;
+  let inflight = null;
 
   async function run(q) {
+    // Cancel the previous request so a slow response for an older query can't
+    // land after — and clobber — a newer one.
+    inflight?.abort();
+    const ctl = (inflight = new AbortController());
     const { symbols, total } = await api
-      .get(`/symbols?q=${encodeURIComponent(q)}`)
+      .get(`/symbols?q=${encodeURIComponent(q)}`, { signal: ctl.signal })
       .catch(() => ({ symbols: [], total: 0 }));
+    if (ctl.signal.aborted) return;
     results.replaceChildren(
       ...symbols.map((s) =>
         el(

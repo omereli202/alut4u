@@ -12,6 +12,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 COPY pyproject.toml ./
+# Whole tree, not just *.py — if app/data/symbol_vectors/ is ever committed
+# (semantic symbol search, built by scripts/build_symbol_vectors.py) it must
+# ship in the image. Absent today: semantic search stays dormant and the
+# lexical + fuzzy tiers carry on (symbol_search._vectors() -> None).
 COPY app/ app/
 RUN pip install .
 

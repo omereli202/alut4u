@@ -53,7 +53,15 @@ elevation) required.
 
 ## Symbols — `/api/symbols`
 
-`GET /api/symbols?q=<hebrew>` → `{symbols:[…]}` (bundled library; empty `q` browses).
+`GET /api/symbols?q=<hebrew>` → `{symbols:[…rows], total}` (bundled library;
+empty `q` browses the first 60). Feeds every caregiver symbol picker.
+
+Ranking (`services/symbol_search.py`), best first: exact label → label prefix →
+exact keyword → normalized (niqqud / final letters / case) → clitic + plural
+stem (`הכלב`→`כלב`, `כלבים`→`כלב`) → ktiv male/haser (`מכנית`→`מכונית`) → raw
+substring → normalized substring → fuzzy typo → **related by meaning**
+(fastText, only to fill an under-full page). `total` is capped at 60; anything
+past the exact-match band is *related*, not a match.
 
 ## Media — `/api/media`
 

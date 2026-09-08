@@ -37,6 +37,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "backend"))
 import mulberry_manifest as mm
+
 from app.services import hebrew as heb
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -100,11 +101,7 @@ def _approved(manifest: dict) -> list[dict]:
     """Every approved/edited entry — the exact set build_symbols.py ships.
     (Not `_entries_to_ingest`: its PCS-reskin skip is about SVG clobbering.)"""
     return sorted(
-        (
-            e
-            for e in manifest["entries"].values()
-            if e["status"] in ("approved", "edited")
-        ),
+        (e for e in manifest["entries"].values() if e["status"] in ("approved", "edited")),
         key=lambda e: e["id"],
     )
 
@@ -142,9 +139,7 @@ def build(model, entries: list[dict], vocab: int) -> dict:
         core_surface.append(w)
         if len(core_keys) >= vocab:
             break
-    core_raw = np.asarray(
-        [model.get_word_vector(w) for w in core_surface], dtype=np.float32
-    )
+    core_raw = np.asarray([model.get_word_vector(w) for w in core_surface], dtype=np.float32)
     core_unit = _unit(core_raw)
 
     # 2. post-processing params, computed over the core matrix.
@@ -212,16 +207,14 @@ def _rank(built: dict, qv: np.ndarray) -> np.ndarray:
 
 def _embed_query(built: dict, q: str) -> np.ndarray | None:
     idx = {k: i for i, k in enumerate(built["core_keys"])}
-    idx.update(
-        {k: len(built["core_keys"]) + i for i, k in enumerate(built["extra_keys"])}
-    )
+    idx.update({k: len(built["core_keys"]) + i for i, k in enumerate(built["extra_keys"])})
     table = np.concatenate(
         [built["core_unit"].astype(np.float32), built["extra_unit"].astype(np.float32)],
         axis=0,
     )
     picked = []
     for tok in heb.tokens(heb.search_key(q)):
-        for form in heb.declitic(tok):
+        for form in heb.stem_candidates(tok):
             j = idx.get(form)
             if j is not None:
                 picked.append(table[j])
@@ -290,9 +283,7 @@ def write(built: dict, diag: dict, model_path: Path, vocab: int) -> None:
 
     _write_npy(OUT_DIR / "symbols.f16.npy", built["symbols"])
     _write_npy(OUT_DIR / "words_extra.f16.npy", built["extra_unit"])
-    (OUT_DIR / "words_extra.txt").write_text(
-        "\n".join(built["extra_keys"]), encoding="utf-8"
-    )
+    (OUT_DIR / "words_extra.txt").write_text("\n".join(built["extra_keys"]), encoding="utf-8")
 
     # words.* only if the key list changed (git hygiene — many batches to come).
     wt = OUT_DIR / "words.txt"
@@ -334,15 +325,11 @@ def main() -> int:
     p = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    p.add_argument(
-        "--apply", action="store_true", help="write the files (default: dry run)"
-    )
+    p.add_argument("--apply", action="store_true", help="write the files (default: dry run)")
     p.add_argument("--model", type=Path, default=DEFAULT_MODEL)
     p.add_argument("--vocab", type=int, default=DEFAULT_VOCAB)
     p.add_argument("--probe", default="", help="comma-separated queries to eyeball")
-    p.add_argument(
-        "--eval", action="store_true", help="print label round-trip + threshold"
-    )
+    p.add_argument("--eval", action="store_true", help="print label round-trip + threshold")
     args = p.parse_args()
 
     manifest = mm.load_manifest()
@@ -351,31 +338,26 @@ def main() -> int:
     built = build(model, entries, args.vocab)
     diag = diagnostics(built, entries)
 
-    mode = "APPLIED" if args.apply else "DRY RUN"
-    print(f"\n[{mode}] symbol vectors")
-    print(
-        f"  symbols:  {diag['n']} approved+edited   ({len(built['empty'])} with no embeddable token)"
-    )
-    print(
-        f"  vocab:    core {len(built['core_keys'])} (of {built['hebrew_types']} Hebrew types)  extra {len(built['extra_keys'])}"
-    )
-    print(
-        f"  label round-trip: top-1 {diag['top1']}/{diag['n']} ({diag['top1'] / diag['n']:.1%})   top-5 {diag['top5']}/{diag['n']} ({diag['top5'] / diag['n']:.1%})"
-    )
+    n = diag["n"]
+    t1, t5 = diag["top1"], diag["top5"]
     rp = diag["random_pair_pct"]
-    print(
-        f"  random-pair cosine: p50 {rp[50]:.3f}  p95 {rp[95]:.3f}  p99 {rp[99]:.3f}  p99.5 {rp[99.5]:.3f}"
-    )
-    print(
-        f"  → suggested SEMANTIC_MIN_COS = {diag['suggested_min_cos']}  (paste into app/services/symbol_search.py)"
-    )
+    lines = [
+        f"\n[{'APPLIED' if args.apply else 'DRY RUN'}] symbol vectors",
+        f"  symbols:  {n} approved+edited ({len(built['empty'])} with no embeddable token)",
+        f"  vocab:    core {len(built['core_keys'])} (of {built['hebrew_types']} Hebrew types)"
+        f"  extra {len(built['extra_keys'])}",
+        f"  label round-trip: top-1 {t1}/{n} ({t1 / n:.1%})  top-5 {t5}/{n} ({t5 / n:.1%})",
+        f"  random-pair cos: p50 {rp[50]:.3f}  p95 {rp[95]:.3f}  p99 {rp[99]:.3f}"
+        f"  p99.5 {rp[99.5]:.3f}",
+        f"  → suggested SEMANTIC_MIN_COS = {diag['suggested_min_cos']}"
+        f"  (paste into app/services/symbol_search.py)",
+    ]
+    print("\n".join(lines))
 
     probes = [q.strip() for q in args.probe.split(",") if q.strip()]
     if probes or args.eval:
         print("  probes:")
-        _probe(
-            built, entries, probes or ["אוטו", "גור", "כלב", "לאכול", "שמח", "מכנית"]
-        )
+        _probe(built, entries, probes or ["אוטו", "גור", "כלב", "לאכול", "שמח", "מכנית"])
 
     if args.apply:
         write(built, diag, args.model, args.vocab)
