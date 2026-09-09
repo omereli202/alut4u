@@ -2,3 +2,9 @@ Dockerfile
 .dockerignore
 **/*.md
 **/.gitkeep
+
+# ...but licence / attribution files MUST ship with the assets they cover.
+# Mulberry Symbols (CC BY-SA 4.0) and the calming audio both require the
+# licence text to travel with the work.
+!assets/**/LICENSE
+!assets/**/LICENSE.md

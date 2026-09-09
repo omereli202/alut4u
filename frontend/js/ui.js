@@ -37,22 +37,17 @@ const SPRITE_URL = "/assets/icons/sprite.svg?v=43";
 // script regenerates it, or Railway's per-node edge cache can keep serving
 // some visitors a stale (or even pre-Mulberry placeholder) symbol for up to
 // 7 days after a deploy, since the *path* doesn't change, only the bytes.
-export const SYMBOLS_VERSION = "20260914e";
+export const SYMBOLS_VERSION = "20260909f";
 
 // Resolves a symbol reference to its versioned asset URL. Accepts, in order:
-//   - a DB file_path with a subfolder or extension ("pcs/pcs-0042.png",
-//     "eat.svg") — used as-is (the symbol picker passes this)
-//   - a bare PCS id ("pcs-0042") — the proprietary Boardmaker set, a PNG
-//     under pcs/ (see scripts/build_pcs_symbols.py). Saved cards carry only
-//     the bare symbol_id, so board.js / speech.js / visual() land here.
-//   - any other bare id ("eat") — a flat `<id>.svg` at the folder root
-//     (Mulberry set, or a core id re-skinned in place as an SVG-wrapped PCS
-//     raster — its file_path stays `<id>.svg`, see docs/schema.md).
+//   - a DB file_path with a subfolder or extension ("eat.svg") — used as-is
+//     (the symbol picker passes this)
+//   - any bare id ("eat") — a flat `<id>.svg` at the folder root (Mulberry
+//     Symbols, CC BY-SA 4.0). `main` ships only this set.
+// NB: `dev` also carries the proprietary PCS/Boardmaker set (bare pcs-NNNN ids
+// resolving to a PNG under pcs/); that branch keeps an extra arm here for it.
 export function symbolUrl(s) {
-  let file;
-  if (s.includes("/") || /\.(svg|png)$/.test(s)) file = s;
-  else if (s.startsWith("pcs-")) file = `pcs/${s}.png`;
-  else file = `${s}.svg`;
+  const file = s.includes("/") || /\.(svg|png)$/.test(s) ? s : `${s}.svg`;
   return `/assets/symbols/${file}?v=${SYMBOLS_VERSION}`;
 }
 

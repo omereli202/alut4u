@@ -43,6 +43,14 @@ close enough it's used as an approximate substitute (flagged
 was good enough the id just keeps its original placeholder SVG untouched
 (`src: null`) — currently `stop`, `thanks`, `dont-want`.
 
+> **On `main` (production) this is different.** The PCS/Boardmaker strip
+> (see `supabase/migrations/0029_mainonly_mulberry_symbols_no_pcs.sql`) takes
+> `main` to **100 % Mulberry, zero placeholder**: the 7 substitutes above are
+> accepted, `stop`→`enough`, `dont-want`→`push_,_to`, and `thanks` is retired
+> (no equivalent, on no board template — 35 core ids, not 36). `dev` keeps the
+> placeholders + the PCS set. `dont-want`→`push` is the weakest pick and a
+> candidate to revisit if a better "refuse" concept is ever ingested.
+
 ## Running an ingest batch
 
 ```bash

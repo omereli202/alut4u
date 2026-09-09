@@ -9546,10 +9546,10 @@
       ],
       "label_he": "אוהב",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — heart_shape",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "heart_shape",
       "status": "edited"
     },
     "1646": {
@@ -10248,10 +10248,10 @@
       ],
       "label_he": "בית",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — house",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "house",
       "status": "edited"
     },
     "1691": {
@@ -14271,10 +14271,10 @@
       ],
       "label_he": "לא",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — mistake_no_wrong",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "mistake_no_wrong",
       "status": "edited"
     },
     "1958": {
@@ -15716,10 +15716,10 @@
       ],
       "label_he": "ספר",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — notebook",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "notebook",
       "status": "edited"
     },
     "2053": {
@@ -18616,10 +18616,10 @@
       ],
       "label_he": "כואב",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — plaster",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "plaster",
       "status": "edited"
     },
     "2248": {
@@ -24088,10 +24088,10 @@
       ],
       "label_he": "קר",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — snow",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "snow",
       "status": "edited"
     },
     "2611": {
@@ -41008,10 +41008,10 @@
       ],
       "label_he": "כן",
       "locked": true,
-      "note": null,
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
+      "note": "Mulberry substitute (main-only, post-PCS strip) — correct",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
       "scrutiny": "substitute",
-      "src": null,
+      "src": "correct",
       "status": "edited"
     },
     "611": {
@@ -46706,8 +46706,8 @@
       "status": "pending"
     },
     "locked:dont-want": {
-      "category_en": null,
-      "grammar": null,
+      "category_en": "Verb",
+      "grammar": "Verb",
       "id": "dont-want",
       "keywords_he": [
         "לא רוצה",
@@ -46716,15 +46716,15 @@
       ],
       "label_he": "לא רוצה",
       "locked": true,
-      "note": "no Mulberry equivalent — keeping current placeholder SVG",
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
-      "scrutiny": null,
-      "src": null,
+      "note": "Mulberry substitute (main-only, post-PCS strip) — push_,_to",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
+      "scrutiny": "substitute",
+      "src": "push_,_to",
       "status": "edited"
     },
     "locked:stop": {
-      "category_en": null,
-      "grammar": null,
+      "category_en": "Descriptive Quantity",
+      "grammar": "Noun",
       "id": "stop",
       "keywords_he": [
         "מספיק",
@@ -46734,26 +46734,10 @@
       ],
       "label_he": "מספיק",
       "locked": true,
-      "note": "no Mulberry equivalent — keeping current placeholder SVG",
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
-      "scrutiny": null,
-      "src": null,
-      "status": "edited"
-    },
-    "locked:thanks": {
-      "category_en": null,
-      "grammar": null,
-      "id": "thanks",
-      "keywords_he": [
-        "תודה",
-        "תודה רבה"
-      ],
-      "label_he": "תודה",
-      "locked": true,
-      "note": "no Mulberry equivalent — keeping current placeholder SVG",
-      "reviewed_at": "2026-09-03T08:49:34.056339+00:00",
-      "scrutiny": null,
-      "src": null,
+      "note": "Mulberry substitute (main-only, post-PCS strip) — enough",
+      "reviewed_at": "2026-09-09T00:00:00+00:00",
+      "scrutiny": "substitute",
+      "src": "enough",
       "status": "edited"
     }
   },

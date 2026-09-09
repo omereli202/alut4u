@@ -46,14 +46,13 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 
 ## Blockers (owner: user)
 
-1. **Symbol library — in progress.** Mulberry Symbols (CC BY-SA 4.0) licensed
-   and being ingested via `scripts/mulberry_manifest.py` +
-   `scripts/build_symbols.py`: of the 36 core-vocabulary ids, 26 now ship real
-   Mulberry artwork (`0011_mulberry_symbols.sql`), 10 keep the original emoji
-   placeholder where no adequate Mulberry equivalent exists (reviewed by hand
-   via a published Artifact, not auto-picked). ~2,955 more Mulberry concepts
-   are staged in the manifest as `pending`, to be labeled in Hebrew and
-   reviewed in batches — see `docs/symbols.md`.
+1. **Symbol library — in progress.** Mulberry Symbols (CC BY-SA 4.0) licensed,
+   ingested via `scripts/mulberry_manifest.py` + `scripts/build_symbols.py`.
+   Core ids: **`main` ships 35/35 Mulberry, zero placeholder** (the PCS strip,
+   2026-09-09 — `thanks` retired); **`dev` keeps the dev-only PCS/Boardmaker set**
+   (34 core ids re-skinned over PCS art) plus a couple of emoji placeholders.
+   ~1,960 more Mulberry concepts are staged `pending` for Hebrew labelling in
+   batches — see `docs/symbols.md`.
 2. **Cloud Supabase + Azure Speech keys** — set on the Railway `alut4u-backend`
    service per env (`docs/deployment.md`). Both live on **dev** since
    2026-09; **prod is still unset**, and `require_production_secrets()` now

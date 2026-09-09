@@ -37,24 +37,25 @@ families. Grouped by owner.
 - [ ] Kiosk test: iPadOS Guided Access / Android Screen Pinning per
       `docs/kiosk-setup.md`
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
-- [ ] Replace placeholder assets: symbol library — **in progress**, Mulberry
-      Symbols (CC BY-SA 4.0) licensed and 34/36 core ids ingested, ~2,955 more
-      concepts staged for review (`docs/symbols.md`) — plus PWA icons; a real
-      app-logo source is also now needed: `docs/design/stitch-export-2/` has the
-      logo as a PNG mockup only (Google-hosted URL, no SVG), not enough to make
-      crisp icons at multiple sizes.
+- [ ] Replace placeholder assets: symbol library — core ids done (`main`: 35/35
+      Mulberry, zero placeholder; `dev`: 34/36 Mulberry + PCS + 2 placeholders),
+      ~1,960 more Mulberry concepts staged for review (`docs/symbols.md`). Still
+      open: **PWA icons** — placeholder flat-blue squares; a real app-logo source
+      is needed (`docs/design/stitch-export-2/` has the logo as a PNG mockup
+      only, no SVG — not enough for crisp icons at multiple sizes).
 - [ ] **Calming audio licence** — 5 of the 9 loops are synthesized (fine); 4
       (`fire` `forest` `brook` `birds`) are chosic.com downloads the owner has
       asserted are CC0. Confirm the chosic licence for all four before `main` —
       the `birds` file's ID3 still carries a `BurghRecords` copyright tag. If any
       is not usable, swap the source in `scripts/data/calming_sources/` or fall
       back to a synth track. See `frontend/assets/calming/LICENSE.md`.
-- [ ] **PCS / Boardmaker symbol set** (`scripts/build_pcs_symbols.py`, dev only)
-      — proprietary; either license it from Tobii Dynavox or remove it (delete
-      `frontend/assets/symbols/pcs/`, `supabase/migrations/*_pcs_symbols.sql`,
-      `scripts/data/pcs_manifest.json`; revert the core-id re-skin with
-      `scripts/build_symbols.py --apply`). `scripts/release.sh` blocks it from
-      production until then.
+- [x] **PCS / Boardmaker symbol set** — kept on `dev` only; **stripped from
+      `main`** by `supabase/migrations/0029_mainonly_mulberry_symbols_no_pcs.sql`
+      + `backend/tests/test_no_pcs_on_main.py` (CI guard). `main` ships 100 %
+      Mulberry (CC BY-SA 4.0), 35 core ids, zero placeholder. The strip is
+      main-only and regenerated at every promotion — the branches diverge
+      permanently, by the owner's decision (2026-09-09). If the repo ever goes
+      public, revisit: license Boardmaker or drop it from `dev` too.
 - [ ] Final visual styling — two Stitch exports have landed
       (`docs/design/stitch-export/`, `docs/design/stitch-export-2/`). Done:
       tokens, shared components (buttons/badges/tabs/inputs/dialog/icon

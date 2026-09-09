@@ -7,7 +7,10 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v46"; // v46: symbol picker — fuzzy + semantic search
+const SHELL_CACHE = "shell-v47"; // v47 (main-only): PCS/Boardmaker set removed —
+// 34 core symbols reverted to Mulberry, ui.js SYMBOLS_VERSION → 20260909f, the
+// pcs-* arm dropped from symbolUrl(). dev stays on v46 + PCS.
+// v46: symbol picker — fuzzy + semantic search
 // (the request now cancels an in-flight older query; ranking changes are
 // server-side).
 // v45: painting — "דף חדש" now opens the page
@@ -103,7 +106,7 @@ const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
 // so precaching these in SHELL would never be looked up. Kept in sync with
 // CURATED in js/modules/painting/pages.js and with ui.js's SYMBOLS_VERSION by
 // test_painting_pages.py.
-const SYMBOLS_ASSET_V = "20260914e";
+const SYMBOLS_ASSET_V = "20260909f"; // keep in sync with ui.js SYMBOLS_VERSION
 const PAINT_PAGES = [
   "cat", "dog", "rabbit", "horse", "cow", "duck", "owl", "bear", "elephant",
   "fish", "frog", "butterfly", "snail", "turtle", "car", "bus", "train", "boat",

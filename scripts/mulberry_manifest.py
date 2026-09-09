@@ -61,7 +61,7 @@ LOCKED: dict[str, dict[str, Any]] = {
         "keywords_he": ["עוד", "עוד פעם", "להוסיף"],
     },
     "stop": {
-        "src": None,
+        "src": "enough",
         "label_he": "מספיק",
         "keywords_he": ["מספיק", "עצור", "די", "להפסיק"],
     },
@@ -71,7 +71,7 @@ LOCKED: dict[str, dict[str, Any]] = {
         "keywords_he": ["רוצה", "אני רוצה", "בבקשה"],
     },
     "dont-want": {
-        "src": None,
+        "src": "push_,_to",
         "label_he": "לא רוצה",
         "keywords_he": ["לא רוצה", "לא", "מסרב"],
     },
@@ -172,7 +172,9 @@ LOCKED: dict[str, dict[str, Any]] = {
         "label_he": "שלום",
         "keywords_he": ["שלום", "היי", "להתראות"],
     },
-    "thanks": {"src": None, "label_he": "תודה", "keywords_he": ["תודה", "תודה רבה"]},
+    # "thanks" (תודה) removed 2026-09-09: Mulberry has no thank-you concept and
+    # the id was on no board template — dropped rather than kept as a placeholder
+    # (see the promo/strip-pcs migration + docs/symbols.md).
     "wait": {
         "src": "wait_,_to",
         "label_he": "לחכות",
@@ -200,6 +202,8 @@ SUBSTITUTE_IDS = {
     "cold",
     "home",
     "break",
+    "stop",       # → "enough" (Descriptive Quantity) — closest concept
+    "dont-want",  # → "push_,_to" — a push-away gesture; Mulberry has no "refuse"
 }
 
 # Whole-category exclusions: zero relevance to a Hebrew children's AAC board,
