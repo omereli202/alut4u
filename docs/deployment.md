@@ -45,6 +45,65 @@ docker run -d --rm --network alut4u-net -p 8000:8080 \
 # http://localhost:8000  → PWA, with /api/* proxied to the backend container
 ```
 
+## Supabase projects
+
+Two separate projects, **both must be in an EU region** (`CLAUDE.md`'s
+non-negotiable #2) — `supabase projects create --region eu-central-1` (or any
+`eu-*` except `eu-west-2`, which is UK, not EU). Current refs:
+
+| env | ref | region |
+|---|---|---|
+| dev | `pqyndzbtmrwsgnknmfdv` | ⚠️ `ap-northeast-1` — pre-dates the EU requirement being enforced, not yet moved (low priority: synthetic data, no compliance exposure) |
+| production | `qtuczqiijdhqgpcslvzd` | `eu-central-1` (recreated 2026-09-11) |
+
+**Migrations**: `supabase db push --db-url "postgresql://postgres:<pw>@db.<ref>.supabase.co:5432/postgres"`,
+or `supabase link --project-ref <ref>` (prompts for the DB password once,
+caches it) then `supabase db push`. Nothing applies these automatically —
+`scripts/release.sh` is not wired into either Dockerfile or CI, and neither
+Railway environment sets `SUPABASE_DB_URL`. **Always confirm which branch is
+checked out first** — the migrations directory differs between `dev` (has
+`0012_pcs_symbols.sql`, proprietary, dev-only) and `main` (doesn't); pushing
+from the wrong branch ships the PCS set to whichever project you're pointed
+at. `supabase migration list` (once linked) shows what's actually applied.
+
+**Auth + Storage config**: `supabase/config.toml`'s `[auth]` and `[storage]`
+sections are the source of truth — push them to a project with
+`supabase config push --project-ref <ref>` instead of configuring by hand in
+the dashboard (both `enable_confirmations = false` and the `media`/`tts`
+bucket definitions live there now; hand-configuring once and never scripting
+it is exactly how production shipped broken — see the 2026-09 postmortem
+below). `site_url` is parameterized as `env(SUPABASE_AUTH_SITE_URL)` — export
+the right URL before pushing to a specific project, e.g.
+`SUPABASE_AUTH_SITE_URL=https://alut4u-web-production.up.railway.app`.
+`supabase link` and `db query --linked --file <path>` both work through the
+Management API (no DB password needed) — useful for one-off corrective SQL
+against a linked project.
+
+Both `link` and `config push`/`db push` operate on whatever project the CLI
+is currently linked to (`supabase/.temp/project-ref`, gitignored) — **this
+repo's working tree is typically shared across sessions**, so relink back to
+`dev` when done with a one-off operation against another project.
+
+<details>
+<summary>2026-09 postmortem: why production got rebuilt</summary>
+
+The original production project (`gxuulzysjufvtimbyrgm`) was in
+`ap-northeast-1`, not EU — a region mismatch discovered only after signup
+started failing with `email confirmation is not supported`
+(`enable_confirmations` was never pushed to the cloud project; only
+`config.toml`'s local-stack default existed). The buckets had the identical
+gap days earlier — created by hand, never scripted. Fixing the region meant
+recreating the project (Supabase doesn't migrate a project's region), which
+surfaced a second issue: a `db push` run from a `dev` checkout applied
+`0012_pcs_symbols.sql` to the new prod project before anyone switched to
+`main`, briefly putting the proprietary PCS/Boardmaker set in a production
+database (never live — no real signups existed yet). Cleaned up by re-running
+`main`'s `0029_mainonly_mulberry_symbols_no_pcs.sql` directly against the new
+project via `db query --linked`. `config push` closes the actual gap for
+both auth and storage going forward.
+
+</details>
+
 ## Environment variables
 
 Not set yet — the app boots without them and `/api/health` passes, so both

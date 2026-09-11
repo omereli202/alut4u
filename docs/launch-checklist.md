@@ -75,7 +75,10 @@ families. Grouped by owner.
 - [ ] **Legal review** of the privacy policy, terms of service, and DPA by a
       lawyer — worldwide product handling minors' data (GDPR + COPPA). Do not
       launch without this. See `docs/privacy.md`.
-- [ ] Supabase projects in an **EU region**, one per environment, never shared
+- [x] Supabase projects in an **EU region**, one per environment, never shared —
+      production ✓ (`eu-central-1`, recreated 2026-09-11); **dev is still
+      `ap-northeast-1`**, not moved (synthetic data, no compliance exposure, but
+      flagged as a follow-up — see `docs/deployment.md` § Supabase projects)
 - [ ] Set the backend env vars per environment (`docs/deployment.md`), then flip
       `APP_ENV=production` on prod
 - [x] Azure Speech account with billing — key live on dev since 2026-09;
