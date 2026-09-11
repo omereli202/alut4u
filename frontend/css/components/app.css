@@ -8,6 +8,9 @@
   max-inline-size: 640px;
   margin-inline: auto;
   padding: var(--space-4);
+  padding-block-end: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  padding-inline-start: calc(var(--space-4) + env(safe-area-inset-left, 0px));
+  padding-inline-end: calc(var(--space-4) + env(safe-area-inset-right, 0px));
 }
 
 .card {
@@ -21,14 +24,32 @@
 
 /* Sign-in/up (original work — no reference art from either export, so this
    stays conservative: the existing type/colour system, nothing invented). */
+.auth-screen {
+  display: grid;
+  place-items: center;
+  /* #main's own padding is var(--space-4) block-start + block-end; subtract it
+     so the screen fills the viewport without overflowing it (see the AAC
+     board 100dvh-vs-#main-padding lesson). */
+  min-block-size: calc(100dvh - var(--space-4) * 2);
+}
 .auth-card {
+  inline-size: 100%;
   max-inline-size: 400px;
-  margin-block-start: var(--space-12);
+  margin-inline: auto; /* was missing — the card hugged the RTL inline-start
+                           edge on any viewport wider than #main's 640px cap */
 }
 .auth-card h1 {
   font-size: var(--text-2xl);
   color: var(--color-primary);
   margin-block-end: var(--space-1);
+}
+/* Six digits read as digits, not as prose — centred, tracked, tabular. The
+   input carries dir="ltr" so the code doesn't reorder; the page stays RTL. */
+.field input.otp-input {
+  text-align: center;
+  letter-spacing: 0.4em;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-xl);
 }
 
 h1,

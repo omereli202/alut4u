@@ -5,7 +5,7 @@ import { api } from "./api.js";
 import { unlockAudio } from "./audio.js";
 import { exitCaregiverMode, logout, refresh, state } from "./session.js";
 import { startOutbox } from "./outbox.js";
-import { el, errText, icon, initOfflineBanner, mount } from "./ui.js";
+import { el, emptyState, errText, icon, initOfflineBanner, mount, toast } from "./ui.js";
 import { renderAuth } from "./views/auth.js";
 import { renderDashboard } from "./views/dashboard.js";
 import { renderHome } from "./views/home.js";
@@ -42,6 +42,15 @@ async function route() {
   }
 
   if (state.onboarding?.needs_pin) {
+    if (state.offline) {
+      return mount(
+        emptyState({
+          iconName: "wifi_off",
+          title: "צריך חיבור לאינטרנט",
+          body: "הגדרת קוד מטפל דורשת חיבור לאינטרנט. התחברו ונסו שוב.",
+        }),
+      );
+    }
     return renderPinpad({
       title: "בחירת קוד מטפל",
       hint: "קוד בן 4 ספרות שרק המטפל יודע. הוא נדרש כדי לשנות הגדרות.",
@@ -74,6 +83,10 @@ async function route() {
 }
 
 function showPinVerify() {
+  if (state.offline) {
+    toast("צריך חיבור לאינטרנט כדי להיכנס למצב מטפל", "error");
+    return;
+  }
   renderPinpad({
     title: "כניסה למצב מטפל",
     hint: "הזינו את קוד המטפל",

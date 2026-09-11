@@ -220,6 +220,9 @@ export function errText(e) {
     rate_limited: "יותר מדי בקשות — נסו שוב מאוחר יותר",
     network: "אין חיבור לרשת",
     validation_error: "הפרטים שהוזנו אינם תקינים",
+    invalid_code: "הקוד שגוי או שפג תוקפו — בקשו קוד חדש",
+    weak_password: "הסיסמה חלשה מדי — לפחות 8 תווים",
+    same_password: "הסיסמה החדשה זהה לקודמת — בחרו אחרת",
   };
   return map[e?.code] || e?.body?.detail || "אירעה שגיאה, נסו שוב";
 }

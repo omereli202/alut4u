@@ -3,6 +3,7 @@
 import { api } from "../api.js";
 import { applySessionPayload } from "../session.js";
 import { el, errText, mount } from "../ui.js";
+import { renderPasswordReset } from "./password-reset.js";
 
 export function renderAuth(onDone) {
   let signup = false;
@@ -30,6 +31,21 @@ export function renderAuth(onDone) {
           " קראתי ואני מסכים/ה לתנאי השימוש ולמדיניות הפרטיות",
         ),
       el("button", { type: "submit", class: "btn-primary" }, signup ? "צור חשבון" : "כניסה"),
+      !signup &&
+        el(
+          "button",
+          {
+            type: "button",
+            class: "btn-link",
+            onclick: () =>
+              renderPasswordReset({
+                onDone,
+                onCancel: () => mount(el("div", { class: "auth-screen" }, view())),
+                email: document.getElementById("f-email")?.value || "",
+              }),
+          },
+          "שכחתי סיסמה",
+        ),
       el(
         "button",
         {
@@ -37,7 +53,7 @@ export function renderAuth(onDone) {
           class: "btn-link",
           onclick: () => {
             signup = !signup;
-            mount(view());
+            mount(el("div", { class: "auth-screen" }, view()));
           },
         },
         signup ? "יש לי כבר חשבון" : "אין לי חשבון — הרשמה",
@@ -82,5 +98,5 @@ export function renderAuth(onDone) {
     }
   }
 
-  mount(view());
+  mount(el("div", { class: "auth-screen" }, view()));
 }

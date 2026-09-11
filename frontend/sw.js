@@ -7,7 +7,11 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v46"; // v46: symbol picker — fuzzy + semantic search
+const SHELL_CACHE = "shell-v47"; // v47: "שכחתי סיסמה" — password reset with a
+// 6-digit email code (new /js/views/password-reset.js, .otp-input in
+// app.css); offline boot now hydrates from a cached session snapshot instead
+// of dying on the boot screen, and the sign-in card is properly centred.
+// v46: symbol picker — fuzzy + semantic search
 // (the request now cancels an in-flight older query; ranking changes are
 // server-side).
 // v45: painting — "דף חדש" now opens the page
@@ -96,6 +100,9 @@ const SYMBOL_CACHE = "symbols-v1"; // AAC symbol images — deliberately separat
 // regeneration must not force every shell asset to re-download either.
 const MEDIA_CACHE = "media-v1";
 const DATA_CACHE = "data-v1"; // last-known board / day, for offline reads
+const AUDIO_CACHE = "calming-audio-v1"; // calming .wav loops — its own
+// unversioned-in-spirit cache so a SHELL_CACHE bump (any deploy) doesn't wipe
+// a 7.5MB set of files that are too large to precache into the shell anyway.
 
 // "בוא נצייר" curated colouring pages — warmed into SYMBOL_CACHE on install
 // (non-fatally) so a first-run offline open still has pages to paint. The
@@ -128,6 +135,7 @@ const SHELL = [
   "/js/dialog.js",
   "/js/pin-gate.js",
   "/js/views/auth.js",
+  "/js/views/password-reset.js",
   "/js/views/pinpad.js",
   "/js/views/home.js",
   "/js/views/dashboard.js",
@@ -230,7 +238,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  const keep = new Set([SHELL_CACHE, SYMBOL_CACHE, MEDIA_CACHE, DATA_CACHE]);
+  const keep = new Set([SHELL_CACHE, SYMBOL_CACHE, MEDIA_CACHE, DATA_CACHE, AUDIO_CACHE]);
   event.waitUntil(
     caches
       .keys()
@@ -262,10 +270,14 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Read-only board/day/calendar: network-first, fall back to the last copy so
-  // the child still sees today's schedule and board offline.
+  // Read-only board/day/calendar/etc.: network-first, fall back to the last
+  // copy so the child still sees today's schedule and board offline. Covers
+  // every module's own GET-list route, plus the account/children list and
+  // per-child module toggles that gate the User Mode home tiles themselves —
+  // without those two, the home screen renders zero tiles offline even after
+  // the session itself is restored.
   if (
-    /^\/api\/(aac\/board|schedule\/(day|calendar)|typing\/(notes|settings)|tasks\/day|painting\/(paintings|pages))/.test(
+    /^\/api\/(children(\/[^/]+\/modules)?$|aac\/board|schedule\/(day|calendar)|typing\/(notes|settings)|tasks\/day|painting\/(paintings|pages)|tokens\/|stories|learning\/)/.test(
       url.pathname,
     ) &&
     request.method === "GET"
@@ -273,10 +285,21 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((res) => {
-          if (res.ok) caches.open(DATA_CACHE).then((c) => c.put(request, res.clone()));
+          if (res.ok) event.waitUntil(caches.open(DATA_CACHE).then((c) => c.put(request, res.clone())));
           return res;
         })
-        .catch(() => caches.open(DATA_CACHE).then((c) => c.match(request))),
+        .catch(() =>
+          caches.open(DATA_CACHE).then((c) =>
+            c.match(request).then(
+              (hit) =>
+                hit ??
+                new Response(JSON.stringify({ error: "offline" }), {
+                  status: 503,
+                  headers: { "Content-Type": "application/json" },
+                }),
+            ),
+          ),
+        ),
     );
     return;
   }
@@ -291,18 +314,31 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  // Calming .wav loops: own cache, deliberately not part of SHELL_CACHE (too
+  // large to precache, and a shell bump on every deploy would otherwise wipe
+  // them — see AUDIO_CACHE above). Populated the first time each sound plays
+  // online; from then on it works offline until the browser evicts it.
+  if (url.pathname.startsWith("/assets/calming/")) {
+    event.respondWith(cacheFirst(request, AUDIO_CACHE).catch(() => Response.error()));
+    return;
+  }
+
   // App shell / static: cache-first, fall back to index.html for navs.
   event.respondWith(
-    caches.match(request).then(
+    caches.match(request, { cacheName: SHELL_CACHE }).then(
       (hit) =>
         hit ||
         fetch(request)
           .then((res) => {
             const copy = res.clone();
-            caches.open(SHELL_CACHE).then((c) => c.put(request, copy));
+            event.waitUntil(caches.open(SHELL_CACHE).then((c) => c.put(request, copy)));
             return res;
           })
-          .catch(() => (request.mode === "navigate" ? caches.match("/index.html") : Response.error())),
+          .catch(() =>
+            request.mode === "navigate"
+              ? caches.match("/index.html", { cacheName: SHELL_CACHE })
+              : Response.error(),
+          ),
     ),
   );
 });
