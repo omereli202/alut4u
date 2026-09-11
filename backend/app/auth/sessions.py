@@ -9,6 +9,7 @@ tenancy.
 
 from __future__ import annotations
 
+import contextlib
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -101,6 +102,44 @@ def sign_in(
 ) -> str:
     auth = GoTrue(settings).sign_in(email, password)
     return _persist_new_session(auth, settings, device_label=None, ua=ua, ip=ip)
+
+
+def request_password_reset(*, email: str, settings: Settings) -> None:
+    """Ask GoTrue to email a recovery code. Deliberately swallows every
+    upstream failure (unknown address, rate limit, transient error) — the
+    caller must answer identically whether or not the address exists, so
+    there is nothing useful to propagate."""
+    with contextlib.suppress(AuthError):
+        GoTrue(settings).send_recovery_otp(email)
+
+
+def reset_password(
+    *,
+    email: str,
+    code: str,
+    new_password: str,
+    settings: Settings,
+    ua: str | None = None,
+    ip: str | None = None,
+) -> tuple[str, str]:
+    """Trade the emailed code for a session, set the new password, then kill
+    every device that was signed in before — a password reset is an
+    account-takeover recovery action, so any session an attacker holds must
+    die with it. Returns (device_session_id, caregiver_id).
+
+    Deliberately does NOT touch the caregiver PIN, its failure counter, or
+    its lockout — the PIN is a child-safety lock on the shared tablet, not an
+    authentication factor, and clearing it here would let whoever is holding
+    the device pick a new one (CLAUDE.md constraint 7).
+    """
+    gotrue = GoTrue(settings)
+    auth = gotrue.verify_recovery_otp(email, code)
+    gotrue.update_password(auth.access_token, new_password)
+    # Revoke BEFORE inserting the new row, so the resetting device is created
+    # after the sweep and survives without needing an `except_session`.
+    sessions_repo.revoke_all_for_caregiver(auth.user_id)
+    session_id = _persist_new_session(auth, settings, device_label=None, ua=ua, ip=ip)
+    return session_id, auth.user_id
 
 
 # --- resolution ------------------------------------------------------------

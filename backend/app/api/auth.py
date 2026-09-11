@@ -6,6 +6,8 @@ signed HttpOnly cookie holding a device-session id.
 
 from __future__ import annotations
 
+import hashlib
+
 from flask import Blueprint, current_app, g, jsonify, session
 
 from app.api._helpers import ApiError, client_ip, parse_body, user_agent
@@ -21,6 +23,8 @@ from app.repositories import device_sessions as sessions_repo
 from app.schemas.auth import (
     AcceptTermsRequest,
     LoginRequest,
+    PasswordResetConfirm,
+    PasswordResetRequest,
     PinRequest,
     SessionInfo,
     SignupRequest,
@@ -28,6 +32,26 @@ from app.schemas.auth import (
 )
 
 bp = Blueprint("auth", __name__, url_prefix="/api/auth")
+
+_WEAK_PASSWORD_CODES = {"weak_password", "same_password"}
+
+
+def _reset_error(e: AuthError) -> ApiError:
+    """GoTrue -> app error. Every OTP failure collapses into one answer:
+    telling "wrong/expired code" (a known address) apart from "no such user"
+    (an unknown one) would make this endpoint a free account-existence
+    oracle for anyone willing to guess a 6-digit code."""
+    if e.code in _WEAK_PASSWORD_CODES:
+        return ApiError(422, e.code, e.message)
+    if e.status == 429:
+        return ApiError(429, "rate_limited")
+    if e.status in {400, 401, 403, 404}:
+        return ApiError(400, "invalid_code")
+    return ApiError(502, e.code, e.message)
+
+
+def _email_fingerprint(email: str) -> str:
+    return hashlib.sha256(email.strip().lower().encode()).hexdigest()[:16]
 
 
 def _settings():
@@ -105,6 +129,46 @@ def login():
     session.permanent = True
     _bind_session(session_svc.resolve(session_id, _settings()))
     audit_repo.log(caregiver_id=g.caregiver_id, action="account.login")
+    return jsonify(_session_info())
+
+
+@bp.post("/password-reset")
+@limiter.limit("3 per hour; 10 per day")
+def request_password_reset():
+    data = parse_body(PasswordResetRequest)
+    session_svc.request_password_reset(email=data.email, settings=_settings())
+    # No caregiver_id on purpose — looking the address up here would defeat
+    # the point. The hash still lets abuse be correlated without putting a
+    # raw email address into audit_log.
+    audit_repo.log(
+        caregiver_id=None,
+        action="password_reset.requested",
+        detail={"email_sha256": _email_fingerprint(data.email)},
+    )
+    return "", 202
+
+
+@bp.post("/password-reset/confirm")
+@limiter.limit("10 per hour; 30 per day")
+def confirm_password_reset():
+    data = parse_body(PasswordResetConfirm)
+    try:
+        session_id, caregiver_id = session_svc.reset_password(
+            email=data.email,
+            code=data.code,
+            new_password=data.password,
+            settings=_settings(),
+            ua=user_agent(),
+            ip=client_ip(),
+        )
+    except AuthError as e:
+        raise _reset_error(e) from e
+
+    session.clear()  # no session fixation across the reset
+    session[COOKIE_KEY] = session_id
+    session.permanent = True
+    _bind_session(session_svc.resolve(session_id, _settings()))
+    audit_repo.log(caregiver_id=caregiver_id, action="account.password_reset")
     return jsonify(_session_info())
 
 
