@@ -1,5 +1,5 @@
 [project]
-name = "alut4u-backend"
+name = "omi4u-backend"
 version = "0.0.0"
 description = "AAC & Support Platform — Flask backend"
 requires-python = ">=3.12"
