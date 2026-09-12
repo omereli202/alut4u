@@ -57,6 +57,10 @@ def init_sentry(settings: Settings) -> None:
         integrations=[FlaskIntegration()],
         traces_sample_rate=0.0,
         send_default_pii=False,
+        # send_default_pii=False does NOT suppress request bodies — a 500 in
+        # e.g. /auth/password-reset/confirm would otherwise ship the OTP and
+        # the new password to Sentry.
+        max_request_body_size="never",
     )
 
 

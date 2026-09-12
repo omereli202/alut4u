@@ -75,6 +75,19 @@ it is exactly how production shipped broken — see the 2026-09 postmortem
 below). `site_url` is parameterized as `env(SUPABASE_AUTH_SITE_URL)` — export
 the right URL before pushing to a specific project, e.g.
 `SUPABASE_AUTH_SITE_URL=https://alut4u-web-production.up.railway.app`.
+The password-reset email works the same way, with one deliberate split: the
+Hebrew `[auth.email.template.recovery]` code template applies on any
+`config push` regardless of SMTP, but `[auth.email.smtp].enabled` ships
+**`false`** in `config.toml` on purpose — confirmed empirically that
+`enabled = true` with the `SUPABASE_SMTP_*` vars unset does not fall back to
+anything, it 500s on every outbound email (GoTrue tries to dial the empty
+host). So going live on real SMTP is two manual steps, not one: export
+`SUPABASE_SMTP_HOST` / `_USER` / `_PASS` / `_ADMIN_EMAIL` (see `.env.example`)
+**and** flip `enabled = true` in `config.toml` before that `config push` —
+do this only once a real SMTP provider + verified sending domain exist (see
+`docs/launch-checklist.md`). Left at the default, a project still gets the
+Hebrew code template, just delivered through Supabase's shared sender
+(2 emails/hour — fine to verify the flow works, not production-safe).
 `supabase link` and `db query --linked --file <path>` both work through the
 Management API (no DB password needed) — useful for one-off corrective SQL
 against a linked project.

@@ -26,6 +26,16 @@ class PinRequest(BaseModel):
     pin: str = Field(min_length=4, max_length=4)
 
 
+class PasswordResetRequest(BaseModel):
+    email: EmailStr
+
+
+class PasswordResetConfirm(BaseModel):
+    email: EmailStr
+    code: str = Field(min_length=6, max_length=6, pattern=r"^\d{6}$")
+    password: str = Field(min_length=8, max_length=128)
+
+
 class AcceptTermsRequest(BaseModel):
     accept: bool
 

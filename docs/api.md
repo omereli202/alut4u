@@ -14,6 +14,8 @@ elevation) required.
 |---|---|---|---|
 | POST | `/signup` | — | `{email, password, display_name, accept_terms:true}` → 201 + sets cookie, records `terms` consent. Rate-limited. |
 | POST | `/login` | — | `{email, password}` → sets cookie. Rate-limited. |
+| POST | `/password-reset` | — | `{email}` → always 202, empty body (no account-existence leak). Emails a 6-digit code. Rate-limited. |
+| POST | `/password-reset/confirm` | — | `{email, code, password}` → verifies the code, sets the new password, revokes every other device session, and signs the caller in (same shape as `/login`). Does **not** touch the caregiver PIN. `400 invalid_code` on a wrong/expired code or unknown address (deliberately indistinguishable). Rate-limited. |
 | POST | `/logout` | S | revokes the device session, clears cookie. 204. |
 | GET | `/session` | S | `{caregiver_id, mode, elevated_until, onboarding:{needs_pin,needs_terms,voice_consent}}` |
 | PUT | `/pin` | S | set PIN. Onboarding: allowed. Changing an existing PIN: needs **C**. Rejects weak PINs. 204. |
