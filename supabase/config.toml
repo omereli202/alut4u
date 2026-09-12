@@ -259,16 +259,21 @@ otp_length = 6
 # the per-IP rate limits on /api/auth/password-reset/confirm).
 otp_expiry = 600
 
-# Custom SMTP — Supabase's shared sender is capped at 2 emails/hour and is
-# explicitly not for production use. Kept `enabled = false` here on purpose:
-# confirmed empirically that `enabled = true` with the env() vars unset does
-# NOT fall back to the shared sender or the local Inbucket/Mailpit catcher —
-# GoTrue tries to dial the (empty) SMTP host and every outbound email 500s,
-# breaking local dev and any accidental `config push` before real credentials
-# exist. Flip to `true` and export real SUPABASE_SMTP_* (see .env.example)
-# as a deliberate pre-production step — see docs/launch-checklist.md.
+# Custom SMTP. Required, not just recommended: Supabase's cloud API refuses
+# `config push` of a custom auth.email.template on a free-tier project that's
+# still using the default shared sender ("Email template modification is not
+# available for free tier projects using the default email provider") — so
+# without this, the Hebrew {{ .Token }} recovery template can never even be
+# pushed, and every reset email stays the stock English link-based one.
+# Also confirmed empirically that `enabled = true` with the env() vars unset
+# does NOT fall back to anything — GoTrue dials the empty host and every
+# outbound email 500s. Export real SUPABASE_SMTP_* (see .env.example) before
+# `config push`. Using Resend: host smtp.resend.com, user literally "resend",
+# pass the API key. Without a verified sending domain, Resend only delivers
+# from onboarding@resend.dev to the account's own address — real caregiver
+# delivery needs a verified domain, tracked in docs/launch-checklist.md.
 [auth.email.smtp]
-enabled = false
+enabled = true
 host = "env(SUPABASE_SMTP_HOST)"
 port = 587
 user = "env(SUPABASE_SMTP_USER)"

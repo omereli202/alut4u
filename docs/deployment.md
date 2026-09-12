@@ -75,19 +75,22 @@ it is exactly how production shipped broken — see the 2026-09 postmortem
 below). `site_url` is parameterized as `env(SUPABASE_AUTH_SITE_URL)` — export
 the right URL before pushing to a specific project, e.g.
 `SUPABASE_AUTH_SITE_URL=https://alut4u-web-production.up.railway.app`.
-The password-reset email works the same way, with one deliberate split: the
-Hebrew `[auth.email.template.recovery]` code template applies on any
-`config push` regardless of SMTP, but `[auth.email.smtp].enabled` ships
-**`false`** in `config.toml` on purpose — confirmed empirically that
-`enabled = true` with the `SUPABASE_SMTP_*` vars unset does not fall back to
-anything, it 500s on every outbound email (GoTrue tries to dial the empty
-host). So going live on real SMTP is two manual steps, not one: export
-`SUPABASE_SMTP_HOST` / `_USER` / `_PASS` / `_ADMIN_EMAIL` (see `.env.example`)
-**and** flip `enabled = true` in `config.toml` before that `config push` —
-do this only once a real SMTP provider + verified sending domain exist (see
-`docs/launch-checklist.md`). Left at the default, a project still gets the
-Hebrew code template, just delivered through Supabase's shared sender
-(2 emails/hour — fine to verify the flow works, not production-safe).
+The password-reset email needs the same `config push`, and real SMTP here is
+mandatory, not a nice-to-have: Supabase's cloud API **refuses** to push a
+custom `auth.email.template` on a free-tier project still using the default
+shared sender (`400 Email template modification is not available for free
+tier projects using the default email provider`), discovered pushing this to
+the `dev` project. Without it the Hebrew `{{ .Token }}` recovery template
+never applies and every reset email stays the stock English link-based one —
+with no 6-digit code to type in at all. `[auth.email.smtp].enabled` therefore
+ships `true`; confirmed empirically that `true` with `SUPABASE_SMTP_*` unset
+doesn't fall back to anything either, it 500s on every outbound email (GoTrue
+dials the empty host). So a project needs `SUPABASE_SMTP_HOST` / `_USER` /
+`_PASS` / `_ADMIN_EMAIL` (see `.env.example`) exported **before** its first
+`config push` of this file. Using Resend without a verified sending domain:
+mail only delivers from `onboarding@resend.dev` to the account's own address
+— enough to smoke-test a `dev` push, not for real caregivers (verified
+domain tracked in `docs/launch-checklist.md`).
 `supabase link` and `db query --linked --file <path>` both work through the
 Management API (no DB password needed) — useful for one-off corrective SQL
 against a linked project.

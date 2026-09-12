@@ -39,15 +39,19 @@ families. Grouped by owner.
 - [ ] Point `SENTRY_DSN` at a real project; verify an error surfaces there
 - [ ] **Password-reset email deliverability** — code + Hebrew RTL template
       (`supabase/templates/recovery.html`) are ready and verified against local
-      Inbucket. `[auth.email.smtp].enabled` ships `false` in `config.toml` on
-      purpose (verified: `true` with the SMTP vars unset makes every outbound
-      auth email 500, not fall back to anything). Still needed: a real SMTP
-      provider (recommended: Resend — the officially documented Supabase
-      integration, EU region available) with `SUPABASE_SMTP_*` set, a verified
-      sending domain (SPF/DKIM) so the mail actually lands in an inbox instead
-      of a spam folder, then flip `enabled = true` in `config.toml` and
-      `supabase config push` — deliberately, not by accident. One real
-      end-to-end reset on that environment afterward.
+      Inbucket. Real SMTP is not optional here: Supabase's cloud API refuses to
+      push a custom `auth.email.template` on a free-tier project using the
+      default shared sender (`400 Email template modification is not
+      available for free tier projects using the default email provider`),
+      hit for real pushing this to `dev`. `[auth.email.smtp].enabled` ships
+      `true` in `config.toml` accordingly, wired to `SUPABASE_SMTP_*`
+      (Resend: host `smtp.resend.com`, user `resend`, pass the API key).
+      **Still needed for production:** a verified sending domain (SPF/DKIM) —
+      without one, Resend only delivers from `onboarding@resend.dev` to the
+      account's own address, fine for smoke-testing `dev` but not for real
+      caregivers. Once a domain is verified, update `SUPABASE_SMTP_ADMIN_EMAIL`
+      and re-run `supabase config push`, then one real end-to-end reset on
+      that environment.
 - [ ] Replace placeholder assets: symbol library — **in progress**, Mulberry
       Symbols (CC BY-SA 4.0) licensed and 34/36 core ids ingested, ~2,955 more
       concepts staged for review (`docs/symbols.md`) — plus PWA icons; a real
