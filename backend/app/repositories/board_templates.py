@@ -32,12 +32,38 @@ def apply_to_child(db: Any, child_id: str, template_id: str) -> None:
     the new rows pass RLS. Best-effort TTS pre-generation.
 
     A template category may nest — it can carry its own `symbol_id` and a
-    `categories: [...]` list of sub-categories, walked depth-first here."""
+    `categories: [...]` list of sub-categories, walked depth-first here.
+
+    A spec may also carry a root-level `cards: [...]` list — core words that
+    sit directly on the child's home page (category_id null), alongside the
+    top-level category folders. Seeded first so they exist before the
+    category tree, matching board.js's rendering order (words, then
+    folders)."""
     tpl = get(template_id)
     if not tpl:
         return
     spec = tpl.get("spec") or {}
+    _seed_cards(db, child_id, spec.get("cards", []), category_id=None)
     _seed_categories(db, child_id, spec.get("categories", []), parent_id=None)
+
+
+def _seed_cards(db: Any, child_id: str, card_specs: list[dict], *, category_id: str | None) -> None:
+    for gi, card in enumerate(card_specs):
+        tts_text = card.get("tts_text") or card["label"]
+        tts_asset_id = tts_cache.ensure_tts_asset(tts_text)
+        aac_repo.create_card(
+            db,
+            child_id,
+            {
+                "category_id": category_id,
+                "label": card["label"],
+                "tts_text": tts_text,
+                "symbol_id": card.get("symbol_id"),
+                "part_of_speech": card.get("part_of_speech"),
+                "tts_asset_id": tts_asset_id,
+                "grid_order": card.get("grid_order", gi),
+            },
+        )
 
 
 def _seed_categories(
@@ -53,19 +79,5 @@ def _seed_categories(
             parent_id=parent_id,
             symbol_id=cat.get("symbol_id"),
         )
-        for gi, card in enumerate(cat.get("cards", [])):
-            tts_text = card.get("tts_text") or card["label"]
-            tts_asset_id = tts_cache.ensure_tts_asset(tts_text)
-            aac_repo.create_card(
-                db,
-                child_id,
-                {
-                    "category_id": category["id"],
-                    "label": card["label"],
-                    "tts_text": tts_text,
-                    "symbol_id": card.get("symbol_id"),
-                    "tts_asset_id": tts_asset_id,
-                    "grid_order": card.get("grid_order", gi),
-                },
-            )
+        _seed_cards(db, child_id, cat.get("cards", []), category_id=category["id"])
         _seed_categories(db, child_id, cat.get("categories", []), parent_id=category["id"])

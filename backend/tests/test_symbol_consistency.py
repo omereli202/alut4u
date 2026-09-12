@@ -33,9 +33,26 @@ PCS_DIR = SYMBOL_DIR / "pcs"
 PCS_MANIFEST = ROOT / "scripts" / "data" / "pcs_manifest.json"
 MIGRATIONS_DIR = ROOT / "supabase" / "migrations"
 MEMORY_JS = ROOT / "frontend" / "js" / "modules" / "calming" / "memory.js"
-BOARD_TEMPLATES_SQL = ROOT / "supabase" / "migrations" / "0005_reference_data.sql"
 VECTOR_DIR = ROOT / "backend" / "app" / "data" / "symbol_vectors"
 VECTOR_META = VECTOR_DIR / "meta.json"
+
+
+def _board_templates_sql() -> str:
+    """Every migration that inserts/updates board_templates rows, concatenated
+    in filename (= applied) order. board_templates.spec has no FK on
+    symbol_id, and templates are seeded via a chain of migrations (0005's
+    original seed, 0021's nested-branch update, 0030's rewrite, ...) rather
+    than one file — checking only 0005 would silently stop covering the
+    starter boards a real child actually gets the moment a later migration
+    replaces their content."""
+    texts = [
+        p.read_text(encoding="utf-8")
+        for p in sorted(MIGRATIONS_DIR.glob("*.sql"))
+        if "board_templates" in p.read_text(encoding="utf-8")
+    ]
+    assert texts, "expected at least one migration touching board_templates"
+    return "\n".join(texts)
+
 
 # Explicit-content Mulberry filenames (rated=1) — must never appear as a
 # shipped symbol id under any circumstances, regardless of how the manifest
@@ -188,7 +205,7 @@ def test_no_orphan_svgs_outside_the_manifest():
 
 
 def test_board_template_symbol_ids_resolve():
-    text = BOARD_TEMPLATES_SQL.read_text(encoding="utf-8")
+    text = _board_templates_sql()
     ids = set(re.findall(r'"symbol_id"\s*:\s*"([^"]+)"', text))
     assert ids, "expected to find symbol_id references in the starter board templates"
     shipped = _shipped_ids()
@@ -325,7 +342,7 @@ def test_pcs_board_and_memory_refs_still_resolve_against_both_sets():
     if PCS_MANIFEST.exists():
         known = known | set(json.loads(PCS_MANIFEST.read_text(encoding="utf-8"))["entries"])
 
-    board_sql = BOARD_TEMPLATES_SQL.read_text("utf-8")
+    board_sql = _board_templates_sql()
     board_ids = set(re.findall(r'"symbol_id"\s*:\s*"([^"]+)"', board_sql))
     pool_match = re.search(r"const POOL\s*=\s*\[(.*?)\]", MEMORY_JS.read_text("utf-8"), re.S)
     pool_ids = set(re.findall(r'"([a-z0-9-]+)"', pool_match.group(1)))

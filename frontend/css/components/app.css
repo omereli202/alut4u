@@ -856,9 +856,28 @@ hr {
    label shape as a word card, plus a doubled frame in the category colour: a
    ring set inside the border reads as "a box you open", not a word. */
 .aac-cat-card {
+  position: relative;
   border-width: 3px;
   outline: 2px solid var(--cat, var(--color-border-strong));
   outline-offset: -7px;
+}
+/* A folder tile also gets a small triangular ribbon in its own colour at the
+   top-inline-start corner — a clearer "this opens into more cards" cue than
+   the outline ring alone, since otherwise a folder and a word card share the
+   same rounded-rectangle silhouette. clip-path draws the wedge relative to
+   the pseudo-element's own box, so this is correct in the app's fixed RTL
+   layout with no left/right-specific rule needed. */
+.aac-cat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  inline-size: 28px;
+  block-size: 28px;
+  background: var(--cat, var(--color-border-strong));
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  border-start-start-radius: var(--radius-lg);
+  pointer-events: none;
 }
 
 /* Card grid — sized to always fit the viewport with no scrolling: board.js
@@ -867,8 +886,15 @@ hr {
    locked kiosk tablet gives a child no way to scroll back). */
 .aac-grid {
   display: grid;
-  grid-template-columns: repeat(var(--cols, 3), 1fr);
-  grid-template-rows: repeat(var(--rows, 1), 1fr);
+  /* --cell-w/--cell-h (board.js's fitToGrid) are the fit calculation clamped
+     to a comfortable max size and aspect ratio, so a sparse board (1-2 cards)
+     gets tiles sized like any other board instead of stretching to fill the
+     screen. justify/align-content centres the resulting (smaller) grid in
+     the box rather than pinning it to a corner. */
+  grid-template-columns: repeat(var(--cols, 3), var(--cell-w, 1fr));
+  grid-template-rows: repeat(var(--rows, 1), var(--cell-h, 1fr));
+  justify-content: center;
+  align-content: center;
   gap: var(--space-3);
   flex: 1;
   min-block-size: 0;
@@ -911,7 +937,8 @@ hr {
   padding: var(--space-3);
 }
 .aac-card-text .card-label {
-  font-size: var(--text-xl);
+  /* No image area competing for room, so a bigger share of the tile. */
+  font-size: clamp(1rem, calc(var(--cell-h, 200px) * 0.18), 2rem);
   border: none;
 }
 .card-image {
@@ -943,7 +970,10 @@ hr {
 }
 .card-label {
   padding: var(--space-2);
-  font-size: var(--text-base);
+  /* Scales with the tile (board.js's --cell-h) instead of a size fixed
+     regardless of card size — a capped, small tile keeps a readable word
+     instead of the word looking lost under a shrunken picture area. */
+  font-size: clamp(0.85rem, calc(var(--cell-h, 200px) * 0.13), 1.375rem);
   font-weight: 600;
   text-align: center;
   line-height: 1.15;

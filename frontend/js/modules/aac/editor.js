@@ -23,6 +23,23 @@ const CATEGORY_COLORS = [
   "#57606a",
 ];
 
+// Modified Fitzgerald Key — kept in sync with PartOfSpeech in
+// backend/app/schemas/aac.py and the --pos-* tokens in frontend/css/tokens.css.
+// A card's colour comes from its part of speech when set, else its category
+// (board.js's tileColor()) — this is what lets a root-level core word (no
+// category at all) still get coloured.
+const PARTS_OF_SPEECH = [
+  ["pronoun", "כינוי גוף (אני, אתה)"],
+  ["verb", "פועל (רוצה, לאכול)"],
+  ["adjective", "שם תואר (גדול, חם)"],
+  ["noun", "שם עצם (כדור, אמא)"],
+  ["social", "מילת נימוס (שלום, תודה)"],
+  ["question", "מילת שאלה (מה, איפה)"],
+  ["negation", "שלילה / עצירה (לא, מספיק)"],
+  ["little", "מילת קישור (על, עם)"],
+  ["adverb", "תואר הפועל (עכשיו, שוב)"],
+];
+
 export async function renderAacEditor({ childId, childName, onExit }) {
   let board;
   let voiceConsent = false;
@@ -327,6 +344,17 @@ export async function renderAacEditor({ childId, childName, onExit }) {
 
   // Flattened category <select>, indented by depth. `excludeId` (and its
   // sub-tree) is omitted — a category can't be its own ancestor.
+  function posSelect(selected) {
+    const sel = el(
+      "select",
+      { name: "part_of_speech" },
+      el("option", { value: "" }, "אוטומטי / ללא (צבע לפי קטגוריה)"),
+      ...PARTS_OF_SPEECH.map(([value, label]) => el("option", { value }, label)),
+    );
+    sel.value = selected ?? "";
+    return sel;
+  }
+
   function categorySelect(selectedId, excludeId) {
     const blocked = excludeId ? new Set([excludeId, ...descendantIds(excludeId)]) : new Set();
     const sel = el(
@@ -450,6 +478,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
     };
 
     const catSelect = categorySelect(card.category_id ?? "", null);
+    const posSel = posSelect(card.part_of_speech ?? "");
     const audioStatus = el("span", { class: "muted" }, state.audio_asset_id ? "הוקלט" : "TTS");
 
     const dialog = el(
@@ -459,6 +488,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
       field("label", "מילה / תווית", card.label || "", { required: true, maxlength: 40 }),
       field("tts_text", "טקסט להקראה (רשות)", card.tts_text || "", { maxlength: 200 }),
       el("div", { class: "field" }, el("label", {}, "קטגוריה"), catSelect),
+      el("div", { class: "field" }, el("label", {}, "חלק דיבר (צבע הכרטיס)"), posSel),
       el("p", { class: "muted" }, "תמונה:"),
       visualEditor(state, null),
       el(
@@ -506,6 +536,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         symbol_id: state.symbol_id,
         icon_asset_id: state.icon_asset_id,
         category_id: f.get("category") || null,
+        part_of_speech: f.get("part_of_speech") || null,
       };
       const btn = e.target.querySelector('button[type="submit"]');
       await withBusy(btn, async () => {

@@ -31,9 +31,9 @@ Enums: `consent_basis`, `media_kind`.
 | Table | Purpose |
 |---|---|
 | `aac_categories` | `child_id` FK, name, color, sort_order; `parent_id` self-FK (`ON DELETE SET NULL` — nesting, capped at 4 levels in the API); **either** `symbol_id` **or** `icon_asset_id` (CHECK). |
-| `aac_cards` | `child_id`, `category_id`, label, `tts_text`, `grid_order`; **either** `symbol_id` **or** `icon_asset_id` (CHECK), optional `audio_asset_id`. |
+| `aac_cards` | `child_id`, `category_id`, label, `tts_text`, `grid_order`; **either** `symbol_id` **or** `icon_asset_id` (CHECK), optional `audio_asset_id`. `part_of_speech` (Modified Fitzgerald Key — pronoun/verb/adjective/noun/social/question/negation/little/adverb, CHECK), nullable; colours the card in board.js ahead of the category's own colour. |
 | `symbols` | Global read-only. Bundled library: slug, file_path, `keywords_he text[]`, licence, source. Not child-scoped. `file_path` is `<id>.svg` (flat, no subfolders) for the Mulberry set; the dev-only PCS/Boardmaker set (`pcs-NNNN` ids) uses `pcs/<id>.png`. `ui.js`'s `symbolUrl()` resolves both. **`GET /api/symbols` search is done in Python over an in-memory snapshot** (`repositories/symbols.py` + `services/symbol_search.py`), not SQL — the `symbols_keywords_gin` index is intentionally unused; don't "fix" search to hit it. |
-| `board_templates` | Global. Starter boards: `name_he`, `level`, `cards jsonb`. |
+| `board_templates` | Global. Starter boards: `name_he`, `level`, `spec jsonb` (`{cards?, categories?}` — root-level `cards` seed onto the child's home page with no category; `categories` nest, each with its own `cards`/`categories`). |
 
 ## Later phases (designed, not built)
 

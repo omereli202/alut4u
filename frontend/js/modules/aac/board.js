@@ -13,7 +13,34 @@ import { prefetch, prefetchSymbols } from "./speech.js";
 // grid has been laid out with a candidate column count.
 const GRID_GAP = 12;
 
-function catColor(card, cats) {
+// Cap on a single tile. Past this a card stops being easier to hit and just
+// becomes a large tinted panel around a small centred symbol, with the word
+// label looking lost inside it. 240px is 4x the 60px --touch-min floor —
+// comfortable on a tablet, still bounded.
+const MAX_CELL = 240;
+// A tile never gets more than this much wider than tall (or taller than
+// wide), so a 2-card landscape board doesn't produce two letterbox strips.
+const MAX_ASPECT = 1.4;
+
+// Maps a card's part_of_speech to its Fitzgerald-key colour token (see
+// tokens.css). Falls back to the card's category colour, then to none (the
+// CSS default border colour) — this is what lets root-level core words
+// (which have no category at all) still get coloured.
+const POS_COLOR_VAR = {
+  pronoun: "--pos-pronoun",
+  verb: "--pos-verb",
+  adjective: "--pos-adjective",
+  noun: "--pos-noun",
+  social: "--pos-social",
+  question: "--pos-question",
+  negation: "--pos-negation",
+  little: "--pos-little",
+  adverb: "--pos-adverb",
+};
+
+function tileColor(card, cats) {
+  const posVar = POS_COLOR_VAR[card.part_of_speech];
+  if (posVar) return `var(${posVar})`;
   return cats.find((c) => c.id === card.category_id)?.color || null;
 }
 
@@ -23,7 +50,7 @@ function catColor(card, cats) {
 // (no symbol/photo) is just its word, large.
 function wordTile(card, cats, onTap) {
   const hasPicture = card.symbol_id || card.icon_asset_id;
-  const color = catColor(card, cats);
+  const color = tileColor(card, cats);
   return el(
     "button",
     {
@@ -67,14 +94,14 @@ function catTile(cat, onOpen) {
 // cell largest (closest to square), since rows always = ceil(n/cols) so
 // everything fits regardless of which split wins.
 function fitGrid(box, n) {
-  if (!n) return { cols: 1, rows: 1, cell: box.height };
+  if (!n) return { cols: 1, rows: 1, cell: box.height, cellW: box.height, cellH: box.height };
   let best = null;
   for (let cols = 1; cols <= n; cols++) {
     const rows = Math.ceil(n / cols);
     const cellW = (box.width - GRID_GAP * (cols - 1)) / cols;
     const cellH = (box.height - GRID_GAP * (rows - 1)) / rows;
     const cell = Math.min(cellW, cellH);
-    if (!best || cell > best.cell) best = { cols, rows, cell };
+    if (!best || cell > best.cell) best = { cols, rows, cell, cellW, cellH };
   }
   return best;
 }
@@ -135,9 +162,18 @@ export async function renderAacBoard({
     const n = childCategories().length + directCards().length;
     const { width, height } = grid.getBoundingClientRect();
     if (!width || !height) return;
-    const { cols, rows, cell } = fitGrid({ width, height }, n);
+    const { cols, rows, cell, cellW, cellH } = fitGrid({ width, height }, n);
+    // Clamp the winning split to a comfortable, roughly-square tile instead
+    // of letting a sparse board (1-2 cards) stretch cells to fill the whole
+    // screen — see MAX_CELL/MAX_ASPECT above.
+    let w = Math.min(cellW, MAX_CELL);
+    let h = Math.min(cellH, MAX_CELL);
+    w = Math.min(w, h * MAX_ASPECT);
+    h = Math.min(h, w * MAX_ASPECT);
     grid.style.setProperty("--cols", cols);
     grid.style.setProperty("--rows", rows);
+    grid.style.setProperty("--cell-w", `${Math.floor(w)}px`);
+    grid.style.setProperty("--cell-h", `${Math.floor(h)}px`);
     grid.classList.toggle("aac-grid-scroll", cell < 60);
   }
 
@@ -190,6 +226,9 @@ export async function renderAacBoard({
     path = path.filter((id) => catById.has(id));
 
     const onTap = preview ? null : (card) => sentence.add(card);
+    // Folder tiles before word cards — the topic folders are the board's
+    // top-level navigation, so they anchor the start of the grid (top-right
+    // in this RTL layout) with the word cards following after.
     grid = el(
       "div",
       { class: "aac-grid", role: "list" },

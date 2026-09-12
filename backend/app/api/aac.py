@@ -217,6 +217,7 @@ def create_card():
         "tts_text": tts_text,
         "symbol_id": data.symbol_id,
         "icon_asset_id": data.icon_asset_id,
+        "part_of_speech": data.part_of_speech,
         "grid_order": data.grid_order,
         "tts_asset_id": tts_cache.ensure_tts_asset(tts_text),
     }
@@ -254,6 +255,7 @@ def update_card(card_id: str):
             "symbol_id",
             "icon_asset_id",
             "audio_asset_id",
+            "part_of_speech",
             "grid_order",
         }
     }
