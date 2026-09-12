@@ -7,7 +7,9 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v47"; // v47: "שכחתי סיסמה" — password reset with a
+const SHELL_CACHE = "shell-v48"; // v48: rebrand — "alut4u" renamed to "omi4u"
+// throughout (title, PWA manifest, boot/sign-in/password-reset wordmarks).
+// v47: "שכחתי סיסמה" — password reset with a
 // 6-digit email code (new /js/views/password-reset.js, .otp-input in
 // app.css); offline boot now hydrates from a cached session snapshot instead
 // of dying on the boot screen, and the sign-in card is properly centred.
