@@ -7,12 +7,14 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v48"; // v48: professional AAC board defaults —
+const SHELL_CACHE = "shell-v49"; // v49: professional AAC board defaults —
 // capped/centred card sizing (board.js/app.css), part-of-speech colour
 // coding (tokens.css's --pos-* + editor.js), 32 new Mulberry symbols
 // (SYMBOLS_ASSET_V bump below), four rewritten board templates capped at 25
 // home-page tiles, folder tiles rendering before word cards, and a coloured
 // corner-ribbon shape marking a folder tile (board.js/app.css).
+// v48: rebrand — "alut4u" renamed to "omi4u"
+// throughout (title, PWA manifest, boot/sign-in/password-reset wordmarks).
 // v47: "שכחתי סיסמה" — password reset with a
 // 6-digit email code (new /js/views/password-reset.js, .otp-input in
 // app.css); offline boot now hydrates from a cached session snapshot instead

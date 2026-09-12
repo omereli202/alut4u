@@ -28,7 +28,7 @@ def export_account():
     bundle = repo.export_bundle(g.caregiver_id)
     audit_repo.log(caregiver_id=g.caregiver_id, action="account.export")
     resp = jsonify(bundle)
-    resp.headers["Content-Disposition"] = 'attachment; filename="alut4u-account-export.json"'
+    resp.headers["Content-Disposition"] = 'attachment; filename="omi4u-account-export.json"'
     # Media assets (icons, audio) are added to this bundle in Phase 2.
     return resp
 

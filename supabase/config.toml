@@ -173,7 +173,7 @@ site_url = "env(SUPABASE_AUTH_SITE_URL)"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
 # Local stack + `supabase start` resolve env(SUPABASE_AUTH_SITE_URL) via .env; a
 # `supabase config push` to a cloud project needs it exported first, e.g.
-# SUPABASE_AUTH_SITE_URL=https://alut4u-web-production.up.railway.app
+# SUPABASE_AUTH_SITE_URL=https://omi4u-web-production.up.railway.app
 additional_redirect_urls = ["env(SUPABASE_AUTH_SITE_URL)"]
 # How long tokens are valid for, in seconds. Defaults to 3600 (1 hour), maximum 604,800 (1 week).
 jwt_expiry = 3600
@@ -279,19 +279,19 @@ port = 587
 user = "env(SUPABASE_SMTP_USER)"
 pass = "env(SUPABASE_SMTP_PASS)"
 admin_email = "env(SUPABASE_SMTP_ADMIN_EMAIL)"
-sender_name = "alut4u"
+sender_name = "omi4u"
 
 # The recovery template must use {{ .Token }} (the 6-digit code), never
 # {{ .ConfirmationURL }} — a link would defeat the point of a code-based flow.
 [auth.email.template.recovery]
-subject = "קוד לאיפוס הסיסמה ב-alut4u"
+subject = "קוד לאיפוס הסיסמה ב-omi4u"
 content_path = "./supabase/templates/recovery.html"
 
 # Cheapest takeover detector there is: tell the caregiver when their password
 # changes, whether they meant to or not.
 [auth.email.notification.password_changed]
 enabled = true
-subject = "הסיסמה שלכם ב-alut4u שונתה"
+subject = "הסיסמה שלכם ב-omi4u שונתה"
 # Notification templates resolve relative to supabase/ itself, unlike
 # auth.email.template.* above which resolve relative to the repo root —
 # confirmed empirically via `supabase status`'s config-parse error.

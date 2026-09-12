@@ -5,7 +5,7 @@
 // No personal media is stored here. Phase 2 uses the Cache API (via the service
 // worker) for card audio/icons, keyed by the stable /api/media/<id> URL.
 
-const DB_NAME = "alut4u";
+const DB_NAME = "omi4u";
 const DB_VERSION = 1;
 
 let dbp;

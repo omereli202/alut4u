@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, model_validator
 
 # Modified Fitzgerald Key (softened palette — frontend/css/tokens.css's
 # --pos-* tokens). Kept in sync with the check constraint in
-# supabase/migrations/0028_aac_part_of_speech.sql.
+# supabase/migrations/0029_aac_part_of_speech.sql.
 PartOfSpeech = Literal[
     "pronoun", "verb", "adjective", "noun", "social", "question", "negation", "little", "adverb"
 ]

@@ -16,7 +16,7 @@ that would just rewrite everything to a new, still-silent digest.
 
 Needs the same env as the backend, with a REAL Azure key — on Railway:
 
-    railway run --service alut4u-backend --environment dev -- \\
+    railway run --service omi4u-backend --environment dev -- \\
         python scripts/regenerate_tts.py
 """
 

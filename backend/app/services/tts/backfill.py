@@ -225,7 +225,7 @@ def run(
         raise RuntimeError(
             "provider is 'silent' — AZURE_SPEECH_KEY is not visible to this "
             "process. Re-running would rewrite every row back to stub audio. "
-            "Run via `railway run --service alut4u-backend --environment "
+            "Run via `railway run --service omi4u-backend --environment "
             "<env> -- ...`, or pass allow_silent=True if that's really what "
             "you want."
         )

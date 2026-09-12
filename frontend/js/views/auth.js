@@ -12,7 +12,7 @@ export function renderAuth(onDone) {
     const form = el(
       "form",
       { class: "card auth-card", onsubmit: submit },
-      el("h1", {}, "alut4u"),
+      el("h1", {}, "omi4u"),
       el("p", { class: "muted" }, signup ? "יצירת חשבון מטפל" : "כניסה"),
       signup &&
         field("display_name", "שם", { type: "text", autocomplete: "name", required: true }),

@@ -2,7 +2,7 @@
 // caregiver behind the PIN (Caregiver Mode dashboard) — never by the child.
 // localStorage can throw in private mode, so every access is guarded.
 
-const KEY = "alut4u.activeChild";
+const KEY = "omi4u.activeChild";
 
 export function getActiveChildId() {
   try {

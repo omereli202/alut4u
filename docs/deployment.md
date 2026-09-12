@@ -2,29 +2,29 @@
 
 ## Railway
 
-One project — **alut4u** (`069b0afe-82c2-4b30-88a5-6d81bc13799f`), two
+One project — **omi4u** (`069b0afe-82c2-4b30-88a5-6d81bc13799f`), two
 environments (`production` ← `main`, `dev` ← `dev`), **two services each**:
 
 | Service | Root dir | Build | Public? | Healthcheck | Watch |
 |---|---|---|---|---|---|
-| `alut4u-web` (frontend) | `frontend/` | `frontend/Dockerfile` (Caddy) | **yes** — the only public entry point | `/` | `frontend/**` |
-| `alut4u-backend` | `backend/` | `backend/Dockerfile` (gunicorn) | **no** — private network only | `/api/health` | `backend/**` |
+| `omi4u-web` (frontend) | `frontend/` | `frontend/Dockerfile` (Caddy) | **yes** — the only public entry point | `/` | `frontend/**` |
+| `omi4u-backend` | `backend/` | `backend/Dockerfile` (gunicorn) | **no** — private network only | `/api/health` | `backend/**` |
 
 Public URLs (both point at the **frontend** service):
 
 | Environment | URL |
 |---|---|
-| `production` | https://alut4u-web-production.up.railway.app |
-| `dev` | https://alut4u-web-dev.up.railway.app |
+| `production` | https://omi4u-web-production.up.railway.app |
+| `dev` | https://omi4u-web-dev.up.railway.app |
 
 **Why split this way.** Caddy serves the static PWA and reverse-proxies
-`/api/*` to `alut4u-backend.railway.internal:8080` over Railway's private
+`/api/*` to `omi4u-backend.railway.internal:8080` over Railway's private
 network. The browser only ever talks to one origin, so the HttpOnly session
 cookie, the service-worker scope and offline caching all stay same-origin —
 no CORS, no `SameSite=None`. The backend has no public domain at all.
 
 - Both containers listen on `$PORT` (Railway sets `8080`).
-- Frontend service var: `BACKEND_ORIGIN=http://alut4u-backend.railway.internal:8080`.
+- Frontend service var: `BACKEND_ORIGIN=http://omi4u-backend.railway.internal:8080`.
 - `watchPatterns` mean a `backend/**`-only change redeploys just the backend, and vice-versa.
 - No `railway.json` — each service auto-detects the `Dockerfile` in its root dir; healthcheck/root/watch are set on the service (see the GraphQL calls in git history or the dashboard).
 - Push to `dev` → dev deploy. Fast-forward `main` → production deploy.
@@ -36,12 +36,12 @@ PWA (`SERVE_FRONTEND=1`) on `:8000` — the split only exists in production. To
 exercise the real two-container topology locally:
 
 ```bash
-docker build -t alut4u-backend ./backend
-docker build -t alut4u-frontend ./frontend
-docker network create alut4u-net
-docker run -d --rm --network alut4u-net --name be -e PORT=8080 alut4u-backend
-docker run -d --rm --network alut4u-net -p 8000:8080 \
-  -e PORT=8080 -e BACKEND_ORIGIN=http://be:8080 alut4u-frontend
+docker build -t omi4u-backend ./backend
+docker build -t omi4u-frontend ./frontend
+docker network create omi4u-net
+docker run -d --rm --network omi4u-net --name be -e PORT=8080 omi4u-backend
+docker run -d --rm --network omi4u-net -p 8000:8080 \
+  -e PORT=8080 -e BACKEND_ORIGIN=http://be:8080 omi4u-frontend
 # http://localhost:8000  → PWA, with /api/* proxied to the backend container
 ```
 
@@ -74,7 +74,7 @@ bucket definitions live there now; hand-configuring once and never scripting
 it is exactly how production shipped broken — see the 2026-09 postmortem
 below). `site_url` is parameterized as `env(SUPABASE_AUTH_SITE_URL)` — export
 the right URL before pushing to a specific project, e.g.
-`SUPABASE_AUTH_SITE_URL=https://alut4u-web-production.up.railway.app`.
+`SUPABASE_AUTH_SITE_URL=https://omi4u-web-production.up.railway.app`.
 The password-reset email needs the same `config push`, and real SMTP here is
 mandatory, not a nice-to-have: Supabase's cloud API **refuses** to push a
 custom `auth.email.template` on a free-tier project still using the default
@@ -125,8 +125,8 @@ both auth and storage going forward.
 Not set yet — the app boots without them and `/api/health` passes, so both
 environments deploy green during Phase 0/1 scaffolding.
 
-**Before Phase 1 features work**, set on the **`alut4u-backend`** service per
-environment (`railway variable set --service alut4u-backend --environment <env> "K=V"`):
+**Before Phase 1 features work**, set on the **`omi4u-backend`** service per
+environment (`railway variable set --service omi4u-backend --environment <env> "K=V"`):
 
 | Var | dev | production |
 |---|---|---|
@@ -139,13 +139,13 @@ environment (`railway variable set --service alut4u-backend --environment <env> 
 Production also: `JSON_LOGS=true`, and (recommended) `SENTRY_DSN`,
 `GEMINI_API_KEY` + model ids.
 
-The **`alut4u-web`** service only needs `BACKEND_ORIGIN` (already set).
+The **`omi4u-web`** service only needs `BACKEND_ORIGIN` (already set).
 Full list with descriptions: `.env.example`.
 
 ## Scheduled jobs
 
 Add a Railway **cron** service (same repo, root `backend/`, same env as
-`alut4u-backend`) running the retention sweep weekly:
+`omi4u-backend`) running the retention sweep weekly:
 
 ```
 python ../scripts/retention_purge.py --apply
@@ -159,11 +159,11 @@ accounts idle `RETENTION_WARN_DAYS` and deletes accounts idle
 
 ```bash
 railway environment dev|production                          # switch linked env
-railway logs -b --service alut4u-backend                    # build logs
-railway logs -d --service alut4u-web                        # deploy/runtime logs
+railway logs -b --service omi4u-backend                    # build logs
+railway logs -d --service omi4u-web                        # deploy/runtime logs
 railway status --json                                       # project + env + service state
-railway variable list --service alut4u-backend --environment dev
-railway redeploy --service alut4u-backend --environment dev
+railway variable list --service omi4u-backend --environment dev
+railway redeploy --service omi4u-backend --environment dev
 ```
 
 Service config (root dir, healthcheck, watch patterns) is set via the Railway

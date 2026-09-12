@@ -43,7 +43,7 @@ class AzureHebrewTTS(TTSProvider):
                     "Ocp-Apim-Subscription-Key": self._key,
                     "Content-Type": "application/ssml+xml",
                     "X-Microsoft-OutputFormat": req.fmt,
-                    "User-Agent": "alut4u",
+                    "User-Agent": "omi4u",
                 },
                 content=ssml.encode("utf-8"),
                 timeout=self._timeout,

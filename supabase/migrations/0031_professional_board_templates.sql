@@ -5,7 +5,7 @@
 -- boards from מרכז אומר), and adds a fourth, more advanced template.
 --
 -- Every card carries a part_of_speech (Modified Fitzgerald Key — see
--- supabase/migrations/0028_aac_part_of_speech.sql and the --pos-* tokens in
+-- supabase/migrations/0029_aac_part_of_speech.sql and the --pos-* tokens in
 -- frontend/css/tokens.css) so board.js colours it correctly whether or not
 -- it also sits inside a category folder. Root-level `cards` (no enclosing
 -- category) render on the child's home page ahead of the folder tiles —
@@ -17,7 +17,7 @@
 -- afterwards, so this migration does not touch any existing child's board.
 --
 -- Every symbol_id below resolves against a shipped Mulberry Symbols row
--- (0011/0013/0026/0029) — verified by backend/tests/test_symbol_consistency.py.
+-- (0011/0013/0026/0030) — verified by backend/tests/test_symbol_consistency.py.
 
 update board_templates set
   name_he = 'מילים ראשונות',

@@ -6,10 +6,10 @@
 Tablet (PWA — vanilla ES modules, service worker, IndexedDB)
    │  HttpOnly signed session cookie (session id only — no tokens in JS)
    ▼
-alut4u-web  — Caddy (the only public service)
+omi4u-web  — Caddy (the only public service)
    │  static PWA;  /api/* reverse-proxied over Railway's private network
    ▼
-alut4u-backend  — Flask, no public domain
+omi4u-backend  — Flask, no public domain
    │  per-request Supabase client carrying the caregiver's JWT
    ▼
 Supabase — Postgres (RLS enforced) + Storage (private buckets)

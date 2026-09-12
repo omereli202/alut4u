@@ -9,4 +9,4 @@ COPY . /srv
 RUN rm -f /srv/Caddyfile
 
 # Caddy reads $PORT (Railway) and $BACKEND_ORIGIN (set on the service, e.g.
-# http://alut4u-backend.railway.internal:8080).
+# http://omi4u-backend.railway.internal:8080).
