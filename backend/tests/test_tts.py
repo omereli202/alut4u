@@ -108,7 +108,7 @@ def test_ssml_and_headers():
     assert sent.headers["Ocp-Apim-Subscription-Key"] == "test-key"
     assert sent.headers["Content-Type"] == "application/ssml+xml"
     assert sent.headers["X-Microsoft-OutputFormat"] == req.fmt
-    assert sent.headers["User-Agent"] == "alut4u"
+    assert sent.headers["User-Agent"] == "omi4u"
 
     body = sent.content.decode("utf-8")
     assert 'xml:lang="he-IL"' in body

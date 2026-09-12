@@ -131,7 +131,7 @@ function bootScreen() {
     el(
       "div",
       { class: "boot-screen" },
-      el("h1", { class: "boot-wordmark" }, "alut4u"),
+      el("h1", { class: "boot-wordmark" }, "omi4u"),
       el("div", { class: "boot-states" }, loading, errorState),
     ),
   );

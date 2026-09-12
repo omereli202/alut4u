@@ -36,7 +36,7 @@ export function renderPasswordReset({ onDone, onCancel, email = "" }) {
     const form = el(
       "form",
       { class: "card auth-card", onsubmit: submitRequest },
-      el("h1", {}, "alut4u"),
+      el("h1", {}, "omi4u"),
       el("p", { class: "muted" }, "איפוס סיסמה"),
       el("p", {}, "הזינו את כתובת האימייל של החשבון ונשלח אליכם קוד בן 6 ספרות."),
       field("email", "אימייל", {
@@ -87,7 +87,7 @@ export function renderPasswordReset({ onDone, onCancel, email = "" }) {
     const form = el(
       "form",
       { class: "card auth-card", onsubmit: submitConfirm },
-      el("h1", {}, "alut4u"),
+      el("h1", {}, "omi4u"),
       el("p", { class: "muted" }, "הזינו את הקוד"),
       el("p", {}, `שלחנו קוד בן 6 ספרות לכתובת ${address}. הקוד תקף ל-10 דקות.`),
       field("code", "קוד בן 6 ספרות", {

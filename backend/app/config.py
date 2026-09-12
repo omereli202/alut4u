@@ -42,7 +42,7 @@ class Settings(BaseSettings):
     session_token_enc_key: str = ""
 
     # Session / Caregiver-Mode
-    session_cookie_name: str = "alut4u_sid"
+    session_cookie_name: str = "omi4u_sid"
     caregiver_elevation_minutes: int = 15
     # Escalating PIN lockout: after N failures, lock for the matching duration.
     pin_lockout_after: int = 5
