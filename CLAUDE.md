@@ -97,12 +97,12 @@ scripts/               dev.sh (one-process local), release.sh (CI migrations)
 
 ## Deployment
 
-Railway project `alut4u`, two environments by branch (`dev`→`dev` env,
+Railway project `omi4u`, two environments by branch (`dev`→`dev` env,
 `main`→`production` env). **Each environment has two services:**
 
-- `alut4u-web` — Caddy. Serves `frontend/` and reverse-proxies `/api/*` to the
+- `omi4u-web` — Caddy. Serves `frontend/` and reverse-proxies `/api/*` to the
   backend over Railway's private network. **The only public service.**
-- `alut4u-backend` — gunicorn/Flask, API only, **no public domain**. Env
+- `omi4u-backend` — gunicorn/Flask, API only, **no public domain**. Env
   `SERVE_FRONTEND=0`.
 
 The browser sees one origin, so cookie auth + PWA + offline stay same-origin.

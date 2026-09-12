@@ -54,7 +54,7 @@ The authoritative phase plan. Mirrors the approved implementation plan.
    via a published Artifact, not auto-picked). ~2,955 more Mulberry concepts
    are staged in the manifest as `pending`, to be labeled in Hebrew and
    reviewed in batches — see `docs/symbols.md`.
-2. **Cloud Supabase + Azure Speech keys** — set on the Railway `alut4u-backend`
+2. **Cloud Supabase + Azure Speech keys** — set on the Railway `omi4u-backend`
    service per env (`docs/deployment.md`). Both live on **dev** since
    2026-09; **prod is still unset**, and `require_production_secrets()` now
    refuses to boot without an Azure key, so this must happen before promotion.

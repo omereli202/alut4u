@@ -1,4 +1,4 @@
-# alut4u — AAC & Support Platform
+# omi4u — AAC & Support Platform
 
 Accessible communication and daily-support platform for children on the autism
 spectrum and their caregivers. Hebrew, RTL, offline-capable PWA.
@@ -53,9 +53,9 @@ pytest
 
 ## Deployment
 
-Railway project `alut4u`, two environments by branch (`dev` → dev,
-`main` → production). Each environment runs two services: `alut4u-web` (Caddy —
-static PWA + `/api/*` proxy, the only public one) and `alut4u-backend`
+Railway project `omi4u`, two environments by branch (`dev` → dev,
+`main` → production). Each environment runs two services: `omi4u-web` (Caddy —
+static PWA + `/api/*` proxy, the only public one) and `omi4u-backend`
 (Flask, private). Each builds from its own `Dockerfile`
 (`frontend/`, `backend/`). Migrations in `supabase/migrations/` are applied by
 CI. Full details: `docs/deployment.md`.

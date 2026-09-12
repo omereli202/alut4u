@@ -1,7 +1,7 @@
 # REST API
 
 Base path `/api`. JSON in/out. Auth is a signed HttpOnly cookie
-(`alut4u_sid`) — send `credentials: "include"`; no tokens in JS.
+(`omi4u_sid`) — send `credentials: "include"`; no tokens in JS.
 
 Error shape: `{ "error": "<code>", "detail"?: "<human string>" }`.
 
