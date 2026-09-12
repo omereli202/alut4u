@@ -7,7 +7,12 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v49"; // v49: professional AAC board defaults —
+const SHELL_CACHE = "shell-v50"; // v50: schedule focus-view checkmark
+// properly centred with a shadow (app.css); caregiver-set reading/writing
+// levels (learning/reading.js, writing.js, editor.js — the child no longer
+// picks their own level); a live "n/total" completion pill on My Tasks
+// (tasks/index.js, app.css's .tasks-badge), matching the tokens pill.
+// v49: professional AAC board defaults —
 // capped/centred card sizing (board.js/app.css), part-of-speech colour
 // coding (tokens.css's --pos-* + editor.js), 32 new Mulberry symbols
 // (SYMBOLS_ASSET_V bump below), four rewritten board templates capped at 25

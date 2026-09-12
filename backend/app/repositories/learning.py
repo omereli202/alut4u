@@ -17,8 +17,10 @@ _WRITING = "writing_prompts"
 _ATTEMPTS = "learning_attempts"
 _COMPLETIONS = "learning_completions"
 _CLAIMS = "learning_reward_claims"
+_SETTINGS = "learning_settings"
 
 _TABLE = {"reading": _READING, "writing": _WRITING}
+_DEFAULT_SETTINGS = {"reading_level": 1, "writing_level": 1}
 
 
 def _visible(q, child_id: str):
@@ -149,6 +151,26 @@ def set_claimed(db: Any, child_id: str, kind: str, level: int, claimed: int) -> 
         },
         on_conflict="child_id,kind,level",
     ).execute()
+
+
+def get_settings(db: Any, child_id: str) -> dict:
+    """The child's reading/writing levels, or the default (1/1) when no row
+    exists yet — matches the behaviour before this table existed."""
+    row = one_or_none(
+        db.table(_SETTINGS)
+        .select("child_id, reading_level, writing_level")
+        .eq("child_id", child_id)
+        .execute()
+    )
+    return row or {"child_id": child_id, **_DEFAULT_SETTINGS}
+
+
+def upsert_settings(db: Any, child_id: str, values: dict) -> dict:
+    return one_or_none(
+        db.table(_SETTINGS)
+        .upsert({"child_id": child_id, "updated_at": datetime.now(UTC).isoformat(), **values})
+        .execute()
+    )
 
 
 def progress_all(db: Any, child_id: str) -> list[dict]:
