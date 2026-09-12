@@ -7,13 +7,20 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v50"; // v50: "צילום תמונה" — a caregiver can now
+const SHELL_CACHE = "shell-v51"; // v51: "צילום תמונה" — a caregiver can now
 // photograph a card's picture in-app (new js/camera.js, getUserMedia +
 // <dialog>) or upload a file, everywhere a symbol picker exists (AAC
 // card/category, schedule, My Tasks, rules, rewards) — new js/image-scale.js
 // downscales client-side to the server's 1024px cap, new js/visual-picker.js
 // replaces the AAC-only picture control and the bare symbol pickers in the
-// other four editors, js/api.js gains a multipart upload().
+// other four editors, js/api.js gains a multipart upload(). Also: schedule
+// focus-view checkmark properly centred with a shadow (app.css); caregiver-
+// set reading/writing levels (learning/reading.js, writing.js, editor.js —
+// the child no longer picks their own level); a live "n/total" completion
+// pill on My Tasks and on Reading & Writing (tasks/index.js,
+// learning/index.js, app.css's shared .count-badge — renamed from
+// .tasks-badge now that both modules use it), matching the tokens pill,
+// switching per-tab in Reading & Writing.
 // v49: professional AAC board defaults —
 // capped/centred card sizing (board.js/app.css), part-of-speech colour
 // coding (tokens.css's --pos-* + editor.js), 32 new Mulberry symbols

@@ -1,9 +1,11 @@
 """Reading & typing practice ("קריאה והקלדה").
 
-Level-based: the child picks a level, works through tasks, and each completed
-task disappears (no repeats). Tokens are **not** awarded per task — every 3
-completed tasks in the same (kind, level) is a milestone worth a fixed number
-of tokens, released only when the caregiver enters their PIN.
+Level-based: the caregiver sets which level the child is shown (separately
+for reading and writing — see learning_settings, _child_level()), the child
+works through tasks at that level, and each completed task disappears (no
+repeats). Tokens are **not** awarded per task — every 3 completed tasks in
+the same (kind, level) is a milestone worth a fixed number of tokens,
+released only when the caregiver enters their PIN.
 
 Reading has no automatic check (no speech recognition — privacy decision); the
 child self-marks a text read. Typing is checked server-side by a lenient Hebrew
@@ -23,6 +25,7 @@ from app.repositories import learning as repo
 from app.repositories import tokens as tokens_repo
 from app.schemas.learning import (
     LearningClaimRequest,
+    LearningSettingsUpdate,
     ReadingCreate,
     ReadingDoneRequest,
     WritingAttemptRequest,
@@ -54,11 +57,21 @@ def _arg(name: str) -> str:
     return v
 
 
-def _level_arg() -> int:
+def _author_level_arg() -> int:
+    """The level a *caregiver* is browsing/authoring content for — an
+    explicit, caller-supplied query/body value. Never used to decide what a
+    child sees; see _child_level() for that."""
     raw = request.args.get("level", "1")
     if not raw.isdigit() or not (1 <= int(raw) <= 3):
         raise ApiError(422, "bad_level")
     return int(raw)
+
+
+def _child_level(child_id: str, kind: str) -> int:
+    """The level a child is actually shown, per the caregiver's own setting
+    (learning_settings) — never trusts a client-supplied level for this."""
+    settings = repo.get_settings(g.db, child_id)
+    return settings["reading_level" if kind == "reading" else "writing_level"]
 
 
 def _progress(child_id: str, kind: str, level: int) -> dict:
@@ -77,8 +90,9 @@ def _progress(child_id: str, kind: str, level: int) -> dict:
 @bp.get("/reading")
 @require_session
 def list_reading():
-    child_id, level = _arg("child_id"), _level_arg()
+    child_id = _arg("child_id")
     _own_child_or_404(child_id)
+    level = _child_level(child_id, "reading")
     done = repo.completed_task_ids(g.db, child_id, "reading", level)
     tasks = []
     for t in repo.list_reading(g.db, child_id, level):
@@ -94,21 +108,22 @@ def list_reading():
                 "audio_url": f"/api/media/{audio_id}" if audio_id else None,
             }
         )
-    return jsonify(tasks=tasks, progress=_progress(child_id, "reading", level))
+    return jsonify(level=level, tasks=tasks, progress=_progress(child_id, "reading", level))
 
 
 @bp.get("/writing")
 @require_session
 def list_writing():
-    child_id, level = _arg("child_id"), _level_arg()
+    child_id = _arg("child_id")
     _own_child_or_404(child_id)
+    level = _child_level(child_id, "writing")
     done = repo.completed_task_ids(g.db, child_id, "writing", level)
     tasks = [
         {"id": p["id"], "level": p["level"], "hint": p["hint"]}
         for p in repo.list_writing(g.db, child_id, level)
         if p["id"] not in done
     ]
-    return jsonify(tasks=tasks, progress=_progress(child_id, "writing", level))
+    return jsonify(level=level, tasks=tasks, progress=_progress(child_id, "writing", level))
 
 
 # --- completing a task --------------------------------------------
@@ -203,7 +218,7 @@ def claim():
 @bp.get("/tasks")
 @require_caregiver_mode
 def list_tasks():
-    child_id, level = _arg("child_id"), _level_arg()
+    child_id, level = _arg("child_id"), _author_level_arg()
     kind = _arg("kind")
     if kind not in ("reading", "writing"):
         raise ApiError(422, "bad_kind")
@@ -260,6 +275,28 @@ def delete_reading(text_id: str):
 def delete_writing(prompt_id: str):
     repo.delete_task(g.db, "writing", prompt_id)
     return "", 204
+
+
+# --- caregiver: the child's assigned levels -----------------------
+
+
+@bp.get("/settings")
+@require_session
+def get_settings():
+    child_id = _arg("child_id")
+    _own_child_or_404(child_id)
+    return jsonify(repo.get_settings(g.db, child_id))
+
+
+@bp.put("/settings")
+@require_caregiver_mode
+def update_settings():
+    data = parse_body(LearningSettingsUpdate)
+    _own_child_or_404(data.child_id)
+    values = data.model_dump(exclude_unset=True, exclude={"child_id"})
+    if not values:
+        return jsonify(repo.get_settings(g.db, data.child_id))
+    return jsonify(repo.upsert_settings(g.db, data.child_id, values))
 
 
 # --- caregiver progress view -------------------------------------

@@ -13,7 +13,12 @@ def _child(client) -> str:
 
 
 def _reading_ids(client, child_id, level=1):
-    r = client.get(f"/api/learning/reading?child_id={child_id}&level={level}").get_json()
+    # The child-facing route no longer takes a level query param — it reads
+    # the caregiver-assigned level from learning_settings. Level 1 is the
+    # default (no row needed); anything else requires setting it first.
+    if level != 1:
+        client.put("/api/learning/settings", json={"child_id": child_id, "reading_level": level})
+    r = client.get(f"/api/learning/reading?child_id={child_id}").get_json()
     return [t["id"] for t in r["tasks"]], r["progress"]
 
 
@@ -59,7 +64,7 @@ def test_writing_attempt_completes_only_when_correct(client, caregiver_mode):
     assert ok["correct"] is True and ok["target"] is None
     assert ok["progress"]["completed"] == 1
 
-    tasks = client.get(f"/api/learning/writing?child_id={child_id}&level=1").get_json()["tasks"]
+    tasks = client.get(f"/api/learning/writing?child_id={child_id}").get_json()["tasks"]
     assert "w1-shalom" not in [t["id"] for t in tasks]
 
 
@@ -167,6 +172,65 @@ def test_caregiver_editor_crud(client, caregiver_mode):
     assert client.delete(f"/api/learning/reading/{new_id}").status_code == 204
     ids, _ = _reading_ids(client, child_id, 2)
     assert new_id not in ids
+
+
+def test_default_level_is_one_with_no_settings_row(client, caregiver_mode):
+    child_id = _child(client)
+    settings = client.get(f"/api/learning/settings?child_id={child_id}").get_json()
+    assert settings == {"child_id": child_id, "reading_level": 1, "writing_level": 1}
+
+
+def test_caregiver_level_setting_overrides_client_supplied_level(client, caregiver_mode):
+    child_id = _child(client)
+    r = client.put("/api/learning/settings", json={"child_id": child_id, "reading_level": 2})
+    assert r.status_code == 200
+    body = r.get_json()
+    assert body["reading_level"] == 2
+    assert body["writing_level"] == 1  # untouched — only reading_level was sent
+
+    # User Mode now; a level query param the client sends is ignored — the
+    # server always resolves the child's own assigned level.
+    client.delete("/api/auth/pin/elevation")
+    for bogus in ("1", "3", "not-a-number"):
+        got = client.get(f"/api/learning/reading?child_id={child_id}&level={bogus}").get_json()
+        assert got["level"] == 2
+        assert all(t["level"] == 2 for t in got["tasks"])
+
+    # writing is untouched — still level 1
+    got = client.get(f"/api/learning/writing?child_id={child_id}").get_json()
+    assert got["level"] == 1
+
+
+def test_learning_settings_needs_caregiver_mode(client, caregiver_mode):
+    child_id = _child(client)
+    client.delete("/api/auth/pin/elevation")
+    r = client.put("/api/learning/settings", json={"child_id": child_id, "reading_level": 2})
+    assert r.status_code == 403
+
+
+def test_learning_settings_tenant_scoped(client, caregiver_mode, app):
+    child_id = _child(client)
+
+    other = app.test_client()
+    other.post(
+        "/api/auth/signup",
+        json={
+            "email": f"lnset-{child_id[:8]}@example.com",
+            "password": "test-password-123",
+            "display_name": "o",
+            "accept_terms": True,
+        },
+    )
+    other.put("/api/auth/pin", json={"pin": "1938"})
+    other.post("/api/auth/pin", json={"pin": "1938"})
+
+    assert other.get(f"/api/learning/settings?child_id={child_id}").status_code == 404
+    assert (
+        other.put(
+            "/api/learning/settings", json={"child_id": child_id, "reading_level": 2}
+        ).status_code
+        == 404
+    )
 
 
 def test_learning_tenant_scoped(client, caregiver_mode, app):

@@ -35,3 +35,9 @@ class WritingCreate(BaseModel):
     level: int = Field(ge=1, le=3)
     hint: str = Field(min_length=1, max_length=120)
     target: str = Field(min_length=1, max_length=300)
+
+
+class LearningSettingsUpdate(BaseModel):
+    child_id: str
+    reading_level: int | None = Field(default=None, ge=1, le=3)
+    writing_level: int | None = Field(default=None, ge=1, le=3)

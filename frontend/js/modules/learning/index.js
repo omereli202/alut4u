@@ -32,14 +32,30 @@ export async function renderLearning({ childId, childName, onExit, onHome }) {
     badge.setAttribute("aria-label", `${balance} אסימונים`);
   }
 
+  // Live "n/total" pill for whichever tab is open — reading and writing each
+  // report their own per-level progress (see reading.js/writing.js's
+  // onProgress), and switching tabs re-renders that tab from scratch, so the
+  // pill naturally follows whichever one is currently showing.
+  const countText = el("span", {}, "0/0");
+  const countBadge = el(
+    "div",
+    { class: "count-badge", "aria-label": "0 מתוך 0 הושלמו" },
+    icon("check_circle", { size: 22 }),
+    countText,
+  );
+  function setProgress({ completed, total }) {
+    countText.textContent = `${completed}/${total}`;
+    countBadge.setAttribute("aria-label", `${completed} מתוך ${total} הושלמו`);
+  }
+
   function show(key) {
     cleanup?.();
     tab = key;
     paintTabs();
     cleanup =
       key === "reading"
-        ? renderReading(host, { childId, onBalance: setBalance })
-        : renderWriting(host, { childId, onBalance: setBalance });
+        ? renderReading(host, { childId, onBalance: setBalance, onProgress: setProgress })
+        : renderWriting(host, { childId, onBalance: setBalance, onProgress: setProgress });
   }
 
   const tabsHost = el("div", { class: "cat-tabs segmented" });
@@ -75,7 +91,7 @@ export async function renderLearning({ childId, childName, onExit, onHome }) {
         onBack: leave,
         onHome: goHome,
         title: `קריאה והקלדה — ${childName || ""}`,
-        extra: badge,
+        extra: [countBadge, badge],
       }),
       tabsHost,
       host,

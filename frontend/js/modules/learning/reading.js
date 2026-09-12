@@ -7,41 +7,29 @@ import { api, ApiError } from "../../api.js";
 import { el, emptyState, errText, icon, toast } from "../../ui.js";
 import { pinGate } from "../../pin-gate.js";
 
-const EMPTY = { tasks: [], progress: { completed: 0, toward_next: 0, unclaimed: 0 } };
+const EMPTY = { level: 1, tasks: [], progress: { completed: 0, toward_next: 0, unclaimed: 0 } };
 
-export function renderReading(host, { childId, onBalance }) {
-  let level = 1;
+// The level itself is no longer the child's choice — the caregiver sets it
+// (learning_settings, editor.js) and the server resolves it server-side on
+// every /learning/reading call. `data.level` here is just what the server
+// used, kept around only so `claim()` below can report the right level back.
+export function renderReading(host, { childId, onBalance, onProgress }) {
   let data = EMPTY;
   let audio = null;
 
   async function load() {
     try {
-      data = await api.get(`/learning/reading?child_id=${childId}&level=${level}`);
+      data = await api.get(`/learning/reading?child_id=${childId}`);
     } catch {
       data = EMPTY;
     }
+    // Completed tasks don't come back in `data.tasks` (learning.py:97-111),
+    // so the total at this level is what's still showing plus what's done.
+    onProgress?.({
+      completed: data.progress.completed,
+      total: data.tasks.length + data.progress.completed,
+    });
     list();
-  }
-
-  function levelTabs() {
-    return el(
-      "div",
-      { class: "cat-tabs" },
-      ...[1, 2, 3].map((n) =>
-        el(
-          "button",
-          {
-            class: n === level ? "cat-tab active" : "cat-tab",
-            onclick: () => {
-              if (n === level) return;
-              level = n;
-              load();
-            },
-          },
-          `רמה ${n}`,
-        ),
-      ),
-    );
   }
 
   function progressRow() {
@@ -65,7 +53,6 @@ export function renderReading(host, { childId, onBalance }) {
       el(
         "div",
         { class: "learning-tab" },
-        levelTabs(),
         progressRow(),
         data.tasks.length
           ? el(
@@ -135,7 +122,7 @@ export function renderReading(host, { childId, onBalance }) {
           const res = await api.post("/learning/claim", {
             child_id: childId,
             kind: "reading",
-            level,
+            level: data.level,
           });
           onBalance?.(res.balance);
         } catch (e) {

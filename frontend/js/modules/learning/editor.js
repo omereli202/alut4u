@@ -9,6 +9,11 @@ export async function renderLearningEditor({ childId, childName, onExit }) {
   let kind = "reading";
   let level = 1;
   let tasks = [];
+  // The child's *actual* level (learning_settings) — separate from `level`
+  // above, which is only "which level am I authoring/browsing content for".
+  // Conflating the two would mean opening this editor to add a level-3 text
+  // silently bumped the child up to level 3.
+  let settings = { reading_level: 1, writing_level: 1 };
 
   async function load() {
     const id = encodeURIComponent(childId);
@@ -19,6 +24,51 @@ export async function renderLearningEditor({ childId, childName, onExit }) {
       toast(errText(e), "error");
     }
     render();
+  }
+
+  async function loadSettings() {
+    try {
+      settings = await api.get(`/learning/settings?child_id=${encodeURIComponent(childId)}`);
+    } catch (e) {
+      toast(errText(e), "error");
+    }
+  }
+
+  async function setChildLevel(field, n) {
+    if (settings[field] === n) return;
+    const prev = settings[field];
+    settings = { ...settings, [field]: n }; // optimistic
+    render();
+    try {
+      settings = await api.put("/learning/settings", { child_id: childId, [field]: n });
+    } catch (e) {
+      settings = { ...settings, [field]: prev };
+      toast(errText(e), "error");
+    }
+    render();
+  }
+
+  function childLevelPicker(label, field) {
+    return el(
+      "div",
+      { class: "field" },
+      el("label", {}, label),
+      el(
+        "div",
+        { class: "cat-tabs" },
+        ...[1, 2, 3].map((n) =>
+          el(
+            "button",
+            {
+              type: "button",
+              class: n === settings[field] ? "cat-tab active" : "cat-tab",
+              onclick: () => setChildLevel(field, n),
+            },
+            `רמה ${n}`,
+          ),
+        ),
+      ),
+    );
   }
 
   function tabBtn(k, label) {
@@ -143,6 +193,19 @@ export async function renderLearningEditor({ childId, childName, onExit }) {
           el("h1", {}, `עריכת קריאה והקלדה — ${childName}`),
           el("button", { class: "btn-link", onclick: onExit }, "חזרה"),
         ),
+        el(
+          "div",
+          { class: "card" },
+          el("h3", {}, "הרמה של הילד/ה כרגע"),
+          el(
+            "p",
+            { class: "muted" },
+            "כאן קובעים באיזו רמה הילד/ה יקבל/תקבל את מטלות הקריאה וההקלדה — בנפרד לכל אחד מהם.",
+          ),
+          childLevelPicker("קריאה", "reading_level"),
+          childLevelPicker("הקלדה", "writing_level"),
+        ),
+        el("h3", {}, "עריכת תוכן"),
         el("div", { class: "cat-tabs segmented" }, tabBtn("reading", "קריאה"), tabBtn("writing", "הקלדה")),
         el("div", { class: "cat-tabs" }, levelBtn(1), levelBtn(2), levelBtn(3)),
         el(
@@ -158,5 +221,6 @@ export async function renderLearningEditor({ childId, childName, onExit }) {
     );
   }
 
+  await loadSettings();
   await load();
 }

@@ -20,10 +20,35 @@ export async function renderMyTasks({ childId, childName, onExit, onHome }) {
   }
 
   const host = el("div", { class: "tasks-host" });
+  // Live "n/total" pill in the nav bar — same slot/pattern as the tokens
+  // count in modules/learning/index.js (a mutable text node updated in
+  // place, rather than rebuilding the whole nav bar on every tick).
+  const countText = el("span", {}, "0/0");
+  const badge = el(
+    "div",
+    { class: "count-badge", "aria-label": "0 מתוך 0 משימות הושלמו" },
+    icon("check_circle", { size: 22 }),
+    countText,
+  );
+  function setCount() {
+    const done = data.items.filter((t) => t.is_done).length;
+    const total = data.items.length;
+    countText.textContent = `${done}/${total}`;
+    badge.setAttribute("aria-label", `${done} מתוך ${total} משימות הושלמו`);
+    // No [hidden] reset in this codebase's CSS, so toggle display directly
+    // rather than the hidden attribute (which .count-badge's own
+    // display:inline-flex would otherwise just override).
+    badge.style.display = total === 0 ? "none" : "";
+  }
   const screen = el(
     "section",
     { class: "tasks", "data-mode": "user" },
-    navBar({ onBack: onExit, onHome: onHome ?? onExit, title: childName || "המשימות שלי" }),
+    navBar({
+      onBack: onExit,
+      onHome: onHome ?? onExit,
+      title: childName || "המשימות שלי",
+      extra: badge,
+    }),
     host,
   );
 
@@ -89,6 +114,7 @@ export async function renderMyTasks({ childId, childName, onExit, onHome }) {
   }
 
   function showList() {
+    setCount();
     host.replaceChildren(
       el(
         "div",

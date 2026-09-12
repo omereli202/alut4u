@@ -113,6 +113,11 @@ def test_b_cannot_touch_a_learning(two_caregivers):
         ).status_code
         == 404
     )
+    assert b.get(f"/api/learning/settings?child_id={cid}").status_code == 404
+    assert (
+        b.put("/api/learning/settings", json={"child_id": cid, "reading_level": 2}).status_code
+        == 404
+    )
 
 
 def test_b_cannot_touch_a_tasks(two_caregivers):
