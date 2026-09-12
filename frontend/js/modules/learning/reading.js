@@ -13,7 +13,7 @@ const EMPTY = { level: 1, tasks: [], progress: { completed: 0, toward_next: 0, u
 // (learning_settings, editor.js) and the server resolves it server-side on
 // every /learning/reading call. `data.level` here is just what the server
 // used, kept around only so `claim()` below can report the right level back.
-export function renderReading(host, { childId, onBalance }) {
+export function renderReading(host, { childId, onBalance, onProgress }) {
   let data = EMPTY;
   let audio = null;
 
@@ -23,6 +23,12 @@ export function renderReading(host, { childId, onBalance }) {
     } catch {
       data = EMPTY;
     }
+    // Completed tasks don't come back in `data.tasks` (learning.py:97-111),
+    // so the total at this level is what's still showing plus what's done.
+    onProgress?.({
+      completed: data.progress.completed,
+      total: data.tasks.length + data.progress.completed,
+    });
     list();
   }
 

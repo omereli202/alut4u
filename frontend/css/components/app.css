@@ -1559,9 +1559,10 @@ body[data-setup="1"] #main {
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
-/* Tasks-completed pill (nav bar) — same shape/weight as .token-badge, on the
-   module's own success hue so it reads as a sibling, not a louder cousin. */
-.tasks-badge {
+/* A "n/total completed" pill (nav bar) — same shape/weight as .token-badge,
+   on --color-success so it reads as a sibling, not a louder cousin. Shared
+   by My Tasks and Reading & Writing. */
+.count-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);

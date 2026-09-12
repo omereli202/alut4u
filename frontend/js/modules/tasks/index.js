@@ -26,7 +26,7 @@ export async function renderMyTasks({ childId, childName, onExit, onHome }) {
   const countText = el("span", {}, "0/0");
   const badge = el(
     "div",
-    { class: "tasks-badge", "aria-label": "0 מתוך 0 משימות הושלמו" },
+    { class: "count-badge", "aria-label": "0 מתוך 0 משימות הושלמו" },
     icon("check_circle", { size: 22 }),
     countText,
   );
@@ -36,7 +36,7 @@ export async function renderMyTasks({ childId, childName, onExit, onHome }) {
     countText.textContent = `${done}/${total}`;
     badge.setAttribute("aria-label", `${done} מתוך ${total} משימות הושלמו`);
     // No [hidden] reset in this codebase's CSS, so toggle display directly
-    // rather than the hidden attribute (which .tasks-badge's own
+    // rather than the hidden attribute (which .count-badge's own
     // display:inline-flex would otherwise just override).
     badge.style.display = total === 0 ? "none" : "";
   }

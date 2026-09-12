@@ -10,8 +10,10 @@
 const SHELL_CACHE = "shell-v50"; // v50: schedule focus-view checkmark
 // properly centred with a shadow (app.css); caregiver-set reading/writing
 // levels (learning/reading.js, writing.js, editor.js — the child no longer
-// picks their own level); a live "n/total" completion pill on My Tasks
-// (tasks/index.js, app.css's .tasks-badge), matching the tokens pill.
+// picks their own level); a live "n/total" completion pill on My Tasks and
+// on Reading & Writing (tasks/index.js, learning/index.js, app.css's shared
+// .count-badge — renamed from .tasks-badge now that both modules use it),
+// matching the tokens pill, switching per-tab in Reading & Writing.
 // v49: professional AAC board defaults —
 // capped/centred card sizing (board.js/app.css), part-of-speech colour
 // coding (tokens.css's --pos-* + editor.js), 32 new Mulberry symbols
