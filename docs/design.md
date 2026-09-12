@@ -279,9 +279,10 @@ A full-screen communication board for a non-speaking child, Hebrew, right-to-lef
 on a 10-inch tablet in landscape. Calm and uncluttered.
 
 Top bar, fixed: an exit icon button on the right (label "יציאה"), the child's
-name centred as the title, and on the left a small stepper labelled "גודל הרשת"
-with a minus button, a number, and a plus button (it changes the grid from 2 to
-5 columns).
+name centred as the title. No manual grid-size control — the board measures
+its own space and picks the column/row split itself, capping each card at a
+comfortable, roughly-square size so a sparse board (one or two cards) doesn't
+stretch them to fill the screen.
 
 Directly under the top bar: a sentence bar spanning the full width — a light
 raised strip, at least 76px tall, holding a horizontal row of word chips the
@@ -310,8 +311,10 @@ No gradients. Large touch targets everywhere.
 | `נקה` | clear |
 | (card labels) | `עוד` more, `בבקשה` please, `כן` yes, `לא` no, `מים` water |
 
-**Must include:** fixed top bar; sentence bar with chips + speak/backspace/clear;
-category tab strip; responsive card grid driven by a `--cols` variable (2–5).
+**Must include:** fixed top bar (no grid-size control); sentence bar with chips
++ speak/backspace/clear; category tab strip; a responsive card grid driven by
+`--cols`/`--rows`/`--cell-w`/`--cell-h` (board.js's `fitToGrid`), capped and
+centred rather than stretched full-bleed.
 **Also generate:** the load-error state (T3.5) and a phone-portrait layout.
 
 ---

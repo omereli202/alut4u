@@ -113,13 +113,13 @@
       "grammar": "Noun",
       "id": "egg",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "ביצה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "egg",
-      "status": "pending"
+      "status": "approved"
     },
     "1006": {
       "category_en": "Food Eggs",
@@ -1043,13 +1043,13 @@
       "grammar": "Noun",
       "id": "family",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "משפחה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "family",
-      "status": "pending"
+      "status": "approved"
     },
     "107": {
       "category_en": "Leisure Toys",
@@ -4286,14 +4286,16 @@
       "category_en": "Building Contents",
       "grammar": "Noun",
       "id": "bath",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "להתרחץ"
+      ],
+      "label_he": "אמבטיה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bath",
-      "status": "pending"
+      "status": "approved"
     },
     "1290": {
       "category_en": "Country Flags",
@@ -8061,26 +8063,26 @@
       "grammar": "Noun",
       "id": "grandfather",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סבא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grandfather",
-      "status": "pending"
+      "status": "approved"
     },
     "1547": {
       "category_en": "People Relationship",
       "grammar": "Noun",
       "id": "grandmother",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "סבתא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "grandmother",
-      "status": "pending"
+      "status": "approved"
     },
     "1548": {
       "category_en": "People Relationship",
@@ -10271,14 +10273,16 @@
       "category_en": "Question",
       "grammar": "Noun",
       "id": "how",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "כיצד"
+      ],
+      "label_he": "איך",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "how",
-      "status": "pending"
+      "status": "approved"
     },
     "1693": {
       "category_en": "Descriptive Quantity",
@@ -10311,13 +10315,13 @@
       "grammar": "Noun",
       "id": "hungry",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "רעב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "hungry",
-      "status": "pending"
+      "status": "approved"
     },
     "1696": {
       "category_en": "People Relationship",
@@ -13943,13 +13947,13 @@
       "grammar": "Noun",
       "id": "milk",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חלב",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "milk",
-      "status": "pending"
+      "status": "approved"
     },
     "1936": {
       "category_en": "Food Dairy",
@@ -15739,14 +15743,16 @@
       "category_en": "Descriptive Time",
       "grammar": "Noun",
       "id": "now",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מיד"
+      ],
+      "label_he": "עכשיו",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "now",
-      "status": "pending"
+      "status": "approved"
     },
     "2055": {
       "category_en": "People Profession",
@@ -17218,14 +17224,16 @@
       "category_en": "Food Pastas and rice",
       "grammar": "Noun",
       "id": "pasta",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "איטריות"
+      ],
+      "label_he": "פסטה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "pasta",
-      "status": "pending"
+      "status": "approved"
     },
     "2154": {
       "category_en": "Food Ingredients",
@@ -20847,13 +20855,13 @@
       "grammar": "Noun",
       "id": "rice",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אורז",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "rice",
-      "status": "pending"
+      "status": "approved"
     },
     "2396": {
       "category_en": "Food Pastas and rice",
@@ -21347,14 +21355,16 @@
       "category_en": "Sport",
       "grammar": "Verb",
       "id": "run",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ריצה"
+      ],
+      "label_he": "לרוץ",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "run_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "2429": {
       "category_en": "Alphabet",
@@ -21964,13 +21974,13 @@
       "grammar": "Noun",
       "id": "bread",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "לחם",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "bread",
-      "status": "pending"
+      "status": "approved"
     },
     "2470": {
       "category_en": "Food Breads and baking",
@@ -22158,14 +22168,17 @@
       "category_en": "Building School",
       "grammar": "Noun",
       "id": "school",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "גן",
+        "לימודים"
+      ],
+      "label_he": "בית ספר",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "school",
-      "status": "pending"
+      "status": "approved"
     },
     "2484": {
       "category_en": "Building School",
@@ -23133,13 +23146,13 @@
       "grammar": "Noun",
       "id": "shop",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "חנות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shop",
-      "status": "pending"
+      "status": "approved"
     },
     "2549": {
       "category_en": "Building Shop",
@@ -23236,14 +23249,16 @@
       "category_en": "Healthcare Grooming items",
       "grammar": "Noun",
       "id": "shower",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "להתקלח"
+      ],
+      "label_he": "מקלחת",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "shower",
-      "status": "pending"
+      "status": "approved"
     },
     "2556": {
       "category_en": "Healthcare Grooming activities",
@@ -23569,13 +23584,13 @@
       "grammar": "Noun",
       "id": "sister",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אחות",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "sister",
-      "status": "pending"
+      "status": "approved"
     },
     "2579": {
       "category_en": "Electrical Computer",
@@ -24244,13 +24259,13 @@
       "grammar": "Noun",
       "id": "soup",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מרק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "soup",
-      "status": "pending"
+      "status": "approved"
     },
     "2622": {
       "category_en": "Food Meals and snacks",
@@ -27291,13 +27306,13 @@
       "grammar": "Noun",
       "id": "thirsty",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "צמא",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "thirsty",
-      "status": "pending"
+      "status": "approved"
     },
     "2828": {
       "category_en": "Number",
@@ -27624,13 +27639,13 @@
       "grammar": "Noun",
       "id": "brother",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "אח",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "brother",
-      "status": "pending"
+      "status": "approved"
     },
     "2850": {
       "category_en": "Food Meals and snacks",
@@ -28146,14 +28161,16 @@
       "category_en": "Healthcare Grooming items",
       "grammar": "Noun",
       "id": "toothbrush",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לצחצח שיניים"
+      ],
+      "label_he": "מברשת שיניים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "toothbrush",
-      "status": "pending"
+      "status": "approved"
     },
     "2885": {
       "category_en": "Healthcare Grooming items",
@@ -30132,14 +30149,16 @@
       "category_en": "Healthcare Grooming activities",
       "grammar": "VerbComplex",
       "id": "wash-hands",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "ידיים נקיות"
+      ],
+      "label_he": "לשטוף ידיים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "wash_hands_,_to",
-      "status": "pending"
+      "status": "approved"
     },
     "3013": {
       "category_en": "Building Household tasks",
@@ -30282,14 +30301,16 @@
       "category_en": "Drink Type",
       "grammar": "Noun",
       "id": "water",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "לשתות מים"
+      ],
+      "label_he": "מים",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "water",
-      "status": "pending"
+      "status": "approved"
     },
     "3023": {
       "category_en": "Animal Activity Feeding",
@@ -30621,14 +30642,16 @@
       "category_en": "Question",
       "grammar": "Noun",
       "id": "what",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מה זה"
+      ],
+      "label_he": "מה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "what",
-      "status": "pending"
+      "status": "approved"
     },
     "3046": {
       "category_en": "Tools Garden",
@@ -30742,26 +30765,26 @@
       "grammar": "Noun",
       "id": "when",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מתי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "when",
-      "status": "pending"
+      "status": "approved"
     },
     "3054": {
       "category_en": "Question",
       "grammar": "Noun",
       "id": "where",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "איפה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "where",
-      "status": "pending"
+      "status": "approved"
     },
     "3055": {
       "category_en": "Question",
@@ -30872,13 +30895,13 @@
       "grammar": "Noun",
       "id": "who",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "מי",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "who",
-      "status": "pending"
+      "status": "approved"
     },
     "3063": {
       "category_en": "Descriptive Quantity",
@@ -30897,14 +30920,16 @@
       "category_en": "Question",
       "grammar": "Noun",
       "id": "why",
-      "keywords_he": [],
-      "label_he": "",
+      "keywords_he": [
+        "מדוע"
+      ],
+      "label_he": "למה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "why",
-      "status": "pending"
+      "status": "approved"
     },
     "3065": {
       "category_en": "People Relationship",
@@ -31541,13 +31566,13 @@
       "grammar": "Noun",
       "id": "yogurt",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "יוגורט",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "yogurt",
-      "status": "pending"
+      "status": "approved"
     },
     "3108": {
       "category_en": "Food Meals and snacks",
@@ -38483,13 +38508,13 @@
       "grammar": "Noun",
       "id": "cheese",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "גבינה",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "cheese",
-      "status": "pending"
+      "status": "approved"
     },
     "442": {
       "category_en": "Food Dairy",
@@ -39076,13 +39101,13 @@
       "grammar": "Noun",
       "id": "chocolate",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "שוקולד",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "chocolate",
-      "status": "pending"
+      "status": "approved"
     },
     "482": {
       "category_en": "Food Sweets and desserts",
@@ -43580,13 +43605,13 @@
       "grammar": "Noun",
       "id": "baby",
       "keywords_he": [],
-      "label_he": "",
+      "label_he": "תינוק",
       "locked": false,
-      "note": null,
+      "note": "self-certified translation (batch: professional AAC defaults, 2026-09-12)",
       "reviewed_at": null,
       "scrutiny": null,
       "src": "baby",
-      "status": "pending"
+      "status": "approved"
     },
     "790": {
       "category_en": "Country Maps",

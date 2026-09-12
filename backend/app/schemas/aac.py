@@ -1,6 +1,15 @@
 from __future__ import annotations
 
+from typing import Literal
+
 from pydantic import BaseModel, Field, model_validator
+
+# Modified Fitzgerald Key (softened palette — frontend/css/tokens.css's
+# --pos-* tokens). Kept in sync with the check constraint in
+# supabase/migrations/0028_aac_part_of_speech.sql.
+PartOfSpeech = Literal[
+    "pronoun", "verb", "adjective", "noun", "social", "question", "negation", "little", "adverb"
+]
 
 
 class CategoryCreate(BaseModel):
@@ -39,6 +48,7 @@ class CardCreate(BaseModel):
     category_id: str | None = None
     symbol_id: str | None = None
     icon_asset_id: str | None = None
+    part_of_speech: PartOfSpeech | None = None
     grid_order: int = 0
 
     @model_validator(mode="after")
@@ -55,6 +65,7 @@ class CardUpdate(BaseModel):
     symbol_id: str | None = None
     icon_asset_id: str | None = None
     audio_asset_id: str | None = None
+    part_of_speech: PartOfSpeech | None = None
     grid_order: int | None = None
 
     @model_validator(mode="after")

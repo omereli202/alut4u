@@ -38,6 +38,21 @@
   --color-border: #dcdfe6; /* hairline dividers / card outlines (decorative) */
   --color-border-strong: #737780; /* input outlines — needs >= 3:1 */
 
+  /* AAC part-of-speech colour coding (Modified Fitzgerald Key, softened to
+     clear WCAG AA as a border/text against --color-surface — see
+     docs/accessibility.md). Applied to a card's border + image tint in
+     frontend/js/modules/aac/board.js when the card has a part_of_speech;
+     falls back to the card's category colour otherwise. */
+  --pos-pronoun: #9a7b00; /* yellow — אני, אתה */
+  --pos-verb: #2f7d32; /* green — רוצה, לאכול */
+  --pos-adjective: #2563a5; /* blue — גדול, חם */
+  --pos-noun: #b25a12; /* orange — כדור, אמא */
+  --pos-social: #a8407a; /* pink — שלום, תודה */
+  --pos-question: #7345c4; /* purple — מה, איפה */
+  --pos-negation: #b3261e; /* red — לא, מספיק */
+  --pos-little: #5a6470; /* grey — על, עם */
+  --pos-adverb: #7a5230; /* brown — עכשיו, שוב */
+
   /* Spacing scale — unchanged (Stitch echoed it exactly) */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -104,6 +119,17 @@
     --color-focus: #8fc0ff;
     --color-border: #3a3f47;
     --color-border-strong: #8c929e;
+
+    /* Lightened for 4.5:1+ against the dark --color-surface. */
+    --pos-pronoun: #e0c34d;
+    --pos-verb: #8fcb79;
+    --pos-adjective: #8fc0ff;
+    --pos-noun: #f0b27a;
+    --pos-social: #e6a0c4;
+    --pos-question: #c6a8f0;
+    --pos-negation: #f0968a;
+    --pos-little: #b4b8c0;
+    --pos-adverb: #d0a983;
   }
 }
 

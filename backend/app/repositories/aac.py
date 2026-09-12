@@ -13,7 +13,7 @@ _CARDS = "aac_cards"
 
 _CARD_FIELDS = (
     "id, child_id, category_id, label, tts_text, symbol_id, icon_asset_id, "
-    "audio_asset_id, tts_asset_id, grid_order, created_at"
+    "audio_asset_id, tts_asset_id, part_of_speech, grid_order, created_at"
 )
 
 

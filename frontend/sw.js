@@ -7,7 +7,13 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v47"; // v47: "שכחתי סיסמה" — password reset with a
+const SHELL_CACHE = "shell-v48"; // v48: professional AAC board defaults —
+// capped/centred card sizing (board.js/app.css), part-of-speech colour
+// coding (tokens.css's --pos-* + editor.js), 32 new Mulberry symbols
+// (SYMBOLS_ASSET_V bump below), four rewritten board templates capped at 25
+// home-page tiles, folder tiles rendering before word cards, and a coloured
+// corner-ribbon shape marking a folder tile (board.js/app.css).
+// v47: "שכחתי סיסמה" — password reset with a
 // 6-digit email code (new /js/views/password-reset.js, .otp-input in
 // app.css); offline boot now hydrates from a cached session snapshot instead
 // of dying on the boot screen, and the sign-in card is properly centred.
@@ -110,7 +116,7 @@ const AUDIO_CACHE = "calming-audio-v1"; // calming .wav loops — its own
 // so precaching these in SHELL would never be looked up. Kept in sync with
 // CURATED in js/modules/painting/pages.js and with ui.js's SYMBOLS_VERSION by
 // test_painting_pages.py.
-const SYMBOLS_ASSET_V = "20260914e";
+const SYMBOLS_ASSET_V = "20260914f";
 const PAINT_PAGES = [
   "cat", "dog", "rabbit", "horse", "cow", "duck", "owl", "bear", "elephant",
   "fish", "frog", "butterfly", "snail", "turtle", "car", "bus", "train", "boat",

@@ -16,11 +16,16 @@ def test_board_template_seeds_categories_cards_and_tts(client, caregiver_mode):
     child_id = _child(client, template="basic-needs")
     board = client.get(f"/api/aac/board?child_id={child_id}").get_json()
 
-    assert [c["name"] for c in board["categories"]] == ["בסיסי", "פעולות"]
-    assert len(board["cards"]) == 12
+    assert [c["name"] for c in board["categories"]] == ["אוכל", "רגשות", "פעילויות"]
+    # 20 core words on the home page (category_id null) + 6 + 4 + 4 in the
+    # three topic folders.
+    assert len(board["cards"]) == 34
+    root_cards = [c for c in board["cards"] if c["category_id"] is None]
+    assert len(root_cards) == 20
     for card in board["cards"]:
         assert card["symbol_id"]
         assert card["tts_asset_id"], f"{card['label']} has no pre-generated audio"
+        assert card["part_of_speech"], f"{card['label']} has no part_of_speech"
 
 
 def test_card_lifecycle_and_tts_regen(client, caregiver_mode):
@@ -227,14 +232,47 @@ def test_full_board_template_seeds_nested_branch(client, caregiver_mode):
     board = client.get(f"/api/aac/board?child_id={child_id}").get_json()
     by_name = {c["name"]: c for c in board["categories"]}
 
-    assert by_name["אוכל"]["parent_id"] is None
+    # Seven top-level topic folders, plus אוכל's two nested sub-categories.
+    assert {c["name"] for c in board["categories"] if c["parent_id"] is None} == {
+        "אוכל",
+        "רגשות",
+        "אנשים",
+        "מקומות",
+        "פעילויות",
+        "גוף וכאב",
+        "בגדים",
+    }
     assert by_name["פירות"]["parent_id"] == by_name["אוכל"]["id"]
     assert by_name["ירקות"]["parent_id"] == by_name["אוכל"]["id"]
     fruit_id = by_name["פירות"]["id"]
     assert {c["label"] for c in board["cards"] if c["category_id"] == fruit_id} == {"תפוח", "בננה"}
 
-    colours = [by_name[n]["color"] for n in ("פעולות", "אוכל", "פירות", "ירקות")]
+    colours = [by_name[n]["color"] for n in ("רגשות", "אוכל", "פירות", "ירקות", "אנשים", "מקומות")]
     assert all(colours) and len(set(colours)) == len(colours)  # each distinct
+
+    # 18 core words sit on the home page (category_id null), colour-coded by
+    # part of speech rather than by category — capped so 18 words + 7 folders
+    # keeps the home page at 25 tiles total.
+    root_cards = [c for c in board["cards"] if c["category_id"] is None]
+    root_categories = [c for c in board["categories"] if c["parent_id"] is None]
+    assert len(root_cards) == 18
+    assert len(root_categories) + len(root_cards) == 25  # the home-page cap
+    assert all(c["part_of_speech"] for c in root_cards)
+
+    # Words cut from the home page to make room still ship, moved into the
+    # topic folder they fit thematically — and keep their own colour there.
+    moved = {
+        "חם": "רגשות",
+        "קר": "רגשות",
+        "מי": "אנשים",
+        "איפה": "מקומות",
+        "גדול": "בגדים",
+        "קטן": "בגדים",
+    }
+    label_to_card = {c["label"]: c for c in board["cards"]}
+    for label, folder in moved.items():
+        assert label_to_card[label]["category_id"] == by_name[folder]["id"]
+        assert label_to_card[label]["part_of_speech"]
 
 
 def test_new_category_gets_a_distinct_colour(client, caregiver_mode):
