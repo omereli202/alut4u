@@ -9,7 +9,7 @@ from __future__ import annotations
 import io
 from dataclasses import dataclass
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 MAX_IMAGE_BYTES = 4 * 1024 * 1024
 MAX_AUDIO_BYTES = 5 * 1024 * 1024
@@ -49,6 +49,10 @@ def process_image(raw: bytes) -> ProcessedMedia:
     except Exception as e:  # Pillow raises many types
         raise MediaError("not a valid image") from e
 
+    # A phone/tablet camera photo carries its rotation in an EXIF tag rather
+    # than in the pixels — Pillow does not apply it automatically, so without
+    # this a portrait photo is stored (and later served) sideways.
+    img = ImageOps.exif_transpose(img)
     img = img.convert("RGBA" if img.mode in ("RGBA", "LA", "P") else "RGB")
     img.thumbnail((MAX_IMAGE_DIM, MAX_IMAGE_DIM))
 

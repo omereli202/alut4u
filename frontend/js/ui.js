@@ -223,6 +223,10 @@ export function errText(e) {
     invalid_code: "הקוד שגוי או שפג תוקפו — בקשו קוד חדש",
     weak_password: "הסיסמה חלשה מדי — לפחות 8 תווים",
     same_password: "הסיסמה החדשה זהה לקודמת — בחרו אחרת",
+    invalid_media: "לא ניתן להעלות את הקובץ הזה",
+    bad_kind: "לא ניתן להעלות את הקובץ הזה",
+    no_file: "לא נבחר קובץ",
+    voice_consent_required: "יש לאשר הקלטת קול במסך ההגדרות לפני ההקלטה",
   };
   return map[e?.code] || e?.body?.detail || "אירעה שגיאה, נסו שוב";
 }

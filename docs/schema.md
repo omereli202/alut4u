@@ -24,7 +24,11 @@ Source of truth is `supabase/migrations/`. This doc is the map.
 | `usage_counters` | `(caregiver_id, period 'YYYY-MM')` → tts_chars / image_count / llm_tokens. | owner (select) |
 | `audit_log` | Sensitive actions. | none — service role only |
 
-Enums: `consent_basis`, `media_kind`.
+Enums: `consent_basis`, `media_kind` (`card_icon`, `card_audio`, `schedule_icon`,
+`rule_audio`, `tts_cache`, `story_image`; `schedule_icon` is sent by every
+non-AAC upload — schedule items, `task_items`, `behavior_rules`, `rewards` —
+not only `schedule_items`, kept as one label rather than adding a new enum
+value per table).
 
 ## AAC (migration 0002, Phase 2)
 
@@ -70,9 +74,11 @@ note record how it was written; `typing_settings` (per-child, PK `child_id`,
 like `rules_settings`) is only the default for a new note — no row = defaults.
 Both are in the account export; erasure is FK cascade.
 
-`task_items` / `task_settings` (migration 0025) — the "המשימות שלי" checklist
-(8th `module_settings` column `tasks_enabled`). A task has a `title`, optional
-`symbol_id`, and `recurrence` (`daily`|`once`); "done" is the single
+`task_items` / `task_settings` (migration 0025; `icon_asset_id` added in 0033) —
+the "המשימות שלי" checklist (8th `module_settings` column `tasks_enabled`). A
+task has a `title`, **either** `symbol_id` **or** `icon_asset_id` (CHECK — same
+rule as `aac_cards`/`schedule_items`/`rewards`), and `recurrence`
+(`daily`|`once`); "done" is the single
 `completed_on` date (= the child's local date of the tick), so a daily task
 resets itself and a one-off task disappears the day after it's finished — no
 sweep. `task_settings` (per-child, PK `child_id`, like `rules_settings`):

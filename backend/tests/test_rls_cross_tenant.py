@@ -144,6 +144,10 @@ def test_b_cannot_touch_a_tasks(two_caregivers):
         b.post("/api/tasks/claim", json={"child_id": cid, "the_date": "2026-09-06"}).status_code
         == 404
     )
+    assert (
+        b.patch(f"/api/tasks/items/{task['id']}", json={"icon_asset_id": "whatever"}).status_code
+        == 404
+    )
     # A's task is untouched
     assert a.get(f"/api/tasks/items?child_id={cid}").get_json()["items"][0]["title"] == "משימה של A"
 

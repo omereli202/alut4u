@@ -11,7 +11,8 @@ _ITEMS = "task_items"
 _SETTINGS = "task_settings"
 
 _ITEM_FIELDS = (
-    "id, child_id, title, symbol_id, tts_asset_id, recurrence, sort_order, completed_on, created_at"
+    "id, child_id, title, symbol_id, icon_asset_id, tts_asset_id, recurrence, "
+    "sort_order, completed_on, created_at"
 )
 
 _DEFAULT_SETTINGS = {"reward_tokens": 1, "last_reward_date": None}

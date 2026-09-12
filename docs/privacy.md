@@ -7,7 +7,13 @@ policy, terms, and DPA before public launch.
 
 ## Data we deliberately do NOT store server-side
 
-- **Family photos** — feature cut. Calming Zone uses a bundled non-personal set.
+- **Photos of people** — the camera/upload control on a card, schedule item,
+  task, rule or reward is for photographing an *object* (a cup, a school bag,
+  a snack), and the UI says so. There is no face detection or gallery
+  scanning, so this is guidance shown to the caregiver, not an enforced
+  control. Calming Zone still uses only a bundled, non-personal image set — no
+  family album, no photo library feature, no sharing of photos between
+  accounts.
 - **The child's speech audio** — reading practice is caregiver pass/fail; no
   recording, no STT, nothing sent to any third party.
 
@@ -19,6 +25,7 @@ policy, terms, and DPA before public launch.
 | Child name, birth date, avatar seed | caregiver-provided | Minimal. Birth date optional. |
 | `consent_basis` + `consent_records` | legal obligation | Who consented, to what, which terms version, when, IP/UA. |
 | Module settings, AAC cards, schedule, tokens, progress history | contract | The product. |
+| Caregiver-attached item photos | caregiver-provided | Optional, on a card/schedule item/task/rule/reward. Downscaled on-device, re-encoded server-side (EXIF incl. GPS stripped), private bucket, served only via `/api/media/<id>` behind the session. Deleted with the item and by account deletion. |
 | Caregiver voice recordings | **explicit consent** | Only after `voice_consent_at`; UI disabled until then. |
 | TTS audio cache | legitimate interest | Derived from card text; deduped; no personal identifier. |
 | `usage_counters`, `audit_log` | legitimate interest / legal | Quotas, security, compliance. |

@@ -3,22 +3,31 @@ from __future__ import annotations
 from datetime import date
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 Recurrence = Literal["daily", "once"]
 
 
-class TaskCreate(BaseModel):
+class _Visual(BaseModel):
+    symbol_id: str | None = None
+    icon_asset_id: str | None = None
+
+    @model_validator(mode="after")
+    def _one_visual(self):
+        if self.symbol_id and self.icon_asset_id:
+            raise ValueError("either a symbol or an uploaded icon, not both")
+        return self
+
+
+class TaskCreate(_Visual):
     child_id: str
     title: str = Field(min_length=1, max_length=80)
-    symbol_id: str | None = None
     recurrence: Recurrence = "daily"
     sort_order: int = 0
 
 
-class TaskUpdate(BaseModel):
+class TaskUpdate(_Visual):
     title: str | None = Field(default=None, min_length=1, max_length=80)
-    symbol_id: str | None = None
     recurrence: Recurrence | None = None
     sort_order: int | None = None
 

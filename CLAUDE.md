@@ -33,10 +33,18 @@ asking.
 3. **Hebrew only, RTL.** No i18n layer, no `t()` wrappers. Strings are Hebrew
    literals. CSS uses logical properties (`margin-inline-start`, not
    `margin-left`). `dir="rtl"` on `<html>`.
-4. **Do not store family photos or the child's speech audio.** Server-side.
-   Ever. Caregiver voice recordings ARE allowed but only after
-   `caregivers.voice_consent_at` is set — the recording UI stays disabled until
-   then.
+4. **No photos of people, and never the child's speech audio.** Server-side.
+   Ever. A caregiver MAY attach a photo of an *object* to a card, schedule
+   item, task, rule or reward — taken with the in-app camera or picked from
+   the gallery — and the UI says so in Hebrew next to the camera button. There
+   is no face detection and no gallery-scanning: "objects, not people" is
+   guidance shown to the caregiver, not an enforced rule. Photos are
+   downscaled on-device before upload and re-encoded server-side (EXIF,
+   including GPS, is stripped), stored in the private media bucket, and served
+   only through `/api/media/<id>` behind the session — same pipeline as a
+   bundled symbol otherwise. Caregiver voice recordings ARE allowed but only
+   after `caregivers.voice_consent_at` is set — the recording UI stays
+   disabled until then.
 5. **No Whisper / STT.** Reading practice is caregiver-marks-pass/fail. No audio
    recorded or transmitted for the child.
 6. **Offline-first for AAC + schedule.** TTS audio is pre-generated on save (not
@@ -171,6 +179,14 @@ supabase db push                       # apply to the linked project
   don't vanish), rest a palm on the screen (only the first pointer draws).
 - Accessibility: axe-core in CI; manual keyboard-only + 200% zoom +
   `prefers-reduced-motion` + 60px touch targets in User Mode.
+- Camera capture (manual, real tablet): in the AAC card editor tap "צלם תמונה"
+  → grant permission → capture → "צילום מחדש" → capture again → "אישור" → the
+  card saves with the photo and the child board renders it right-side-up
+  (a portrait photo must not come out sideways) → airplane mode → the photo
+  still renders → reconnect. Also: deny the permission prompt once and confirm
+  a Hebrew toast appears with no dead/stuck dialog; cancel mid-capture and
+  confirm the camera's hardware indicator light goes out. Repeat once in the
+  schedule editor to confirm the shared picker works there too.
 
 ## Current phase
 

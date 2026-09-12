@@ -2,11 +2,11 @@
 // for one child.
 
 import { api } from "../../api.js";
-import { el, errText, icon, mount, symbolUrl, toast, withBusy } from "../../ui.js";
+import { el, errText, icon, mount, toast, visual, withBusy } from "../../ui.js";
 import { confirmDialog, destructiveDialog } from "../../dialog.js";
+import { createVisualPicker } from "../../visual-picker.js";
 import { renderAacBoard } from "./board.js";
 import { recordClip } from "./recorder.js";
-import { createSymbolPicker } from "./symbol-picker.js";
 
 // Keep in sync with _CATEGORY_PALETTE in backend/app/api/aac.py — the same
 // hues the backend auto-assigns to a new category with no colour.
@@ -170,13 +170,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
   }
 
   function catThumb(cat) {
-    if (cat.symbol_id) {
-      return el("img", { class: "editor-thumb", src: symbolUrl(cat.symbol_id), alt: "" });
-    }
-    if (cat.icon_asset_id) {
-      return el("img", { class: "editor-thumb", src: `/api/media/${cat.icon_asset_id}`, alt: "" });
-    }
-    return el("span", { class: "editor-thumb editor-thumb-text" }, cat.name.slice(0, 2));
+    return visual(cat, "editor-thumb");
   }
 
   function cardRow(card, catId) {
@@ -224,13 +218,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
   }
 
   function cardThumb(card) {
-    if (card.symbol_id) {
-      return el("img", { class: "editor-thumb", src: symbolUrl(card.symbol_id), alt: "" });
-    }
-    if (card.icon_asset_id) {
-      return el("img", { class: "editor-thumb", src: `/api/media/${card.icon_asset_id}`, alt: "" });
-    }
-    return el("span", { class: "editor-thumb editor-thumb-text" }, card.label.slice(0, 2));
+    return visual(card, "editor-thumb");
   }
 
   async function move(siblings, i, delta) {
@@ -272,74 +260,6 @@ export async function renderAacEditor({ childId, childName, onExit }) {
     dlg.addEventListener("close", () => dlg.remove(), { once: true });
     dlg.showModal();
     renderAacBoard({ childId, childName, preview: true, host: previewHost, onExit: () => dlg.close() });
-  }
-
-  // --- shared picture control (card form + category form) ----------------
-
-  // Mutates `state.symbol_id` / `state.icon_asset_id` in place and calls
-  // `onChange` after every pick/upload/clear. The two are mutually exclusive
-  // (same rule the backend enforces), so setting one clears the other.
-  function visualEditor(state, onChange) {
-    const preview = el("div", { class: "visual-preview" });
-    function refresh() {
-      if (state.symbol_id) {
-        preview.replaceChildren(el("img", { src: symbolUrl(state.symbol_id), alt: "" }));
-      } else if (state.icon_asset_id) {
-        preview.replaceChildren(el("img", { src: `/api/media/${state.icon_asset_id}`, alt: "" }));
-      } else {
-        preview.replaceChildren(el("span", { class: "muted" }, "אין תמונה"));
-      }
-    }
-    refresh();
-
-    const picker = createSymbolPicker((s) => {
-      state.symbol_id = s.id;
-      state.icon_asset_id = null;
-      refresh();
-      onChange?.();
-    });
-
-    const iconInput = el("input", {
-      type: "file",
-      accept: "image/png,image/jpeg,image/webp",
-      onchange: async (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        try {
-          const up = await uploadMedia("card_icon", file);
-          state.icon_asset_id = up.id;
-          state.symbol_id = null;
-          refresh();
-          onChange?.();
-        } catch (err) {
-          toast(errText(err), "error");
-        }
-      },
-    });
-
-    const clearBtn = el(
-      "button",
-      {
-        type: "button",
-        class: "btn-link",
-        onclick: () => {
-          state.symbol_id = null;
-          state.icon_asset_id = null;
-          refresh();
-          onChange?.();
-        },
-      },
-      "הסר תמונה",
-    );
-
-    return el(
-      "div",
-      { class: "visual-editor" },
-      preview,
-      picker,
-      el("label", { class: "file-row" }, "או העלאת תמונה משלך: ", iconInput),
-      clearBtn,
-    );
   }
 
   // Flattened category <select>, indented by depth. `excludeId` (and its
@@ -427,7 +347,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
       el("p", { class: "muted" }, "צבע:"),
       swatchRow,
       el("p", { class: "muted" }, "תמונה:"),
-      visualEditor(state, null),
+      createVisualPicker({ childId, state, kind: "card_icon", onChange: null }),
       el(
         "div",
         { class: "form-actions" },
@@ -490,7 +410,7 @@ export async function renderAacEditor({ childId, childName, onExit }) {
       el("div", { class: "field" }, el("label", {}, "קטגוריה"), catSelect),
       el("div", { class: "field" }, el("label", {}, "חלק דיבר (צבע הכרטיס)"), posSel),
       el("p", { class: "muted" }, "תמונה:"),
-      visualEditor(state, null),
+      createVisualPicker({ childId, state, kind: "card_icon", onChange: null }),
       el(
         "div",
         { class: "audio-row" },
@@ -593,7 +513,11 @@ export async function renderAacEditor({ childId, childName, onExit }) {
       const blob = await session.stop();
       stopBtn.onclick = null;
       try {
-        const up = await uploadMedia("card_audio", new File([blob], "clip.webm", { type: blob.type }));
+        const up = await api.upload(
+          "/media",
+          { kind: "card_audio", child_id: childId },
+          new File([blob], "clip.webm", { type: blob.type }),
+        );
         setId(up.id);
         statusEl.textContent = "הוקלט";
       } catch (err) {
@@ -601,17 +525,6 @@ export async function renderAacEditor({ childId, childName, onExit }) {
         toast(errText(err), "error");
       }
     };
-  }
-
-  async function uploadMedia(kind, file) {
-    const fd = new FormData();
-    fd.append("kind", kind);
-    fd.append("child_id", childId);
-    fd.append("file", file);
-    const res = await fetch("/api/media", { method: "POST", credentials: "include", body: fd });
-    const body = await res.json().catch(() => null);
-    if (!res.ok) throw Object.assign(new Error("upload"), { code: body?.error, body });
-    return body;
   }
 
   function field(name, label, value, attrs = {}) {

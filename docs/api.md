@@ -199,8 +199,9 @@ input ≤ 1500 (`422 text_too_long_for_speech`).
 
 ## המשימות שלי (My Tasks) — `/api/tasks`
 
-A personal checklist the child ticks off. Each task is `{title, symbol_id?,
-recurrence}` where `recurrence` is `daily` (back to not-done each day) or `once`
+A personal checklist the child ticks off. Each task is `{title, symbol_id? |
+icon_asset_id?, recurrence}` (either a bundled symbol or an uploaded/photographed
+icon, not both) where `recurrence` is `daily` (back to not-done each day) or `once`
 (stays visible while unfinished or finished today; gone from tomorrow). "Done"
 is a single `completed_on` date — the daily reset needs no cron.
 
@@ -217,7 +218,7 @@ sends `the_date`, the server sets `completed_on` to it (or null), idempotently.
 | GET | `/day?child_id=&date=` | S | `{items:[{…, is_done}], reward_tokens, reward_claimed, all_done}` — tasks due that date. User Mode uses this. |
 | POST | `/toggle` | S | `{task_id, the_date, completed, idempotency_key?}` → the updated item. **Idempotent** (offline outbox replays it). |
 | GET | `/items?child_id=` | C | `{items:[…], reward_tokens}` — the full list, including one-off tasks finished on an earlier day. |
-| POST | `/items` | C | `{child_id, title, symbol_id?, recurrence?"daily"\|"once", sort_order?}`. Pre-generates TTS. |
+| POST | `/items` | C | `{child_id, title, symbol_id? \| icon_asset_id?, recurrence?"daily"\|"once", sort_order?}`. Pre-generates TTS. |
 | PATCH | `/items/<id>` | C | any field; regenerates TTS if `title` changes. |
 | DELETE | `/items/<id>` | C | 204 |
 | PUT | `/items/order` | C | `{child_id, order:[id,…]}` |

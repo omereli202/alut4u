@@ -14,7 +14,7 @@ The authoritative phase plan. Mirrors the approved implementation plan.
 | Voice | Azure Speech `he-IL` neural TTS + caregiver recordings. No cloning. |
 | Device | Kiosk-style shared tablet. One sign-in, no session expiry, PIN → Caregiver Mode. |
 | Market | Worldwide (Hebrew speakers). GDPR + COPPA in scope. |
-| Icons | Bundled symbol library + caregiver uploads. |
+| Icons | Bundled symbol library + caregiver uploads or in-app camera capture. |
 | First run | Starter board templates (2–3 levels). |
 | Notifications | In-app queue only. |
 | Billing | Not in MVP; schema stays migration-friendly for it. |

@@ -7,7 +7,14 @@
  * - Other /api/*: network-only.
  */
 
-const SHELL_CACHE = "shell-v49"; // v49: professional AAC board defaults —
+const SHELL_CACHE = "shell-v50"; // v50: "צילום תמונה" — a caregiver can now
+// photograph a card's picture in-app (new js/camera.js, getUserMedia +
+// <dialog>) or upload a file, everywhere a symbol picker exists (AAC
+// card/category, schedule, My Tasks, rules, rewards) — new js/image-scale.js
+// downscales client-side to the server's 1024px cap, new js/visual-picker.js
+// replaces the AAC-only picture control and the bare symbol pickers in the
+// other four editors, js/api.js gains a multipart upload().
+// v49: professional AAC board defaults —
 // capped/centred card sizing (board.js/app.css), part-of-speech colour
 // coding (tokens.css's --pos-* + editor.js), 32 new Mulberry symbols
 // (SYMBOLS_ASSET_V bump below), four rewritten board templates capped at 25
@@ -142,6 +149,9 @@ const SHELL = [
   "/js/ui.js",
   "/js/dialog.js",
   "/js/pin-gate.js",
+  "/js/camera.js",
+  "/js/image-scale.js",
+  "/js/visual-picker.js",
   "/js/views/auth.js",
   "/js/views/password-reset.js",
   "/js/views/pinpad.js",

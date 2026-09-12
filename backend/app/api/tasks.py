@@ -111,6 +111,7 @@ def create_item():
     values = {
         "title": data.title,
         "symbol_id": data.symbol_id,
+        "icon_asset_id": data.icon_asset_id,
         "recurrence": data.recurrence,
         "sort_order": data.sort_order,
         "tts_asset_id": tts_cache.ensure_tts_asset(data.title),
@@ -126,7 +127,11 @@ def update_item(task_id: str):
         raise ApiError(404, "not_found")
     data = parse_body(TaskUpdate)
     patch = data.model_dump(exclude_unset=True)
-    values = {k: patch[k] for k in patch if k in {"title", "symbol_id", "recurrence", "sort_order"}}
+    values = {
+        k: patch[k]
+        for k in patch
+        if k in {"title", "symbol_id", "icon_asset_id", "recurrence", "sort_order"}
+    }
     if "title" in values:
         values["tts_asset_id"] = tts_cache.ensure_tts_asset(values["title"])
     return jsonify(_clean(repo.update_item(g.db, task_id, values)))

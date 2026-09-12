@@ -279,6 +279,26 @@ hr {
   margin: 0;
 }
 
+/* In-app camera capture (frontend/js/camera.js) — live preview / captured
+   still, swapped in place inside one fixed-aspect frame so the dialog doesn't
+   jump size between the two states. No transition here: no motion to guard
+   under prefers-reduced-motion in the first place. */
+.camera-dialog {
+  max-inline-size: 480px;
+}
+.camera-frame {
+  aspect-ratio: 4 / 3;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.camera-video,
+.camera-shot {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
 /* Empty / celebration states (T3.13) — shared by any screen that previously
    hand-rolled its own version of one of these. */
 .empty-state {
@@ -1155,8 +1175,11 @@ body[data-setup="1"] #main {
   border-radius: var(--radius-sm);
 }
 
-/* Card form */
-.card-form .visual-preview {
+/* Visual picker preview — shared by the card form and every other editor that
+   attaches a picture (schedule / My Tasks / rules / rewards). Was scoped to
+   .card-form only; those forms aren't .card-form, so without this a photo
+   rendered at full intrinsic size and blew the form apart. */
+.visual-editor .visual-preview {
   inline-size: 96px;
   block-size: 96px;
   display: flex;
@@ -1166,9 +1189,12 @@ body[data-setup="1"] #main {
   border-radius: var(--radius-md);
   margin-block: var(--space-2);
 }
-.card-form .visual-preview img {
+.visual-editor .visual-preview img {
   max-inline-size: 100%;
   max-block-size: 100%;
+}
+.visual-privacy-note {
+  max-inline-size: 40ch;
 }
 .symbol-picker {
   margin-block: var(--space-3);

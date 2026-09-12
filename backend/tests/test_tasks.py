@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import io
+import struct
 import uuid
+import zlib
 
 from tests.conftest import requires_supabase
 
@@ -14,6 +17,36 @@ def _child(client) -> str:
     return client.post("/api/children", json={"name": "ילד", "consent_basis": "parent"}).get_json()[
         "id"
     ]
+
+
+def _png(size: int = 8) -> bytes:
+    def chunk(tag: bytes, data: bytes) -> bytes:
+        return (
+            struct.pack(">I", len(data))
+            + tag
+            + data
+            + struct.pack(">I", zlib.crc32(tag + data) & 0xFFFFFFFF)
+        )
+
+    raw = (b"\x00" + b"\x64\x64\x64" * size) * size
+    return (
+        b"\x89PNG\r\n\x1a\n"
+        + chunk(b"IHDR", struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0))
+        + chunk(b"IDAT", zlib.compress(raw, 9))
+        + chunk(b"IEND", b"")
+    )
+
+
+def _icon(client, child_id) -> str:
+    """Upload a photo/icon the same way the camera/file-picker path does, and
+    return its asset id — same 'kind' as schedule/rules/rewards uploads."""
+    up = client.post(
+        "/api/media",
+        data={"kind": "schedule_icon", "child_id": child_id, "file": (io.BytesIO(_png()), "x.png")},
+        content_type="multipart/form-data",
+    )
+    assert up.status_code == 201
+    return up.get_json()["id"]
 
 
 def _task(client, child_id, title, *, recurrence="daily", order=0):
@@ -200,3 +233,56 @@ def test_tasks_are_tenant_scoped(client, caregiver_mode, app):
         ).status_code
         == 404
     )
+
+
+def test_task_icon_round_trips(client, caregiver_mode):
+    cid = _child(client)
+    asset_id = _icon(client, cid)
+    task = client.post(
+        "/api/tasks/items",
+        json={
+            "child_id": cid,
+            "title": "כוס שלי",
+            "icon_asset_id": asset_id,
+            "recurrence": "daily",
+        },
+    ).get_json()
+    assert task["icon_asset_id"] == asset_id
+    assert task["symbol_id"] is None
+
+    listed = client.get(f"/api/tasks/items?child_id={cid}").get_json()["items"]
+    assert listed[0]["icon_asset_id"] == asset_id
+
+    day = client.get(f"/api/tasks/day?child_id={cid}&date={DAY}").get_json()["items"]
+    assert day[0]["icon_asset_id"] == asset_id
+
+
+def test_task_one_visual_enforced(client, caregiver_mode):
+    cid = _child(client)
+    r = client.post(
+        "/api/tasks/items",
+        json={
+            "child_id": cid,
+            "title": "x",
+            "symbol_id": "eat",
+            "icon_asset_id": "whatever",
+            "recurrence": "daily",
+        },
+    )
+    assert r.status_code == 422
+
+
+def test_task_patch_can_swap_symbol_for_icon(client, caregiver_mode):
+    cid = _child(client)
+    task = client.post(
+        "/api/tasks/items",
+        json={"child_id": cid, "title": "x", "symbol_id": "eat", "recurrence": "daily"},
+    ).get_json()
+
+    asset_id = _icon(client, cid)
+    patched = client.patch(
+        f"/api/tasks/items/{task['id']}",
+        json={"symbol_id": None, "icon_asset_id": asset_id},
+    ).get_json()
+    assert patched["symbol_id"] is None
+    assert patched["icon_asset_id"] == asset_id

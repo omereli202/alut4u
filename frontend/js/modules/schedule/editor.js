@@ -2,8 +2,8 @@
 
 import { api } from "../../api.js";
 import { destructiveDialog } from "../../dialog.js";
-import { el, errText, icon, mount, symbolUrl, toast, withBusy } from "../../ui.js";
-import { createSymbolPicker } from "../aac/symbol-picker.js";
+import { el, errText, icon, mount, toast, withBusy } from "../../ui.js";
+import { createVisualPicker } from "../../visual-picker.js";
 import { todayISO } from "./data.js";
 
 export async function renderScheduleEditor({ childId, childName, onExit }) {
@@ -143,25 +143,19 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
   }
 
   function itemForm() {
-    let symbolId = null;
-    const preview = el("span", { class: "muted" }, "בחר סמל (רשות)");
-    const picker = createSymbolPicker((s) => {
-      symbolId = s.id;
-      preview.replaceChildren(el("img", { class: "editor-thumb", src: symbolUrl(s.file_path), alt: s.label_he }));
-    });
+    const visualState = { symbol_id: null, icon_asset_id: null };
     return el(
       "form",
-      { class: "sched-item-form", onsubmit: (e) => addItem(e, () => symbolId) },
+      { class: "sched-item-form", onsubmit: (e) => addItem(e, visualState) },
       el("input", { name: "title", type: "text", required: true, maxlength: 80, placeholder: "שם המשימה" }),
       el("input", { name: "start_time", type: "time", "aria-label": "שעה" }),
-      preview,
-      picker,
+      createVisualPicker({ childId, state: visualState, kind: "schedule_icon", onChange: null }),
       el("button", { type: "submit", class: "btn-primary" }, "הוסף משימה"),
       el("p", { class: "err", role: "alert" }),
     );
   }
 
-  async function addItem(e, getSymbol) {
+  async function addItem(e, visualState) {
     e.preventDefault();
     const f = new FormData(e.target);
     const btn = e.target.querySelector('button[type="submit"]');
@@ -172,7 +166,8 @@ export async function renderScheduleEditor({ childId, childName, onExit }) {
           the_date: dateISO,
           title: f.get("title").trim(),
           start_time: f.get("start_time") || null,
-          symbol_id: getSymbol(),
+          symbol_id: visualState.symbol_id,
+          icon_asset_id: visualState.icon_asset_id,
           sort_order: items.length,
         });
         load();

@@ -45,11 +45,14 @@ export function prefetch(cards) {
   }
 }
 
-// Same, for the symbol images cards render (frontend/sw.js's SYMBOL_CACHE).
-// Without this a symbol is only offline-safe by accident of having been
-// rendered while online — the board otherwise never warms it up front.
+// Same, for the images cards render — either a bundled symbol
+// (frontend/sw.js's SYMBOL_CACHE) or a caregiver-uploaded/-photographed icon
+// (served from /api/media/<id>, cache-first per sw.js). Without this a
+// picture is only offline-safe by accident of having been rendered while
+// online — the board otherwise never warms it up front.
 export function prefetchSymbols(cards) {
   for (const card of cards) {
     if (card.symbol_id) fetch(symbolUrl(card.symbol_id), { credentials: "include" }).catch(() => {});
+    else if (card.icon_asset_id) fetch(`/api/media/${card.icon_asset_id}`, { credentials: "include" }).catch(() => {});
   }
 }

@@ -51,6 +51,36 @@ def test_upload_icon_reencodes_and_is_fetchable(client, caregiver_mode):
     assert client.get(asset["url"], headers={"If-None-Match": etag}).status_code == 304
 
 
+def test_upload_applies_exif_orientation(client, caregiver_mode):
+    """A phone/tablet camera photo carries its rotation in an EXIF tag rather
+    than in the pixels. Without ImageOps.exif_transpose() the stored (and
+    later served) image is sideways — this guards that regression."""
+    from PIL import Image
+
+    child_id = _child(client)
+    img = Image.new("RGB", (40, 20), (255, 0, 0))
+    exif = img.getexif()
+    exif[0x0112] = 6  # Orientation: rotate 90° CW to display upright
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG", exif=exif)
+
+    up = client.post(
+        "/api/media",
+        data={
+            "kind": "card_icon",
+            "child_id": child_id,
+            "file": (io.BytesIO(buf.getvalue()), "x.jpg"),
+        },
+        content_type="multipart/form-data",
+    )
+    assert up.status_code == 201
+    asset = up.get_json()
+
+    got = client.get(asset["url"])
+    stored = Image.open(io.BytesIO(got.data))
+    assert stored.size == (20, 40)  # width/height swapped by the transpose
+
+
 def test_upload_rejects_non_image(client, caregiver_mode):
     child_id = _child(client)
     r = client.post(

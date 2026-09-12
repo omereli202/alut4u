@@ -3,8 +3,8 @@
 
 import { api, ApiError } from "../../api.js";
 import { confirmDialog } from "../../dialog.js";
-import { el, errText, mount, symbolUrl, toast, withBusy } from "../../ui.js";
-import { createSymbolPicker } from "../aac/symbol-picker.js";
+import { el, errText, mount, toast, withBusy } from "../../ui.js";
+import { createVisualPicker } from "../../visual-picker.js";
 import { todayISO } from "./data.js";
 
 const QUICK_AWARDS = [1, 2, 5];
@@ -257,25 +257,19 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
   }
 
   function ruleForm() {
-    let symbolId = null;
-    const preview = el("span", { class: "muted" }, "סמל (רשות)");
-    const picker = createSymbolPicker((s) => {
-      symbolId = s.id;
-      preview.replaceChildren(el("img", { class: "editor-thumb", src: symbolUrl(s.file_path), alt: s.label_he }));
-    });
+    const visualState = { symbol_id: null, icon_asset_id: null };
     return el(
       "form",
-      { class: "sched-item-form", onsubmit: (e) => addRule(e, () => symbolId) },
+      { class: "sched-item-form", onsubmit: (e) => addRule(e, visualState) },
       el("input", { name: "title", type: "text", required: true, maxlength: 60, placeholder: "שם הכלל" }),
       el("input", { name: "body", type: "text", maxlength: 300, placeholder: "הסבר (יוקרא בקול)" }),
-      preview,
-      picker,
+      createVisualPicker({ childId, state: visualState, kind: "schedule_icon", onChange: null }),
       el("button", { type: "submit", class: "btn-primary" }, "הוסף כלל"),
       el("p", { class: "err", role: "alert" }),
     );
   }
 
-  async function addRule(e, getSymbol) {
+  async function addRule(e, visualState) {
     e.preventDefault();
     const f = new FormData(e.target);
     const btn = e.target.querySelector('button[type="submit"]');
@@ -285,7 +279,8 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
           child_id: childId,
           title: f.get("title").trim(),
           body: f.get("body").trim() || null,
-          symbol_id: getSymbol(),
+          symbol_id: visualState.symbol_id,
+          icon_asset_id: visualState.icon_asset_id,
           sort_order: state.rules.length,
         });
         load();
@@ -332,25 +327,19 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
   }
 
   function rewardForm() {
-    let symbolId = null;
-    const preview = el("span", { class: "muted" }, "סמל (רשות)");
-    const picker = createSymbolPicker((s) => {
-      symbolId = s.id;
-      preview.replaceChildren(el("img", { class: "editor-thumb", src: symbolUrl(s.file_path), alt: s.label_he }));
-    });
+    const visualState = { symbol_id: null, icon_asset_id: null };
     return el(
       "form",
-      { class: "sched-item-form", onsubmit: (e) => addReward(e, () => symbolId) },
+      { class: "sched-item-form", onsubmit: (e) => addReward(e, visualState) },
       el("input", { name: "title", type: "text", required: true, maxlength: 60, placeholder: "שם הפרס" }),
       el("input", { name: "cost", type: "number", required: true, min: 1, max: 1000, placeholder: "מחיר באסימונים" }),
-      preview,
-      picker,
+      createVisualPicker({ childId, state: visualState, kind: "schedule_icon", onChange: null }),
       el("button", { type: "submit", class: "btn-primary" }, "הוסף פרס"),
       el("p", { class: "err", role: "alert" }),
     );
   }
 
-  async function addReward(e, getSymbol) {
+  async function addReward(e, visualState) {
     e.preventDefault();
     const f = new FormData(e.target);
     const btn = e.target.querySelector('button[type="submit"]');
@@ -360,7 +349,8 @@ export async function renderRulesEditor({ childId, childName, onExit }) {
           child_id: childId,
           title: f.get("title").trim(),
           cost: Number(f.get("cost")),
-          symbol_id: getSymbol(),
+          symbol_id: visualState.symbol_id,
+          icon_asset_id: visualState.icon_asset_id,
           sort_order: state.rewards.length,
         });
         load();

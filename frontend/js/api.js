@@ -13,6 +13,14 @@ class ApiError extends Error {
   }
 }
 
+async function toResult(res) {
+  const payload = res.status === 204 ? null : await res.json().catch(() => null);
+  if (!res.ok) {
+    throw new ApiError(res.status, payload?.error ?? "http_error", payload);
+  }
+  return payload;
+}
+
 async function request(method, path, { body, signal } = {}) {
   let res;
   try {
@@ -26,12 +34,25 @@ async function request(method, path, { body, signal } = {}) {
   } catch (e) {
     throw new ApiError(0, "network", { detail: String(e) });
   }
+  return toResult(res);
+}
 
-  const payload = res.status === 204 ? null : await res.json().catch(() => null);
-  if (!res.ok) {
-    throw new ApiError(res.status, payload?.error ?? "http_error", payload);
+// Multipart upload — request() is JSON-only (it always sets Content-Type and
+// JSON.stringifies the body), so media uploads (a file plus a few plain
+// fields) go through here instead. No Content-Type header: the browser sets
+// the multipart boundary itself.
+async function upload(path, fields, file) {
+  const fd = new FormData();
+  for (const [k, v] of Object.entries(fields)) fd.append(k, v);
+  fd.append("file", file);
+
+  let res;
+  try {
+    res = await fetch(BASE + path, { method: "POST", credentials: "include", body: fd });
+  } catch (e) {
+    throw new ApiError(0, "network", { detail: String(e) });
   }
-  return payload;
+  return toResult(res);
 }
 
 export const api = {
@@ -41,6 +62,7 @@ export const api = {
   put: (p, body, opts) => request("PUT", p, { ...opts, body }),
   patch: (p, body, opts) => request("PATCH", p, { ...opts, body }),
   del: (p, body, opts) => request("DELETE", p, { ...opts, body }),
+  upload,
 };
 
 export { ApiError };
