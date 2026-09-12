@@ -15,10 +15,23 @@ from xml.sax.saxutils import escape
 from app.services.ai.base import (
     ChatTurn,
     ComposedStory,
+    ContentRefused,
     Message,
     StoryPage,
     StorySlots,
 )
+
+# Dev/test-only hook. This is NOT a content classifier — the real guardrail is
+# the content policy in the Gemini role prompts (gemini_story.py), which this
+# stub has no model to run. A literal marker no caregiver would ever type lets
+# a keyless dev environment and the test suite exercise the refusal path end
+# to end (422 + the Hebrew toast + the audit entry).
+_REFUSAL_MARKER = "[[refuse]]"
+
+
+def _refusal_requested(messages: list[Message]) -> bool:
+    return any(_REFUSAL_MARKER in (m.get("content") or "") for m in messages)
+
 
 # Slot name -> the question the interviewer asks when that slot is still empty.
 # `protagonist` is not here — the name is passed in, never asked.
@@ -63,6 +76,8 @@ class StubStoryAI:
     name = "stub"
 
     def interview(self, messages: list[Message], *, protagonist: str = "") -> ChatTurn:
+        if _refusal_requested(messages):
+            raise ContentRefused("stub_marker", stage="stub")
         slots = _slots_from_messages(messages, protagonist)
         missing = slots.missing()
         if missing:
@@ -81,6 +96,8 @@ class StubStoryAI:
         )
 
     def compose(self, messages: list[Message], *, protagonist: str = "") -> ComposedStory:
+        if _refusal_requested(messages):
+            raise ContentRefused("stub_marker", stage="stub")
         slots = _slots_from_messages(messages, protagonist)
         protagonist = protagonist or slots.protagonist or "הילד"
         situation = slots.situation or "מצב חדש"

@@ -9,7 +9,7 @@ import pytest
 
 from app.config import Settings
 from app.services.ai import get_story_ai
-from app.services.ai.base import AIError
+from app.services.ai.base import AIError, ContentRefused
 from app.services.ai.gemini_story import GeminiStoryAI
 from app.services.ai.stub_story import StubStoryAI
 
@@ -73,6 +73,13 @@ _ART = {
     "character_sheet": "a child, short brown hair, red shirt",
     "prompts": ["p1", "p2", "p3", "p4"],
 }
+_REVIEW_OK = {
+    "policy_refusal": False,
+    "policy_reason": "none",
+    "approved": True,
+    "notes": ["הערה"],
+    "revised": None,
+}
 
 
 def test_interview_prefills_name_and_parses_slots(monkeypatch):
@@ -121,7 +128,7 @@ def test_compose_makes_three_calls_and_keeps_approved_text(monkeypatch):
     rec = _Recorder(
         [
             _text_response(_DRAFT, tokens=1000),
-            _text_response({"approved": True, "notes": ["הערה"], "revised": None}, tokens=200),
+            _text_response(_REVIEW_OK, tokens=200),
             _text_response(_ART, tokens=50),
         ]
     )
@@ -185,6 +192,67 @@ def test_compose_null_revised_falls_back_without_error(monkeypatch):
     assert story.revised is False
 
 
+def test_reviewer_policy_refusal_raises_and_skips_the_illustrator(monkeypatch):
+    ai = _ai()
+    refusal = {
+        "policy_refusal": True,
+        "policy_reason": "violence",
+        "approved": False,
+        "notes": ["לא ניתן"],
+        "revised": None,
+    }
+    rec = _Recorder(
+        [
+            _text_response(_DRAFT, tokens=1000),
+            _text_response(refusal, tokens=200),
+            # No third response queued — a call here would IndexError, an
+            # independent signal that the illustrator ran when it shouldn't.
+        ]
+    )
+    monkeypatch.setattr(GeminiStoryAI, "_post", rec)
+
+    with pytest.raises(ContentRefused) as exc:
+        ai.compose(_answers("מעבר לגן"), protagonist="דנה")
+    assert exc.value.reason == "violence"
+    assert exc.value.stage == "review"
+    assert exc.value.llm_tokens == 1200
+    assert len(rec.calls) == 2
+
+
+def test_reviewer_refusal_with_a_bogus_reason_falls_back_to_other(monkeypatch):
+    ai = _ai()
+    refusal = {
+        "policy_refusal": True,
+        "policy_reason": "banana",
+        "approved": False,
+        "notes": ["לא ניתן"],
+        "revised": None,
+    }
+    rec = _Recorder([_text_response(_DRAFT), _text_response(refusal)])
+    monkeypatch.setattr(GeminiStoryAI, "_post", rec)
+
+    with pytest.raises(ContentRefused) as exc:
+        ai.compose(_answers("דנה"))
+    assert exc.value.reason == "other"
+
+
+def test_missing_policy_field_does_not_refuse(monkeypatch):
+    # A malformed/missing `policy_refusal` (the field is `required` in the
+    # schema) fails OPEN — deliberately, so a body-safety story doesn't get
+    # blocked whenever the model omits a key. See gemini_story.py's compose().
+    ai = _ai()
+    rec = _Recorder(
+        [
+            _text_response(_DRAFT),
+            _text_response({"approved": True, "notes": ["הערה"], "revised": None}),
+            _text_response(_ART),
+        ]
+    )
+    monkeypatch.setattr(GeminiStoryAI, "_post", rec)
+    story = ai.compose(_answers("דנה"))
+    assert story.pages[0].text == "טקסט 1"
+
+
 def test_blocked_response_raises_ai_error(monkeypatch):
     ai = _ai()
     monkeypatch.setattr(
@@ -194,6 +262,53 @@ def test_blocked_response_raises_ai_error(monkeypatch):
     )
     with pytest.raises(AIError):
         ai.interview([])
+
+
+def test_safety_finish_raises_content_refused(monkeypatch):
+    ai = _ai()
+    resp = _text_response({"reply": "x", "ready": False, "slots": {}}, tokens=77, finish="SAFETY")
+    monkeypatch.setattr(GeminiStoryAI, "_post", _Recorder([resp]))
+    with pytest.raises(ContentRefused) as exc:
+        ai.interview([])
+    assert exc.value.llm_tokens == 77
+
+
+def test_prompt_feedback_block_raises_content_refused(monkeypatch):
+    ai = _ai()
+    resp = {"promptFeedback": {"blockReason": "SAFETY"}, "usageMetadata": {"totalTokenCount": 120}}
+    monkeypatch.setattr(GeminiStoryAI, "_post", _Recorder([resp]))
+    with pytest.raises(ContentRefused) as exc:
+        ai.interview([])
+    assert exc.value.llm_tokens == 120
+
+
+def test_recitation_finish_is_a_plain_ai_error(monkeypatch):
+    ai = _ai()
+    monkeypatch.setattr(
+        GeminiStoryAI,
+        "_post",
+        _Recorder(
+            [_text_response({"reply": "x", "ready": False, "slots": {}}, finish="RECITATION")]
+        ),
+    )
+    with pytest.raises(AIError) as exc:
+        ai.interview([])
+    assert not isinstance(exc.value, ContentRefused)
+
+
+def test_content_policy_reaches_every_role_prompt():
+    from app.services.ai import gemini_story as gs
+
+    for prompt in (
+        gs._INTERVIEW_SYSTEM,
+        gs._WRITER_SYSTEM,
+        gs._REVIEWER_SYSTEM,
+        gs._ILLUSTRATOR_SYSTEM,
+    ):
+        assert "מדיניות תוכן" in prompt
+        # the allow-list anchor — the failure mode that matters most is a role
+        # silently losing this and over-blocking legitimate body-safety content
+        assert "הגוף שלי שייך לי" in prompt
 
 
 def test_illustrate_extracts_inline_image(monkeypatch):
@@ -281,6 +396,23 @@ def test_illustrate_without_image_raises(monkeypatch):
     monkeypatch.setattr(GeminiStoryAI, "_post", _Recorder([resp]))
     with pytest.raises(AIError):
         ai.illustrate("x", "דנה")
+
+
+def test_illustrate_safety_block_raises_content_refused(monkeypatch):
+    ai = _ai()
+    resp = {"candidates": [{"content": {"parts": [{"text": "nope"}]}, "finishReason": "SAFETY"}]}
+    monkeypatch.setattr(GeminiStoryAI, "_post", _Recorder([resp]))
+    with pytest.raises(ContentRefused):
+        ai.illustrate("x", "דנה")
+
+
+def test_illustrate_prompt_carries_the_modesty_clause(monkeypatch):
+    ai = _ai()
+    rec = _Recorder([_image_response()])
+    monkeypatch.setattr(GeminiStoryAI, "_post", rec)
+    ai.illustrate("my body belongs to me", "דנה")
+    text = rec.calls[0][2]["contents"][0]["parts"][0]["text"]
+    assert "no nudity" in text
 
 
 def test_provider_selection():

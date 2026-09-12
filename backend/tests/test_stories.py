@@ -223,3 +223,100 @@ def test_delete_story(client, caregiver_mode):
     ).get_json()["id"]
     assert client.delete(f"/api/stories/{sid}").status_code == 204
     assert client.get(f"/api/stories/{sid}").status_code == 404
+
+
+# --- content-safety guardrail ------------------------------------------
+#
+# StubStoryAI has no model to run the real content policy (that lives in
+# gemini_story.py's prompts) — it recognises a literal "[[refuse]]" marker in
+# any message so these tests can exercise the refusal path end to end without
+# a Gemini key. See stub_story.py.
+
+_REFUSE_MARKER_MESSAGES = [
+    {"role": "user", "content": "מעבר לגן בבוקר"},
+    {"role": "assistant", "content": "מתי?"},
+    {"role": "user", "content": "[[refuse]] מחר בבוקר"},
+]
+
+
+def test_compose_content_refusal_returns_422_and_saves_nothing(client, caregiver_mode, monkeypatch):
+    from app.api import stories as stories_api
+
+    logged = []
+    monkeypatch.setattr(stories_api.audit_repo, "log", lambda **kw: logged.append(kw))
+
+    child_id = _child(client)
+    r = client.post(
+        "/api/stories/compose",
+        json={"child_id": child_id, "messages": _REFUSE_MARKER_MESSAGES},
+    )
+    assert r.status_code == 422
+    body = r.get_json()
+    assert body["error"] == "content_declined"
+    assert "detail" not in body
+
+    assert client.get(f"/api/stories?child_id={child_id}").get_json()["stories"] == []
+
+    # audit_repo.log is a shared module — child creation logs its own entry
+    # too, so isolate the one this refusal wrote.
+    declined = [row for row in logged if row["action"] == "story.content_declined"]
+    assert len(declined) == 1
+    assert declined[0]["detail"] == {"stage": "compose", "reason": "stub_marker"}
+    assert declined[0]["target_id"] == child_id
+
+
+def test_chat_content_refusal_returns_422(client, caregiver_mode):
+    child_id = _child(client)
+    r = client.post(
+        "/api/stories/chat",
+        json={"child_id": child_id, "messages": [{"role": "user", "content": "[[refuse]]"}]},
+    )
+    assert r.status_code == 422
+    assert r.get_json()["error"] == "content_declined"
+
+
+def test_illustrate_content_refusal_returns_422_and_leaves_the_page_bare(
+    client, caregiver_mode, app, monkeypatch
+):
+    from app.repositories import usage as usage_repo
+    from app.services.ai.base import ContentRefused
+    from app.services.ai.stub_story import StubStoryAI
+
+    def _raise(*a, **kw):
+        raise ContentRefused("stub_marker", stage="illustrate")
+
+    monkeypatch.setattr(StubStoryAI, "illustrate", _raise)
+
+    cg = caregiver_mode["caregiver_id"]
+    child_id = _child(client)
+    story = client.post(
+        "/api/stories/compose",
+        json={"child_id": child_id, "messages": _interview(client, child_id)},
+    ).get_json()
+
+    with app.app_context():
+        before = usage_repo.get_system(cg)["image_count"]
+        r = client.post(f"/api/stories/{story['id']}/illustrate", json={"page_index": 0})
+        assert r.status_code == 422
+        assert r.get_json()["error"] == "content_declined"
+        assert usage_repo.get_system(cg)["image_count"] == before
+
+    got = client.get(f"/api/stories/{story['id']}").get_json()
+    assert got["pages"][0]["image_url"] is None
+
+
+def test_compose_refusal_still_counts_llm_tokens(client, caregiver_mode, app):
+    from app.repositories import usage as usage_repo
+
+    cg = caregiver_mode["caregiver_id"]
+    child_id = _child(client)
+    with app.app_context():
+        before = usage_repo.get_system(cg)["llm_tokens"]
+        r = client.post(
+            "/api/stories/compose",
+            json={"child_id": child_id, "messages": _REFUSE_MARKER_MESSAGES},
+        )
+        assert r.status_code == 422
+        # the work happened (StubStoryAI reports 0 tokens, so the route falls
+        # back to the pre-flight budget) even though nothing was saved
+        assert usage_repo.get_system(cg)["llm_tokens"] > before

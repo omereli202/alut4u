@@ -55,6 +55,19 @@ asking.
    No default PIN — onboarding forces the caregiver to set one.
 8. **Consent is a record, not a boolean.** Writes to `consent_records` with
    `terms_version`, timestamp, and context.
+9. **The AI's own output is content-gated; the caregiver's typed text is not.**
+   The social-story pipeline's four role prompts (`services/ai/gemini_story.py`)
+   share a content policy, and the SLP-reviewer role can hard-refuse a request
+   outright (`policy_refusal` → `ContentRefused` → 422 `content_declined` +
+   an `audit_log` entry; a Gemini-side safety block takes the same path).
+   Protective body-safety education (private parts, consent, safe vs. unsafe
+   touch, telling a trusted adult) is explicitly **in scope and must not be
+   refused** — over-blocking it is a bug, not caution. Deliberately **not**
+   gated: `PATCH /api/stories/<id>`, where a caregiver edits page text by
+   hand. Caregiver-authored text is never moderated anywhere in this product
+   (AAC card labels, task titles, notes); this guardrail constrains what the
+   *model* generates, not what an adult writes for their own child. Do not
+   add moderation there without asking.
 
 ## Tech stack
 
@@ -208,7 +221,11 @@ user to say so (see the branch-promotion memory).
 - `services/ai/` — story agent: Gemini adapter (`gemini_story.py`, four
   structured-output calls + a Gemini image model for pages) + deterministic stub
   (no key). Image generation needs a billed Gemini key; the free tier is
-  text-only.
+  text-only. All four role prompts share a Hebrew content policy
+  (`_CONTENT_POLICY`); the SLP-reviewer role can hard-refuse a request
+  (`policy_refusal` → `ContentRefused`, caught in `api/stories.py` → 422
+  `content_declined` + an `audit_log` entry), and a Gemini-side safety block
+  takes the same path. See non-negotiable constraint 9.
 - `services/retention.py` + `scripts/retention_purge.py` — inactivity sweep.
 - `observability.py` — request IDs, JSON logs, Sentry, security headers.
 - `services/hebrew.py` — lenient Hebrew compare for writing practice.

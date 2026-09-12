@@ -100,3 +100,23 @@ class StoryAI(Protocol):
 
 class AIError(RuntimeError):
     pass
+
+
+class ContentRefused(AIError):
+    """The content policy declined this request — either the SLP-reviewer role
+    refused the topic, or the provider blocked the call itself. Subclasses
+    AIError so existing ``except AIError`` handlers stay correct; the API
+    catches this first to answer with a caregiver-facing message + an audit
+    entry instead of a generic "provider unavailable" 502.
+
+    ``reason`` is a short bounded code (never model prose, never the
+    caregiver's own text) — it is the only thing written to audit_log.
+    ``llm_tokens`` is usage already spent before the refusal fired: that work
+    happened and is still billed to the caregiver's quota.
+    """
+
+    def __init__(self, reason: str, *, stage: str = "", llm_tokens: int = 0) -> None:
+        super().__init__(f"content refused: {reason}")
+        self.reason = reason
+        self.stage = stage
+        self.llm_tokens = llm_tokens

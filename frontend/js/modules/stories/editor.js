@@ -110,6 +110,10 @@ export async function renderStoriesEditor({ childId, childName, onExit }) {
           artNote = "מכסת האיורים החודשית נגמרה. הסיפור נשמר עם הטקסט וההקראה.";
           break;
         }
+        if (err.code === "content_declined") {
+          artNote = "האיור לעמוד הזה לא נוצר מטעמי התאמת תוכן. הטקסט וההקראה נשמרו.";
+          continue; // other pages may still illustrate fine
+        }
         artNote = "איור אחד לא נוצר. אפשר לנסות שוב מאוחר יותר.";
       }
       render();

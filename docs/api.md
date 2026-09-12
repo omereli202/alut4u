@@ -122,9 +122,9 @@ a request refunds them.
 
 | Method | Path | Guard | Notes |
 |---|---|---|---|
-| POST | `/chat` | C | `{child_id, messages:[{role,content}]}` → `{reply, ready, slots}` — the interviewer agent; `slots` is the five collected facts (protagonist / situation / goal / sensory / triggers), `ready` flips when all five are set |
-| POST | `/compose` | C | `{child_id, messages}` → runs the writer → SLP-reviewer → illustrator crew and saves the reviewed **text + read-aloud audio immediately** (no images yet). 429 `quota_exceeded` on the monthly LLM cap. |
-| POST | `/<id>/illustrate` | C | `{page_index?}` → generates one page's illustration (next pending page if `page_index` omitted). 409 `already_illustrated`, 429 `quota_exceeded` on the image cap (the text story is unaffected). → `{page_index, image_url, art}` |
+| POST | `/chat` | C | `{child_id, messages:[{role,content}]}` → `{reply, ready, slots}` — the interviewer agent; `slots` is the five collected facts (protagonist / situation / goal / sensory / triggers), `ready` flips when all five are set. 422 `content_declined` on a provider-side content block (the interviewer itself redirects conversationally rather than refusing). |
+| POST | `/compose` | C | `{child_id, messages}` → runs the writer → SLP-reviewer → illustrator crew and saves the reviewed **text + read-aloud audio immediately** (no images yet). 429 `quota_exceeded` on the monthly LLM cap. 422 `content_declined` if the SLP-reviewer refuses the topic (or the provider blocks it) — audited, nothing saved; protective body-safety content is explicitly not refused. |
+| POST | `/<id>/illustrate` | C | `{page_index?}` → generates one page's illustration (next pending page if `page_index` omitted). 409 `already_illustrated`, 429 `quota_exceeded` on the image cap (the text story is unaffected). 422 `content_declined` on a content block (the page's text and audio are unaffected). → `{page_index, image_url, art}` |
 | GET | `?child_id=` | S | `{stories:[{id, title, art:{total,illustrated,pending_pages}, created_at}]}` |
 | GET | `/<id>` | S | full story: `{title, protagonist, situation, goal, review_notes, art, pages:[{text, sentence_type, image_url, audio_url}]}` |
 | DELETE | `/<id>` | C | 204 |

@@ -28,7 +28,7 @@ from app.schemas.stories import (
 )
 from app.services import storage
 from app.services.ai import get_story_ai
-from app.services.ai.base import AIError
+from app.services.ai.base import AIError, ContentRefused
 from app.services.quotas import QuotaExceeded, check, record
 from app.services.tts import cache as tts_cache
 
@@ -37,7 +37,11 @@ bp = Blueprint("stories", __name__, url_prefix="/api/stories")
 _MAX_PAGES = 15
 # Three chat calls (writer + reviewer + illustrator); a generous flat estimate
 # used only for the pre-flight check and as a fallback if usage isn't reported.
-_COMPOSE_TOKEN_BUDGET = 9000
+# Includes headroom for the shared content-policy paragraph added to every
+# role prompt (see gemini_story.py's _CONTENT_POLICY).
+_COMPOSE_TOKEN_BUDGET = 12000
+
+_DECLINED_ACTION = "story.content_declined"
 
 
 def _own_child_or_404(child_id: str) -> dict:
@@ -45,6 +49,30 @@ def _own_child_or_404(child_id: str) -> dict:
     if child is None:
         raise ApiError(404, "child_not_found")
     return child
+
+
+def _declined(
+    stage: str, e: ContentRefused, *, target_type: str | None = None, target_id: str | None = None
+) -> ApiError:
+    """Audit the refusal and build the caregiver-facing error.
+
+    Only the stage and a bounded reason code are logged — never the
+    transcript, draft, or the caregiver's own words. Copying that text into
+    audit_log would duplicate the product's most sensitive content into a
+    second table the retention sweep doesn't touch, in order to record
+    something the reason code already tells us. No `detail` on the ApiError
+    either — the frontend maps the code to a Hebrew string, and a detail
+    string would leak the mechanism (and, via errText's fallback, raw model
+    prose) to the caregiver.
+    """
+    audit_repo.log(
+        caregiver_id=g.caregiver_id,
+        action=_DECLINED_ACTION,
+        target_type=target_type,
+        target_id=target_id,
+        detail={"stage": stage, "reason": e.reason or "unspecified"},
+    )
+    return ApiError(422, "content_declined")
 
 
 def _messages(models) -> list[dict]:
@@ -59,6 +87,14 @@ def chat():
     child = _own_child_or_404(data.child_id)
     try:
         turn = get_story_ai().interview(_messages(data.messages), protagonist=child["name"])
+    except ContentRefused as e:
+        # Only reachable via a provider-side block — the interviewer role
+        # redirects conversationally in its own `reply` rather than refusing
+        # (nothing is persisted at this stage, so a dead-end error would be
+        # the wrong weight).
+        if e.llm_tokens:
+            record(g.caregiver_id, llm_tokens=e.llm_tokens)
+        raise _declined("chat", e, target_type="child", target_id=data.child_id) from e
     except AIError as e:
         raise ApiError(502, "ai_unavailable", str(e)) from e
     if turn.llm_tokens:
@@ -80,6 +116,11 @@ def compose():
 
     try:
         story = get_story_ai().compose(_messages(data.messages), protagonist=child["name"])
+    except ContentRefused as e:
+        # The writer and reviewer calls really ran and cost real tokens.
+        # Charge them — only the persistence (create_story / TTS) is skipped.
+        record(g.caregiver_id, llm_tokens=e.llm_tokens or _COMPOSE_TOKEN_BUDGET)
+        raise _declined("compose", e, target_type="child", target_id=data.child_id) from e
     except AIError as e:
         raise ApiError(502, "ai_unavailable", str(e)) from e
 
@@ -152,6 +193,10 @@ def illustrate(story_id: str):
             character_sheet=row.get("character_sheet") or "",
             reference_image=_reference_image(pages),
         )
+    except ContentRefused as e:
+        # No record(images=1) — matching the existing convention that only a
+        # delivered image is metered.
+        raise _declined("illustrate", e, target_type="social_story", target_id=story_id) from e
     except AIError as e:
         raise ApiError(502, "ai_unavailable", str(e)) from e
 
